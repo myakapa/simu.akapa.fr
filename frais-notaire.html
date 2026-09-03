@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<title>Estimer les frais de notaire</title>
+<style>
+  :root{ color-scheme: light; }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; padding:24px; background:#f6f7f9; color:#1f2430;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size:14px; line-height:1.5;
+  }
+  .topnav{margin-bottom:14px;}
+  .topnav a{color:#4338ca; font-size:12.5px; text-decoration:none; font-weight:600;}
+  .topnav a:hover{text-decoration:underline;}
+  h1{font-size:20px; margin:0 0 4px 0;}
+  .subtitle{color:#6b7280; margin:0 0 20px 0; font-size:13px;}
+  .grid{display:grid; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); gap:16px; margin-bottom:20px;}
+  .card{background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:16px 18px;}
+  .card h2{font-size:14px; margin:0 0 12px 0; color:#111827; display:flex; align-items:center; gap:8px;}
+  .row{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px;}
+  .row:last-child{margin-bottom:0;}
+  label{color:#4b5563; font-size:13px; flex:1;}
+  input[type=number]{
+    width:130px; padding:6px 8px; border:1px solid #d1d5db; border-radius:6px;
+    font-size:13px; text-align:right; background:#eef4ff;
+  }
+  input[type=number]:focus{outline:2px solid #6366f1; outline-offset:1px;}
+  select{
+    padding:6px 8px; border:1px solid #d1d5db; border-radius:6px;
+    font-size:13px; background:#eef4ff; color:#1f2430; max-width:220px;
+  }
+  select:focus{outline:2px solid #6366f1; outline-offset:1px;}
+  select:disabled{background:#f3f4f6; color:#9ca3af;}
+  .unit{color:#9ca3af; font-size:12px; width:34px; text-align:left;}
+  .result{font-weight:600; color:#111827;}
+  .result.big{font-size:18px;}
+  .muted{color:#6b7280; font-size:12px;}
+  .divider{border:none; border-top:1px solid #eef0f2; margin:12px 0;}
+  .badge{display:inline-block; font-size:11px; padding:2px 8px; border-radius:999px; background:#eef2ff; color:#4338ca; font-weight:600;}
+  .seg-group{display:flex; gap:6px; background:#f3f4f6; padding:4px; border-radius:8px; margin-bottom:14px;}
+  .seg-btn{flex:1; text-align:center; padding:8px 6px; border:none; border-radius:6px; background:transparent; color:#4b5563; font-size:13px; cursor:pointer; font-weight:600; transition:background .12s, color .12s; white-space:nowrap;}
+  .seg-btn.active{background:#fff; color:#4338ca; box-shadow:0 1px 2px rgba(0,0,0,.08);}
+  .seg-label{font-size:12px; color:#6b7280; margin:0 0 6px 0;}
+  .kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin-top:16px;}
+  .kpi{background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:14px 16px;}
+  .kpi .v{font-size:20px; font-weight:700; color:#111827;}
+  .kpi .l{font-size:12px; color:#6b7280; margin-top:2px;}
+  .kpi.highlight{background:#eef2ff; border-color:#c7d2fe;}
+  .note{font-size:11.5px; color:#9ca3af; margin-top:10px;}
+  footer{margin-top:24px; font-size:11.5px; color:#9ca3af; text-align:center;}
+
+  .back-link{margin-bottom:10px;}
+  .back-link a{color:#4338ca; font-size:12.5px; text-decoration:none; font-weight:600;}
+  .back-link a:hover{text-decoration:underline;}
+  .site-header{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid #e5e7eb; flex-wrap:wrap;}
+  .brand{display:flex; align-items:center;}
+  .brand-logo{height:30px; display:block;}
+  .menu-wrap{position:relative;}
+  .menu-btn{background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:7px 12px; font-size:13px; font-weight:600; color:#4338ca; cursor:pointer; display:flex; align-items:center; gap:4px;}
+  .menu-btn:hover{border-color:#c7d2fe; background:#f5f3ff;}
+  .menu-btn .chev{font-size:10px; transition:transform .15s ease;}
+  .menu-btn.open .chev{transform:rotate(180deg);}
+  .menu-dropdown{display:none; position:absolute; right:0; top:calc(100% + 6px); background:#fff; border:1px solid #e5e7eb; border-radius:10px; box-shadow:0 8px 20px rgba(0,0,0,.10); padding:6px; min-width:230px; z-index:30;}
+  .menu-dropdown.open{display:block;}
+  .menu-dropdown a{display:block; padding:8px 10px; border-radius:6px; font-size:13px; color:#1f2430; text-decoration:none;}
+  .menu-dropdown a:hover{background:#eef2ff; color:#4338ca;}
+  .menu-dropdown a.home{border-bottom:1px solid #eef0f2; margin-bottom:4px; padding-bottom:10px; font-weight:600; color:#4338ca;}
+
+  .mode-switch{display:flex; align-items:center; gap:12px; margin-bottom:20px; flex-wrap:wrap;}
+  .mode-switch .seg-group{margin-bottom:0; max-width:320px;}
+  .mode-switch .mode-hint{font-size:12px; color:#9ca3af;}
+  body.mode-simple .advanced-only{display:none !important;}
+  body.mode-avance .simple-only{display:none !important;}
+</style>
+</head>
+<body class="mode-simple">
+
+<div class="back-link"><a href="index.html">← Tous les outils</a></div>
+<header class="site-header">
+  <a class="brand" href="index.html"><img src="assets/logo-akapa.png" alt="Akapa" class="brand-logo"></a>
+  <div class="menu-wrap">
+    <button class="menu-btn" id="menuBtn" type="button" aria-haspopup="true" aria-expanded="false">Autres simulateurs <span class="chev">▾</span></button>
+    <nav class="menu-dropdown" id="menuDropdown">
+      <a class="home" href="index.html">🏠 Tous les outils</a>
+      <a href="capacite-emprunt.html">🏦 Capacité d'emprunt</a>
+      <a href="mensualites-credit.html">📆 Mensualités de crédit</a>
+      <a href="ciop.html">🏝️ Rentabilité CIOP</a>
+      <a href="lmnp.html">🛋️ Simulateur LMNP</a>
+    </nav>
+  </div>
+</header>
+
+<h1>Estimer les frais de notaire</h1>
+<p class="subtitle">Détail des frais d'acquisition (droits de mutation, émoluments du notaire, débours) selon que le bien est neuf ou ancien.</p>
+
+<div class="mode-switch">
+  <div class="seg-group" id="grp_mode">
+    <button type="button" class="seg-btn" data-value="simple">Mode simple</button>
+    <button type="button" class="seg-btn" data-value="avance">Mode avancé</button>
+  </div>
+  <span class="mode-hint simple-only">Débours et honoraires d'agence sont pré-remplis avec des valeurs par défaut.</span>
+  <span class="mode-hint advanced-only">Tous les paramètres du calcul sont modifiables.</span>
+</div>
+
+<div class="grid">
+
+  <div class="card">
+    <h2>🏠 Le bien</h2>
+    <p class="seg-label">Type de bien</p>
+    <div class="seg-group" id="grp_type">
+      <button type="button" class="seg-btn" data-value="ancien">Ancien</button>
+      <button type="button" class="seg-btn" data-value="neuf">Neuf (VEFA)</button>
+    </div>
+    <div class="row"><label>Département de mon logement</label>
+      <select id="departement">
+        <option value="5.80665" data-label="Métropole — taux standard">Métropole — taux standard (5,81 %)</option>
+        <option value="6.32" data-label="Métropole — taux majoré 2025">Métropole — taux majoré 2025 (6,32 %)</option>
+        <option value="5.80665" data-label="Guadeloupe (971)">Guadeloupe (971) — 5,81 %</option>
+        <option value="6.32" data-label="Martinique (972)">Martinique (972) — 6,32 %</option>
+        <option value="6.32" data-label="Guyane (973)">Guyane (973) — 6,32 %</option>
+        <option value="6.32" data-label="La Réunion (974)">La Réunion (974) — 6,32 %</option>
+        <option value="5.09" data-label="Mayotte (976)">Mayotte (976) — 5,09 %</option>
+        <option value="5.80665" data-label="Autre / je ne sais pas">Autre / je ne sais pas (taux standard)</option>
+      </select>
+    </div>
+    <div class="row"><label>Prix net vendeur (hors frais d'agence)</label><input type="number" id="prixNet" value="220000" step="1000"><span class="unit">€</span></div>
+    <div class="row advanced-only"><label>Honoraires d'agence à la charge de l'acquéreur</label><input type="number" id="honoAgence" value="0" step="500"><span class="unit">€</span></div>
+    <div class="note" id="note_type"></div>
+  </div>
+
+  <div class="card advanced-only">
+    <h2>⚙️ Paramètres</h2>
+    <div class="row"><label>Taux des droits de mutation</label><input type="number" id="tauxDroits" value="5.80665" step="0.01"><span class="unit">%</span></div>
+    <div class="row"><label>Débours &amp; formalités (forfait)</label><input type="number" id="debours" value="800" step="50"><span class="unit">€</span></div>
+    <div class="note">Le taux des droits de mutation est fixé par chaque département (jusqu'à 6,32 % depuis la réforme 2025 dans plusieurs départements, dont certains DROM) ; ajustez-le selon le vôtre si besoin, ou utilisez le sélecteur « Département » du mode simple. En VEFA, la taxe de publicité foncière réduite (0,715 %) remplace les droits de mutation classiques.</div>
+  </div>
+
+</div>
+
+<p class="note simple-only" style="margin-top:-8px;">Estimation basée sur un forfait de débours et formalités de <strong>800 €</strong> et sans honoraires d'agence (hypothèses par défaut). Passez en <strong>mode avancé</strong> pour les ajuster.</p>
+
+<div class="kpis" id="kpis"></div>
+
+<div class="grid advanced-only" style="margin-top:16px;">
+  <div class="card">
+    <h2>📋 Détail des frais de notaire</h2>
+    <div class="row"><label>Prix net vendeur</label><span class="result" id="out_prixNet2">-</span></div>
+    <div class="row"><label id="lbl_droits">Droits de mutation</label><span class="result" id="out_droits">-</span></div>
+    <div class="row"><label>Émoluments du notaire (HT, barème réglementé)</label><span class="result" id="out_emolumentsHT">-</span></div>
+    <div class="row"><label>TVA sur émoluments (20 %)</label><span class="result" id="out_tvaEmoluments">-</span></div>
+    <div class="row"><label>Contribution de sécurité immobilière (0,10 %)</label><span class="result" id="out_csi">-</span></div>
+    <div class="row"><label>Débours &amp; formalités</label><span class="result" id="out_debours2">-</span></div>
+    <hr class="divider">
+    <div class="row"><label>Total frais de notaire</label><span class="result big" id="out_totalNotaire">-</span></div>
+    <div class="row"><label>Frais de notaire en % du prix</label><span class="result" id="out_pctNotaire">-</span></div>
+  </div>
+
+  <div class="card">
+    <h2>💰 Coût total de l'acquisition</h2>
+    <div class="row"><label>Prix net vendeur</label><span class="result" id="out_prixNet3">-</span></div>
+    <div class="row"><label>+ Honoraires d'agence</label><span class="result" id="out_honoAgence2">-</span></div>
+    <div class="row"><label>+ Frais de notaire</label><span class="result" id="out_totalNotaire2">-</span></div>
+    <hr class="divider">
+    <div class="row"><label>Coût total de l'acquisition</label><span class="result big" id="out_coutTotal">-</span></div>
+    <div class="row"><label>Budget à prévoir en plus du prix net vendeur</label><span class="result" id="out_budgetSupp">-</span></div>
+  </div>
+</div>
+
+<p class="note">Simulation indicative basée sur le barème réglementé des émoluments de notaire (0 à 6 500 € : 3,870 % · 6 500 à 17 000 € : 1,596 % · 17 000 à 60 000 € : 1,064 % · au-delà : 0,799 %), un taux de droits de mutation ajustable selon le département (source : impots.gouv.fr, barème DMTO), et un forfait de débours estimatif. Le montant réel peut varier selon le notaire, les formalités spécifiques et le département — demandez un devis précis à votre notaire.</p>
+
+<footer>Estimateur de frais de notaire — usage indicatif, ne remplace pas un devis de notaire.</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+const num = id => parseFloat($(id).value) || 0;
+const eur = v => v.toLocaleString('fr-FR', {style:'currency', currency:'EUR', maximumFractionDigits:0});
+const eur2 = v => v.toLocaleString('fr-FR', {style:'currency', currency:'EUR', maximumFractionDigits:2});
+const pct = v => (v*100).toLocaleString('fr-FR', {maximumFractionDigits:2}) + ' %';
+
+let state = { type: 'ancien' };
+
+function emolumentsHT(prix){
+  const t1 = Math.min(prix, 6500) * 0.03870;
+  const t2 = Math.max(0, Math.min(prix, 17000) - 6500) * 0.01596;
+  const t3 = Math.max(0, Math.min(prix, 60000) - 17000) * 0.01064;
+  const t4 = Math.max(0, prix - 60000) * 0.00799;
+  return t1 + t2 + t3 + t4;
+}
+
+function setupSegGroup(groupId, onChange){
+  const group = $(groupId);
+  const buttons = group.querySelectorAll('.seg-btn');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      onChange(btn.dataset.value);
+      compute();
+    });
+  });
+}
+
+function applyDepartementRate(){
+  const dep = $('departement');
+  $('tauxDroits').value = parseFloat(dep.value);
+}
+
+function initSegGroups(){
+  const grp = $('grp_type');
+  grp.querySelector(`[data-value="${state.type}"]`).classList.add('active');
+  setupSegGroup('grp_type', v => {
+    state.type = v;
+    const dep = $('departement');
+    if (v === 'neuf'){
+      $('tauxDroits').value = 0.715;
+      dep.disabled = true;
+    } else {
+      dep.disabled = false;
+      applyDepartementRate();
+    }
+  });
+}
+
+$('departement').addEventListener('change', () => {
+  if (state.type !== 'neuf'){
+    applyDepartementRate();
+    compute();
+  }
+});
+
+function compute(){
+  const prixNet = num('prixNet');
+  const honoAgence = num('honoAgence');
+  const tauxDroits = num('tauxDroits') / 100;
+  const debours = num('debours');
+
+  const droits = prixNet * tauxDroits;
+  const emolHT = emolumentsHT(prixNet);
+  const tvaEmol = emolHT * 0.20;
+  const csi = prixNet * 0.0010;
+
+  const totalNotaire = droits + emolHT + tvaEmol + csi + debours;
+  const pctNotaire = prixNet > 0 ? totalNotaire / prixNet : 0;
+  const coutTotal = prixNet + honoAgence + totalNotaire;
+
+  $('out_prixNet2').textContent = eur(prixNet);
+  $('lbl_droits').textContent = state.type === 'neuf'
+    ? 'Taxe de publicité foncière réduite (VEFA)'
+    : 'Droits de mutation à titre onéreux';
+  $('out_droits').textContent = eur(droits);
+  $('out_emolumentsHT').textContent = eur(emolHT);
+  $('out_tvaEmoluments').textContent = eur(tvaEmol);
+  $('out_csi').textContent = eur(csi);
+  $('out_debours2').textContent = eur(debours);
+  $('out_totalNotaire').textContent = eur(totalNotaire);
+  $('out_pctNotaire').textContent = pct(pctNotaire);
+
+  $('out_prixNet3').textContent = eur(prixNet);
+  $('out_honoAgence2').textContent = eur(honoAgence);
+  $('out_totalNotaire2').textContent = eur(totalNotaire);
+  $('out_coutTotal').textContent = eur(coutTotal);
+  $('out_budgetSupp').textContent = eur(honoAgence + totalNotaire);
+
+  const noteType = $('note_type');
+  noteType.innerHTML = state.type === 'neuf'
+    ? `<span class="muted">Bien neuf (VEFA) : frais de notaire réduits, environ 2 à 3 % du prix. Le département n'influe pas sur ce taux réduit.</span>`
+    : `<span class="muted">Bien ancien : frais de notaire plus élevés, environ 7 à 8 % du prix.</span>`;
+
+  $('kpis').innerHTML = `
+    <div class="kpi highlight"><div class="v">${eur(totalNotaire)}</div><div class="l">Total frais de notaire</div></div>
+    <div class="kpi highlight"><div class="v">${pct(pctNotaire)}</div><div class="l">Frais de notaire / prix</div></div>
+    <div class="kpi"><div class="v">${eur(coutTotal)}</div><div class="l">Coût total de l'acquisition</div></div>
+    <div class="kpi"><div class="v">${eur(honoAgence + totalNotaire)}</div><div class="l">Budget en plus du prix net vendeur</div></div>
+  `;
+}
+
+document.querySelectorAll('input[type=number]').forEach(el => el.addEventListener('input', compute));
+
+initSegGroups();
+applyDepartementRate();
+compute();
+</script>
+
+<script>
+(function(){
+  var btn = document.getElementById('menuBtn');
+  var dropdown = document.getElementById('menuDropdown');
+  if(!btn || !dropdown) return;
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    var isOpen = dropdown.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', isOpen);
+  });
+  document.addEventListener('click', function(){
+    dropdown.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var KEY = 'akapa_calc_mode';
+  function getMode(){
+    try { return localStorage.getItem(KEY) || 'simple'; } catch(e){ return 'simple'; }
+  }
+  function setMode(mode){
+    document.body.classList.toggle('mode-avance', mode === 'avance');
+    document.body.classList.toggle('mode-simple', mode !== 'avance');
+    var grp = document.getElementById('grp_mode');
+    if (grp){
+      grp.querySelectorAll('.seg-btn').forEach(function(b){
+        b.classList.toggle('active', b.dataset.value === mode);
+      });
+    }
+    try { localStorage.setItem(KEY, mode); } catch(e){}
+  }
+  var grp = document.getElementById('grp_mode');
+  if (grp){
+    grp.querySelectorAll('.seg-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){ setMode(btn.dataset.value); });
+    });
+  }
+  setMode(getMode());
+})();
+</script>
+</body>
+</html>

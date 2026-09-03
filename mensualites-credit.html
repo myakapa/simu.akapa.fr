@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<title>Calculatrice de mensualités de crédit</title>
+<style>
+  :root{ color-scheme: light; }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; padding:24px; background:#f6f7f9; color:#1f2430;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size:14px; line-height:1.5;
+  }
+  .topnav{margin-bottom:14px;}
+  .topnav a{color:#4338ca; font-size:12.5px; text-decoration:none; font-weight:600;}
+  .topnav a:hover{text-decoration:underline;}
+  h1{font-size:20px; margin:0 0 4px 0;}
+  .subtitle{color:#6b7280; margin:0 0 20px 0; font-size:13px;}
+  .grid{display:grid; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); gap:16px; margin-bottom:20px;}
+  .card{background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:16px 18px;}
+  .card h2{font-size:14px; margin:0 0 12px 0; color:#111827; display:flex; align-items:center; gap:8px;}
+  .row{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px;}
+  .row:last-child{margin-bottom:0;}
+  label{color:#4b5563; font-size:13px; flex:1;}
+  input[type=number]{
+    width:130px; padding:6px 8px; border:1px solid #d1d5db; border-radius:6px;
+    font-size:13px; text-align:right; background:#eef4ff;
+  }
+  input[type=number]:focus{outline:2px solid #6366f1; outline-offset:1px;}
+  input[type=range]{ width:150px; accent-color:#4338ca; }
+  .unit{color:#9ca3af; font-size:12px; width:34px; text-align:left;}
+  .result{font-weight:600; color:#111827;}
+  .result.big{font-size:18px;}
+  .muted{color:#6b7280; font-size:12px;}
+  .divider{border:none; border-top:1px solid #eef0f2; margin:12px 0;}
+  .badge{display:inline-block; font-size:11px; padding:2px 8px; border-radius:999px; background:#eef2ff; color:#4338ca; font-weight:600;}
+  .kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin-top:16px;}
+  .kpi{background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:14px 16px;}
+  .kpi .v{font-size:20px; font-weight:700; color:#111827;}
+  .kpi .l{font-size:12px; color:#6b7280; margin-top:2px;}
+  .kpi.highlight{background:#eef2ff; border-color:#c7d2fe;}
+  table{width:100%; border-collapse:collapse; font-size:12.5px;}
+  th,td{padding:7px 8px; text-align:right; border-bottom:1px solid #eef0f2; white-space:nowrap;}
+  th{background:#f9fafb; color:#4b5563; font-weight:600; position:sticky; top:0;}
+  td:first-child, th:first-child{text-align:left;}
+  tr.total td{font-weight:700; background:#f9fafb; border-top:2px solid #e5e7eb;}
+  .table-wrap{overflow-x:auto; max-height:420px; overflow-y:auto;}
+  .note{font-size:11.5px; color:#9ca3af; margin-top:10px;}
+  footer{margin-top:24px; font-size:11.5px; color:#9ca3af; text-align:center;}
+
+  .back-link{margin-bottom:10px;}
+  .back-link a{color:#4338ca; font-size:12.5px; text-decoration:none; font-weight:600;}
+  .back-link a:hover{text-decoration:underline;}
+  .site-header{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid #e5e7eb; flex-wrap:wrap;}
+  .brand{display:flex; align-items:center;}
+  .brand-logo{height:30px; display:block;}
+  .menu-wrap{position:relative;}
+  .menu-btn{background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:7px 12px; font-size:13px; font-weight:600; color:#4338ca; cursor:pointer; display:flex; align-items:center; gap:4px;}
+  .menu-btn:hover{border-color:#c7d2fe; background:#f5f3ff;}
+  .menu-btn .chev{font-size:10px; transition:transform .15s ease;}
+  .menu-btn.open .chev{transform:rotate(180deg);}
+  .menu-dropdown{display:none; position:absolute; right:0; top:calc(100% + 6px); background:#fff; border:1px solid #e5e7eb; border-radius:10px; box-shadow:0 8px 20px rgba(0,0,0,.10); padding:6px; min-width:230px; z-index:30;}
+  .menu-dropdown.open{display:block;}
+  .menu-dropdown a{display:block; padding:8px 10px; border-radius:6px; font-size:13px; color:#1f2430; text-decoration:none;}
+  .menu-dropdown a:hover{background:#eef2ff; color:#4338ca;}
+  .menu-dropdown a.home{border-bottom:1px solid #eef0f2; margin-bottom:4px; padding-bottom:10px; font-weight:600; color:#4338ca;}
+
+  .mode-switch{display:flex; align-items:center; gap:12px; margin-bottom:20px; flex-wrap:wrap;}
+  .mode-switch .seg-group{margin-bottom:0; max-width:320px;}
+  .mode-switch .mode-hint{font-size:12px; color:#9ca3af;}
+  .seg-group{display:flex; gap:6px; background:#f3f4f6; padding:4px; border-radius:8px; margin-bottom:14px;}
+  .seg-btn{flex:1; text-align:center; padding:8px 6px; border:none; border-radius:6px; background:transparent; color:#4b5563; font-size:13px; cursor:pointer; font-weight:600; transition:background .12s, color .12s; white-space:nowrap;}
+  .seg-btn.active{background:#fff; color:#4338ca; box-shadow:0 1px 2px rgba(0,0,0,.08);}
+  body.mode-simple .advanced-only{display:none !important;}
+  body.mode-avance .simple-only{display:none !important;}
+</style>
+</head>
+<body class="mode-simple">
+
+<div class="back-link"><a href="index.html">← Tous les outils</a></div>
+<header class="site-header">
+  <a class="brand" href="index.html"><img src="assets/logo-akapa.png" alt="Akapa" class="brand-logo"></a>
+  <div class="menu-wrap">
+    <button class="menu-btn" id="menuBtn" type="button" aria-haspopup="true" aria-expanded="false">Autres simulateurs <span class="chev">▾</span></button>
+    <nav class="menu-dropdown" id="menuDropdown">
+      <a class="home" href="index.html">🏠 Tous les outils</a>
+      <a href="capacite-emprunt.html">🏦 Capacité d'emprunt</a>
+      <a href="frais-notaire.html">📝 Frais de notaire</a>
+      <a href="ciop.html">🏝️ Rentabilité CIOP</a>
+      <a href="lmnp.html">🛋️ Simulateur LMNP</a>
+    </nav>
+  </div>
+</header>
+
+<h1>Calculatrice de mensualités de crédit</h1>
+<p class="subtitle">Calculez la mensualité de votre prêt (crédit + assurance), le coût total du crédit et le tableau d'amortissement.</p>
+
+<div class="mode-switch">
+  <div class="seg-group" id="grp_mode">
+    <button type="button" class="seg-btn" data-value="simple">Mode simple</button>
+    <button type="button" class="seg-btn" data-value="avance">Mode avancé</button>
+  </div>
+  <span class="mode-hint simple-only">Assurance emprunteur et frais de dossier sont pré-remplis avec des valeurs par défaut.</span>
+  <span class="mode-hint advanced-only">Tous les paramètres et le tableau d'amortissement sont disponibles.</span>
+</div>
+
+<div class="grid">
+
+  <div class="card">
+    <h2>🏦 Votre prêt</h2>
+    <div class="row"><label>Montant emprunté</label><input type="number" id="capital" value="200000" step="1000"><span class="unit">€</span></div>
+    <div class="row"><label>Durée du prêt</label>
+      <input type="range" id="dureeRange" min="1" max="30" step="1" value="20">
+      <input type="number" id="duree" value="20" step="1" style="width:60px;"><span class="unit">ans</span>
+    </div>
+    <div class="row"><label>Taux d'intérêt</label><input type="number" id="tauxInteret" value="3.55" step="0.05"><span class="unit">%</span></div>
+    <div class="row advanced-only"><label>Taux d'assurance emprunteur</label><input type="number" id="tauxAssurance" value="0.34" step="0.01"><span class="unit">%</span></div>
+    <div class="row advanced-only"><label>Frais de dossier</label><input type="number" id="fraisDossier" value="0" step="50"><span class="unit">€</span></div>
+  </div>
+
+  <div class="card advanced-only">
+    <h2>📋 Détail de la mensualité</h2>
+    <div class="row"><label>Mensualité de crédit (hors assurance)</label><span class="result" id="out_mensualiteCredit">-</span></div>
+    <div class="row"><label>Mensualité d'assurance</label><span class="result" id="out_mensualiteAssurance">-</span></div>
+    <hr class="divider">
+    <div class="row"><label>Mensualité totale</label><span class="result big" id="out_mensualiteTotale">-</span></div>
+  </div>
+
+  <div class="card advanced-only">
+    <h2>💰 Coût total du crédit</h2>
+    <div class="row"><label>Capital emprunté</label><span class="result" id="out_capital2">-</span></div>
+    <div class="row"><label>Coût total des intérêts</label><span class="result" id="out_coutInterets">-</span></div>
+    <div class="row"><label>Coût total de l'assurance</label><span class="result" id="out_coutAssurance">-</span></div>
+    <div class="row"><label>Frais de dossier</label><span class="result" id="out_fraisDossier2">-</span></div>
+    <hr class="divider">
+    <div class="row"><label>Coût total du crédit</label><span class="result" id="out_coutTotalCredit">-</span></div>
+    <div class="row"><label>Montant total remboursé</label><span class="result big" id="out_montantTotalRembourse">-</span></div>
+  </div>
+
+</div>
+
+<p class="note simple-only" style="margin-top:-8px;">Estimation basée sur une assurance emprunteur de <strong>0,34 %</strong> et sans frais de dossier (hypothèses par défaut). Passez en <strong>mode avancé</strong> pour les ajuster et voir le détail du coût du crédit.</p>
+
+<div class="kpis" id="kpis"></div>
+
+<div class="card advanced-only" style="margin-top:16px;">
+  <h2>📊 Tableau d'amortissement annuel</h2>
+  <div class="table-wrap">
+    <table id="amortTable">
+      <thead>
+        <tr>
+          <th>Année</th><th>Capital dû (début)</th><th>Intérêts payés</th>
+          <th>Assurance payée</th><th>Capital remboursé</th><th>Mensualités versées</th><th>Capital dû (fin)</th>
+        </tr>
+      </thead>
+      <tbody id="amortBody"></tbody>
+    </table>
+  </div>
+  <p class="note">Amortissement à mensualité constante (hors assurance) ; l'assurance est calculée sur le capital initial, l'usage le plus courant en France.</p>
+</div>
+
+<p class="note">Simulation indicative. Le taux d'intérêt, le taux d'assurance et les frais sont des hypothèses de marché à ajuster selon votre profil et à confirmer auprès de votre banque ou courtier. Le TAEG réel peut différer selon les frais annexes (garantie, notaire, courtage) non inclus ici.</p>
+
+<footer>Calculatrice de mensualités de crédit — usage indicatif, ne remplace pas une étude de financement personnalisée par un professionnel.</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+const num = id => parseFloat($(id).value) || 0;
+const eur = v => v.toLocaleString('fr-FR', {style:'currency', currency:'EUR', maximumFractionDigits:0});
+const eur2 = v => v.toLocaleString('fr-FR', {style:'currency', currency:'EUR', maximumFractionDigits:2});
+const pct = v => (v*100).toLocaleString('fr-FR', {maximumFractionDigits:1}) + ' %';
+
+function compute(){
+  const capital = num('capital');
+  const duree = Math.max(1, Math.round(num('duree')));
+  const tauxInteret = num('tauxInteret')/100;
+  const tauxAssurance = num('tauxAssurance')/100;
+  const fraisDossier = num('fraisDossier');
+
+  const n = duree * 12;
+  const tauxMensuel = tauxInteret / 12;
+
+  const mensualiteCredit = tauxMensuel > 0
+    ? capital * tauxMensuel / (1 - Math.pow(1 + tauxMensuel, -n))
+    : capital / n;
+  const mensualiteAssurance = capital * tauxAssurance / 12;
+  const mensualiteTotale = mensualiteCredit + mensualiteAssurance;
+
+  const coutInterets = mensualiteCredit * n - capital;
+  const coutAssurance = mensualiteAssurance * n;
+  const coutTotalCredit = coutInterets + coutAssurance + fraisDossier;
+  const montantTotalRembourse = capital + coutTotalCredit;
+
+  $('out_mensualiteCredit').textContent = eur2(mensualiteCredit);
+  $('out_mensualiteAssurance').textContent = eur2(mensualiteAssurance);
+  $('out_mensualiteTotale').textContent = eur2(mensualiteTotale);
+
+  $('out_capital2').textContent = eur(capital);
+  $('out_coutInterets').textContent = eur(coutInterets);
+  $('out_coutAssurance').textContent = eur(coutAssurance);
+  $('out_fraisDossier2').textContent = eur(fraisDossier);
+  $('out_coutTotalCredit').textContent = eur(coutTotalCredit);
+  $('out_montantTotalRembourse').textContent = eur(montantTotalRembourse);
+
+  $('kpis').innerHTML = `
+    <div class="kpi highlight"><div class="v">${eur2(mensualiteTotale)}</div><div class="l">Mensualité totale (crédit + assurance)</div></div>
+    <div class="kpi highlight"><div class="v">${eur(coutTotalCredit)}</div><div class="l">Coût total du crédit</div></div>
+    <div class="kpi"><div class="v">${eur(montantTotalRembourse)}</div><div class="l">Montant total remboursé</div></div>
+    <div class="kpi"><div class="v">${pct(coutTotalCredit/capital)}</div><div class="l">Coût du crédit / capital emprunté</div></div>
+  `;
+
+  // --- Tableau d'amortissement annuel ---
+  let capitalRestant = capital;
+  const rows = [];
+  let cumulInterets=0, cumulAssurance=0, cumulCapitalRembourse=0, cumulMensualites=0;
+  for (let a=1; a<=duree; a++){
+    const capitalDebut = capitalRestant;
+    let interetsAn = 0, capitalRembourseAn = 0, mensualitesAn = 0;
+    const moisRestants = Math.min(12, n - (a-1)*12);
+    for (let m=0; m<moisRestants; m++){
+      const interetMois = capitalRestant * tauxMensuel;
+      const capitalMois = mensualiteCredit - interetMois;
+      interetsAn += interetMois;
+      capitalRembourseAn += capitalMois;
+      capitalRestant = Math.max(0, capitalRestant - capitalMois);
+    }
+    const assuranceAn = mensualiteAssurance * moisRestants;
+    mensualitesAn = (mensualiteCredit + mensualiteAssurance) * moisRestants;
+
+    cumulInterets += interetsAn;
+    cumulAssurance += assuranceAn;
+    cumulCapitalRembourse += capitalRembourseAn;
+    cumulMensualites += mensualitesAn;
+
+    rows.push({annee:a, capitalDebut, interetsAn, assuranceAn, capitalRembourseAn, mensualitesAn, capitalFin:capitalRestant});
+  }
+
+  const tbody = $('amortBody');
+  tbody.innerHTML = rows.map(r => `
+    <tr>
+      <td>${r.annee}</td>
+      <td>${eur(r.capitalDebut)}</td>
+      <td>${eur(r.interetsAn)}</td>
+      <td>${eur(r.assuranceAn)}</td>
+      <td>${eur(r.capitalRembourseAn)}</td>
+      <td>${eur(r.mensualitesAn)}</td>
+      <td>${eur(r.capitalFin)}</td>
+    </tr>`).join('') + `
+    <tr class="total">
+      <td>Total</td>
+      <td>-</td>
+      <td>${eur(cumulInterets)}</td>
+      <td>${eur(cumulAssurance)}</td>
+      <td>${eur(cumulCapitalRembourse)}</td>
+      <td>${eur(cumulMensualites)}</td>
+      <td>${eur(rows[rows.length-1].capitalFin)}</td>
+    </tr>`;
+}
+
+// Sync range + number for durée
+$('dureeRange').addEventListener('input', () => { $('duree').value = $('dureeRange').value; compute(); });
+$('duree').addEventListener('input', () => { $('dureeRange').value = $('duree').value; compute(); });
+
+document.querySelectorAll('input[type=number]').forEach(el => {
+  if (el.id !== 'duree') el.addEventListener('input', compute);
+});
+
+compute();
+</script>
+
+<script>
+(function(){
+  var btn = document.getElementById('menuBtn');
+  var dropdown = document.getElementById('menuDropdown');
+  if(!btn || !dropdown) return;
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    var isOpen = dropdown.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', isOpen);
+  });
+  document.addEventListener('click', function(){
+    dropdown.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var KEY = 'akapa_calc_mode';
+  function getMode(){
+    try { return localStorage.getItem(KEY) || 'simple'; } catch(e){ return 'simple'; }
+  }
+  function setMode(mode){
+    document.body.classList.toggle('mode-avance', mode === 'avance');
+    document.body.classList.toggle('mode-simple', mode !== 'avance');
+    var grp = document.getElementById('grp_mode');
+    if (grp){
+      grp.querySelectorAll('.seg-btn').forEach(function(b){
+        b.classList.toggle('active', b.dataset.value === mode);
+      });
+    }
+    try { localStorage.setItem(KEY, mode); } catch(e){}
+  }
+  var grp = document.getElementById('grp_mode');
+  if (grp){
+    grp.querySelectorAll('.seg-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){ setMode(btn.dataset.value); });
+    });
+  }
+  setMode(getMode());
+})();
+</script>
+</body>
+</html>
