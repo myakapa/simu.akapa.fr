@@ -21,12 +21,16 @@
   .topnav a:hover{text-decoration:underline;}
   h1{font-size:20px; margin:0 0 4px 0;}
   .subtitle{color:#6b7280; margin:0 0 20px 0; font-size:13px;}
-  .grid{display:grid; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); gap:16px; margin-bottom:20px;}
+  .grid{display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,460px)); gap:16px; margin-bottom:20px;}
   .card{background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:16px 18px;}
   .card h2{font-size:14px; margin:0 0 12px 0; color:#111827; display:flex; align-items:center; gap:8px;}
   .row{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px;}
   .row:last-child{margin-bottom:0;}
   label{color:#4b5563; font-size:13px; flex:1;}
+  @media (max-width:420px){
+    .row{flex-wrap:wrap;}
+    .row label{flex:1 1 100%; margin-bottom:4px;}
+  }
   input[type=number]{
     width:120px; padding:6px 8px; border:1px solid #d1d5db; border-radius:6px;
     font-size:13px; text-align:right; background:#eef4ff;
@@ -73,9 +77,18 @@
   .menu-dropdown a{display:block; padding:8px 10px; border-radius:6px; font-size:13px; color:#1f2430; text-decoration:none;}
   .menu-dropdown a:hover{background:#eef2ff; color:#4338ca;}
   .menu-dropdown a.home{border-bottom:1px solid #eef0f2; margin-bottom:4px; padding-bottom:10px; font-weight:600; color:#4338ca;}
+
+  .seg-group{display:flex; gap:6px; background:#f3f4f6; padding:4px; border-radius:8px; margin-bottom:14px;}
+  .seg-btn{flex:1; text-align:center; padding:8px 6px; border:none; border-radius:6px; background:transparent; color:#4b5563; font-size:13px; cursor:pointer; font-weight:600; transition:background .12s, color .12s; white-space:nowrap;}
+  .seg-btn.active{background:#fff; color:#4338ca; box-shadow:0 1px 2px rgba(0,0,0,.08);}
+  .mode-switch{display:flex; align-items:center; gap:12px; margin-bottom:20px; flex-wrap:wrap;}
+  .mode-switch .seg-group{margin-bottom:0; max-width:320px;}
+  .mode-switch .mode-hint{font-size:12px; color:#9ca3af;}
+  body.mode-simple .advanced-only{display:none !important;}
+  body.mode-avance .simple-only{display:none !important;}
 </style>
 </head>
-<body>
+<body class="mode-simple">
 
 <div class="back-link"><a href="index.html">← Tous les outils</a></div>
 <header class="site-header">
@@ -95,34 +108,43 @@
 <h1>Simulateur LMNP</h1>
 <p class="subtitle">Location Meublée Non Professionnelle — comparez le régime réel (amortissements) et le micro-BIC sur la durée de votre investissement.</p>
 
+<div class="mode-switch">
+  <div class="seg-group" id="grp_mode">
+    <button type="button" class="seg-btn" data-value="simple">Mode simple</button>
+    <button type="button" class="seg-btn" data-value="avance">Mode avancé</button>
+  </div>
+  <span class="mode-hint simple-only">Mobilier, amortissements et fiscalité détaillée sont pré-remplis avec des valeurs par défaut.</span>
+  <span class="mode-hint advanced-only">Tous les paramètres et le détail année par année sont modifiables.</span>
+</div>
+
 <div class="grid">
 
   <div class="card">
     <h2>🏠 Acquisition</h2>
     <div class="row"><label>Prix du bien immobilier</label><input type="number" id="prixBien" value="180000" step="1000"><span class="unit">€</span></div>
-    <div class="row"><label>Part du terrain (non amortissable)</label><input type="number" id="partTerrain" value="12" step="1"><span class="unit">%</span></div>
-    <div class="row"><label>Mobilier &amp; équipements</label><input type="number" id="prixMobilier" value="8000" step="500"><span class="unit">€</span></div>
-    <div class="row"><label>Frais d'acquisition (notaire, garantie…)</label><input type="number" id="fraisAcquisition" value="12000" step="500"><span class="unit">€</span></div>
-    <div class="note">Astuce : utilisez l'outil « Estimer les frais de notaire » pour ce dernier montant.</div>
+    <div class="row advanced-only"><label>Part du terrain (non amortissable)</label><input type="number" id="partTerrain" value="12" step="1"><span class="unit">%</span></div>
+    <div class="row advanced-only"><label>Mobilier &amp; équipements</label><input type="number" id="prixMobilier" value="8000" step="500"><span class="unit">€</span></div>
+    <div class="row advanced-only"><label>Frais d'acquisition (notaire, garantie…)</label><input type="number" id="fraisAcquisition" value="12000" step="500"><span class="unit">€</span></div>
+    <div class="note advanced-only">Astuce : utilisez l'outil « Estimer les frais de notaire » pour ce dernier montant.</div>
   </div>
 
   <div class="card">
     <h2>🏦 Financement (optionnel)</h2>
     <div class="row"><label>Capital emprunté</label><input type="number" id="capital" value="180000" step="1000"><span class="unit">€</span></div>
-    <div class="row"><label>Taux d'intérêt</label><input type="number" id="tauxInteret" value="3.55" step="0.05"><span class="unit">%</span></div>
-    <div class="row"><label>Taux d'assurance emprunteur</label><input type="number" id="tauxAssurance" value="0.34" step="0.01"><span class="unit">%</span></div>
-    <div class="row"><label>Durée du prêt</label><input type="number" id="dureePret" value="20" step="1"><span class="unit">ans</span></div>
+    <div class="row advanced-only"><label>Taux d'intérêt</label><input type="number" id="tauxInteret" value="3.55" step="0.05"><span class="unit">%</span></div>
+    <div class="row advanced-only"><label>Taux d'assurance emprunteur</label><input type="number" id="tauxAssurance" value="0.34" step="0.01"><span class="unit">%</span></div>
+    <div class="row advanced-only"><label>Durée du prêt</label><input type="number" id="dureePret" value="20" step="1"><span class="unit">ans</span></div>
   </div>
 
   <div class="card">
     <h2>💶 Exploitation locative</h2>
     <div class="row"><label>Loyer mensuel</label><input type="number" id="loyerMensuel" value="750" step="10"><span class="unit">€</span></div>
-    <div class="row"><label>Charges (copro, gestion, assurance PNO)</label><input type="number" id="chargesAnnuelles" value="1200" step="50"><span class="unit">€/an</span></div>
-    <div class="row"><label>Taxe foncière</label><input type="number" id="taxeFonciere" value="900" step="50"><span class="unit">€/an</span></div>
-    <div class="row"><label>Indexation annuelle (loyer &amp; charges)</label><input type="number" id="indexation" value="0" step="0.5"><span class="unit">%</span></div>
+    <div class="row advanced-only"><label>Charges (copro, gestion, assurance PNO)</label><input type="number" id="chargesAnnuelles" value="1200" step="50"><span class="unit">€/an</span></div>
+    <div class="row advanced-only"><label>Taxe foncière</label><input type="number" id="taxeFonciere" value="900" step="50"><span class="unit">€/an</span></div>
+    <div class="row advanced-only"><label>Indexation annuelle (loyer &amp; charges)</label><input type="number" id="indexation" value="0" step="0.5"><span class="unit">%</span></div>
   </div>
 
-  <div class="card">
+  <div class="card advanced-only">
     <h2>⚙️ Amortissements &amp; horizon</h2>
     <div class="row"><label>Durée d'amortissement du bien</label><input type="number" id="dureeAmortBien" value="30" step="1"><span class="unit">ans</span></div>
     <div class="row"><label>Durée d'amortissement du mobilier</label><input type="number" id="dureeAmortMobilier" value="7" step="1"><span class="unit">ans</span></div>
@@ -134,21 +156,23 @@
   <div class="card">
     <h2>🧾 Fiscalité</h2>
     <div class="row"><label>Tranche marginale d'imposition (TMI)</label><input type="number" id="tmi" value="30" step="1"><span class="unit">%</span></div>
-    <div class="row"><label>Prélèvements sociaux</label><input type="number" id="prelevSociaux" value="17.2" step="0.1"><span class="unit">%</span></div>
-    <div class="row"><label>Abattement micro-BIC</label><input type="number" id="abattementMicro" value="50" step="1"><span class="unit">%</span></div>
-    <div class="note">Abattement micro-BIC : 50 % pour un meublé classique (plafond de recettes 77 700 €), 71 % pour un meublé de tourisme classé.</div>
+    <div class="row advanced-only"><label>Prélèvements sociaux</label><input type="number" id="prelevSociaux" value="17.2" step="0.1"><span class="unit">%</span></div>
+    <div class="row advanced-only"><label>Abattement micro-BIC</label><input type="number" id="abattementMicro" value="50" step="1"><span class="unit">%</span></div>
+    <div class="note advanced-only">Abattement micro-BIC : 50 % pour un meublé classique (plafond de recettes 77 700 €), 71 % pour un meublé de tourisme classé.</div>
   </div>
 
 </div>
 
+<p class="note simple-only" style="margin-top:-8px;">Estimation basée sur un mobilier de <strong>8 000 €</strong>, des frais d'acquisition de <strong>12 000 €</strong>, un prêt sur <strong>20 ans à 3,55 %</strong> (assurance 0,34 %), des charges de <strong>1 200 €/an</strong> et une taxe foncière de <strong>900 €/an</strong>, sans indexation, avec les durées d'amortissement standard et un abattement micro-BIC de <strong>50 %</strong> (hypothèses par défaut). Passez en <strong>mode avancé</strong> pour les ajuster et voir le détail année par année.</p>
+
 <div class="kpis" id="kpis"></div>
 
-<div class="card" style="margin-top:16px;">
+<div class="card advanced-only" style="margin-top:16px;">
   <h2>📈 Cash-flow net cumulé — régime réel vs micro-BIC</h2>
   <canvas id="chart"></canvas>
 </div>
 
-<div class="card" style="margin-top:16px;">
+<div class="card advanced-only" style="margin-top:16px;">
   <h2>📊 Projection annuelle détaillée</h2>
   <div class="table-wrap">
     <table id="projTable">
@@ -360,6 +384,34 @@ compute();
     btn.classList.remove('open');
     btn.setAttribute('aria-expanded','false');
   });
+})();
+</script>
+
+<script>
+(function(){
+  var KEY = 'akapa_calc_mode';
+  function getMode(){
+    try { return localStorage.getItem(KEY) || 'simple'; } catch(e){ return 'simple'; }
+  }
+  function setMode(mode){
+    document.body.classList.toggle('mode-avance', mode === 'avance');
+    document.body.classList.toggle('mode-simple', mode !== 'avance');
+    var grp = document.getElementById('grp_mode');
+    if (grp){
+      grp.querySelectorAll('.seg-btn').forEach(function(b){
+        b.classList.toggle('active', b.dataset.value === mode);
+      });
+    }
+    try { localStorage.setItem(KEY, mode); } catch(e){}
+    if (typeof compute === 'function') compute();
+  }
+  var grp = document.getElementById('grp_mode');
+  if (grp){
+    grp.querySelectorAll('.seg-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){ setMode(btn.dataset.value); });
+    });
+  }
+  setMode(getMode());
 })();
 </script>
 </body>
