@@ -2,28 +2,30 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f6f7f9">
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-<title>Outils financiers — Simulateurs</title>
+<title>Outils financiers &mdash; Simulateurs</title>
 <style>
   :root{ color-scheme: light; }
   *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
   body{
-    margin:0; padding:32px 24px 24px; background:#f6f7f9; color:#1f2430;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin:0; padding:36px 20px 32px; background:#f6f7f9; color:#1f2430;
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size:14px; line-height:1.5;
   }
   .wrap{max-width:1000px; margin:0 auto;}
-  header{text-align:center; margin-bottom:32px;}
+  header{text-align:center; margin-bottom:28px;}
   .brand-logo{height:40px; margin-bottom:18px;}
-  h1{font-size:26px; margin:0 0 8px 0; color:#111827;}
-  .subtitle{color:#6b7280; margin:0; font-size:14px; max-width:560px; margin:0 auto;}
-  .cards{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:20px; margin-top:28px;}
+  h1{font-size:26px; margin:0 0 8px 0; color:#111827; line-height:1.2;}
+  .subtitle{color:#6b7280; margin:0 auto; font-size:14px; max-width:560px;}
+  .cards{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:18px; margin-top:28px;}
   a.card{
-    display:flex; flex-direction:column; gap:10px;
+    display:flex; flex-direction:column; gap:10px; min-width:0;
     background:#fff; border:1px solid #e5e7eb; border-radius:14px; padding:22px 20px;
     text-decoration:none; color:inherit;
     transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
@@ -50,6 +52,19 @@
   .cta .arrow{transition:transform .15s ease;}
   a.card:hover .cta .arrow{transform:translateX(3px);}
   footer{margin-top:36px; font-size:11.5px; color:#9ca3af; text-align:center;}
+
+  @media (max-width:760px){
+    body{padding:26px 16px 28px;}
+    .cards{grid-template-columns:1fr; gap:14px;}
+    a.card{padding:18px 16px; gap:8px;}
+    a.card:hover{transform:none;}
+  }
+  @media (max-width:560px){
+    h1{font-size:22px;}
+    .subtitle{font-size:13px;}
+    .brand-logo{height:34px;}
+    .icon{width:38px; height:38px; font-size:19px;}
+  }
 </style>
 </head>
 <body>
@@ -58,54 +73,54 @@
   <header>
     <img src="assets/logo-akapa.png" alt="Akapa" class="brand-logo">
     <h1>Outils financiers</h1>
-    <p class="subtitle">Des simulateurs pour préparer et évaluer un projet immobilier, de l'emprunt jusqu'à la rentabilité fiscale Outre-mer.</p>
+    <p class="subtitle">Des simulateurs pour pr&eacute;parer et &eacute;valuer un projet immobilier, de l'emprunt jusqu'&agrave; la rentabilit&eacute; fiscale Outre-mer.</p>
   </header>
 
   <div class="cards">
 
     <a class="card" href="capacite-emprunt.html">
-      <div class="icon">🏦</div>
+      <div class="icon">&#127974;</div>
       <span class="badge">Financement</span>
-      <h2>Capacité d'emprunt</h2>
+      <h2>Capacit&eacute; d'emprunt</h2>
       <p>Estimez le montant empruntable, votre budget total et le prix du bien accessible selon vos revenus et votre apport.</p>
-      <span class="cta">Ouvrir l'outil <span class="arrow">→</span></span>
+      <span class="cta">Ouvrir l'outil <span class="arrow">&rarr;</span></span>
     </a>
 
     <a class="card" href="mensualites-credit.html">
-      <div class="icon">📆</div>
+      <div class="icon">&#128198;</div>
       <span class="badge">Financement</span>
-      <h2>Mensualités de crédit</h2>
-      <p>Calculez la mensualité de votre prêt (crédit + assurance), le coût total du crédit et le tableau d'amortissement.</p>
-      <span class="cta">Ouvrir l'outil <span class="arrow">→</span></span>
+      <h2>Mensualit&eacute;s de cr&eacute;dit</h2>
+      <p>Calculez la mensualit&eacute; de votre pr&ecirc;t (cr&eacute;dit + assurance), le co&ucirc;t total du cr&eacute;dit et le tableau d'amortissement.</p>
+      <span class="cta">Ouvrir l'outil <span class="arrow">&rarr;</span></span>
     </a>
 
     <a class="card" href="frais-notaire.html">
-      <div class="icon">📝</div>
+      <div class="icon">&#128221;</div>
       <span class="badge">Financement</span>
       <h2>Frais de notaire</h2>
-      <p>Estimez les droits de mutation, les émoluments du notaire et le coût total d'acquisition selon neuf ou ancien.</p>
-      <span class="cta">Ouvrir l'outil <span class="arrow">→</span></span>
+      <p>Estimez les droits de mutation selon votre d&eacute;partement, les &eacute;moluments du notaire et le co&ucirc;t total d'acquisition.</p>
+      <span class="cta">Ouvrir l'outil <span class="arrow">&rarr;</span></span>
     </a>
 
     <a class="card" href="ciop.html">
-      <div class="icon">🏝️</div>
-      <span class="badge">Fiscalité Outre-mer</span>
-      <h2>Rentabilité CIOP</h2>
-      <p>Simulez le plafond et le crédit d'impôt CIOP, l'échéancier de versement et la projection de trésorerie de l'investissement.</p>
-      <span class="cta">Ouvrir l'outil <span class="arrow">→</span></span>
+      <div class="icon">&#127965;&#65039;</div>
+      <span class="badge">Fiscalit&eacute; Outre-mer</span>
+      <h2>Rentabilit&eacute; CIOP</h2>
+      <p>Simulez le plafond et le cr&eacute;dit d'imp&ocirc;t CIOP, l'&eacute;ch&eacute;ancier de versement et la projection de tr&eacute;sorerie de l'investissement.</p>
+      <span class="cta">Ouvrir l'outil <span class="arrow">&rarr;</span></span>
     </a>
 
     <a class="card" href="lmnp.html">
-      <div class="icon">🛋️</div>
-      <span class="badge">Fiscalité locative</span>
+      <div class="icon">&#128715;&#65039;</div>
+      <span class="badge">Fiscalit&eacute; locative</span>
       <h2>Simulateur LMNP</h2>
-      <p>Comparez le régime réel (amortissements) et le micro-BIC pour votre location meublée non professionnelle.</p>
-      <span class="cta">Ouvrir l'outil <span class="arrow">→</span></span>
+      <p>Comparez le r&eacute;gime r&eacute;el (amortissements) et le micro-BIC pour votre location meubl&eacute;e non professionnelle.</p>
+      <span class="cta">Ouvrir l'outil <span class="arrow">&rarr;</span></span>
     </a>
 
   </div>
 
-  <footer>Simulations indicatives — usage informatif, ne remplacent pas une étude personnalisée par un professionnel (courtier, banque, expert-comptable).</footer>
+  <footer>Simulations indicatives &mdash; usage informatif, ne remplacent pas une &eacute;tude personnalis&eacute;e par un professionnel (courtier, banque, expert-comptable).</footer>
 </div>
 
 </body>
