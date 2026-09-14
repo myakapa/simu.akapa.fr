@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f6f7f9">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<title>Rentabilité d'une installation solaire — Outre-mer</title>
+<style>
+  :root{ color-scheme: light; }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0; padding:22px 20px 32px; background:#f6f7f9; color:#1f2430;
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size:14px; line-height:1.5;
+  }
+  .page{max-width:1180px; margin:0 auto;}
+  h1{font-size:22px; margin:0 0 4px 0; line-height:1.25;}
+  .subtitle{color:#6b7280; margin:0 0 18px 0; font-size:13px;}
+
+  /* --- Cartes de formulaire --- */
+  .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(330px, 1fr)); gap:16px; margin-bottom:20px;}
+  .card{background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px 18px; min-width:0;}
+  .grid > .card{max-width:640px;}
+  .card h2{font-size:14px; margin:0 0 12px 0; color:#111827; display:flex; align-items:center; gap:8px;}
+  .row{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px; flex-wrap:wrap;}
+  .row:last-child{margin-bottom:0;}
+  label{color:#4b5563; font-size:13px; flex:1 1 130px; min-width:0;}
+  .row.stacked{flex-direction:column; align-items:stretch;}
+  .row.stacked label{flex:1 1 auto; margin-bottom:5px;}
+  .row.stacked select{max-width:none; width:100%;}
+  .row.tight label{flex:1 1 96px;}
+  .row.tight input[type=range]{max-width:118px; flex:1 1 70px;}
+
+  input[type=number]{
+    width:120px; flex:0 0 auto; padding:7px 9px; border:1px solid #d1d5db; border-radius:7px;
+    font-size:13px; text-align:right; background:#eef4ff; color:#1f2430; min-width:0;
+  }
+  input[type=number]:focus{outline:2px solid #6366f1; outline-offset:1px;}
+  input[type=number]:disabled{background:#f3f4f6; color:#9ca3af;}
+  input[type=range]{flex:1 1 90px; min-width:80px; max-width:190px; accent-color:#4338ca;}
+  select{
+    padding:7px 9px; border:1px solid #d1d5db; border-radius:7px; font-size:13px;
+    background:#eef4ff; color:#1f2430; max-width:230px; min-width:0;
+  }
+  select:focus{outline:2px solid #6366f1; outline-offset:1px;}
+  select:disabled{background:#f3f4f6; color:#9ca3af;}
+  .unit{color:#9ca3af; font-size:12px; flex:0 0 auto; min-width:32px; text-align:left;}
+
+  .result{font-weight:600; color:#111827; text-align:right;}
+  .result.big{font-size:18px;}
+  .muted{color:#6b7280; font-size:12px;}
+  .divider{border:none; border-top:1px solid #eef0f2; margin:12px 0;}
+  .badge{display:inline-block; font-size:11px; padding:2px 8px; border-radius:999px; background:#eef2ff; color:#4338ca; font-weight:600;}
+  .warn{background:#fff7ed; border:1px solid #fdba74; color:#9a3412; padding:8px 10px; border-radius:8px; font-size:12.5px; margin-top:8px;}
+  .ok{background:#f0fdf4; border:1px solid #86efac; color:#166534; padding:8px 10px; border-radius:8px; font-size:12.5px; margin-top:8px;}
+  .info{background:#eff6ff; border:1px solid #bfdbfe; color:#1e40af; padding:8px 10px; border-radius:8px; font-size:12.5px; margin-top:8px;}
+  .note{font-size:11.5px; color:#9ca3af; margin-top:10px;}
+  .seg-label{font-size:12px; color:#6b7280; margin:0 0 6px 0;}
+  .section-title{font-size:12px; font-weight:700; color:#4338ca; margin:14px 0 8px 0; text-transform:uppercase; letter-spacing:.02em;}
+
+  /* --- Boutons segmentés --- */
+  .seg-group{display:flex; gap:6px; background:#f3f4f6; padding:4px; border-radius:9px; margin-bottom:14px;}
+  .seg-btn{flex:1 1 0; min-width:0; text-align:center; padding:9px 6px; border:none; border-radius:7px;
+    background:transparent; color:#4b5563; font-size:13px; cursor:pointer; font-weight:600;
+    transition:background .12s, color .12s;}
+  .seg-btn.active{background:#fff; color:#4338ca; box-shadow:0 1px 2px rgba(0,0,0,.08);}
+  .seg-group.compact{margin-bottom:10px;}
+  .seg-group.compact .seg-btn{padding:7px 6px; font-size:12.5px;}
+
+  /* --- Indicateurs --- */
+  .kpis{display:grid; grid-template-columns:repeat(auto-fit, minmax(190px,1fr)); gap:12px; margin-top:16px;}
+  .kpi{background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:14px 16px; min-width:0;}
+  .kpi .v{font-size:20px; font-weight:700; color:#111827; overflow-wrap:anywhere;}
+  .kpi .l{font-size:12px; color:#6b7280; margin-top:2px;}
+  .kpi.highlight{background:#eef2ff; border-color:#c7d2fe;}
+
+  /* --- Tableaux --- */
+  table{width:100%; border-collapse:collapse; font-size:12.5px;}
+  th,td{padding:7px 8px; text-align:right; border-bottom:1px solid #eef0f2; white-space:nowrap;}
+  th{background:#f9fafb; color:#4b5563; font-weight:600; position:sticky; top:0; z-index:1;}
+  td:first-child, th:first-child{text-align:left;}
+  tr.total td{font-weight:700; background:#f9fafb; border-top:2px solid #e5e7eb;}
+  .table-wrap{overflow-x:auto; -webkit-overflow-scrolling:touch; max-height:440px; overflow-y:auto;}
+  .pos{color:#166534;} .neg{color:#b91c1c;}
+  .scroll-hint{display:none; margin-top:6px;}
+
+  /* --- Timeline trésorerie --- */
+  .tl{display:grid; grid-template-columns:repeat(auto-fit, minmax(170px,1fr)); gap:10px; margin-top:4px;}
+  .tl-step{border:1px solid #e5e7eb; border-radius:10px; padding:12px 13px; background:#fbfbfd; min-width:0;}
+  .tl-step .when{font-size:11px; font-weight:700; color:#4338ca; text-transform:uppercase; letter-spacing:.02em;}
+  .tl-step .amt{font-size:17px; font-weight:700; margin-top:5px; overflow-wrap:anywhere;}
+  .tl-step .what{font-size:12px; color:#6b7280; margin-top:2px;}
+
+  /* --- Graphique --- */
+  .chart-wrap{position:relative;}
+  canvas{width:100%; max-height:300px; display:block;}
+  .tip{position:absolute; pointer-events:none; background:#111827; color:#fff; font-size:12px;
+    padding:7px 9px; border-radius:7px; opacity:0; transition:opacity .1s; white-space:nowrap; z-index:5;
+    box-shadow:0 4px 12px rgba(0,0,0,.18);}
+  .tip .tip-v{font-weight:700;}
+  .chart-legend{display:flex; gap:14px; flex-wrap:wrap; font-size:12px; color:#6b7280; margin-top:8px;}
+  .chart-legend span{display:flex; align-items:center; gap:6px;}
+  .swatch{width:11px; height:11px; border-radius:3px; display:inline-block;}
+
+  /* --- En-tête --- */
+  .back-link{margin-bottom:10px;}
+  .back-link a{color:#4338ca; font-size:12.5px; text-decoration:none; font-weight:600;}
+  .back-link a:hover{text-decoration:underline;}
+  .site-header{display:flex; align-items:center; justify-content:space-between; gap:12px;
+    margin-bottom:18px; padding-bottom:14px; border-bottom:1px solid #e5e7eb;}
+  .brand{display:flex; align-items:center;}
+  .brand-logo{height:30px; display:block;}
+  .menu-wrap{position:relative;}
+  .menu-btn{background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:8px 12px; font-size:13px;
+    font-weight:600; color:#4338ca; cursor:pointer; display:flex; align-items:center; gap:5px; white-space:nowrap;}
+  .menu-btn:hover{border-color:#c7d2fe; background:#f5f3ff;}
+  .menu-btn .chev{font-size:10px; transition:transform .15s ease;}
+  .menu-btn.open .chev{transform:rotate(180deg);}
+  .menu-dropdown{display:none; position:absolute; right:0; top:calc(100% + 6px); background:#fff;
+    border:1px solid #e5e7eb; border-radius:10px; box-shadow:0 8px 20px rgba(0,0,0,.10); padding:6px;
+    min-width:230px; max-width:calc(100vw - 32px); z-index:30;}
+  .menu-dropdown.open{display:block;}
+  .menu-dropdown a{display:block; padding:9px 10px; border-radius:6px; font-size:13px; color:#1f2430; text-decoration:none;}
+  .menu-dropdown a:hover{background:#eef2ff; color:#4338ca;}
+  .menu-dropdown a.home{border-bottom:1px solid #eef0f2; margin-bottom:4px; padding-bottom:10px; font-weight:600; color:#4338ca;}
+
+  /* --- Bascule mode simple / avancé --- */
+  .mode-switch{display:flex; align-items:center; gap:12px; margin-bottom:18px; flex-wrap:wrap;}
+  .mode-switch .seg-group{margin-bottom:0; flex:0 1 320px; max-width:320px;}
+  .mode-switch .mode-hint{font-size:12px; color:#9ca3af; flex:1 1 200px;}
+  body.mode-simple .advanced-only{display:none !important;}
+  body.mode-avance .simple-only{display:none !important;}
+  body.profil-part .pro-only{display:none !important;}
+  body.profil-pro .part-only{display:none !important;}
+  body.regime-surplus .totale-only{display:none !important;}
+  body.regime-totale .surplus-only{display:none !important;}
+  body.fin-comptant .credit-only{display:none !important;}
+  body.relais-non .relais-only{display:none !important;}
+
+  footer{margin-top:26px; font-size:11.5px; color:#9ca3af; text-align:center;}
+
+  /* --- Responsive --- */
+  @media (max-width:860px){
+    .grid{grid-template-columns:1fr;}
+  }
+  @media (max-width:760px){
+    body{padding:18px 16px 28px;}
+    .kpis{grid-template-columns:repeat(auto-fit, minmax(155px,1fr)); gap:10px;}
+    .kpi{padding:12px 13px;}
+    .kpi .v{font-size:18px;}
+    .scroll-hint{display:block;}
+    .table-wrap{max-height:none; overflow-y:visible;}
+    th{position:static;}
+  }
+  @media (max-width:560px){
+    h1{font-size:19px;}
+    .card{padding:14px;}
+    .grid > .card{max-width:none;}
+    .row{gap:6px;}
+    .row label{flex:1 1 100%;}
+    input[type=number]{flex:1 1 auto; width:auto; font-size:16px;}
+    input[type=range]{max-width:none;}
+    select{width:100%; max-width:none; font-size:16px;}
+    .unit{min-width:28px;}
+    .mode-switch .seg-group{flex:1 1 100%; max-width:none;}
+    th,td{padding:6px 7px; font-size:12px;}
+    .brand-logo{height:26px;}
+    .menu-btn{padding:7px 10px; font-size:12.5px;}
+    canvas{max-height:240px;}
+  }
+  @media (max-width:360px){
+    .kpis{grid-template-columns:1fr;}
+    .seg-btn{font-size:12px; padding:9px 4px;}
+  }
+</style>
+</head>
+<body class="mode-simple profil-part regime-surplus fin-comptant relais-non">
+<div class="page">
+
+<div class="back-link"><a href="index.html">← Tous les outils</a></div>
+<header class="site-header">
+  <a class="brand" href="index.html"><img src="assets/logo-akapa.png" alt="Akapa" class="brand-logo"></a>
+  <div class="menu-wrap">
+    <button class="menu-btn" id="menuBtn" type="button" aria-haspopup="true" aria-expanded="false">Autres simulateurs <span class="chev">▾</span></button>
+    <nav class="menu-dropdown" id="menuDropdown">
+      <a class="home" href="index.html">🏠 Tous les outils</a>
+      <a href="capacite-emprunt.html">🏦 Capacité d'emprunt</a>
+      <a href="mensualites-credit.html">📆 Mensualités de crédit</a>
+      <a href="frais-notaire.html">📝 Frais de notaire</a>
+      <a href="ciop.html">🏝️ Rentabilité CIOP</a>
+      <a href="lmnp.html">🛋️ Simulateur LMNP</a>
+    </nav>
+  </div>
+</header>
+
+<h1>Rentabilité d'une installation solaire</h1>
+<p class="subtitle">Estimez la rentabilité d'un projet photovoltaïque en zone non interconnectée (Antilles, Guyane, Réunion, Mayotte) : prime à l'investissement ZNI, économies d'électricité, revente du surplus, et financement de l'avance de prime par un prêt relais.</p>
+
+<div class="mode-switch">
+  <div class="seg-group" id="grp_mode">
+    <button type="button" class="seg-btn" data-value="simple">Mode simple</button>
+    <button type="button" class="seg-btn" data-value="avance">Mode avancé</button>
+  </div>
+  <span class="mode-hint simple-only">Les hypothèses techniques (ensoleillement, tarifs, dégradation, maintenance) sont pré-remplies par territoire.</span>
+  <span class="mode-hint advanced-only">Tous les paramètres, la projection annuelle et le volet fiscal professionnel sont disponibles.</span>
+</div>
+
+<div class="grid">
+
+  <div class="card">
+    <h2>☀️ Votre projet</h2>
+    <div class="row stacked"><label>Territoire</label>
+      <select id="terr">
+        <option value="GP">Guadeloupe</option>
+        <option value="MQ">Martinique</option>
+        <option value="GF">Guyane</option>
+        <option value="RE">La Réunion</option>
+        <option value="YT">Mayotte</option>
+      </select>
+    </div>
+    <p class="seg-label" style="margin-top:12px;">Qui investit&nbsp;?</p>
+    <div class="seg-group compact" id="grp_profil">
+      <button type="button" class="seg-btn" data-value="part">Particulier</button>
+      <button type="button" class="seg-btn" data-value="pro">Professionnel</button>
+    </div>
+    <div class="row tight"><label>Puissance installée</label>
+      <input type="range" id="puissanceRange" min="1" max="100" step="1" value="6">
+      <input type="number" id="puissance" value="6" step="0.5" style="width:72px;"><span class="unit">kWc</span>
+    </div>
+    <div class="row advanced-only"><label>Prix installé (pose comprise)</label><input type="number" id="prixKwc" value="2700" step="50"><span class="unit">€/kWc</span></div>
+    <div class="row"><label>Coût total de l'installation</label><input type="number" id="coutTotal" value="16200" step="100"><span class="unit">€</span></div>
+    <div class="row"><label class="muted" style="font-size:12px;">Nombre de panneaux (≈500 Wc)</label><span class="result muted" id="out_nbPanneaux">-</span></div>
+    <p class="note" id="note_prix">Le coût est recalculé automatiquement quand vous changez la puissance. Saisissez le montant de votre devis pour l'écraser.</p>
+  </div>
+
+  <div class="card">
+    <h2>🔌 Production et usage</h2>
+    <p class="seg-label">Régime de vente</p>
+    <div class="seg-group compact" id="grp_regime">
+      <button type="button" class="seg-btn" data-value="surplus">Autoconsommation + surplus</button>
+      <button type="button" class="seg-btn" data-value="totale">Vente totale</button>
+    </div>
+    <div class="row advanced-only"><label>Productivité (ensoleillement)</label><input type="number" id="prod" value="1400" step="25"><span class="unit">kWh/kWc</span></div>
+    <div class="row tight surplus-only"><label>Taux d'autoconsommation</label>
+      <input type="range" id="tauxACRange" min="10" max="100" step="5" value="40">
+      <input type="number" id="tauxAC" value="40" step="5" style="width:64px;"><span class="unit">%</span>
+    </div>
+    <div class="row surplus-only"><label>Prix du kWh acheté au réseau</label><input type="number" id="prixKwh" value="0.22" step="0.005"><span class="unit">€</span></div>
+    <div class="row surplus-only advanced-only"><label>Tarif de rachat du surplus</label><input type="number" id="tarifSurplus" value="0.179" step="0.001"><span class="unit">€/kWh</span></div>
+    <div class="row totale-only advanced-only"><label>Tarif de vente totale</label><input type="number" id="tarifTotale" value="0.252" step="0.001"><span class="unit">€/kWh</span></div>
+    <div class="row"><label class="muted" style="font-size:12px;">Production estimée année 1</label><span class="result muted" id="out_prodAn1">-</span></div>
+    <div class="row surplus-only"><label class="muted" style="font-size:12px;">Dont autoconsommée / revendue</label><span class="result muted" id="out_repartition">-</span></div>
+    <div class="warn totale-only">En <strong>vente totale</strong>, l'installation n'ouvre pas droit à la prime à l'investissement ZNI : celle-ci est réservée à l'autoconsommation avec vente du surplus.</div>
+    <p class="note advanced-only">Taux d'autoconsommation usuels : 30–40&nbsp;% sans pilotage, 50–60&nbsp;% avec chauffe-eau ou climatisation pilotés en journée, 70&nbsp;%+ avec batterie.</p>
+  </div>
+
+  <div class="card">
+    <h2>🎁 Prime ZNI et aides</h2>
+    <div class="row"><label>Prime à l'investissement (barème)</label><span class="result" id="out_primeUnit">-</span></div>
+    <div class="row advanced-only"><label>Forcer le barème de prime</label><input type="number" id="primeUnitManuel" value="0" step="10"><span class="unit">€/kWc</span></div>
+    <div class="row"><label>Prime totale attendue</label><span class="result big" id="out_prime">-</span></div>
+    <div class="row"><label>Versement de la prime</label><input type="number" id="moisPrime" value="18" step="1" style="width:72px;"><span class="unit">mois</span></div>
+    <div class="row"><label>Autres aides (collectivité, FEDER…)</label><input type="number" id="aideLocale" value="0" step="100"><span class="unit">€</span></div>
+    <hr class="divider">
+    <div class="row"><label>Reste à charge après prime et aides</label><span class="result big" id="out_coutNet">-</span></div>
+    <div class="info" id="info_prime">La prime ZNI est versée <strong>en une fois, plusieurs mois après la mise en service</strong> (12 à 18 mois selon les territoires et les délais de traitement ; 18 mois par défaut ici), sur justification de la production de la première année. Elle doit donc être avancée par le porteur du projet.</div>
+    <p class="note advanced-only" id="note_bareme">-</p>
+  </div>
+
+  <div class="card">
+    <h2>🏦 Financement</h2>
+    <p class="seg-label">Comment finance-t-on l'installation&nbsp;?</p>
+    <div class="seg-group compact" id="grp_fin">
+      <button type="button" class="seg-btn" data-value="comptant">Comptant</button>
+      <button type="button" class="seg-btn" data-value="credit">Crédit</button>
+    </div>
+    <div class="row credit-only"><label>Montant emprunté</label><input type="number" id="emprunt" value="0" step="500"><span class="unit">€</span></div>
+    <div class="row credit-only"><label>Durée du prêt</label>
+      <input type="range" id="dureePretRange" min="1" max="20" step="1" value="10">
+      <input type="number" id="dureePret" value="10" step="1" style="width:64px;"><span class="unit">ans</span>
+    </div>
+    <div class="row credit-only"><label>Taux d'intérêt</label><input type="number" id="tauxPret" value="5.20" step="0.05"><span class="unit">%</span></div>
+    <div class="row credit-only advanced-only"><label>Taux d'assurance emprunteur</label><input type="number" id="tauxAssur" value="0.25" step="0.01"><span class="unit">%</span></div>
+    <div class="row credit-only advanced-only"><label>Frais de dossier</label><input type="number" id="fraisDossier" value="0" step="50"><span class="unit">€</span></div>
+    <div class="row credit-only"><label>Mensualité du prêt</label><span class="result" id="out_mensualite">-</span></div>
+
+    <p class="seg-label" style="margin-top:14px;">Prêt relais pour avancer la prime ZNI</p>
+    <div class="seg-group compact" id="grp_relais">
+      <button type="button" class="seg-btn" data-value="non">Sans prêt relais</button>
+      <button type="button" class="seg-btn" data-value="oui">Avec prêt relais</button>
+    </div>
+    <div class="row relais-only"><label>Montant avancé</label><input type="number" id="relaisMontant" value="0" step="100"><span class="unit">€</span></div>
+    <div class="row relais-only"><label>Taux du prêt conso</label><input type="number" id="relaisTaux" value="5.90" step="0.05"><span class="unit">%</span></div>
+    <div class="row relais-only advanced-only"><label>Frais de dossier</label><input type="number" id="relaisFrais" value="0" step="25"><span class="unit">€</span></div>
+    <div class="row relais-only advanced-only"><label>Marge de sécurité après la prime</label><input type="number" id="relaisMarge" value="1" step="1" style="width:64px;"><span class="unit">mois</span></div>
+    <div class="row relais-only"><label>Coût total de l'avance</label><span class="result" id="out_coutRelais">-</span></div>
+    <p class="note relais-only">Prêt <em>in fine</em> : seuls les intérêts courent jusqu'au versement de la prime, qui rembourse le capital par anticipation. Vérifiez auprès de la banque l'absence d'indemnité de remboursement anticipé.</p>
+  </div>
+
+  <div class="card advanced-only">
+    <h2>⚙️ Hypothèses de projection</h2>
+    <div class="row"><label>Durée d'analyse</label><input type="number" id="dureeAnalyse" value="25" step="1" style="width:64px;"><span class="unit">ans</span></div>
+    <div class="row"><label>Dégradation des panneaux</label><input type="number" id="degrad" value="0.5" step="0.05"><span class="unit">%/an</span></div>
+    <div class="row"><label>Inflation du prix de l'électricité</label><input type="number" id="inflElec" value="3" step="0.5"><span class="unit">%/an</span></div>
+    <div class="row"><label>Indexation du tarif d'achat</label><input type="number" id="indexTarif" value="0" step="0.5"><span class="unit">%/an</span></div>
+    <div class="row"><label>Durée du contrat d'achat</label><input type="number" id="dureeContrat" value="20" step="1" style="width:64px;"><span class="unit">ans</span></div>
+    <div class="row"><label>Maintenance et assurance</label><input type="number" id="maintenance" value="120" step="20"><span class="unit">€/an</span></div>
+    <div class="row"><label>Remplacement onduleur</label><input type="number" id="ondCout" value="1500" step="100"><span class="unit">€</span></div>
+    <div class="row"><label>… à l'année</label><input type="number" id="ondAnnee" value="13" step="1" style="width:64px;"><span class="unit">n°</span></div>
+    <div class="row"><label>Taux d'actualisation (VAN)</label><input type="number" id="tauxActu" value="3" step="0.5"><span class="unit">%</span></div>
+    <div class="section-title pro-only">Volet professionnel</div>
+    <div class="row pro-only"><label>Taux d'impôt sur les sociétés</label><input type="number" id="tauxIS" value="25" step="0.5"><span class="unit">%</span></div>
+    <div class="row pro-only"><label>Durée d'amortissement comptable</label><input type="number" id="dureeAmort" value="20" step="1" style="width:64px;"><span class="unit">ans</span></div>
+    <p class="note pro-only">L'économie d'électricité et les recettes de revente augmentent le résultat imposable ; amortissement, maintenance et intérêts d'emprunt sont déduits. La prime est traitée en subvention d'équipement étalée sur la durée d'amortissement. Les déficits sont reportés.</p>
+  </div>
+
+</div>
+
+<div class="warn pro-only" style="margin-top:-8px;">
+  <strong>Défiscalisation outre-mer :</strong> les installations de production d'électricité photovoltaïque sont <strong>exclues</strong> de la réduction d'impôt Girardin industriel (art. 199 undecies B du CGI) et des dispositifs qui s'y rattachent (art. 217 undecies, crédit d'impôt art. 244 quater W) depuis le 29 septembre 2010. Aucun avantage Girardin ou CIOP n'est donc calculé ici : les leviers fiscaux d'un projet PV professionnel sont l'amortissement, la déduction des charges et, le cas échéant, les régimes de zone franche d'activité. Faites valider le montage par votre expert-comptable.
+</div>
+
+<div class="kpis" id="kpis"></div>
+
+<div class="card" style="margin-top:16px;">
+  <h2>💶 Trésorerie de la première année</h2>
+  <p class="muted" style="margin-top:-6px; margin-bottom:12px;">C'est le point sensible d'un projet en ZNI : la prime arrive environ un an après la facture de l'installateur.</p>
+  <div class="tl" id="timeline"></div>
+  <div id="relaisVerdict"></div>
+</div>
+
+<div class="card" style="margin-top:16px;">
+  <h2>📈 Trésorerie cumulée du projet</h2>
+  <div class="chart-wrap">
+    <canvas id="chart" height="300"></canvas>
+    <div class="tip" id="tip"></div>
+  </div>
+  <div class="chart-legend">
+    <span><i class="swatch" style="background:#b91c1c;"></i> Trésorerie cumulée négative (investissement non encore récupéré)</span>
+    <span><i class="swatch" style="background:#166534;"></i> Trésorerie cumulée positive (gain net)</span>
+  </div>
+  <p class="note">En abscisse, les années à partir de la mise en service (0 = investissement initial). Cumul de tous les flux réels : apport initial, mensualités de prêt, prime, économies d'électricité, revente du surplus, maintenance et remplacement d'onduleur.</p>
+</div>
+
+<div class="card advanced-only" style="margin-top:16px;">
+  <h2>📊 Projection année par année</h2>
+  <div class="table-wrap">
+    <table id="projTable">
+      <thead><tr id="projHead"></tr></thead>
+      <tbody id="projBody"></tbody>
+    </table>
+  </div>
+  <p class="note scroll-hint">↔ Faites glisser le tableau horizontalement pour voir toutes les colonnes.</p>
+</div>
+
+<p class="note" id="sources">-</p>
+
+<footer>Simulateur indicatif — les barèmes de prime et tarifs d'achat ZNI sont révisés chaque trimestre par la CRE. Ne remplace pas un devis d'installateur RGE QualiPV ni une étude de financement personnalisée.</footer>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const num = id => parseFloat($(id).value) || 0;
+const eur = v => (Math.round(v) || 0).toLocaleString('fr-FR', {style:'currency', currency:'EUR', maximumFractionDigits:0});
+const eur2 = v => v.toLocaleString('fr-FR', {style:'currency', currency:'EUR', maximumFractionDigits:2});
+const nb = (v,d) => v.toLocaleString('fr-FR', {maximumFractionDigits: d===undefined?0:d});
+const pct1 = v => (v*100).toLocaleString('fr-FR', {maximumFractionDigits:1}) + ' %';
+
+/* ---------------------------------------------------------------
+   Barèmes par territoire (valeurs par défaut, toutes modifiables
+   en mode avancé). Tranches : ≤3 kWc, ≤9 kWc, ≤36 kWc, ≤100 kWc.
+   --------------------------------------------------------------- */
+const TERR = {
+  GP: {nom:"Guadeloupe", prod:1400, kwh:0.22, prime:[1750,1060,790,500],
+       surplus:[0.179,0.179,0.0706,0.0706], totale:[0.252,0.252,0.11,0.11], src:"T2/T3 2026", solide:true},
+  MQ: {nom:"Martinique", prod:1400, kwh:0.22, prime:[1750,1060,790,500],
+       surplus:[0.179,0.179,0.0706,0.0706], totale:[0.2848,0.2426,0.11,0.11], src:"T2/T3 2026", solide:true},
+  GF: {nom:"Guyane", prod:1250, kwh:0.22, prime:[1700,1030,790,500],
+       surplus:[0.180,0.180,0.0706,0.0706], totale:[0.26,0.24,0.11,0.11], src:"août–octobre 2026", solide:true},
+  RE: {nom:"La Réunion", prod:1350, kwh:0.22, prime:[1500,1000,750,500],
+       surplus:[0.160,0.160,0.0706,0.0706], totale:[0.25,0.23,0.11,0.11], src:"ordre de grandeur", solide:false},
+  YT: {nom:"Mayotte", prod:1450, kwh:0.22, prime:[1500,1000,750,500],
+       surplus:[0.160,0.160,0.0706,0.0706], totale:[0.25,0.23,0.11,0.11], src:"ordre de grandeur", solide:false}
+};
+const PRIX_KWC = [2900, 2700, 2100, 1700];
+const TRANCHE_LABEL = ["≤ 3 kWc", "3 à 9 kWc", "9 à 36 kWc", "36 à 100 kWc"];
+
+function trancheIdx(P){ return P<=3 ? 0 : P<=9 ? 1 : P<=36 ? 2 : 3; }
+
+/* --- état des groupes segmentés --- */
+const seg = {mode:'simple', profil:'part', regime:'surplus', fin:'comptant', relais:'non'};
+let coutManuel = false, empruntManuel = false, relaisManuel = false, prixManuel = false;
+let lastRows = [];
+
+/* --- applique les valeurs par défaut du territoire --- */
+function applyTerritoire(full){
+  const t = TERR[$('terr').value];
+  const i = trancheIdx(num('puissance'));
+  if (full){ $('prod').value = t.prod; $('prixKwh').value = t.kwh; }
+  if (!prixManuel) $('prixKwc').value = PRIX_KWC[i];
+  $('tarifSurplus').value = t.surplus[i];
+  $('tarifTotale').value = t.totale[i];
+  $('note_bareme').textContent = "Barème appliqué : " + t.nom + " — tranche " + TRANCHE_LABEL[i]
+    + " · prime " + nb(t.prime[i]) + " €/kWc · surplus " + nb(t.surplus[i]*100,2) + " c€/kWh ("
+    + t.src + (t.solide ? ")." : ", à confirmer auprès d'EDF pour ce territoire).")
+    + (i >= 2 ? " Au-delà de 9 kWc, barèmes et tarifs d'achat varient fortement selon la puissance et la date de demande de raccordement : faites-les confirmer par EDF SEI avant de vous appuyer sur cette simulation." : "");
+}
+
+function autoCout(){
+  const P = num('puissance');
+  const prix = num('prixKwc');
+  $('coutTotal').value = Math.round(P * prix / 10) * 10;
+}
+
+function calcMensualite(capital, tauxAnnuel, dureeAns){
+  const n = Math.max(1, Math.round(dureeAns*12));
+  const i = tauxAnnuel/12;
+  return i > 0 ? capital * i / (1 - Math.pow(1+i, -n)) : capital / n;
+}
+
+/* --- TRI par bissection --- */
+function tri(flux){
+  const f = r => flux.reduce((s,v,k) => s + v/Math.pow(1+r, k), 0);
+  let lo = null, hi = null;
+  for (let r = -0.20; r <= 1.5; r += 0.005){
+    const a = f(r), b = f(r+0.005);
+    if (isFinite(a) && isFinite(b) && a * b <= 0){ lo = r; hi = r+0.005; break; }
+  }
+  if (lo === null) return null;
+  for (let k=0; k<200; k++){
+    const mid = (lo+hi)/2;
+    if (f(lo)*f(mid) <= 0) hi = mid; else lo = mid;
+  }
+  return (lo+hi)/2;
+}
+
+function compute(){
+  const t = TERR[$('terr').value];
+  const P = Math.max(0.5, num('puissance'));
+  const idx = trancheIdx(P);
+  const pro = seg.profil === 'pro';
+  const venteTotale = seg.regime === 'totale';
+
+  if (!coutManuel) autoCout();
+  const coutTotal = num('coutTotal');
+  $('out_nbPanneaux').textContent = Math.ceil(P*1000/500) + " panneaux (≈ " + nb(P*5.5,0) + " m²)";
+
+  /* --- Prime --- */
+  const primeManuel = num('primeUnitManuel');
+  const primeUnit = venteTotale ? 0 : (primeManuel > 0 ? primeManuel : t.prime[idx]);
+  const prime = primeUnit * P;
+  const aide = num('aideLocale');
+  const moisPrime = Math.max(0, Math.round(num('moisPrime')));
+  const coutNet = coutTotal - prime - aide;
+
+  $('out_primeUnit').textContent = venteTotale ? "Non applicable (vente totale)" : nb(primeUnit) + " €/kWc · " + TRANCHE_LABEL[idx];
+  $('out_prime').textContent = eur(prime);
+  $('out_coutNet').textContent = eur(coutNet);
+
+  /* --- Production --- */
+  const prod1 = P * num('prod');
+  const tauxAC = venteTotale ? 0 : Math.min(1, Math.max(0, num('tauxAC')/100));
+  const degrad = num('degrad')/100;
+  const inflElec = num('inflElec')/100;
+  const indexTarif = num('indexTarif')/100;
+  const dureeContrat = Math.max(1, Math.round(num('dureeContrat')));
+  const prixKwh = num('prixKwh');
+  const tarifVente = venteTotale ? num('tarifTotale') : num('tarifSurplus');
+  const N = Math.max(5, Math.min(40, Math.round(num('dureeAnalyse'))));
+
+  $('out_prodAn1').textContent = nb(prod1) + " kWh";
+  $('out_repartition').textContent = nb(prod1*tauxAC) + " kWh / " + nb(prod1*(1-tauxAC)) + " kWh";
+
+  /* --- Financement --- */
+  const credit = seg.fin === 'credit';
+  if (credit && !empruntManuel) $('emprunt').value = Math.round(coutNet > 0 ? coutNet : coutTotal);
+  const emprunt = credit ? Math.min(num('emprunt'), coutTotal) : 0;
+  const dureePret = Math.max(1, Math.round(num('dureePret')));
+  const tauxPret = num('tauxPret')/100;
+  const tauxAssur = num('tauxAssur')/100;
+  const fraisDossier = credit ? num('fraisDossier') : 0;
+  const mensualite = credit && emprunt > 0 ? calcMensualite(emprunt, tauxPret, dureePret) : 0;
+  const mensAssur = credit ? emprunt * tauxAssur / 12 : 0;
+  $('out_mensualite').textContent = credit && emprunt > 0 ? eur2(mensualite + mensAssur) : "-";
+
+  /* --- Prêt relais sur la prime --- */
+  const relaisOn = seg.relais === 'oui' && prime > 0;
+  if (relaisOn && !relaisManuel) $('relaisMontant').value = Math.round(prime);
+  const relaisMontant = relaisOn ? Math.min(num('relaisMontant'), prime) : 0;
+  const relaisTaux = num('relaisTaux')/100;
+  const relaisFrais = relaisOn ? num('relaisFrais') : 0;
+  const relaisMois = moisPrime + Math.max(0, Math.round(num('relaisMarge')));
+  const relaisInterets = relaisMontant * relaisTaux * relaisMois / 12;
+  const coutRelais = relaisInterets + relaisFrais;
+  $('out_coutRelais').textContent = relaisOn ? eur(coutRelais) + " (dont " + eur(relaisInterets) + " d'intérêts)" : "-";
+
+  /* --- Projection annuelle --- */
+  const maintenance0 = num('maintenance');
+  const ondCout = num('ondCout');
+  const ondAnnee = Math.round(num('ondAnnee'));
+  const tauxIS = pro ? num('tauxIS')/100 : 0;
+  const dureeAmort = Math.max(1, Math.round(num('dureeAmort')));
+  const amortAnnuel = pro ? coutTotal / dureeAmort : 0;
+  const subvAnnuelle = pro ? prime / dureeAmort : 0;
+
+  const apportInitial = coutTotal - emprunt - relaisMontant + fraisDossier;
+  const rows = [];
+  let capitalRestant = emprunt;
+  let deficitReporte = 0;
+  let cumul = -apportInitial;
+  const fluxProjet = [-coutTotal];
+
+  for (let a=1; a<=N; a++){
+    const production = prod1 * Math.pow(1-degrad, a-1);
+    const autoconso = production * tauxAC;
+    const vendu = production - autoconso;
+    const economie = autoconso * prixKwh * Math.pow(1+inflElec, a-1);
+    const revente = a <= dureeContrat ? vendu * tarifVente * Math.pow(1+indexTarif, a-1) : 0;
+    let charges = maintenance0 * Math.pow(1+inflElec, a-1);
+    if (a === ondAnnee) charges += ondCout;
+
+    /* annuités du prêt principal */
+    let interetsAn = 0, annuite = 0;
+    if (credit && a <= dureePret && emprunt > 0){
+      for (let m=0; m<12; m++){
+        const int = capitalRestant * tauxPret/12;
+        const cap = mensualite - int;
+        interetsAn += int;
+        capitalRestant = Math.max(0, capitalRestant - cap);
+      }
+      annuite = (mensualite + mensAssur) * 12;
+    }
+
+    /* prime + relais, encaissés l'année du versement ; aides locales à l'année 1 */
+    let flowPrime = (a === 1) ? aide : 0;
+    const anneePrime = Math.max(1, Math.ceil(moisPrime/12));
+    if (a === anneePrime){
+      flowPrime += prime - relaisMontant - coutRelais;
+      interetsAn += relaisInterets;
+    }
+
+    /* impôt sur les sociétés */
+    let impot = 0, resultat = 0;
+    if (pro){
+      const amort = a <= dureeAmort ? amortAnnuel : 0;
+      const subv = a <= dureeAmort ? subvAnnuelle : 0;
+      resultat = economie + revente + subv - charges - amort - interetsAn;
+      let base = resultat - deficitReporte;
+      if (base > 0){ impot = base * tauxIS; deficitReporte = 0; }
+      else { deficitReporte = -base; impot = 0; }
+    }
+
+    const fluxNet = economie + revente - charges - annuite - impot + flowPrime;
+    cumul += fluxNet;
+    fluxProjet.push(economie + revente - charges - impot
+      + (a === anneePrime ? prime : 0) + (a === 1 ? aide : 0));
+
+    rows.push({a, production, autoconso, vendu, economie, revente, charges, annuite, impot, flowPrime, fluxNet, cumul});
+  }
+  lastRows = rows;
+
+  /* --- Indicateurs --- */
+  const gainAn1 = rows[0].economie + rows[0].revente;
+  const gainCumule = rows[rows.length-1].cumul;
+  const tauxActu = num('tauxActu')/100;
+  const van = fluxProjet.reduce((s,v,k) => s + v/Math.pow(1+tauxActu, k), 0);
+  const tirProjet = tri(fluxProjet);
+
+  /* temps de retour du projet (hors mode de financement) */
+  let retour = null, cumProjet = fluxProjet[0], prevProjet = cumProjet;
+  for (let k=1; k<fluxProjet.length; k++){
+    prevProjet = cumProjet;
+    cumProjet += fluxProjet[k];
+    if (prevProjet < 0 && cumProjet >= 0){
+      retour = k - 1 + (fluxProjet[k] !== 0 ? (-prevProjet)/fluxProjet[k] : 0);
+      break;
+    }
+  }
+  /* année où la trésorerie réelle (financement compris) devient positive */
+  let retourTreso = null, prev = -apportInitial;
+  for (const r of rows){
+    if (prev < 0 && r.cumul >= 0){ retourTreso = r.a; break; }
+    prev = r.cumul;
+  }
+  if (apportInitial <= 0 && rows[0].cumul >= 0) retourTreso = 1;
+
+  const tresoDepart = apportInitial;
+  $('kpis').innerHTML =
+    '<div class="kpi highlight"><div class="v">' + eur(coutNet) + '</div><div class="l">Reste à charge après prime et aides</div></div>' +
+    '<div class="kpi highlight"><div class="v">' + eur(tresoDepart) + '</div><div class="l">Trésorerie à sortir au départ</div></div>' +
+    '<div class="kpi"><div class="v">' + eur(gainAn1) + '</div><div class="l">Économie + revente, année 1</div></div>' +
+    '<div class="kpi"><div class="v">' + (retour === null ? '> ' + N + ' ans' : nb(retour,1) + ' ans') + '</div><div class="l">Retour sur investissement (hors financement)</div></div>' +
+    '<div class="kpi"><div class="v ' + (gainCumule>=0?'pos':'neg') + '">' + eur(gainCumule) + '</div><div class="l">Gain net cumulé sur ' + N + ' ans</div></div>' +
+    '<div class="kpi"><div class="v">' + (tirProjet === null ? 'n.s.' : pct1(tirProjet)) + '</div><div class="l">Rentabilité annuelle du projet (TRI)</div></div>' +
+    '<div class="kpi advanced-only"><div class="v ' + (van>=0?'pos':'neg') + '">' + eur(van) + '</div><div class="l">Valeur actuelle nette à ' + nb(tauxActu*100,1) + ' %</div></div>' +
+    '<div class="kpi advanced-only"><div class="v">' + nb(prod1) + ' kWh</div><div class="l">Production annuelle estimée</div></div>' +
+    '<div class="kpi advanced-only"><div class="v">' + (retourTreso === null ? '> ' + N + ' ans' : 'Année ' + retourTreso) + '</div><div class="l">Trésorerie cumulée positive à partir de</div></div>';
+
+  /* --- Timeline de trésorerie --- */
+  const factureJ = coutTotal + fraisDossier;
+  const mensTotale = mensualite + mensAssur;
+  const interetsRelaisMens = relaisOn ? relaisMontant * relaisTaux / 12 : 0;
+  const sansRelais = coutTotal - emprunt + fraisDossier;
+  $('timeline').innerHTML =
+    '<div class="tl-step"><div class="when">Mise en service</div><div class="amt">' + eur(factureJ) + '</div>' +
+      '<div class="what">Facture de l\'installateur' + (credit ? ' — dont ' + eur(emprunt) + ' financés par le prêt' : '') + '</div></div>' +
+    '<div class="tl-step"><div class="when">Jour J — à sortir</div><div class="amt ' + (tresoDepart>0?'neg':'pos') + '">' + eur(tresoDepart) + '</div>' +
+      '<div class="what">' + (relaisOn ? 'Après prêt relais de ' + eur(relaisMontant) + ' sur la prime' : 'Sur fonds propres') + '</div></div>' +
+    '<div class="tl-step"><div class="when">Mois 1 à ' + moisPrime + '</div><div class="amt">' + eur2(mensTotale + interetsRelaisMens) + '</div>' +
+      '<div class="what">Par mois : ' + (credit ? 'mensualité du prêt' : 'aucune mensualité') + (relaisOn ? ' + intérêts du relais' : '') + '</div></div>' +
+    (prime > 0
+      ? '<div class="tl-step"><div class="when">Mois ' + moisPrime + '</div><div class="amt pos">+ ' + eur(prime) + '</div>' +
+        '<div class="what">' + (relaisOn ? 'Prime encaissée : solde le prêt relais (' + eur(relaisMontant) + ')' : 'Prime ZNI encaissée') + '</div></div>'
+      : '<div class="tl-step"><div class="when">Prime ZNI</div><div class="amt muted" style="font-size:15px;">Aucune</div>' +
+        '<div class="what">Ce régime n\'ouvre pas droit à la prime à l\'investissement</div></div>');
+
+  const eco = sansRelais - tresoDepart;
+  $('relaisVerdict').innerHTML = relaisOn
+    ? '<div class="ok">Le prêt relais réduit l\'avance de trésorerie de <strong>' + eur(eco) + '</strong> (de ' + eur(sansRelais) + ' à ' + eur(tresoDepart) + ') pour un coût total de <strong>' + eur(coutRelais) + '</strong>, soit ' + nb(prime>0 ? coutRelais/prime*100 : 0,1) + ' % de la prime.</div>'
+    : (prime > 0
+        ? '<div class="warn">Sans prêt relais, vous avancez <strong>' + eur(sansRelais) + '</strong> pendant ' + moisPrime + ' mois, dont ' + eur(prime) + ' vous seront remboursés par la prime. Basculez sur « Avec prêt relais » pour chiffrer l\'alternative.</div>'
+        : '<div class="info">Aucune prime n\'est attendue dans cette configuration : le prêt relais est sans objet.</div>');
+
+  renderTable(rows, pro, venteTotale, apportInitial);
+  drawChart(rows, apportInitial);
+
+  $('sources').innerHTML = 'Barèmes par défaut : prime à l\'investissement et tarifs d\'achat ZNI publiés trimestriellement par la CRE (valeurs 2026 relevées pour la Guadeloupe, la Martinique et la Guyane ; ordres de grandeur pour La Réunion et Mayotte, à confirmer). Productivité issue des moyennes PVGIS. Tous ces paramètres sont modifiables en mode avancé — remplacez-les par les chiffres de votre devis et de votre proposition de contrat EDF.';
+}
+
+function renderTable(rows, pro, venteTotale, apport){
+  const head = ['Année','Production','Économie', venteTotale ? 'Vente' : 'Revente surplus',
+                'Charges','Mensualités'].concat(pro ? ['Impôt (IS)'] : [])
+                .concat(['Prime, aides, relais','Flux net','Trésorerie cumulée']);
+  $('projHead').innerHTML = head.map(h => '<th>' + h + '</th>').join('');
+  let html = '<tr><td>0</td>' + '<td>-</td>'.repeat(head.length - 3) +
+    '<td class="neg">' + eur(-apport) + '</td><td class="neg">' + eur(-apport) + '</td></tr>';
+  html += rows.map(r =>
+    '<tr><td>' + r.a + '</td>' +
+    '<td>' + nb(r.production) + ' kWh</td>' +
+    '<td>' + eur(r.economie) + '</td>' +
+    '<td>' + eur(r.revente) + '</td>' +
+    '<td>' + eur(-r.charges) + '</td>' +
+    '<td>' + (r.annuite ? eur(-r.annuite) : '-') + '</td>' +
+    (pro ? '<td>' + (r.impot ? eur(-r.impot) : '-') + '</td>' : '') +
+    '<td>' + (r.flowPrime ? '<span class="' + (r.flowPrime>=0?'pos':'neg') + '">' + eur(r.flowPrime) + '</span>' : '-') + '</td>' +
+    '<td class="' + (r.fluxNet>=0?'pos':'neg') + '">' + eur(r.fluxNet) + '</td>' +
+    '<td class="' + (r.cumul>=0?'pos':'neg') + '">' + eur(r.cumul) + '</td></tr>').join('');
+  $('projBody').innerHTML = html;
+}
+
+/* --- Graphique : trésorerie cumulée, barres, canvas natif --- */
+let chartBars = [];
+function drawChart(rows, apport){
+  const c = $('chart');
+  const dpr = window.devicePixelRatio || 1;
+  const w = c.clientWidth || 800, h = 300;
+  c.width = w*dpr; c.height = h*dpr;
+  const ctx = c.getContext('2d');
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  ctx.clearRect(0,0,w,h);
+
+  const data = [{a:0, v:-apport}].concat(rows.map(r => ({a:r.a, v:r.cumul})));
+  const padL = 62, padR = 12, padT = 14, padB = 26;
+  const plotW = w - padL - padR, plotH = h - padT - padB;
+  const vals = data.map(d => d.v);
+  let vmin = Math.min(0, ...vals), vmax = Math.max(0, ...vals);
+  const span = (vmax - vmin) || 1;
+  vmin -= span*0.06; vmax += span*0.06;
+  const y = v => padT + plotH * (vmax - v) / (vmax - vmin);
+
+  /* grille */
+  ctx.font = '11px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif';
+  ctx.textBaseline = 'middle';
+  const steps = 5;
+  for (let k=0; k<=steps; k++){
+    const v = vmin + (vmax-vmin)*k/steps;
+    const py = y(v);
+    ctx.strokeStyle = '#eef0f2'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(padL, py+0.5); ctx.lineTo(w-padR, py+0.5); ctx.stroke();
+    ctx.fillStyle = '#9ca3af'; ctx.textAlign = 'right';
+    ctx.fillText(Math.round(v/1000) + 'k€', padL-8, py);
+  }
+  /* axe zéro */
+  ctx.strokeStyle = '#9ca3af'; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(padL, y(0)+0.5); ctx.lineTo(w-padR, y(0)+0.5); ctx.stroke();
+
+  /* barres */
+  const slot = plotW / data.length;
+  const bw = Math.max(2, slot - 2);
+  chartBars = [];
+  data.forEach((d,k) => {
+    const x = padL + slot*k + (slot-bw)/2;
+    const y0 = y(0), y1 = y(d.v);
+    const top = Math.min(y0,y1), hh = Math.max(1.5, Math.abs(y1-y0));
+    ctx.fillStyle = d.v >= 0 ? '#166534' : '#b91c1c';
+    const r = Math.min(4, bw/2, hh);
+    ctx.beginPath();
+    if (d.v >= 0){
+      ctx.moveTo(x, top+hh); ctx.lineTo(x, top+r);
+      ctx.quadraticCurveTo(x, top, x+r, top);
+      ctx.lineTo(x+bw-r, top); ctx.quadraticCurveTo(x+bw, top, x+bw, top+r);
+      ctx.lineTo(x+bw, top+hh);
+    } else {
+      ctx.moveTo(x, top); ctx.lineTo(x+bw, top);
+      ctx.lineTo(x+bw, top+hh-r); ctx.quadraticCurveTo(x+bw, top+hh, x+bw-r, top+hh);
+      ctx.lineTo(x+r, top+hh); ctx.quadraticCurveTo(x, top+hh, x, top+hh-r);
+    }
+    ctx.closePath(); ctx.fill();
+    chartBars.push({x, w:bw, a:d.a, v:d.v, yTop:Math.min(y0,y1)});
+  });
+
+  /* étiquettes d'années */
+  ctx.fillStyle = '#9ca3af'; ctx.textAlign = 'center';
+  data.forEach((d,k) => {
+    if (d.a % 5 === 0 || k === data.length-1){
+      ctx.fillText(String(d.a), padL + slot*k + slot/2, h - padB/2 + 2);
+    }
+  });
+  ctx.textAlign = 'left';
+}
+
+(function(){
+  const c = $('chart'), tip = $('tip');
+  if (!c) return;
+  c.addEventListener('mousemove', e => {
+    const rect = c.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const bar = chartBars.find(b => x >= b.x-1 && x <= b.x+b.w+1);
+    if (!bar){ tip.style.opacity = 0; return; }
+    tip.innerHTML = 'Année ' + bar.a + ' · <span class="tip-v">' + eur(bar.v) + '</span>';
+    tip.style.opacity = 1;
+    const tw = tip.offsetWidth;
+    tip.style.left = Math.max(0, Math.min(c.clientWidth - tw, bar.x + bar.w/2 - tw/2)) + 'px';
+    tip.style.top = Math.max(0, bar.yTop - 34) + 'px';
+  });
+  c.addEventListener('mouseleave', () => { tip.style.opacity = 0; });
+})();
+
+/* --- Groupes segmentés --- */
+function initSeg(id, key, bodyPrefix){
+  const grp = $(id);
+  if (!grp) return;
+  grp.querySelectorAll('.seg-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      seg[key] = btn.dataset.value;
+      grp.querySelectorAll('.seg-btn').forEach(b => b.classList.toggle('active', b === btn));
+      if (bodyPrefix){
+        document.body.className = document.body.className
+          .split(' ').filter(cl => !cl.startsWith(bodyPrefix)).join(' ') + ' ' + bodyPrefix + seg[key];
+      }
+      if (key === 'fin') empruntManuel = false;
+      if (key === 'relais') relaisManuel = false;
+      compute();
+    });
+    if (btn.dataset.value === seg[key]) btn.classList.add('active');
+  });
+}
+initSeg('grp_profil','profil','profil-');
+initSeg('grp_regime','regime','regime-');
+initSeg('grp_fin','fin','fin-');
+initSeg('grp_relais','relais','relais-');
+
+/* --- Liaisons --- */
+$('terr').addEventListener('change', () => { applyTerritoire(true); compute(); });
+$('puissanceRange').addEventListener('input', () => {
+  $('puissance').value = $('puissanceRange').value;
+  applyTerritoire(); coutManuel = false; empruntManuel = false; relaisManuel = false; compute();
+});
+$('puissance').addEventListener('input', () => {
+  $('puissanceRange').value = Math.min(100, Math.max(1, num('puissance')));
+  applyTerritoire(); coutManuel = false; empruntManuel = false; relaisManuel = false; compute();
+});
+$('tauxACRange').addEventListener('input', () => { $('tauxAC').value = $('tauxACRange').value; compute(); });
+$('tauxAC').addEventListener('input', () => { $('tauxACRange').value = $('tauxAC').value; compute(); });
+$('dureePretRange').addEventListener('input', () => { $('dureePret').value = $('dureePretRange').value; compute(); });
+$('dureePret').addEventListener('input', () => { $('dureePretRange').value = $('dureePret').value; compute(); });
+$('coutTotal').addEventListener('input', () => { coutManuel = true; empruntManuel = false; compute(); });
+$('prixKwc').addEventListener('input', () => { prixManuel = true; coutManuel = false; compute(); });
+$('emprunt').addEventListener('input', () => { empruntManuel = true; compute(); });
+$('relaisMontant').addEventListener('input', () => { relaisManuel = true; compute(); });
+
+document.querySelectorAll('input[type=number]').forEach(el => {
+  if (!['puissance','tauxAC','dureePret','coutTotal','prixKwc','emprunt','relaisMontant'].includes(el.id))
+    el.addEventListener('input', compute);
+});
+window.addEventListener('resize', () => { if (lastRows.length) compute(); });
+
+applyTerritoire(true);
+compute();
+</script>
+<script>
+(function(){
+  var btn = document.getElementById('menuBtn');
+  var dropdown = document.getElementById('menuDropdown');
+  if(!btn || !dropdown) return;
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    var isOpen = dropdown.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', isOpen);
+  });
+  document.addEventListener('click', function(){
+    dropdown.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+  });
+})();
+</script>
+<script>
+(function(){
+  var KEY = 'akapa_calc_mode';
+  function getMode(){
+    try { return localStorage.getItem(KEY) || 'simple'; } catch(e){ return 'simple'; }
+  }
+  function setMode(mode){
+    document.body.classList.toggle('mode-avance', mode === 'avance');
+    document.body.classList.toggle('mode-simple', mode !== 'avance');
+    var grp = document.getElementById('grp_mode');
+    if (grp){
+      grp.querySelectorAll('.seg-btn').forEach(function(b){
+        b.classList.toggle('active', b.dataset.value === mode);
+      });
+    }
+    try { localStorage.setItem(KEY, mode); } catch(e){}
+    if (typeof compute === 'function') compute();
+  }
+  var grp = document.getElementById('grp_mode');
+  if (grp){
+    grp.querySelectorAll('.seg-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){ setMode(btn.dataset.value); });
+    });
+  }
+  setMode(getMode());
+})();
+</script>
+</body>
+</html>
