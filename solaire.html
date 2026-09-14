@@ -27,6 +27,8 @@
   .card{background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px 18px; min-width:0;}
   .grid > .card{max-width:640px;}
   .card h2{font-size:14px; margin:0 0 12px 0; color:#111827; display:flex; align-items:center; gap:8px;}
+  .step{display:inline-flex; align-items:center; justify-content:center; width:21px; height:21px; flex:0 0 21px;
+    border-radius:50%; background:#4338ca; color:#fff; font-size:11.5px; font-weight:700;}
   .row{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px; flex-wrap:wrap;}
   .row:last-child{margin-bottom:0;}
   label{color:#4b5563; font-size:13px; flex:1 1 130px; min-width:0;}
@@ -51,6 +53,10 @@
   select:disabled{background:#f3f4f6; color:#9ca3af;}
   .unit{color:#9ca3af; font-size:12px; flex:0 0 auto; min-width:32px; text-align:left;}
 
+  .big-input{display:flex; align-items:center; gap:8px;}
+  .big-input input[type=number]{flex:1 1 auto; width:auto; font-size:22px; font-weight:700; padding:11px 12px; text-align:right;}
+  .big-input .unit{font-size:17px; color:#6b7280; min-width:auto;}
+
   .result{font-weight:600; color:#111827; text-align:right;}
   .result.big{font-size:18px;}
   .muted{color:#6b7280; font-size:12px;}
@@ -62,6 +68,7 @@
   .note{font-size:11.5px; color:#9ca3af; margin-top:10px;}
   .seg-label{font-size:12px; color:#6b7280; margin:0 0 6px 0;}
   .section-title{font-size:12px; font-weight:700; color:#4338ca; margin:14px 0 8px 0; text-transform:uppercase; letter-spacing:.02em;}
+  .link-btn{background:none; border:none; padding:0; color:#4338ca; font-size:12px; font-weight:600; cursor:pointer; text-decoration:underline;}
 
   /* --- Boutons segmentés --- */
   .seg-group{display:flex; gap:6px; background:#f3f4f6; padding:4px; border-radius:9px; margin-bottom:14px;}
@@ -72,12 +79,62 @@
   .seg-group.compact{margin-bottom:10px;}
   .seg-group.compact .seg-btn{padding:7px 6px; font-size:12.5px;}
 
+  /* --- Chips équipements --- */
+  .chips{display:flex; flex-wrap:wrap; gap:7px;}
+  .chip{border:1px solid #e5e7eb; background:#fff; border-radius:999px; padding:7px 12px; font-size:12.5px;
+    cursor:pointer; color:#4b5563; font-family:inherit; line-height:1.2;}
+  .chip:hover{border-color:#c7d2fe;}
+  .chip.on{background:#eef2ff; border-color:#a5b4fc; color:#3730a3; font-weight:600;}
+  .rangebox{display:flex; align-items:center; gap:5px; font-size:12px; color:#6b7280; flex:0 0 auto;}
+  .rangebox input[type=number]{width:56px; flex:0 0 56px; padding:6px 7px;}
+  .h-row{display:flex; align-items:center; gap:10px; margin-bottom:9px; flex-wrap:wrap;}
+  .h-row .h-lab{flex:1 1 140px; color:#4b5563; font-size:13px; min-width:0;}
+  .switch{display:inline-flex; align-items:center; gap:5px; font-size:12px; color:#6b7280; cursor:pointer; flex:0 0 auto;}
+  .switch input{accent-color:#4338ca; width:15px; height:15px; margin:0;}
+  .h-row.off .rangebox{opacity:.35;}
+  body:not(.eq-clim) .need-clim{display:none !important;}
+  body:not(.eq-piscine) .need-piscine{display:none !important;}
+  body:not(.eq-ceElec) .need-ceElec{display:none !important;}
+  body:not(.eq-ve) .need-ve{display:none !important;}
+  body.eq-clim #note_aucunHoraire, body.eq-piscine #note_aucunHoraire,
+  body.eq-ceElec #note_aucunHoraire, body.eq-ve #note_aucunHoraire{display:none;}
+  body:not(.eq-clim):not(.eq-piscine):not(.eq-ceElec):not(.eq-ve) #note_horaires{display:none;}
+
+  /* --- Cartes de choix de puissance --- */
+  .choices{display:grid; grid-template-columns:repeat(auto-fit, minmax(148px,1fr)); gap:10px; margin-top:2px;}
+  .choice{position:relative; border:1px solid #e5e7eb; border-radius:11px; padding:12px 13px; background:#fff;
+    cursor:pointer; text-align:left; font-family:inherit; min-width:0;}
+  .choice:hover{border-color:#c7d2fe;}
+  .choice.on{border-color:#4338ca; background:#f5f3ff;}
+  .choice .p{font-size:15px; font-weight:700; color:#111827;}
+  .choice .s{font-size:11.5px; color:#6b7280; margin-top:1px;}
+  .choice .pr{font-size:16px; font-weight:700; color:#111827; margin-top:7px;}
+  .choice .pr small{display:block; font-size:11px; color:#9ca3af; font-weight:500;}
+  .choice .tag{position:absolute; top:-9px; left:10px; font-size:10px; background:#4338ca; color:#fff;
+    padding:2px 8px; border-radius:999px; font-weight:700; letter-spacing:.02em;}
+
   /* --- Indicateurs --- */
   .kpis{display:grid; grid-template-columns:repeat(auto-fit, minmax(190px,1fr)); gap:12px; margin-top:16px;}
   .kpi{background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:14px 16px; min-width:0;}
   .kpi .v{font-size:20px; font-weight:700; color:#111827; overflow-wrap:anywhere;}
   .kpi .l{font-size:12px; color:#6b7280; margin-top:2px;}
   .kpi.highlight{background:#eef2ff; border-color:#c7d2fe;}
+
+  /* --- Bloc économies (résultat principal) --- */
+  .hero{background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:18px 20px; margin-top:4px;}
+  .hero .l{font-size:13px; color:#6b7280;}
+  .hero .v{font-size:36px; font-weight:800; color:#4338ca; line-height:1.1; margin-top:4px; overflow-wrap:anywhere;}
+  .hero .pill{display:inline-block; margin-left:8px; vertical-align:middle; font-size:12.5px; font-weight:700;
+    color:#166534; background:#dcfce7; border-radius:999px; padding:3px 10px;}
+  .compare{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px;}
+  .cmp{border:1px solid #e5e7eb; border-radius:10px; padding:12px 13px; min-width:0;}
+  .cmp .t{font-size:12px; color:#6b7280; display:flex; align-items:center; gap:6px;}
+  .cmp .a{font-size:22px; font-weight:700; margin-top:5px; overflow-wrap:anywhere;}
+  .cmp.after{background:#fefce8; border-color:#fde68a;}
+  .cmp.after .a{color:#a16207;}
+  .bar-track{height:10px; border-radius:999px; background:#eef0f2; margin-top:9px; overflow:hidden;}
+  .bar-fill{height:100%; border-radius:999px; background:#6b7280;}
+  .cmp.after .bar-fill{background:#facc15;}
 
   /* --- Tableaux --- */
   table{width:100%; border-collapse:collapse; font-size:12.5px;}
@@ -96,7 +153,7 @@
   .tl-step .amt{font-size:17px; font-weight:700; margin-top:5px; overflow-wrap:anywhere;}
   .tl-step .what{font-size:12px; color:#6b7280; margin-top:2px;}
 
-  /* --- Graphique --- */
+  /* --- Graphiques --- */
   .chart-wrap{position:relative;}
   canvas{width:100%; max-height:300px; display:block;}
   .tip{position:absolute; pointer-events:none; background:#111827; color:#fff; font-size:12px;
@@ -141,6 +198,16 @@
   body.regime-totale .surplus-only{display:none !important;}
   body.fin-comptant .credit-only{display:none !important;}
   body.relais-non .relais-only{display:none !important;}
+  body.batt-non .batt-only{display:none !important;}
+  body.saisie-facture .estim-only{display:none !important;}
+  body.saisie-estim .facture-only{display:none !important;}
+  body:not(.has-conso) .needs-conso{display:none !important;}
+  body.has-conso #emptyState{display:none !important;}
+
+  /* --- État vide --- */
+  .empty{background:#fff; border:1px dashed #c7d2fe; border-radius:12px; padding:26px 20px; text-align:center; margin-top:4px;}
+  .empty .t{font-size:15px; font-weight:700; color:#4338ca;}
+  .empty .d{font-size:13px; color:#6b7280; margin-top:6px;}
 
   footer{margin-top:26px; font-size:11.5px; color:#9ca3af; text-align:center;}
 
@@ -172,6 +239,8 @@
     .brand-logo{height:26px;}
     .menu-btn{padding:7px 10px; font-size:12.5px;}
     canvas{max-height:240px;}
+    .hero .v{font-size:30px;}
+    .compare{grid-template-columns:1fr;}
   }
   @media (max-width:360px){
     .kpis{grid-template-columns:1fr;}
@@ -179,12 +248,12 @@
   }
 </style>
 </head>
-<body class="mode-simple profil-part regime-surplus fin-comptant relais-non">
+<body class="mode-simple profil-part regime-surplus fin-comptant relais-non batt-non saisie-facture">
 <div class="page">
 
 <div class="back-link"><a href="index.html">← Tous les outils</a></div>
 <header class="site-header">
-  <a class="brand" href="index.html"><img src="assets/logo-akapa.png" alt="Akapa" class="brand-logo"></a>
+  <a class="brand" href="index.html"><img src="assets/logo-akapa.png" alt="Akapa" class="brand-logo" onerror="this.style.display='none'"></a>
   <div class="menu-wrap">
     <button class="menu-btn" id="menuBtn" type="button" aria-haspopup="true" aria-expanded="false">Autres simulateurs <span class="chev">▾</span></button>
     <nav class="menu-dropdown" id="menuDropdown">
@@ -198,8 +267,8 @@
   </div>
 </header>
 
-<h1>Rentabilité d'une installation solaire</h1>
-<p class="subtitle">Estimez la rentabilité d'un projet photovoltaïque en zone non interconnectée (Antilles, Guyane, Réunion, Mayotte) : prime à l'investissement ZNI, économies d'électricité, revente du surplus, et financement de l'avance de prime par un prêt relais.</p>
+<h1>Combien le solaire peut-il vous faire économiser&nbsp;?</h1>
+<p class="subtitle">Partez de votre facture d'électricité : le simulateur estime votre consommation, la puissance adaptée, vos économies annuelles, la prime à l'investissement ZNI (Antilles, Guyane, Réunion, Mayotte) et la rentabilité du projet sur 25&nbsp;ans.</p>
 
 <div class="mode-switch">
   <div class="seg-group" id="grp_mode">
@@ -207,14 +276,15 @@
     <button type="button" class="seg-btn" data-value="avance">Mode avancé</button>
   </div>
   <span class="mode-hint simple-only">Les hypothèses techniques (ensoleillement, tarifs, dégradation, maintenance) sont pré-remplies par territoire.</span>
-  <span class="mode-hint advanced-only">Tous les paramètres, la projection annuelle et le volet fiscal professionnel sont disponibles.</span>
+  <span class="mode-hint advanced-only">Tous les paramètres, le financement, la projection annuelle et le volet fiscal professionnel sont disponibles.</span>
 </div>
 
 <div class="grid">
 
+  <!-- ÉTAPE 1 — CONSOMMATION -->
   <div class="card">
-    <h2>☀️ Votre projet</h2>
-    <div class="row stacked"><label>Territoire</label>
+    <h2><span class="step">1</span> Votre consommation d'électricité</h2>
+    <div class="row stacked"><label>Où se situe le projet&nbsp;?</label>
       <select id="terr">
         <option value="GP">Guadeloupe</option>
         <option value="MQ">Martinique</option>
@@ -223,44 +293,113 @@
         <option value="YT">Mayotte</option>
       </select>
     </div>
-    <p class="seg-label" style="margin-top:12px;">Qui investit&nbsp;?</p>
-    <div class="seg-group compact" id="grp_profil">
-      <button type="button" class="seg-btn" data-value="part">Particulier</button>
-      <button type="button" class="seg-btn" data-value="pro">Professionnel</button>
+
+    <p class="seg-label" style="margin-top:12px;">Connaissez-vous le montant de votre facture&nbsp;?</p>
+    <div class="seg-group compact" id="grp_saisie">
+      <button type="button" class="seg-btn" data-value="facture">Je connais ma facture</button>
+      <button type="button" class="seg-btn" data-value="estim">Estimer ma consommation</button>
     </div>
-    <div class="row tight"><label>Puissance installée</label>
-      <input type="range" id="puissanceRange" min="1" max="100" step="1" value="6">
-      <input type="number" id="puissance" value="6" step="0.5" style="width:72px;"><span class="unit">kWc</span>
+
+    <div class="facture-only">
+      <p class="seg-label">Quelle est votre facture d'électricité&nbsp;?</p>
+      <div class="seg-group compact" id="grp_periode">
+        <button type="button" class="seg-btn" data-value="mois">Par mois</button>
+        <button type="button" class="seg-btn" data-value="an">Par an</button>
+      </div>
+      <div class="big-input">
+        <input type="number" id="facture" placeholder="Ex : 150" step="10" min="0">
+        <span class="unit" id="unit_periode">€ / mois</span>
+      </div>
+      <p class="note" style="margin-top:8px;">Montant TTC, tout compris (abonnement inclus). <button type="button" class="link-btn" id="btnExemple">Voir un exemple</button></p>
     </div>
-    <div class="row advanced-only"><label>Prix installé (pose comprise)</label><input type="number" id="prixKwc" value="2700" step="50"><span class="unit">€/kWc</span></div>
-    <div class="row"><label>Coût total de l'installation</label><input type="number" id="coutTotal" value="16200" step="100"><span class="unit">€</span></div>
-    <div class="row"><label class="muted" style="font-size:12px;">Nombre de panneaux (≈500 Wc)</label><span class="result muted" id="out_nbPanneaux">-</span></div>
-    <p class="note" id="note_prix">Le coût est recalculé automatiquement quand vous changez la puissance. Saisissez le montant de votre devis pour l'écraser.</p>
+
+    <div class="estim-only">
+      <div class="row"><label>Surface de l'habitation</label><input type="number" id="surface" value="120" step="10"><span class="unit">m²</span></div>
+      <div class="row"><label>Nombre d'occupants</label><input type="number" id="occupants" value="4" step="1" style="width:72px;"><span class="unit">pers.</span></div>
+      <div class="row"><label>Consommation annuelle estimée</label><span class="result big" id="out_consoEstim">-</span></div>
+    </div>
+
+    <p class="seg-label" style="margin-top:14px;">Vos équipements (ils déterminent la part consommée en journée)</p>
+    <div class="chips" id="equipChips">
+      <button type="button" class="chip" data-eq="clim">❄️ Climatisation</button>
+      <button type="button" class="chip" data-eq="ceElec">🚿 Chauffe-eau électrique</button>
+      <button type="button" class="chip" data-eq="ceSolaire">☀️ Chauffe-eau solaire</button>
+      <button type="button" class="chip" data-eq="piscine">🏊 Piscine</button>
+      <button type="button" class="chip" data-eq="ve">🚗 Véhicule électrique</button>
+      <button type="button" class="chip" data-eq="seche">🌀 Sèche-linge</button>
+      <button type="button" class="chip" data-eq="jour">🏠 Présence en journée</button>
+    </div>
+    <p class="note" id="note_equip">-</p>
+
+    <div class="advanced-only">
+      <div class="section-title">Horaires d'usage</div>
+      <p class="note" style="margin-top:-4px;" id="note_horaires">Décochez une plage si elle ne correspond pas à votre usage.</p>
+      <div class="h-row need-clim"><span class="h-lab">Climatisation — nuit</span>
+        <label class="switch"><input type="checkbox" id="climNuitOn" checked> active</label>
+        <span class="rangebox">de <input type="number" id="climNuitDeb" value="20" min="0" max="23" step="1"> h à <input type="number" id="climNuitFin" value="6" min="0" max="23" step="1"> h</span></div>
+      <div class="h-row need-clim"><span class="h-lab">Climatisation — journée</span>
+        <label class="switch"><input type="checkbox" id="climJourOn"> active</label>
+        <span class="rangebox">de <input type="number" id="climJourDeb" value="10" min="0" max="23" step="1"> h à <input type="number" id="climJourFin" value="17" min="0" max="23" step="1"> h</span></div>
+      <div class="h-row need-piscine"><span class="h-lab">Piscine — filtration</span>
+        <label class="switch"><input type="checkbox" id="piscOn" checked> active</label>
+        <span class="rangebox">de <input type="number" id="piscDeb" value="9" min="0" max="23" step="1"> h à <input type="number" id="piscFin" value="16" min="0" max="23" step="1"> h</span></div>
+      <div class="h-row need-ceElec"><span class="h-lab">Chauffe-eau électrique</span>
+        <label class="switch"><input type="checkbox" id="ceOn" checked> active</label>
+        <span class="rangebox">de <input type="number" id="ceDeb" value="10" min="0" max="23" step="1"> h à <input type="number" id="ceFin" value="14" min="0" max="23" step="1"> h</span></div>
+      <div class="h-row need-ve"><span class="h-lab">Véhicule électrique — recharge</span>
+        <label class="switch"><input type="checkbox" id="veOn" checked> active</label>
+        <span class="rangebox">de <input type="number" id="veDeb" value="22" min="0" max="23" step="1"> h à <input type="number" id="veFin" value="6" min="0" max="23" step="1"> h</span></div>
+      <p class="note" id="note_aucunHoraire">Cochez un équipement ci-dessus pour régler ses horaires.</p>
+    </div>
+
+    <hr class="divider">
+    <div class="row"><label>Consommation annuelle retenue</label><span class="result big" id="out_consoAn">-</span></div>
+    <div class="row advanced-only"><label>Prix du kWh acheté au réseau</label><input type="number" id="prixKwh" value="0.22" step="0.005"><span class="unit">€</span></div>
+    <div class="row advanced-only"><label>Abonnement annuel (part fixe)</label><input type="number" id="abonnement" value="130" step="10"><span class="unit">€</span></div>
+    <div class="row advanced-only"><label>Forcer la consommation annuelle</label><input type="number" id="consoManuel" value="0" step="100"><span class="unit">kWh</span></div>
+    <p class="note simple-only" id="note_conso">-</p>
   </div>
 
-  <div class="card">
-    <h2>🔌 Production et usage</h2>
-    <p class="seg-label">Régime de vente</p>
-    <div class="seg-group compact" id="grp_regime">
+  <!-- ÉTAPE 2 — INSTALLATION -->
+  <div class="card needs-conso">
+    <h2><span class="step">2</span> Votre installation</h2>
+    <p class="seg-label">Choisissez la puissance</p>
+    <div class="choices" id="choices"></div>
+
+    <div class="row tight" style="margin-top:14px;"><label>Puissance retenue</label>
+      <input type="range" id="puissanceRange" min="1" max="100" step="0.5" value="6">
+      <input type="number" id="puissance" value="6" step="0.5" style="width:72px;"><span class="unit">kWc</span>
+    </div>
+    <div class="row"><label class="muted" style="font-size:12px;">Soit</label><span class="result muted" id="out_nbPanneaux">-</span></div>
+    <div class="row advanced-only"><label>Prix installé (pose comprise)</label><input type="number" id="prixKwc" value="2700" step="50"><span class="unit">€/kWc</span></div>
+
+    <p class="seg-label" style="margin-top:14px;">Souhaitez-vous une batterie de stockage&nbsp;?</p>
+    <div class="seg-group compact" id="grp_batt">
+      <button type="button" class="seg-btn" data-value="non">Sans batterie</button>
+      <button type="button" class="seg-btn" data-value="oui">Avec batterie</button>
+    </div>
+    <div class="batt-only">
+      <div class="row tight"><label>Capacité</label>
+        <input type="range" id="battKwhRange" min="2.5" max="20" step="2.5" value="5">
+        <input type="number" id="battKwh" value="5" step="2.5" style="width:64px;"><span class="unit">kWh</span>
+      </div>
+      <div class="row"><label>Coût de la batterie</label><input type="number" id="battCout" value="3900" step="100"><span class="unit">€</span></div>
+      <p class="note">La batterie stocke le surplus produit en journée pour le restituer le soir. Elle n'ouvre pas droit à la prime ZNI, calculée sur la seule puissance photovoltaïque.</p>
+    </div>
+
+    <hr class="divider">
+    <div class="row"><label>Coût total de l'installation</label><input type="number" id="coutTotal" value="16200" step="100"><span class="unit">€</span></div>
+    <p class="note" id="note_prix">Le coût est recalculé automatiquement quand vous changez la puissance ou la batterie. Saisissez le montant de votre devis pour l'écraser.</p>
+  </div>
+
+  <!-- ÉTAPE 3 — PRIME ZNI (visible aussi en mode simple) -->
+  <div class="card needs-conso">
+    <h2><span class="step">3</span> Prime ZNI et reste à charge</h2>
+    <div class="row advanced-only"><label>Régime de vente</label></div>
+    <div class="seg-group compact advanced-only" id="grp_regime">
       <button type="button" class="seg-btn" data-value="surplus">Autoconsommation + surplus</button>
       <button type="button" class="seg-btn" data-value="totale">Vente totale</button>
     </div>
-    <div class="row advanced-only"><label>Productivité (ensoleillement)</label><input type="number" id="prod" value="1400" step="25"><span class="unit">kWh/kWc</span></div>
-    <div class="row tight surplus-only"><label>Taux d'autoconsommation</label>
-      <input type="range" id="tauxACRange" min="10" max="100" step="5" value="40">
-      <input type="number" id="tauxAC" value="40" step="5" style="width:64px;"><span class="unit">%</span>
-    </div>
-    <div class="row surplus-only"><label>Prix du kWh acheté au réseau</label><input type="number" id="prixKwh" value="0.22" step="0.005"><span class="unit">€</span></div>
-    <div class="row surplus-only advanced-only"><label>Tarif de rachat du surplus</label><input type="number" id="tarifSurplus" value="0.179" step="0.001"><span class="unit">€/kWh</span></div>
-    <div class="row totale-only advanced-only"><label>Tarif de vente totale</label><input type="number" id="tarifTotale" value="0.252" step="0.001"><span class="unit">€/kWh</span></div>
-    <div class="row"><label class="muted" style="font-size:12px;">Production estimée année 1</label><span class="result muted" id="out_prodAn1">-</span></div>
-    <div class="row surplus-only"><label class="muted" style="font-size:12px;">Dont autoconsommée / revendue</label><span class="result muted" id="out_repartition">-</span></div>
-    <div class="warn totale-only">En <strong>vente totale</strong>, l'installation n'ouvre pas droit à la prime à l'investissement ZNI : celle-ci est réservée à l'autoconsommation avec vente du surplus.</div>
-    <p class="note advanced-only">Taux d'autoconsommation usuels : 30–40&nbsp;% sans pilotage, 50–60&nbsp;% avec chauffe-eau ou climatisation pilotés en journée, 70&nbsp;%+ avec batterie.</p>
-  </div>
-
-  <div class="card">
-    <h2>🎁 Prime ZNI et aides</h2>
     <div class="row"><label>Prime à l'investissement (barème)</label><span class="result" id="out_primeUnit">-</span></div>
     <div class="row advanced-only"><label>Forcer le barème de prime</label><input type="number" id="primeUnitManuel" value="0" step="10"><span class="unit">€/kWc</span></div>
     <div class="row"><label>Prime totale attendue</label><span class="result big" id="out_prime">-</span></div>
@@ -268,12 +407,19 @@
     <div class="row"><label>Autres aides (collectivité, FEDER…)</label><input type="number" id="aideLocale" value="0" step="100"><span class="unit">€</span></div>
     <hr class="divider">
     <div class="row"><label>Reste à charge après prime et aides</label><span class="result big" id="out_coutNet">-</span></div>
-    <div class="info" id="info_prime">La prime ZNI est versée <strong>en une fois, plusieurs mois après la mise en service</strong> (12 à 18 mois selon les territoires et les délais de traitement ; 18 mois par défaut ici), sur justification de la production de la première année. Elle doit donc être avancée par le porteur du projet.</div>
+    <div class="info" id="info_prime">La prime ZNI est versée <strong>en une fois, plusieurs mois après la mise en service</strong> (12 à 18 mois selon les territoires ; 18 mois par défaut ici), sur justification de la production de la première année. Elle doit donc être avancée par le porteur du projet.</div>
+    <div class="warn totale-only">En <strong>vente totale</strong>, l'installation n'ouvre pas droit à la prime à l'investissement ZNI : celle-ci est réservée à l'autoconsommation avec vente du surplus.</div>
     <p class="note advanced-only" id="note_bareme">-</p>
   </div>
 
-  <div class="card">
-    <h2>🏦 Financement</h2>
+  <!-- ÉTAPE 4 — FINANCEMENT -->
+  <div class="card needs-conso">
+    <h2><span class="step">4</span> Financement</h2>
+    <p class="seg-label">Qui investit&nbsp;?</p>
+    <div class="seg-group compact" id="grp_profil">
+      <button type="button" class="seg-btn" data-value="part">Particulier</button>
+      <button type="button" class="seg-btn" data-value="pro">Professionnel</button>
+    </div>
     <p class="seg-label">Comment finance-t-on l'installation&nbsp;?</p>
     <div class="seg-group compact" id="grp_fin">
       <button type="button" class="seg-btn" data-value="comptant">Comptant</button>
@@ -289,21 +435,33 @@
     <div class="row credit-only advanced-only"><label>Frais de dossier</label><input type="number" id="fraisDossier" value="0" step="50"><span class="unit">€</span></div>
     <div class="row credit-only"><label>Mensualité du prêt</label><span class="result" id="out_mensualite">-</span></div>
 
-    <p class="seg-label" style="margin-top:14px;">Prêt relais pour avancer la prime ZNI</p>
-    <div class="seg-group compact" id="grp_relais">
-      <button type="button" class="seg-btn" data-value="non">Sans prêt relais</button>
-      <button type="button" class="seg-btn" data-value="oui">Avec prêt relais</button>
+    <div class="advanced-only">
+      <p class="seg-label" style="margin-top:14px;">Prêt relais pour avancer la prime ZNI</p>
+      <div class="seg-group compact" id="grp_relais">
+        <button type="button" class="seg-btn" data-value="non">Sans prêt relais</button>
+        <button type="button" class="seg-btn" data-value="oui">Avec prêt relais</button>
+      </div>
+      <div class="row relais-only"><label>Montant avancé</label><input type="number" id="relaisMontant" value="0" step="100"><span class="unit">€</span></div>
+      <div class="row relais-only"><label>Taux du prêt conso</label><input type="number" id="relaisTaux" value="5.90" step="0.05"><span class="unit">%</span></div>
+      <div class="row relais-only"><label>Frais de dossier</label><input type="number" id="relaisFrais" value="0" step="25"><span class="unit">€</span></div>
+      <div class="row relais-only"><label>Marge de sécurité après la prime</label><input type="number" id="relaisMarge" value="1" step="1" style="width:64px;"><span class="unit">mois</span></div>
+      <div class="row relais-only"><label>Coût total de l'avance</label><span class="result" id="out_coutRelais">-</span></div>
+      <p class="note relais-only">Prêt <em>in fine</em> : seuls les intérêts courent jusqu'au versement de la prime, qui rembourse le capital par anticipation. Vérifiez auprès de la banque l'absence d'indemnité de remboursement anticipé.</p>
     </div>
-    <div class="row relais-only"><label>Montant avancé</label><input type="number" id="relaisMontant" value="0" step="100"><span class="unit">€</span></div>
-    <div class="row relais-only"><label>Taux du prêt conso</label><input type="number" id="relaisTaux" value="5.90" step="0.05"><span class="unit">%</span></div>
-    <div class="row relais-only advanced-only"><label>Frais de dossier</label><input type="number" id="relaisFrais" value="0" step="25"><span class="unit">€</span></div>
-    <div class="row relais-only advanced-only"><label>Marge de sécurité après la prime</label><input type="number" id="relaisMarge" value="1" step="1" style="width:64px;"><span class="unit">mois</span></div>
-    <div class="row relais-only"><label>Coût total de l'avance</label><span class="result" id="out_coutRelais">-</span></div>
-    <p class="note relais-only">Prêt <em>in fine</em> : seuls les intérêts courent jusqu'au versement de la prime, qui rembourse le capital par anticipation. Vérifiez auprès de la banque l'absence d'indemnité de remboursement anticipé.</p>
+    <p class="note simple-only">Le prêt relais qui permet d'avancer la prime ZNI, ainsi que le volet fiscal professionnel, sont disponibles en mode avancé.</p>
   </div>
 
-  <div class="card advanced-only">
+  <!-- HYPOTHÈSES -->
+  <div class="card advanced-only needs-conso">
     <h2>⚙️ Hypothèses de projection</h2>
+    <div class="row"><label>Productivité (ensoleillement)</label><input type="number" id="prod" value="1400" step="25"><span class="unit">kWh/kWc</span></div>
+    <div class="row"><label>Tarif de rachat du surplus</label><input type="number" id="tarifSurplus" value="0.179" step="0.001"><span class="unit">€/kWh</span></div>
+    <div class="row totale-only"><label>Tarif de vente totale</label><input type="number" id="tarifTotale" value="0.252" step="0.001"><span class="unit">€/kWh</span></div>
+    <div class="row tight"><label>Forcer le taux d'autoconsommation</label>
+      <input type="range" id="tauxACRange" min="0" max="100" step="5" value="0">
+      <input type="number" id="tauxAC" value="0" step="5" style="width:64px;"><span class="unit">%</span>
+    </div>
+    <p class="note" style="margin-top:-4px;">0&nbsp;= calculé automatiquement à partir de votre profil horaire de consommation.</p>
     <div class="row"><label>Durée d'analyse</label><input type="number" id="dureeAnalyse" value="25" step="1" style="width:64px;"><span class="unit">ans</span></div>
     <div class="row"><label>Dégradation des panneaux</label><input type="number" id="degrad" value="0.5" step="0.05"><span class="unit">%/an</span></div>
     <div class="row"><label>Inflation du prix de l'électricité</label><input type="number" id="inflElec" value="3" step="0.5"><span class="unit">%/an</span></div>
@@ -312,6 +470,7 @@
     <div class="row"><label>Maintenance et assurance</label><input type="number" id="maintenance" value="120" step="20"><span class="unit">€/an</span></div>
     <div class="row"><label>Remplacement onduleur</label><input type="number" id="ondCout" value="1500" step="100"><span class="unit">€</span></div>
     <div class="row"><label>… à l'année</label><input type="number" id="ondAnnee" value="13" step="1" style="width:64px;"><span class="unit">n°</span></div>
+    <div class="row batt-only"><label>Remplacement de la batterie à l'année</label><input type="number" id="battAnnee" value="15" step="1" style="width:64px;"><span class="unit">n°</span></div>
     <div class="row"><label>Taux d'actualisation (VAN)</label><input type="number" id="tauxActu" value="3" step="0.5"><span class="unit">%</span></div>
     <div class="section-title pro-only">Volet professionnel</div>
     <div class="row pro-only"><label>Taux d'impôt sur les sociétés</label><input type="number" id="tauxIS" value="25" step="0.5"><span class="unit">%</span></div>
@@ -321,44 +480,93 @@
 
 </div>
 
-<div class="warn pro-only" style="margin-top:-8px;">
-  <strong>Défiscalisation outre-mer :</strong> les installations de production d'électricité photovoltaïque sont <strong>exclues</strong> de la réduction d'impôt Girardin industriel (art. 199 undecies B du CGI) et des dispositifs qui s'y rattachent (art. 217 undecies, crédit d'impôt art. 244 quater W) depuis le 29 septembre 2010. Aucun avantage Girardin ou CIOP n'est donc calculé ici : les leviers fiscaux d'un projet PV professionnel sont l'amortissement, la déduction des charges et, le cas échéant, les régimes de zone franche d'activité. Faites valider le montage par votre expert-comptable.
+<!-- ÉTAT VIDE -->
+<div class="empty" id="emptyState">
+  <div class="t">Renseignez votre facture d'électricité pour lancer la simulation</div>
+  <div class="d">C'est votre consommation actuelle qui détermine la puissance à installer, vos économies et la rentabilité du projet.</div>
 </div>
 
-<div class="kpis" id="kpis"></div>
+<div class="needs-conso">
 
-<div class="card" style="margin-top:16px;">
-  <h2>💶 Trésorerie de la première année</h2>
-  <p class="muted" style="margin-top:-6px; margin-bottom:12px;">C'est le point sensible d'un projet en ZNI : la prime arrive environ un an après la facture de l'installateur.</p>
-  <div class="tl" id="timeline"></div>
-  <div id="relaisVerdict"></div>
-</div>
-
-<div class="card" style="margin-top:16px;">
-  <h2>📈 Trésorerie cumulée du projet</h2>
-  <div class="chart-wrap">
-    <canvas id="chart" height="300"></canvas>
-    <div class="tip" id="tip"></div>
+  <div class="warn pro-only" style="margin-top:16px;">
+    <strong>Défiscalisation outre-mer :</strong> les installations de production d'électricité photovoltaïque sont <strong>exclues</strong> de la réduction d'impôt Girardin industriel (art. 199 undecies B du CGI) et des dispositifs qui s'y rattachent (art. 217 undecies, crédit d'impôt art. 244 quater W) depuis le 29 septembre 2010. Aucun avantage Girardin ou CIOP n'est donc calculé ici : les leviers fiscaux d'un projet PV professionnel sont l'amortissement, la déduction des charges et, le cas échéant, les régimes de zone franche d'activité. Faites valider le montage par votre expert-comptable.
   </div>
-  <div class="chart-legend">
-    <span><i class="swatch" style="background:#b91c1c;"></i> Trésorerie cumulée négative (investissement non encore récupéré)</span>
-    <span><i class="swatch" style="background:#166534;"></i> Trésorerie cumulée positive (gain net)</span>
-  </div>
-  <p class="note">En abscisse, les années à partir de la mise en service (0 = investissement initial). Cumul de tous les flux réels : apport initial, mensualités de prêt, prime, économies d'électricité, revente du surplus, maintenance et remplacement d'onduleur.</p>
-</div>
 
-<div class="card advanced-only" style="margin-top:16px;">
-  <h2>📊 Projection année par année</h2>
-  <div class="table-wrap">
-    <table id="projTable">
-      <thead><tr id="projHead"></tr></thead>
-      <tbody id="projBody"></tbody>
-    </table>
+  <!-- RÉSULTAT PRINCIPAL -->
+  <div class="hero" style="margin-top:16px;">
+    <div class="l">Économies annuelles estimées</div>
+    <div class="v"><span id="out_eco">-</span><span class="pill" id="out_ecoPct"></span></div>
+    <div class="compare">
+      <div class="cmp">
+        <div class="t">☀️ Avant le solaire</div>
+        <div class="a" id="out_avant">-</div>
+        <div class="bar-track"><div class="bar-fill" id="bar_avant" style="width:100%"></div></div>
+      </div>
+      <div class="cmp after">
+        <div class="t">⚡ Après le solaire <span class="muted" style="font-size:11px;">revente déduite</span></div>
+        <div class="a" id="out_apres">-</div>
+        <div class="t" id="out_apresSub" style="margin-top:4px;"></div>
+        <div class="bar-track"><div class="bar-fill" id="bar_apres" style="width:0%"></div></div>
+      </div>
+    </div>
+    <div class="muted" id="out_revente" style="margin-top:12px;"></div>
+    <div class="info" id="info_eco">-</div>
+    <p class="note">Estimation basée sur une simulation horaire moyenne. Les économies réelles seront déterminées après une étude de votre toiture et de votre courbe de charge.</p>
   </div>
-  <p class="note scroll-hint">↔ Faites glisser le tableau horizontalement pour voir toutes les colonnes.</p>
-</div>
 
-<p class="note" id="sources">-</p>
+  <div class="kpis" id="kpis"></div>
+
+  <!-- JOURNÉE TYPE -->
+  <div class="card" style="margin-top:16px;">
+    <h2>🌤️ Une journée type : ce que vous produisez, ce que vous consommez</h2>
+    <div class="chart-wrap">
+      <canvas id="chartJour" height="280"></canvas>
+      <div class="tip" id="tipJour"></div>
+    </div>
+    <div class="chart-legend">
+      <span><i class="swatch" style="background:#facc15;"></i> Production solaire</span>
+      <span><i class="swatch" style="background:#111827;"></i> Votre consommation</span>
+      <span><i class="swatch" style="background:#86efac;"></i> Production directement consommée</span>
+      <span class="batt-only"><i class="swatch" style="background:#60a5fa;"></i> Stockée puis restituée par la batterie</span>
+    </div>
+    <p class="note" id="note_jour">-</p>
+  </div>
+
+  <!-- TRÉSORERIE 1RE ANNÉE -->
+  <div class="card" style="margin-top:16px;">
+    <h2>💶 Trésorerie de la première année</h2>
+    <p class="muted" style="margin-top:-6px; margin-bottom:12px;">C'est le point sensible d'un projet en ZNI : la prime arrive environ un an après la facture de l'installateur.</p>
+    <div class="tl" id="timeline"></div>
+    <div id="relaisVerdict"></div>
+  </div>
+
+  <!-- RENTABILITÉ -->
+  <div class="card" style="margin-top:16px;">
+    <h2>📈 Rentabilité : trésorerie cumulée du projet</h2>
+    <div class="chart-wrap">
+      <canvas id="chart" height="300"></canvas>
+      <div class="tip" id="tip"></div>
+    </div>
+    <div class="chart-legend">
+      <span><i class="swatch" style="background:#b91c1c;"></i> Trésorerie cumulée négative (investissement non encore récupéré)</span>
+      <span><i class="swatch" style="background:#166534;"></i> Trésorerie cumulée positive (gain net)</span>
+    </div>
+    <p class="note">En abscisse, les années à partir de la mise en service (0 = investissement initial). Cumul de tous les flux réels : apport initial, mensualités de prêt, prime, économies d'électricité, revente du surplus, maintenance et remplacements de matériel.</p>
+  </div>
+
+  <div class="card" style="margin-top:16px;">
+    <h2>📊 Projection année par année</h2>
+    <div class="table-wrap">
+      <table id="projTable">
+        <thead><tr id="projHead"></tr></thead>
+        <tbody id="projBody"></tbody>
+      </table>
+    </div>
+    <p class="note scroll-hint">↔ Faites glisser le tableau horizontalement pour voir toutes les colonnes.</p>
+  </div>
+
+  <p class="note" id="sources">-</p>
+</div>
 
 <footer>Simulateur indicatif — les barèmes de prime et tarifs d'achat ZNI sont révisés chaque trimestre par la CRE. Ne remplace pas un devis d'installateur RGE QualiPV ni une étude de financement personnalisée.</footer>
 </div>
@@ -389,15 +597,135 @@ const TERR = {
 };
 const PRIX_KWC = [2900, 2700, 2100, 1700];
 const TRANCHE_LABEL = ["≤ 3 kWc", "3 à 9 kWc", "9 à 36 kWc", "36 à 100 kWc"];
+const PALIERS = [3, 4.5, 6, 7.5, 9, 12, 15, 20, 24, 30, 36, 50, 75, 100];
+const CHOIX = [3, 6, 9];   /* les trois puissances proposées d'office */
+/* Puissance visée : celle qui couvre au plus près 100 % des besoins annuels */
+function puissanceCible(consoAn, prodUnit){
+  return consoAn / Math.max(1, prodUnit);
+}
 
 function trancheIdx(P){ return P<=3 ? 0 : P<=9 ? 1 : P<=36 ? 2 : 3; }
+function prixKwcDe(P){ return PRIX_KWC[trancheIdx(P)]; }
 
-/* --- état des groupes segmentés --- */
-const seg = {mode:'simple', profil:'part', regime:'surplus', fin:'comptant', relais:'non'};
-let coutManuel = false, empruntManuel = false, relaisManuel = false, prixManuel = false;
+/* --- état --- */
+const seg = {mode:'simple', saisie:'facture', periode:'mois', profil:'part',
+             regime:'surplus', fin:'comptant', relais:'non', batt:'non'};
+const equip = {clim:false, ceElec:false, ceSolaire:false, piscine:false, ve:false, seche:false, jour:false};
+let coutManuel = false, empruntManuel = false, relaisManuel = false, prixManuel = false, puissanceManuel = false;
 let lastRows = [];
 
-/* --- applique les valeurs par défaut du territoire --- */
+/* ---------------------------------------------------------------
+   Profils horaires
+   --------------------------------------------------------------- */
+const P_BASE   = [30,28,26,26,28,32,45,50,42,35,33,34,40,38,33,33,35,42,55,68,65,55,45,35];
+const P_SECHE  = [0,0,0,0,0,0,5,15,20,15,15,15,10,10,15,20,30,45,60,55,40,20,5,0];
+const P_JOUR   = [0,0,0,0,0,5,20,30,45,55,60,60,55,55,60,60,55,45,30,20,10,5,0,0];
+
+/* Plage horaire → profil 24 h (gère le passage de minuit) */
+function plage(deb, fin){
+  const v = new Array(24).fill(0);
+  const d = ((Math.round(deb)%24)+24)%24, f = ((Math.round(fin)%24)+24)%24;
+  if (d === f) return v.map(() => 1);
+  let h = d;
+  for (let k=0; k<24; k++){ v[h] = 1; h = (h+1)%24; if (h === f) break; }
+  return v;
+}
+function plageId(idDeb, idFin, defDeb, defFin, idOn){
+  if (idOn && $(idOn) && !$(idOn).checked) return new Array(24).fill(0);
+  const a = $(idDeb) ? parseFloat($(idDeb).value) : defDeb;
+  const b = $(idFin) ? parseFloat($(idFin).value) : defFin;
+  return plage(isNaN(a)?defDeb:a, isNaN(b)?defFin:b);
+}
+/* Profil climatisation : deux plages activables indépendamment (nuit / journée) */
+function profilClim(){
+  const nuit = plageId('climNuitDeb','climNuitFin',20,6,'climNuitOn');
+  const jour = plageId('climJourDeb','climJourFin',10,17,'climJourOn');
+  const v = new Array(24).fill(0);
+  for (let h=0; h<24; h++) v[h] = nuit[h] + jour[h]*0.85;
+  return v;
+}
+/* Poids relatif de chaque usage dans le mix de consommation */
+function listeEquipements(){
+  return [
+    {k:'clim',    p:profilClim(),                            w:0.95},
+    {k:'ceElec',  p:plageId('ceDeb','ceFin',10,14,'ceOn'),   w:0.45},
+    {k:'piscine', p:plageId('piscDeb','piscFin',9,16,'piscOn'), w:0.40},
+    {k:'ve',      p:plageId('veDeb','veFin',22,6,'veOn'),    w:0.70},
+    {k:'seche',   p:P_SECHE,                                 w:0.15},
+    {k:'jour',    p:P_JOUR,                                  w:0.30}
+  ];
+}
+
+function normalise(v){
+  const s = v.reduce((a,b)=>a+b,0) || 1;
+  return v.map(x => x/s);
+}
+function profilConso(){
+  let v = P_BASE.slice();
+  const base = v.reduce((a,b)=>a+b,0);
+  listeEquipements().forEach(e => {
+    if (!equip[e.k]) return;
+    const s = e.p.reduce((a,b)=>a+b,0) || 1;
+    for (let h=0; h<24; h++) v[h] += e.p[h]/s * base * e.w;
+  });
+  return normalise(v.map(x => Math.max(0,x)));
+}
+function profilPV(){
+  const v = [];
+  for (let h=0; h<24; h++){
+    const x = (h + 0.5 - 6) / 12;
+    v.push(x > 0 && x < 1 ? Math.pow(Math.sin(Math.PI*x), 1.35) : 0);
+  }
+  return normalise(v);
+}
+
+/* Simulation d'une journée moyenne, batterie comprise */
+function simuleJour(consoAn, prodAn, battKwh){
+  const pc = profilConso(), pp = profilPV();
+  const cj = consoAn/365, pj = prodAn/365;
+  const cons = pc.map(x => x*cj), prod = pp.map(x => x*pj);
+  const direct = [], charge = [], decharge = [];
+  const cap = battKwh * 0.9;            /* profondeur de décharge utile */
+  const rend = Math.sqrt(0.90);         /* rendement aller-retour 90 % */
+  let soc = 0, autoDirect = 0, viaBatt = 0;
+  for (let pass=0; pass<3; pass++){     /* convergence de l'état de charge */
+    autoDirect = 0; viaBatt = 0;
+    for (let h=0; h<24; h++){
+      const d = Math.min(cons[h], prod[h]);
+      let surplus = prod[h] - d, deficit = cons[h] - d, ch = 0, de = 0;
+      if (cap > 0){
+        if (surplus > 0){ ch = Math.min(surplus, (cap - soc)/rend); soc += ch*rend; surplus -= ch; }
+        if (deficit > 0){ de = Math.min(deficit, soc*rend); soc -= de/rend; deficit -= de; }
+      }
+      if (pass === 2){
+        direct[h] = d; charge[h] = ch; decharge[h] = de;
+        autoDirect += d; viaBatt += de;
+      }
+    }
+  }
+  const auto = autoDirect + viaBatt;
+  return {
+    cons, prod, direct, charge, decharge,
+    tauxAC: prodAn > 0 ? auto*365/prodAn : 0,
+    partBatt: prodAn > 0 ? viaBatt*365/prodAn : 0,
+    couverture: consoAn > 0 ? auto*365/consoAn : 0
+  };
+}
+
+function consoEstimee(){
+  const s = num('surface'), o = Math.max(1, num('occupants'));
+  let c = 900 + s*9 + o*650;
+  if (equip.clim) c += 2200;
+  if (equip.ceElec) c += 1400;
+  if (equip.ceSolaire) c -= 300;
+  if (equip.piscine) c += 1800;
+  if (equip.ve) c += 2400;
+  if (equip.seche) c += 350;
+  if (equip.jour) c += 600;
+  return Math.max(600, Math.round(c/10)*10);
+}
+
+/* --- valeurs par défaut du territoire --- */
 function applyTerritoire(full){
   const t = TERR[$('terr').value];
   const i = trancheIdx(num('puissance'));
@@ -411,10 +739,9 @@ function applyTerritoire(full){
     + (i >= 2 ? " Au-delà de 9 kWc, barèmes et tarifs d'achat varient fortement selon la puissance et la date de demande de raccordement : faites-les confirmer par EDF SEI avant de vous appuyer sur cette simulation." : "");
 }
 
+function coutBatterie(){ return seg.batt === 'oui' ? num('battCout') : 0; }
 function autoCout(){
-  const P = num('puissance');
-  const prix = num('prixKwc');
-  $('coutTotal').value = Math.round(P * prix / 10) * 10;
+  $('coutTotal').value = Math.round((num('puissance') * num('prixKwc') + coutBatterie()) / 10) * 10;
 }
 
 function calcMensualite(capital, tauxAnnuel, dureeAns){
@@ -439,16 +766,87 @@ function tri(flux){
   return (lo+hi)/2;
 }
 
+/* --- consommation annuelle retenue --- */
+function consoAnnuelle(){
+  const force = num('consoManuel');
+  if (force > 0) return force;
+  if (seg.saisie === 'estim') return consoEstimee();
+  const f = num('facture');
+  if (f <= 0) return 0;
+  const factureAn = seg.periode === 'mois' ? f*12 : f;
+  return Math.max(0, factureAn - num('abonnement')) / Math.max(0.05, num('prixKwh'));
+}
+
+/* --- cartes de choix de puissance --- */
+function renderChoices(consoAn, prodUnit){
+  const box = $('choices');
+  if (consoAn <= 0){ box.innerHTML = ''; return; }
+  const cible = puissanceCible(consoAn, prodUnit);
+  const reco = CHOIX.reduce((a,b) => Math.abs(b-cible) < Math.abs(a-cible) ? b : a);
+  const Pcur = num('puissance');
+  box.innerHTML = CHOIX.map((p,i) => {
+    const cout = Math.round((p * prixKwcDe(p) + coutBatterie())/100)*100;
+    const cov = Math.min(999, Math.round(p*prodUnit/consoAn*100));
+    return '<button type="button" class="choice' + (Math.abs(p-Pcur) < 0.01 ? ' on' : '') + '" data-p="' + p + '">'
+      + (p === reco ? '<span class="tag">Recommandé</span>' : '')
+      + '<div class="p">Choix ' + (i+1) + ' · ' + nb(p,1) + ' kWc</div>'
+      + '<div class="s">≈ ' + nb(p*prodUnit) + ' kWh/an · ' + cov + ' % de vos besoins</div>'
+      + '<div class="pr"><small>à partir de</small>' + eur(cout) + '</div></button>';
+  }).join('');
+  box.querySelectorAll('.choice').forEach(b => b.addEventListener('click', () => {
+    $('puissance').value = b.dataset.p;
+    $('puissanceRange').value = b.dataset.p;
+    puissanceManuel = true; coutManuel = false; empruntManuel = false; relaisManuel = false;
+    applyTerritoire(); compute();
+  }));
+}
+
+/* ---------------------------------------------------------------
+   Calcul principal
+   --------------------------------------------------------------- */
 function compute(){
   const t = TERR[$('terr').value];
-  const P = Math.max(0.5, num('puissance'));
-  const idx = trancheIdx(P);
   const pro = seg.profil === 'pro';
   const venteTotale = seg.regime === 'totale';
+  const prixKwh = num('prixKwh');
+  const prodUnit = num('prod');
+
+  /* --- consommation --- */
+  const consoAn = consoAnnuelle();
+  const abo = num('abonnement');
+  const factureAn = consoAn * prixKwh + abo;
+  $('out_consoEstim').textContent = nb(consoEstimee()) + " kWh/an";
+  document.body.classList.toggle('has-conso', consoAn > 0);
+  if (consoAn <= 0){ $('out_consoAn').textContent = "-"; $('choices').innerHTML=''; return; }
+  $('out_consoAn').textContent = nb(consoAn) + " kWh/an · " + eur(factureAn) + "/an";
+  const climJ = $('climJourOn').checked, climN = $('climNuitOn').checked;
+  $('note_equip').textContent = equip.clim
+    ? (climJ
+        ? "Climatisation comptée " + (climN ? "la nuit et en journée" : "en journée uniquement") + " : c'est le principal levier d'autoconsommation. Les plages sont réglables en mode avancé."
+        : "Climatisation comptée la nuit uniquement — elle consomme quand les panneaux ne produisent pas. Cochez « Présence en journée » si elle tourne aussi l'après-midi.")
+    : "Ces équipements décalent votre consommation dans la journée et changent fortement la rentabilité du projet.";
+  $('note_conso').textContent = "Soit environ " + eur(factureAn/12) + " par mois et "
+    + nb(consoAn/365) + " kWh par jour, au prix de " + nb(prixKwh*100,1) + " c€/kWh.";
+
+  /* --- puissance proposée --- */
+  if (!puissanceManuel){
+    const cible = puissanceCible(consoAn, prodUnit);
+    let bestP;
+    if (pro){
+      bestP = PALIERS.reduce((a,b) => Math.abs(b-cible) < Math.abs(a-cible) ? b : a);
+    } else {
+      bestP = CHOIX.reduce((a,b) => Math.abs(b-cible) < Math.abs(a-cible) ? b : a);
+    }
+    $('puissance').value = bestP; $('puissanceRange').value = bestP;
+    applyTerritoire();
+  }
+  const P = Math.max(0.5, num('puissance'));
+  const idx = trancheIdx(P);
+  renderChoices(consoAn, prodUnit);
 
   if (!coutManuel) autoCout();
   const coutTotal = num('coutTotal');
-  $('out_nbPanneaux').textContent = Math.ceil(P*1000/500) + " panneaux (≈ " + nb(P*5.5,0) + " m²)";
+  $('out_nbPanneaux').textContent = Math.ceil(P*1000/500) + " panneaux (≈ " + nb(P*5.5,0) + " m² de toiture)";
 
   /* --- Prime --- */
   const primeManuel = num('primeUnitManuel');
@@ -457,24 +855,62 @@ function compute(){
   const aide = num('aideLocale');
   const moisPrime = Math.max(0, Math.round(num('moisPrime')));
   const coutNet = coutTotal - prime - aide;
-
   $('out_primeUnit').textContent = venteTotale ? "Non applicable (vente totale)" : nb(primeUnit) + " €/kWc · " + TRANCHE_LABEL[idx];
   $('out_prime').textContent = eur(prime);
   $('out_coutNet').textContent = eur(coutNet);
 
-  /* --- Production --- */
-  const prod1 = P * num('prod');
-  const tauxAC = venteTotale ? 0 : Math.min(1, Math.max(0, num('tauxAC')/100));
+  /* --- Production et autoconsommation --- */
+  const prod1 = P * prodUnit;
+  const battKwh = seg.batt === 'oui' ? num('battKwh') : 0;
+  const jour = simuleJour(consoAn, prod1, battKwh);
+  const forceAC = num('tauxAC')/100;
+  const tauxAC = venteTotale ? 0 : (forceAC > 0 ? Math.min(1, forceAC) : jour.tauxAC);
+
   const degrad = num('degrad')/100;
   const inflElec = num('inflElec')/100;
   const indexTarif = num('indexTarif')/100;
   const dureeContrat = Math.max(1, Math.round(num('dureeContrat')));
-  const prixKwh = num('prixKwh');
   const tarifVente = venteTotale ? num('tarifTotale') : num('tarifSurplus');
   const N = Math.max(5, Math.min(40, Math.round(num('dureeAnalyse'))));
 
-  $('out_prodAn1').textContent = nb(prod1) + " kWh";
-  $('out_repartition').textContent = nb(prod1*tauxAC) + " kWh / " + nb(prod1*(1-tauxAC)) + " kWh";
+  const autoconso1 = prod1 * tauxAC;
+  const vendu1 = prod1 - autoconso1;
+  const economie1 = autoconso1 * prixKwh;
+  const revente1 = vendu1 * tarifVente;
+  const gainAn1 = economie1 + revente1;
+  /* Facture d'électricité qui reste à payer, avant de déduire la revente */
+  const resteFacture = venteTotale ? factureAn : Math.max(abo, abo + (consoAn - autoconso1) * prixKwh);
+  /* Solde net réellement déboursé une fois la revente encaissée : peut devenir un revenu */
+  const soldeNet = resteFacture - revente1;
+  const apresAffiche = Math.max(0, soldeNet);
+  const revenuNet = Math.max(0, -soldeNet);
+  const economieAffichee = Math.min(gainAn1, factureAn);
+
+  /* --- Bloc économies --- */
+  $('out_eco').textContent = eur(economieAffichee) + " /an";
+  $('out_ecoPct').textContent = factureAn > 0
+    ? "↘ " + nb(Math.min(100, economieAffichee/factureAn*100)) + " %" : "";
+  $('out_avant').textContent = eur(factureAn) + " /an";
+  $('out_apres').textContent = eur(apresAffiche) + " /an";
+  $('out_apresSub').innerHTML = revenuNet > 0
+    ? '<span style="color:#166534; font-weight:700;">+ ' + eur(revenuNet) + ' /an de revenus de revente</span>'
+    : (revente1 > 0 ? 'dont ' + eur(revente1) + '/an de revente déjà déduits' : '');
+  const maxBar = Math.max(factureAn, 1);
+  $('bar_avant').style.width = "100%";
+  $('bar_apres').style.width = Math.max(2, Math.min(100, apresAffiche/maxBar*100)) + "%";
+  $('out_revente').innerHTML = venteTotale
+    ? "Revenu de vente estimé : <strong>" + eur(revente1) + "/an</strong>."
+    : "Détail : facture restante <strong>" + eur(resteFacture) + "/an</strong> − revente du surplus à EDF <strong>"
+      + eur(revente1) + "/an</strong> = <strong>" + (revenuNet > 0
+        ? "un revenu net de " + eur(revenuNet) + "/an"
+        : eur(apresAffiche) + "/an à payer") + "</strong>."
+      + (revenuNet > 0
+        ? " Votre production couvre la totalité de votre facture : l'installation vous rapporte de l'argent chaque année, hors coût d'investissement."
+        : "");
+  $('info_eco').innerHTML = venteTotale
+    ? "En <strong>vente totale</strong>, toute la production est revendue à EDF : votre facture reste inchangée et le gain est un revenu de <strong>" + eur(revente1) + "</strong> la première année."
+    : "Vous consommez directement <strong>" + nb(autoconso1) + " kWh</strong> de votre production (soit " + nb(tauxAC*100) + " % de ce que produisent vos panneaux, et " + nb(Math.min(100, jour.couverture*100)) + " % de vos besoins), ce qui vous évite <strong>" + eur(economie1) + "</strong> d'achat d'électricité. Le surplus de " + nb(vendu1) + " kWh est revendu à EDF pour <strong>" + eur(revente1) + "</strong>."
+      + (battKwh > 0 ? " La batterie de " + nb(battKwh,1) + " kWh apporte à elle seule " + nb(jour.partBatt*100) + " points d'autoconsommation." : "");
 
   /* --- Financement --- */
   const credit = seg.fin === 'credit';
@@ -503,6 +939,8 @@ function compute(){
   const maintenance0 = num('maintenance');
   const ondCout = num('ondCout');
   const ondAnnee = Math.round(num('ondAnnee'));
+  const battAnnee = Math.round(num('battAnnee'));
+  const battRempl = battKwh > 0 ? coutBatterie()*0.7 : 0;
   const tauxIS = pro ? num('tauxIS')/100 : 0;
   const dureeAmort = Math.max(1, Math.round(num('dureeAmort')));
   const amortAnnuel = pro ? coutTotal / dureeAmort : 0;
@@ -523,6 +961,7 @@ function compute(){
     const revente = a <= dureeContrat ? vendu * tarifVente * Math.pow(1+indexTarif, a-1) : 0;
     let charges = maintenance0 * Math.pow(1+inflElec, a-1);
     if (a === ondAnnee) charges += ondCout;
+    if (battRempl > 0 && a === battAnnee) charges += battRempl;
 
     /* annuités du prêt principal */
     let interetsAn = 0, annuite = 0;
@@ -565,13 +1004,11 @@ function compute(){
   lastRows = rows;
 
   /* --- Indicateurs --- */
-  const gainAn1 = rows[0].economie + rows[0].revente;
   const gainCumule = rows[rows.length-1].cumul;
   const tauxActu = num('tauxActu')/100;
   const van = fluxProjet.reduce((s,v,k) => s + v/Math.pow(1+tauxActu, k), 0);
   const tirProjet = tri(fluxProjet);
 
-  /* temps de retour du projet (hors mode de financement) */
   let retour = null, cumProjet = fluxProjet[0], prevProjet = cumProjet;
   for (let k=1; k<fluxProjet.length; k++){
     prevProjet = cumProjet;
@@ -581,7 +1018,6 @@ function compute(){
       break;
     }
   }
-  /* année où la trésorerie réelle (financement compris) devient positive */
   let retourTreso = null, prev = -apportInitial;
   for (const r of rows){
     if (prev < 0 && r.cumul >= 0){ retourTreso = r.a; break; }
@@ -591,19 +1027,26 @@ function compute(){
 
   const tresoDepart = apportInitial;
   $('kpis').innerHTML =
-    '<div class="kpi highlight"><div class="v">' + eur(coutNet) + '</div><div class="l">Reste à charge après prime et aides</div></div>' +
-    '<div class="kpi highlight"><div class="v">' + eur(tresoDepart) + '</div><div class="l">Trésorerie à sortir au départ</div></div>' +
-    '<div class="kpi"><div class="v">' + eur(gainAn1) + '</div><div class="l">Économie + revente, année 1</div></div>' +
-    '<div class="kpi"><div class="v">' + (retour === null ? '> ' + N + ' ans' : nb(retour,1) + ' ans') + '</div><div class="l">Retour sur investissement (hors financement)</div></div>' +
+    '<div class="kpi highlight"><div class="v">' + eur(gainAn1) + '</div><div class="l">Gain total année 1 (économies + revente)</div></div>' +
+    '<div class="kpi highlight credit-only"><div class="v ' + ((rows[0].annuite - gainAn1) <= 0 ? 'pos' : 'neg') + '">'
+      + ((rows[0].annuite - gainAn1) <= 0 ? '+ ' : '') + eur(Math.abs(rows[0].annuite - gainAn1)/12) + ' /mois</div>'
+      + '<div class="l">' + ((rows[0].annuite - gainAn1) <= 0 ? 'Le projet s\'autofinance : gains − mensualité' : 'Effort mensuel restant : mensualité − gains') + '</div></div>' +
+    '<div class="kpi highlight"><div class="v">' + nb(prod1) + ' kWh</div><div class="l">Production estimée année 1</div></div>' +
+    '<div class="kpi"><div class="v">' + nb(tauxAC*100,1) + ' %</div><div class="l">Production consommée sur place</div></div>' +
+    '<div class="kpi"><div class="v">' + eur(coutNet) + '</div><div class="l">Reste à charge après prime et aides</div></div>' +
+    '<div class="kpi"><div class="v">' + eur(tresoDepart) + '</div><div class="l">Trésorerie à sortir au départ</div></div>' +
+    '<div class="kpi"><div class="v">' + (retour === null ? '> ' + N + ' ans' : nb(retour,1) + ' ans') + '</div><div class="l">Retour sur investissement</div></div>' +
     '<div class="kpi"><div class="v ' + (gainCumule>=0?'pos':'neg') + '">' + eur(gainCumule) + '</div><div class="l">Gain net cumulé sur ' + N + ' ans</div></div>' +
-    '<div class="kpi"><div class="v">' + (tirProjet === null ? 'n.s.' : pct1(tirProjet)) + '</div><div class="l">Rentabilité annuelle du projet (TRI)</div></div>' +
+    '<div class="kpi advanced-only"><div class="v">' + (tirProjet === null ? 'n.s.' : pct1(tirProjet)) + '</div><div class="l">Rentabilité annuelle du projet (TRI)</div></div>' +
     '<div class="kpi advanced-only"><div class="v ' + (van>=0?'pos':'neg') + '">' + eur(van) + '</div><div class="l">Valeur actuelle nette à ' + nb(tauxActu*100,1) + ' %</div></div>' +
-    '<div class="kpi advanced-only"><div class="v">' + nb(prod1) + ' kWh</div><div class="l">Production annuelle estimée</div></div>' +
     '<div class="kpi advanced-only"><div class="v">' + (retourTreso === null ? '> ' + N + ' ans' : 'Année ' + retourTreso) + '</div><div class="l">Trésorerie cumulée positive à partir de</div></div>';
 
   /* --- Timeline de trésorerie --- */
   const factureJ = coutTotal + fraisDossier;
   const mensTotale = mensualite + mensAssur;
+  const annuiteAn1 = rows[0].annuite;
+  const soldeAn1 = rows[0].cumul;
+  const effortMens = (annuiteAn1 - gainAn1) / 12;
   const interetsRelaisMens = relaisOn ? relaisMontant * relaisTaux / 12 : 0;
   const sansRelais = coutTotal - emprunt + fraisDossier;
   $('timeline').innerHTML =
@@ -611,25 +1054,38 @@ function compute(){
       '<div class="what">Facture de l\'installateur' + (credit ? ' — dont ' + eur(emprunt) + ' financés par le prêt' : '') + '</div></div>' +
     '<div class="tl-step"><div class="when">Jour J — à sortir</div><div class="amt ' + (tresoDepart>0?'neg':'pos') + '">' + eur(tresoDepart) + '</div>' +
       '<div class="what">' + (relaisOn ? 'Après prêt relais de ' + eur(relaisMontant) + ' sur la prime' : 'Sur fonds propres') + '</div></div>' +
-    '<div class="tl-step"><div class="when">Mois 1 à ' + moisPrime + '</div><div class="amt">' + eur2(mensTotale + interetsRelaisMens) + '</div>' +
-      '<div class="what">Par mois : ' + (credit ? 'mensualité du prêt' : 'aucune mensualité') + (relaisOn ? ' + intérêts du relais' : '') + '</div></div>' +
+    '<div class="tl-step"><div class="when">Chaque mois</div><div class="amt ' + (mensTotale + interetsRelaisMens > 0 ? 'neg' : '') + '">' + eur2(mensTotale + interetsRelaisMens) + '</div>' +
+      '<div class="what">' + (credit ? 'Mensualité du prêt (' + eur(emprunt) + ' sur ' + dureePret + ' ans)' : 'Aucune mensualité — achat comptant') + (relaisOn ? ' + intérêts du relais' : '') + '</div></div>' +
+    '<div class="tl-step"><div class="when">Sur 12 mois</div><div class="amt ' + (annuiteAn1 > 0 ? 'neg' : 'pos') + '">' + (annuiteAn1 > 0 ? '− ' + eur(annuiteAn1) : eur(0)) + '</div>' +
+      '<div class="what">Mensualités payées la 1re année' + (credit ? ', à comparer aux ' + eur(gainAn1) + ' d\'économies et de revente' : '') + '</div></div>' +
     (prime > 0
       ? '<div class="tl-step"><div class="when">Mois ' + moisPrime + '</div><div class="amt pos">+ ' + eur(prime) + '</div>' +
         '<div class="what">' + (relaisOn ? 'Prime encaissée : solde le prêt relais (' + eur(relaisMontant) + ')' : 'Prime ZNI encaissée') + '</div></div>'
       : '<div class="tl-step"><div class="when">Prime ZNI</div><div class="amt muted" style="font-size:15px;">Aucune</div>' +
-        '<div class="what">Ce régime n\'ouvre pas droit à la prime à l\'investissement</div></div>');
+        '<div class="what">Ce régime n\'ouvre pas droit à la prime à l\'investissement</div></div>') +
+    '<div class="tl-step" style="background:#eef2ff; border-color:#c7d2fe;"><div class="when">Solde de la 1re année</div>' +
+      '<div class="amt ' + (soldeAn1 >= 0 ? 'pos' : 'neg') + '">' + eur(soldeAn1) + '</div>' +
+      '<div class="what">Apport, mensualités et gains cumulés à fin d\'année 1'
+      + (prime > 0 ? (moisPrime <= 12 ? ', prime comprise' : ' — la prime n\'arrive qu\'au mois ' + moisPrime) : '') + '</div></div>';
 
   const eco = sansRelais - tresoDepart;
   $('relaisVerdict').innerHTML = relaisOn
     ? '<div class="ok">Le prêt relais réduit l\'avance de trésorerie de <strong>' + eur(eco) + '</strong> (de ' + eur(sansRelais) + ' à ' + eur(tresoDepart) + ') pour un coût total de <strong>' + eur(coutRelais) + '</strong>, soit ' + nb(prime>0 ? coutRelais/prime*100 : 0,1) + ' % de la prime.</div>'
     : (prime > 0
-        ? '<div class="warn">Sans prêt relais, vous avancez <strong>' + eur(sansRelais) + '</strong> pendant ' + moisPrime + ' mois, dont ' + eur(prime) + ' vous seront remboursés par la prime. Basculez sur « Avec prêt relais » pour chiffrer l\'alternative.</div>'
-        : '<div class="info">Aucune prime n\'est attendue dans cette configuration : le prêt relais est sans objet.</div>');
+        ? '<div class="warn">Sans prêt relais, vous avancez <strong>' + eur(sansRelais) + '</strong> pendant ' + moisPrime + ' mois, dont ' + eur(prime) + ' vous seront remboursés par la prime. Le mode avancé permet de chiffrer l\'alternative d\'un prêt relais.</div>'
+        : '<div class="info">Aucune prime n\'est attendue dans cette configuration.</div>');
+
+  /* --- Journée type --- */
+  $('note_jour').textContent = "Journée moyenne sur l'année : " + nb(consoAn/365,1) + " kWh consommés, "
+    + nb(prod1/365,1) + " kWh produits. La zone verte est la production que vous consommez au moment où elle est produite"
+    + (battKwh > 0 ? ", la zone bleue celle qui transite par la batterie" : "")
+    + ". Le reste est injecté sur le réseau et racheté par EDF. Profil reconstitué à partir de vos équipements — une courbe de charge réelle (compteur Linky) affinerait le résultat.";
 
   renderTable(rows, pro, venteTotale, apportInitial);
   drawChart(rows, apportInitial);
+  drawJour(jour);
 
-  $('sources').innerHTML = 'Barèmes par défaut : prime à l\'investissement et tarifs d\'achat ZNI publiés trimestriellement par la CRE (valeurs 2026 relevées pour la Guadeloupe, la Martinique et la Guyane ; ordres de grandeur pour La Réunion et Mayotte, à confirmer). Productivité issue des moyennes PVGIS. Tous ces paramètres sont modifiables en mode avancé — remplacez-les par les chiffres de votre devis et de votre proposition de contrat EDF.';
+  $('sources').innerHTML = 'Barèmes par défaut : prime à l\'investissement et tarifs d\'achat ZNI publiés trimestriellement par la CRE (valeurs 2026 relevées pour la Guadeloupe, la Martinique et la Guyane ; ordres de grandeur pour La Réunion et Mayotte, à confirmer). Productivité issue des moyennes PVGIS. Le taux d\'autoconsommation est calculé heure par heure à partir d\'un profil de consommation reconstitué. Tous ces paramètres sont modifiables en mode avancé — remplacez-les par les chiffres de votre devis et de votre proposition de contrat EDF.';
 }
 
 function renderTable(rows, pro, venteTotale, apport){
@@ -653,7 +1109,61 @@ function renderTable(rows, pro, venteTotale, apport){
   $('projBody').innerHTML = html;
 }
 
-/* --- Graphique : trésorerie cumulée, barres, canvas natif --- */
+/* --- Graphique : journée type --- */
+let jourPts = [];
+function drawJour(j){
+  const c = $('chartJour');
+  const dpr = window.devicePixelRatio || 1;
+  const w = c.clientWidth || 800, h = 280;
+  c.width = w*dpr; c.height = h*dpr;
+  const ctx = c.getContext('2d');
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  ctx.clearRect(0,0,w,h);
+
+  const padL = 52, padR = 12, padT = 14, padB = 26;
+  const plotW = w - padL - padR, plotH = h - padT - padB;
+  const vmax = Math.max(...j.cons, ...j.prod, 0.1) * 1.12;
+  const X = i => padL + plotW * i/23;
+  const Y = v => padT + plotH * (1 - v/vmax);
+
+  /* grille */
+  ctx.font = '11px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif';
+  ctx.textBaseline = 'middle';
+  for (let k=0; k<=4; k++){
+    const v = vmax*k/4, py = Y(v);
+    ctx.strokeStyle = '#eef0f2'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(padL, py+0.5); ctx.lineTo(w-padR, py+0.5); ctx.stroke();
+    ctx.fillStyle = '#9ca3af'; ctx.textAlign = 'right';
+    ctx.fillText(nb(v,1) + ' kWh', padL-8, py);
+  }
+
+  const area = (vals, fill) => {
+    ctx.beginPath(); ctx.moveTo(X(0), Y(0));
+    vals.forEach((v,i) => ctx.lineTo(X(i), Y(v)));
+    ctx.lineTo(X(23), Y(0)); ctx.closePath();
+    ctx.fillStyle = fill; ctx.fill();
+  };
+  /* production totale */
+  area(j.prod, 'rgba(250, 204, 21, .55)');
+  /* part directement consommée */
+  area(j.direct, 'rgba(134, 239, 172, .85)');
+  /* part restituée par la batterie */
+  if (j.decharge.some(v => v > 0.001)) area(j.decharge, 'rgba(96, 165, 250, .75)');
+
+  /* courbe de consommation */
+  ctx.beginPath();
+  j.cons.forEach((v,i) => i ? ctx.lineTo(X(i), Y(v)) : ctx.moveTo(X(i), Y(v)));
+  ctx.strokeStyle = '#111827'; ctx.lineWidth = 2; ctx.stroke();
+
+  /* heures */
+  ctx.fillStyle = '#9ca3af'; ctx.textAlign = 'center';
+  for (let i=0; i<24; i+=3) ctx.fillText(i + 'h', X(i), h - padB/2 + 2);
+  ctx.textAlign = 'left';
+
+  jourPts = j.cons.map((v,i) => ({x:X(i), h:i, c:v, p:j.prod[i], d:j.direct[i], b:j.decharge[i]}));
+}
+
+/* --- Graphique : trésorerie cumulée --- */
 let chartBars = [];
 function drawChart(rows, apport){
   const c = $('chart');
@@ -673,7 +1183,6 @@ function drawChart(rows, apport){
   vmin -= span*0.06; vmax += span*0.06;
   const y = v => padT + plotH * (vmax - v) / (vmax - vmin);
 
-  /* grille */
   ctx.font = '11px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif';
   ctx.textBaseline = 'middle';
   const steps = 5;
@@ -685,11 +1194,9 @@ function drawChart(rows, apport){
     ctx.fillStyle = '#9ca3af'; ctx.textAlign = 'right';
     ctx.fillText(Math.round(v/1000) + 'k€', padL-8, py);
   }
-  /* axe zéro */
   ctx.strokeStyle = '#9ca3af'; ctx.lineWidth = 1;
   ctx.beginPath(); ctx.moveTo(padL, y(0)+0.5); ctx.lineTo(w-padR, y(0)+0.5); ctx.stroke();
 
-  /* barres */
   const slot = plotW / data.length;
   const bw = Math.max(2, slot - 2);
   chartBars = [];
@@ -714,7 +1221,6 @@ function drawChart(rows, apport){
     chartBars.push({x, w:bw, a:d.a, v:d.v, yTop:Math.min(y0,y1)});
   });
 
-  /* étiquettes d'années */
   ctx.fillStyle = '#9ca3af'; ctx.textAlign = 'center';
   data.forEach((d,k) => {
     if (d.a % 5 === 0 || k === data.length-1){
@@ -724,21 +1230,39 @@ function drawChart(rows, apport){
   ctx.textAlign = 'left';
 }
 
+/* --- Tooltips --- */
 (function(){
   const c = $('chart'), tip = $('tip');
-  if (!c) return;
-  c.addEventListener('mousemove', e => {
-    const rect = c.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const bar = chartBars.find(b => x >= b.x-1 && x <= b.x+b.w+1);
-    if (!bar){ tip.style.opacity = 0; return; }
-    tip.innerHTML = 'Année ' + bar.a + ' · <span class="tip-v">' + eur(bar.v) + '</span>';
-    tip.style.opacity = 1;
-    const tw = tip.offsetWidth;
-    tip.style.left = Math.max(0, Math.min(c.clientWidth - tw, bar.x + bar.w/2 - tw/2)) + 'px';
-    tip.style.top = Math.max(0, bar.yTop - 34) + 'px';
-  });
-  c.addEventListener('mouseleave', () => { tip.style.opacity = 0; });
+  if (c) {
+    c.addEventListener('mousemove', e => {
+      const rect = c.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const bar = chartBars.find(b => x >= b.x-1 && x <= b.x+b.w+1);
+      if (!bar){ tip.style.opacity = 0; return; }
+      tip.innerHTML = 'Année ' + bar.a + ' · <span class="tip-v">' + eur(bar.v) + '</span>';
+      tip.style.opacity = 1;
+      const tw = tip.offsetWidth;
+      tip.style.left = Math.max(0, Math.min(c.clientWidth - tw, bar.x + bar.w/2 - tw/2)) + 'px';
+      tip.style.top = Math.max(0, bar.yTop - 34) + 'px';
+    });
+    c.addEventListener('mouseleave', () => { tip.style.opacity = 0; });
+  }
+  const cj = $('chartJour'), tj = $('tipJour');
+  if (cj) {
+    cj.addEventListener('mousemove', e => {
+      const rect = cj.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      let best = null, bd = 1e9;
+      jourPts.forEach(p => { const d = Math.abs(p.x - x); if (d < bd){ bd = d; best = p; } });
+      if (!best || bd > 28){ tj.style.opacity = 0; return; }
+      tj.innerHTML = best.h + 'h · conso <span class="tip-v">' + nb(best.c,2) + '</span> kWh · prod <span class="tip-v">' + nb(best.p,2) + '</span> kWh';
+      tj.style.opacity = 1;
+      const tw = tj.offsetWidth;
+      tj.style.left = Math.max(0, Math.min(cj.clientWidth - tw, best.x - tw/2)) + 'px';
+      tj.style.top = '8px';
+    });
+    cj.addEventListener('mouseleave', () => { tj.style.opacity = 0; });
+  }
 })();
 
 /* --- Groupes segmentés --- */
@@ -755,26 +1279,88 @@ function initSeg(id, key, bodyPrefix){
       }
       if (key === 'fin') empruntManuel = false;
       if (key === 'relais') relaisManuel = false;
+      if (key === 'batt'){ coutManuel = false; empruntManuel = false; }
+      if (key === 'periode') $('unit_periode').textContent = seg.periode === 'mois' ? '€ / mois' : '€ / an';
+      if (key === 'profil') puissanceManuel = false;
       compute();
     });
     if (btn.dataset.value === seg[key]) btn.classList.add('active');
   });
 }
+initSeg('grp_saisie','saisie','saisie-');
+initSeg('grp_periode','periode',null);
 initSeg('grp_profil','profil','profil-');
 initSeg('grp_regime','regime','regime-');
 initSeg('grp_fin','fin','fin-');
 initSeg('grp_relais','relais','relais-');
+initSeg('grp_batt','batt','batt-');
+
+/* --- Chips équipements --- */
+let climJourTouche = false;
+function syncEquip(){
+  $('equipChips').querySelectorAll('.chip').forEach(c => c.classList.toggle('on', equip[c.dataset.eq]));
+  ['clim','piscine','ceElec','ve'].forEach(k => document.body.classList.toggle('eq-' + k, !!equip[k]));
+  if (!climJourTouche) $('climJourOn').checked = !!equip.jour;
+  document.querySelectorAll('.h-row').forEach(r => {
+    const cb = r.querySelector('.switch input');
+    r.classList.toggle('off', cb && !cb.checked);
+    r.querySelectorAll('.rangebox input').forEach(i => { i.disabled = cb && !cb.checked; });
+  });
+}
+$('equipChips').querySelectorAll('.chip').forEach(ch => {
+  ch.addEventListener('click', () => {
+    const k = ch.dataset.eq;
+    equip[k] = !equip[k];
+    if (k === 'ceElec' && equip.ceElec) { equip.ceSolaire = false; }
+    if (k === 'ceSolaire' && equip.ceSolaire) { equip.ceElec = false; }
+    syncEquip();
+    puissanceManuel = false; coutManuel = false;
+    compute();
+  });
+});
+['climNuitOn','climJourOn','piscOn','ceOn','veOn'].forEach(id => {
+  $(id).addEventListener('change', () => {
+    if (id === 'climJourOn') climJourTouche = true;
+    syncEquip();
+    compute();
+  });
+});
+syncEquip();
 
 /* --- Liaisons --- */
 $('terr').addEventListener('change', () => { applyTerritoire(true); compute(); });
+$('btnExemple').addEventListener('click', () => {
+  seg.periode = 'mois';
+  $('grp_periode').querySelectorAll('.seg-btn').forEach(b => b.classList.toggle('active', b.dataset.value === 'mois'));
+  $('unit_periode').textContent = '€ / mois';
+  $('facture').value = 150;
+  equip.clim = true; equip.ceElec = true;
+  syncEquip();
+  puissanceManuel = false; coutManuel = false;
+  compute();
+});
+$('facture').addEventListener('input', () => { puissanceManuel = false; coutManuel = false; compute(); });
+['surface','occupants','consoManuel'].forEach(id =>
+  $(id).addEventListener('input', () => { puissanceManuel = false; coutManuel = false; compute(); }));
 $('puissanceRange').addEventListener('input', () => {
   $('puissance').value = $('puissanceRange').value;
-  applyTerritoire(); coutManuel = false; empruntManuel = false; relaisManuel = false; compute();
+  puissanceManuel = true; applyTerritoire(); coutManuel = false; empruntManuel = false; relaisManuel = false; compute();
 });
 $('puissance').addEventListener('input', () => {
   $('puissanceRange').value = Math.min(100, Math.max(1, num('puissance')));
-  applyTerritoire(); coutManuel = false; empruntManuel = false; relaisManuel = false; compute();
+  puissanceManuel = true; applyTerritoire(); coutManuel = false; empruntManuel = false; relaisManuel = false; compute();
 });
+$('battKwhRange').addEventListener('input', () => {
+  $('battKwh').value = $('battKwhRange').value;
+  $('battCout').value = Math.round(num('battKwh')*780/100)*100;
+  coutManuel = false; compute();
+});
+$('battKwh').addEventListener('input', () => {
+  $('battKwhRange').value = $('battKwh').value;
+  $('battCout').value = Math.round(num('battKwh')*780/100)*100;
+  coutManuel = false; compute();
+});
+$('battCout').addEventListener('input', () => { coutManuel = false; compute(); });
 $('tauxACRange').addEventListener('input', () => { $('tauxAC').value = $('tauxACRange').value; compute(); });
 $('tauxAC').addEventListener('input', () => { $('tauxACRange').value = $('tauxAC').value; compute(); });
 $('dureePretRange').addEventListener('input', () => { $('dureePret').value = $('dureePretRange').value; compute(); });
@@ -784,9 +1370,10 @@ $('prixKwc').addEventListener('input', () => { prixManuel = true; coutManuel = f
 $('emprunt').addEventListener('input', () => { empruntManuel = true; compute(); });
 $('relaisMontant').addEventListener('input', () => { relaisManuel = true; compute(); });
 
+const EXCLUS = ['facture','surface','occupants','consoManuel','puissance','battKwh','battCout',
+                'tauxAC','dureePret','coutTotal','prixKwc','emprunt','relaisMontant'];
 document.querySelectorAll('input[type=number]').forEach(el => {
-  if (!['puissance','tauxAC','dureePret','coutTotal','prixKwc','emprunt','relaisMontant'].includes(el.id))
-    el.addEventListener('input', compute);
+  if (!EXCLUS.includes(el.id)) el.addEventListener('input', compute);
 });
 window.addEventListener('resize', () => { if (lastRows.length) compute(); });
 
