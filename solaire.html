@@ -307,10 +307,10 @@
         <button type="button" class="seg-btn" data-value="an">Par an</button>
       </div>
       <div class="big-input">
-        <input type="number" id="facture" placeholder="Ex : 150" step="10" min="0">
+        <input type="number" id="facture" value="150" placeholder="Ex : 150" step="10" min="0">
         <span class="unit" id="unit_periode">€ / mois</span>
       </div>
-      <p class="note" style="margin-top:8px;">Montant TTC, tout compris (abonnement inclus). <button type="button" class="link-btn" id="btnExemple">Voir un exemple</button></p>
+      <p class="note" style="margin-top:8px;">Montant TTC, tout compris (abonnement inclus). Remplacez-le par le montant de votre propre facture.</p>
     </div>
 
     <div class="estim-only">
@@ -538,6 +538,22 @@
     <p class="muted" style="margin-top:-6px; margin-bottom:12px;">C'est le point sensible d'un projet en ZNI : la prime arrive environ un an après la facture de l'installateur.</p>
     <div class="tl" id="timeline"></div>
     <div id="relaisVerdict"></div>
+  </div>
+
+  <!-- COMPARAISON AVEC / SANS SOLAIRE -->
+  <div class="card" style="margin-top:16px;">
+    <h2>⚖️ Ce que vous aurez payé, avec et sans le solaire</h2>
+    <p class="muted" style="margin-top:-6px; margin-bottom:12px;">Sans installation, la facture d'électricité continue de courir — et d'augmenter. C'est à elle qu'il faut comparer le coût du projet, pas à zéro.</p>
+    <div class="chart-wrap">
+      <canvas id="chartCompare" height="300"></canvas>
+      <div class="tip" id="tipCompare"></div>
+    </div>
+    <div class="chart-legend">
+      <span><i class="swatch" style="background:#6b7280;"></i> Sans solaire : factures d'électricité cumulées</span>
+      <span><i class="swatch" style="background:#4338ca;"></i> Avec solaire : apport, mensualités, charges et facture restante, revente et prime déduites</span>
+    </div>
+    <div class="info" id="info_compare">-</div>
+    <p class="note">Les deux courbes partent du même jour. L'écart entre elles à une année donnée est exactement le gain net cumulé du tableau ci-dessous. Hypothèse structurante : l'électricité augmente de <span id="out_inflNote">3</span> % par an — c'est ce qui fait diverger les deux trajectoires.</p>
   </div>
 
   <!-- RENTABILITÉ -->
@@ -1085,6 +1101,17 @@ function compute(){
   drawChart(rows, apportInitial);
   drawJour(jour);
 
+  /* --- Comparaison avec / sans solaire --- */
+  const cmp = drawCompare(rows, apportInitial, factureAn, inflElec);
+  $('out_inflNote').textContent = nb(inflElec*100,1);
+  $('info_compare').innerHTML = 'Sur ' + N + ' ans, <strong>ne rien faire coûte ' + eur(cmp.sans) + '</strong> de factures d\'électricité. '
+    + 'Avec l\'installation, vous aurez déboursé <strong>' + eur(cmp.avec) + '</strong> au total (investissement, financement et facture restante compris, prime et revente déduites), '
+    + 'soit <strong class="' + (cmp.sans - cmp.avec >= 0 ? 'pos' : 'neg') + '">'
+    + (cmp.sans - cmp.avec >= 0 ? eur(cmp.sans - cmp.avec) + ' de moins' : eur(cmp.avec - cmp.sans) + ' de plus') + '</strong>. '
+    + (cmp.bascule
+        ? 'Les deux courbes se croisent à l\'<strong>année ' + cmp.bascule + '</strong> : à partir de là, le projet vous a coûté moins cher que de continuer à payer EDF.'
+        : 'Les deux courbes ne se croisent pas sur la durée d\'analyse : dans cette configuration, le projet ne devient pas moins cher que la facture actuelle.');
+
   $('sources').innerHTML = 'Barèmes par défaut : prime à l\'investissement et tarifs d\'achat ZNI publiés trimestriellement par la CRE (valeurs 2026 relevées pour la Guadeloupe, la Martinique et la Guyane ; ordres de grandeur pour La Réunion et Mayotte, à confirmer). Productivité issue des moyennes PVGIS. Le taux d\'autoconsommation est calculé heure par heure à partir d\'un profil de consommation reconstitué. Tous ces paramètres sont modifiables en mode avancé — remplacez-les par les chiffres de votre devis et de votre proposition de contrat EDF.';
 }
 
@@ -1161,6 +1188,84 @@ function drawJour(j){
   ctx.textAlign = 'left';
 
   jourPts = j.cons.map((v,i) => ({x:X(i), h:i, c:v, p:j.prod[i], d:j.direct[i], b:j.decharge[i]}));
+}
+
+/* --- Graphique : comparaison avec / sans solaire (coûts cumulés) --- */
+let comparePts = [];
+function drawCompare(rows, apport, factureAn, infl){
+  const c = $('chartCompare');
+  const dpr = window.devicePixelRatio || 1;
+  const w = c.clientWidth || 800, h = 300;
+  c.width = w*dpr; c.height = h*dpr;
+  const ctx = c.getContext('2d');
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  ctx.clearRect(0,0,w,h);
+
+  /* Sans solaire : cumul des factures. Avec solaire : le même cumul moins le gain net
+     du projet — par construction l'écart entre les deux courbes est la trésorerie cumulée. */
+  const sans = [0], avec = [apport];
+  for (let k=1; k<=rows.length; k++){
+    sans.push(sans[k-1] + factureAn * Math.pow(1+infl, k-1));
+    avec.push(sans[k] - rows[k-1].cumul);
+  }
+
+  const padL = 62, padR = 14, padT = 16, padB = 26;
+  const plotW = w - padL - padR, plotH = h - padT - padB;
+  const vmax = Math.max(...sans, ...avec, 1) * 1.08;
+  const vmin = Math.min(0, ...avec);
+  const X = k => padL + plotW * k / (sans.length-1);
+  const Y = v => padT + plotH * (vmax - v) / (vmax - vmin);
+
+  ctx.font = '11px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif';
+  ctx.textBaseline = 'middle';
+  for (let k=0; k<=4; k++){
+    const v = vmin + (vmax-vmin)*k/4, py = Y(v);
+    ctx.strokeStyle = '#eef0f2'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(padL, py+0.5); ctx.lineTo(w-padR, py+0.5); ctx.stroke();
+    ctx.fillStyle = '#9ca3af'; ctx.textAlign = 'right';
+    ctx.fillText(Math.round(v/1000) + 'k€', padL-8, py);
+  }
+
+  /* aire entre les deux courbes : rouge tant qu'on a payé plus, verte ensuite */
+  const bascule = rows.findIndex(r => r.cumul >= 0);
+  const kBascule = bascule === -1 ? sans.length : bascule + 1;
+  const bande = (k0, k1, fill) => {
+    if (k1 <= k0) return;
+    ctx.beginPath();
+    for (let k=k0; k<=k1; k++) ctx.lineTo(X(k), Y(sans[k]));
+    for (let k=k1; k>=k0; k--) ctx.lineTo(X(k), Y(avec[k]));
+    ctx.closePath(); ctx.fillStyle = fill; ctx.fill();
+  };
+  bande(0, Math.min(kBascule, sans.length-1), 'rgba(185,28,28,.10)');
+  bande(Math.min(kBascule, sans.length-1), sans.length-1, 'rgba(22,101,52,.16)');
+
+  const ligne = (vals, color, width) => {
+    ctx.beginPath();
+    vals.forEach((v,k) => k ? ctx.lineTo(X(k), Y(v)) : ctx.moveTo(X(k), Y(v)));
+    ctx.strokeStyle = color; ctx.lineWidth = width; ctx.stroke();
+  };
+  ligne(sans, '#6b7280', 2);
+  ligne(avec, '#4338ca', 2.5);
+
+  /* repère de bascule */
+  if (bascule !== -1 && kBascule < sans.length){
+    ctx.setLineDash([4,3]); ctx.strokeStyle = '#166534'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(X(kBascule), padT); ctx.lineTo(X(kBascule), padT+plotH); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = '#166534'; ctx.textAlign = 'center';
+    const lab = 'Année ' + kBascule;
+    const lx = Math.max(padL+30, Math.min(w-padR-30, X(kBascule)));
+    ctx.fillText(lab, lx, padT+8);
+  }
+
+  ctx.fillStyle = '#9ca3af'; ctx.textAlign = 'center';
+  for (let k=0; k<sans.length; k++){
+    if (k % 5 === 0 || k === sans.length-1) ctx.fillText(String(k), X(k), h - padB/2 + 2);
+  }
+  ctx.textAlign = 'left';
+
+  comparePts = sans.map((v,k) => ({x:X(k), k, sans:v, avec:avec[k]}));
+  return {sans: sans[sans.length-1], avec: avec[avec.length-1], bascule: bascule === -1 ? null : kBascule};
 }
 
 /* --- Graphique : trésorerie cumulée --- */
@@ -1247,6 +1352,23 @@ function drawChart(rows, apport){
     });
     c.addEventListener('mouseleave', () => { tip.style.opacity = 0; });
   }
+  const cc = $('chartCompare'), tc = $('tipCompare');
+  if (cc) {
+    cc.addEventListener('mousemove', e => {
+      const rect = cc.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      let best = null, bd = 1e9;
+      comparePts.forEach(p => { const d = Math.abs(p.x - x); if (d < bd){ bd = d; best = p; } });
+      if (!best || bd > 26){ tc.style.opacity = 0; return; }
+      tc.innerHTML = 'Année ' + best.k + ' · sans <span class="tip-v">' + eur(best.sans)
+        + '</span> · avec <span class="tip-v">' + eur(best.avec) + '</span>';
+      tc.style.opacity = 1;
+      const tw = tc.offsetWidth;
+      tc.style.left = Math.max(0, Math.min(cc.clientWidth - tw, best.x - tw/2)) + 'px';
+      tc.style.top = '8px';
+    });
+    cc.addEventListener('mouseleave', () => { tc.style.opacity = 0; });
+  }
   const cj = $('chartJour'), tj = $('tipJour');
   if (cj) {
     cj.addEventListener('mousemove', e => {
@@ -1329,16 +1451,6 @@ syncEquip();
 
 /* --- Liaisons --- */
 $('terr').addEventListener('change', () => { applyTerritoire(true); compute(); });
-$('btnExemple').addEventListener('click', () => {
-  seg.periode = 'mois';
-  $('grp_periode').querySelectorAll('.seg-btn').forEach(b => b.classList.toggle('active', b.dataset.value === 'mois'));
-  $('unit_periode').textContent = '€ / mois';
-  $('facture').value = 150;
-  equip.clim = true; equip.ceElec = true;
-  syncEquip();
-  puissanceManuel = false; coutManuel = false;
-  compute();
-});
 $('facture').addEventListener('input', () => { puissanceManuel = false; coutManuel = false; compute(); });
 ['surface','occupants','consoManuel'].forEach(id =>
   $(id).addEventListener('input', () => { puissanceManuel = false; coutManuel = false; compute(); }));
