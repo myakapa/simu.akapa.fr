@@ -8,6 +8,14 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<meta name="description" content="Simulateur de rentabilité solaire pour les Antilles-Guyane : partez de votre facture d’électricité et obtenez la puissance adaptée, vos économies annuelles, la prime à l’investissement ZNI et la rentabilité sur 25 ans.">
+<link rel="canonical" href="https://simu.akapa.fr/solaire">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Akapa">
+<meta property="og:title" content="Rentabilité d’une installation solaire — Antilles-Guyane">
+<meta property="og:description" content="Prime ZNI, économies, revente du surplus et financement : chiffrez votre projet photovoltaïque en deux minutes.">
+<meta property="og:url" content="https://simu.akapa.fr/solaire">
 <title>Rentabilité d'une installation solaire — Outre-mer</title>
 <style>
   :root{ color-scheme: light; }
@@ -247,25 +255,37 @@
     .seg-btn{font-size:12px; padding:9px 4px;}
   }
 </style>
+<link rel="stylesheet" href="assets/akapa.css">
 </head>
-<body class="mode-simple profil-part regime-surplus fin-comptant relais-non batt-non saisie-facture">
-<div class="page">
-
-<div class="back-link"><a href="index.html">← Tous les outils</a></div>
-<header class="site-header">
-  <a class="brand" href="index.html"><img src="assets/logo-akapa.png" alt="Akapa" class="brand-logo" onerror="this.style.display='none'"></a>
-  <div class="menu-wrap">
-    <button class="menu-btn" id="menuBtn" type="button" aria-haspopup="true" aria-expanded="false">Autres simulateurs <span class="chev">▾</span></button>
-    <nav class="menu-dropdown" id="menuDropdown">
-      <a class="home" href="index.html">🏠 Tous les outils</a>
-      <a href="capacite-emprunt.html">🏦 Capacité d'emprunt</a>
-      <a href="mensualites-credit.html">📆 Mensualités de crédit</a>
-      <a href="frais-notaire.html">📝 Frais de notaire</a>
-      <a href="ciop.html">🏝️ Rentabilité CIOP</a>
-      <a href="lmnp.html">🛋️ Simulateur LMNP</a>
+<body class="ak-chrome mode-simple profil-part regime-surplus fin-comptant relais-non batt-non saisie-facture">
+<header class="ak-header">
+  <div class="ak-wrap">
+    <a class="ak-brand" href="index.html">
+      <img src="assets/logo-akapa.png" alt="Akapa" onerror="this.outerHTML='<strong style=&quot;font-size:19px;color:#1e40af&quot;>AKAPA</strong>'">
+      <span class="ak-brand-sub">Simulateurs</span>
+    </a>
+    <button class="ak-burger" data-ak-burger type="button" aria-label="Menu" aria-expanded="false">☰</button>
+    <nav class="ak-nav">
+      <a href="index.html">Accueil</a>
+      <div class="ak-dd">
+        <button type="button" aria-haspopup="true" aria-expanded="false">Tous les simulateurs <span class="ak-chev">▾</span></button>
+        <nav class="ak-dd-menu">
+          <a href="index.html#outils">🏠 Tous les outils</a>
+          <hr>
+          <a href="capacite-emprunt.html">🏦 Capacité d’emprunt</a>
+          <a href="mensualites-credit.html">📆 Mensualités de crédit</a>
+          <a href="frais-notaire.html">📝 Frais de notaire</a>
+          <a href="ciop.html">🏝️ Rentabilité CIOP</a>
+          <a href="lmnp.html">🛋️ Simulateur LMNP</a>
+        </nav>
+      </div>
+      <a href="index.html#methode">Comment ça marche</a>
+      <a class="ak-btn ak-btn-primary" href="#mise-en-relation">Recevoir un devis</a>
     </nav>
   </div>
 </header>
+
+<div class="page">
 
 <h1>Combien le solaire peut-il vous faire économiser&nbsp;?</h1>
 <p class="subtitle">Partez de votre facture d'électricité : le simulateur estime votre consommation, la puissance adaptée, vos économies annuelles, la prime à l'investissement ZNI (Antilles, Guyane, Réunion, Mayotte) et la rentabilité du projet sur 25&nbsp;ans.</p>
@@ -516,6 +536,16 @@
 
   <div class="kpis" id="kpis"></div>
 
+<div id="mise-en-relation" data-ak-lead
+     data-outil="solaire"
+     data-outil-label="Rentabilité solaire (ZNI)"
+     data-titre="Ces chiffres vous parlent ? Faites-les confirmer par un installateur local."
+     data-texte="Une simulation ne remplace pas une étude de toiture. Laissez vos coordonnées : nous transmettons votre demande, récapitulatif de simulation inclus, à un installateur RGE QualiPV de votre territoire."
+     data-avantages="Installateurs RGE QualiPV implantés sur votre île|Devis gratuit, sans engagement et sans frais pour vous|Votre simulation est jointe : pas besoin de tout réexpliquer|Accompagnement possible sur le dossier de prime ZNI"
+     data-besoins="Recevoir un devis d’installation|Étudier le financement et le prêt relais sur la prime|Faire vérifier ma toiture et mon raccordement|Ajouter une batterie à une installation existante|Je me renseigne pour plus tard"
+     data-bouton="Recevoir un devis d’installateur"></div>
+
+
   <!-- JOURNÉE TYPE -->
   <div class="card" style="margin-top:16px;">
     <h2>🌤️ Une journée type : ce que vous produisez, ce que vous consommez</h2>
@@ -584,8 +614,62 @@
   <p class="note" id="sources">-</p>
 </div>
 
-<footer>Simulateur indicatif — les barèmes de prime et tarifs d'achat ZNI sont révisés chaque trimestre par la CRE. Ne remplace pas un devis d'installateur RGE QualiPV ni une étude de financement personnalisée.</footer>
+<div class="ak-cta-band" style="margin-top:26px;">
+  <h2>Prêt à passer du calcul au devis ?</h2>
+  <p>Un installateur RGE QualiPV de votre territoire peut confirmer ces chiffres sur votre toiture, et monter le dossier de prime à l’investissement avec vous.</p>
+  <a class="ak-btn ak-btn-primary ak-btn-lg" href="#mise-en-relation">Demander un devis gratuit</a>
 </div>
+
+<p class="note" style="margin-top:22px;">Simulateur indicatif — les barèmes de prime et tarifs d’achat ZNI sont révisés chaque trimestre par la CRE. Ne remplace pas un devis d’installateur RGE QualiPV ni une étude de financement personnalisée.</p>
+</div>
+
+<footer class="ak-footer">
+  <div class="ak-wrap">
+    <div class="ak-footer-grid">
+      <div>
+        <p class="ak-footer-brand">AKAPA</p>
+        <p>Simulateurs financiers, énergétiques et fiscaux adaptés aux Antilles-Guyane, et mise en relation avec des partenaires implantés sur le territoire.</p>
+        <div class="ak-footer-contact">
+          <span>📧 <a href="mailto:hello@akapa.fr">hello@akapa.fr</a></span>
+          <span>📞 <a href="tel:+590690289902">+590 690 28 99 02</a></span>
+          <span>📍 Baie-Mahault, Guadeloupe</span>
+        </div>
+      </div>
+      <div>
+        <h4>Simulateurs</h4>
+        <ul>
+          <li><a href="capacite-emprunt.html">Capacité d’emprunt</a></li>
+          <li><a href="mensualites-credit.html">Mensualités de crédit</a></li>
+          <li><a href="frais-notaire.html">Frais de notaire</a></li>
+          <li><a href="ciop.html">Rentabilité CIOP</a></li>
+          <li><a href="lmnp.html">Simulateur LMNP</a></li>
+          <li><a href="solaire.html">Rentabilité solaire</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Le site</h4>
+        <ul>
+          <li><a href="index.html#methode">Comment ça marche</a></li>
+          <li><a href="index.html#partenaires">Le réseau de partenaires</a></li>
+          <li><a href="#mise-en-relation">Être mis en relation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Akapa</h4>
+        <ul>
+          <li><a href="https://akapa.fr" target="_blank" rel="noopener">akapa.fr</a></li>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="confidentialite.html">Confidentialité</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="ak-disclaimer">Les simulateurs proposés sur ce site fournissent des estimations à titre indicatif, établies à partir des barèmes publics en vigueur et des hypothèses que vous renseignez. Elles ne constituent ni une offre de crédit, ni un conseil en investissement, ni un conseil fiscal, et ne remplacent pas l’étude personnalisée d’un professionnel.</p>
+    <div class="ak-footer-bottom">
+      <span>© 2026 Akapa Automation — Baie-Mahault, Guadeloupe</span>
+      <span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Politique de confidentialité</a></span>
+    </div>
+  </div>
+</footer>
 
 <script>
 const $ = id => document.getElementById(id);
@@ -1537,5 +1621,49 @@ compute();
   setMode(getMode());
 })();
 </script>
+
+<script src="assets/akapa-config.js"></script>
+<script>
+/* Récapitulatif de simulation joint à la demande de mise en relation. */
+(function(){
+  function t(id){ var e = document.getElementById(id); return e ? (e.value !== undefined && e.tagName === 'INPUT' ? e.value : e.textContent).trim() : ''; }
+  function sel(id){ var e = document.getElementById(id); return e && e.selectedIndex >= 0 ? e.options[e.selectedIndex].text.trim() : ''; }
+  function cls(prefix){ var m = document.body.className.match(new RegExp(prefix + '-(\\w+)')); return m ? m[1] : ''; }
+
+  window.akapaLeadContext = function(){
+    var c = {};
+    c['Territoire'] = sel('terr');
+    var f = t('facture');
+    if (f) c['Facture d\u2019\u00e9lectricit\u00e9'] = f + ' ' + (t('unit_periode') || '\u20ac / mois');
+    c['Consommation annuelle'] = t('out_consoAn');
+    var p = t('puissance');
+    if (p) c['Puissance envisag\u00e9e'] = p + ' kWc';
+    if (cls('batt') === 'oui') c['Batterie'] = t('battKwh') + ' kWh';
+    var ct = t('coutTotal');
+    if (ct) c['Co\u00fbt de l\u2019installation'] = Number(ct).toLocaleString('fr-FR') + ' \u20ac';
+    c['Prime ZNI attendue'] = t('out_prime');
+    c['Reste \u00e0 charge'] = t('out_coutNet');
+    c['\u00c9conomies annuelles estim\u00e9es'] = t('out_eco');
+    c['Financement'] = cls('fin') === 'credit' ? 'Cr\u00e9dit' + (t('out_mensualite') ? ' \u2014 ' + t('out_mensualite') + ' / mois' : '') : 'Comptant';
+    if (cls('relais') === 'oui') c['Pr\u00eat relais sur la prime'] = 'Oui';
+    c['Profil'] = cls('profil') === 'pro' ? 'Professionnel' : 'Particulier';
+    return c;
+  };
+
+  // Rafraîchit le récapitulatif après chaque modification du simulateur.
+  var minuteur = null;
+  function planifier(){
+    clearTimeout(minuteur);
+    minuteur = setTimeout(function(){
+      if (typeof window.akapaRafraichirRecap === 'function') window.akapaRafraichirRecap();
+    }, 260);
+  }
+  document.addEventListener('input', planifier, true);
+  document.addEventListener('change', planifier, true);
+  document.addEventListener('click', planifier, true);
+  window.addEventListener('load', planifier);
+})();
+</script>
+<script src="assets/akapa-lead.js"></script>
 </body>
 </html>

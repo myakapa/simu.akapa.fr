@@ -3,133 +3,329 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#f6f7f9">
+<meta name="theme-color" content="#2563eb">
+<title>Simulateurs Akapa — Chiffrez votre projet aux Antilles-Guyane et trouvez le bon partenaire</title>
+<meta name="description" content="Simulateurs gratuits adaptés à l'Outre-mer : capacité d'emprunt, frais de notaire, rentabilité solaire ZNI, CIOP, LMNP. Chiffrez votre projet en 2 minutes et soyez mis en relation avec un partenaire local qualifié.">
+<link rel="canonical" href="https://simu.akapa.fr/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Akapa">
+<meta property="og:title" content="Simulateurs Akapa — Chiffrez votre projet aux Antilles-Guyane">
+<meta property="og:description" content="Capacité d'emprunt, frais de notaire, solaire ZNI, CIOP, LMNP : des simulateurs calibrés pour l'Outre-mer, et une mise en relation avec le bon partenaire local.">
+<meta property="og:url" content="https://simu.akapa.fr/">
+<meta property="og:image" content="https://simu.akapa.fr/assets/android-chrome-512x512.png">
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-<title>Outils financiers &mdash; Simulateurs</title>
+<link rel="stylesheet" href="assets/akapa.css">
 <style>
-  :root{ color-scheme: light; }
   *{box-sizing:border-box;}
-  html{-webkit-text-size-adjust:100%;}
-  body{
-    margin:0; padding:36px 20px 32px; background:#f6f7f9; color:#1f2430;
-    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size:14px; line-height:1.5;
-  }
-  .wrap{max-width:1000px; margin:0 auto;}
-  header{text-align:center; margin-bottom:28px;}
-  .brand-logo{height:40px; margin-bottom:18px;}
-  h1{font-size:26px; margin:0 0 8px 0; color:#111827; line-height:1.2;}
-  .subtitle{color:#6b7280; margin:0 auto; font-size:14px; max-width:560px;}
-  .cards{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:18px; margin-top:28px;}
-  a.card{
-    display:flex; flex-direction:column; gap:10px; min-width:0;
-    background:#fff; border:1px solid #e5e7eb; border-radius:14px; padding:22px 20px;
-    text-decoration:none; color:inherit;
-    transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
-  }
-  a.card:hover{
-    transform:translateY(-3px);
-    box-shadow:0 8px 20px rgba(67,56,202,.10);
-    border-color:#c7d2fe;
-  }
-  .icon{
-    width:44px; height:44px; border-radius:10px; background:#eef2ff;
-    display:flex; align-items:center; justify-content:center; font-size:22px;
-  }
-  .card h2{font-size:16px; margin:0; color:#111827;}
-  .card p{color:#6b7280; margin:0; font-size:13px; flex:1;}
-  .badge{
-    display:inline-block; font-size:11px; padding:2px 9px; border-radius:999px;
-    background:#eef2ff; color:#4338ca; font-weight:600; width:fit-content;
-  }
-  .cta{
-    margin-top:4px; font-size:13px; font-weight:600; color:#4338ca;
-    display:flex; align-items:center; gap:4px;
-  }
-  .cta .arrow{transition:transform .15s ease;}
-  a.card:hover .cta .arrow{transform:translateX(3px);}
-  footer{margin-top:36px; font-size:11.5px; color:#9ca3af; text-align:center;}
-
-  @media (max-width:760px){
-    body{padding:26px 16px 28px;}
-    .cards{grid-template-columns:1fr; gap:14px;}
-    a.card{padding:18px 16px; gap:8px;}
-    a.card:hover{transform:none;}
-  }
-  @media (max-width:560px){
-    h1{font-size:22px;}
-    .subtitle{font-size:13px;}
-    .brand-logo{height:34px;}
-    .icon{width:38px; height:38px; font-size:19px;}
-  }
+  html{-webkit-text-size-adjust:100%; scroll-behavior:smooth;}
+  body{margin:0; background:var(--ak-bg); color:var(--ak-body); font-family:var(--ak-font); font-size:15px; line-height:1.55;}
+  .ak-partners{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-top:8px;}
+  .ak-partner{background:#fff; border:1px solid var(--ak-line); border-radius:14px; padding:18px 18px; display:flex; gap:13px; align-items:flex-start;}
+  .ak-partner .ak-p-i{font-size:21px; line-height:1; flex:0 0 auto;}
+  .ak-partner b{display:block; font-size:14.5px; color:var(--ak-ink); margin-bottom:3px;}
+  .ak-partner span{font-size:13.2px; color:var(--ak-muted); line-height:1.5;}
+  .ak-split{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;}
+  .ak-split h2{text-align:left;}
+  @media(max-width:1000px){ .ak-split{grid-template-columns:1fr; gap:28px;} }
 </style>
 </head>
 <body>
 
-<div class="wrap">
-  <header>
-    <img src="assets/logo-akapa.png" alt="Akapa" class="brand-logo">
-    <h1>Outils financiers</h1>
-    <p class="subtitle">Des simulateurs pour pr&eacute;parer et &eacute;valuer un projet immobilier, de l'emprunt jusqu'&agrave; la rentabilit&eacute; fiscale Outre-mer.</p>
-  </header>
-
-  <div class="cards">
-
-    <a class="card" href="capacite-emprunt.html">
-      <div class="icon">&#127974;</div>
-      <span class="badge">Financement</span>
-      <h2>Capacit&eacute; d'emprunt</h2>
-      <p>Estimez le montant empruntable, votre budget total et le prix du bien accessible selon vos revenus et votre apport.</p>
-      <span class="cta">Ouvrir l'outil <span class="arrow">&rarr;</span></span>
+<header class="ak-header">
+  <div class="ak-wrap">
+    <a class="ak-brand" href="index.html">
+      <img src="assets/logo-akapa.png" alt="Akapa" onerror="this.outerHTML='<strong style=&quot;font-size:19px;color:#1e40af&quot;>AKAPA</strong>'">
+      <span class="ak-brand-sub">Simulateurs</span>
     </a>
-
-    <a class="card" href="mensualites-credit.html">
-      <div class="icon">&#128198;</div>
-      <span class="badge">Financement</span>
-      <h2>Mensualit&eacute;s de cr&eacute;dit</h2>
-      <p>Calculez la mensualit&eacute; de votre pr&ecirc;t (cr&eacute;dit + assurance), le co&ucirc;t total du cr&eacute;dit et le tableau d'amortissement.</p>
-      <span class="cta">Ouvrir l'outil <span class="arrow">&rarr;</span></span>
-    </a>
-
-    <a class="card" href="frais-notaire.html">
-      <div class="icon">&#128221;</div>
-      <span class="badge">Financement</span>
-      <h2>Frais de notaire</h2>
-      <p>Estimez les droits de mutation selon votre d&eacute;partement, les &eacute;moluments du notaire et le co&ucirc;t total d'acquisition.</p>
-      <span class="cta">Ouvrir l'outil <span class="arrow">&rarr;</span></span>
-    </a>
-
-    <a class="card" href="ciop.html">
-      <div class="icon">&#127965;&#65039;</div>
-      <span class="badge">Fiscalit&eacute; Outre-mer</span>
-      <h2>Rentabilit&eacute; CIOP</h2>
-      <p>Simulez le plafond et le cr&eacute;dit d'imp&ocirc;t CIOP, l'&eacute;ch&eacute;ancier de versement et la projection de tr&eacute;sorerie de l'investissement.</p>
-      <span class="cta">Ouvrir l'outil <span class="arrow">&rarr;</span></span>
-    </a>
-
-    <a class="card" href="lmnp.html">
-      <div class="icon">&#128715;&#65039;</div>
-      <span class="badge">Fiscalit&eacute; locative</span>
-      <h2>Simulateur LMNP</h2>
-      <p>Comparez le r&eacute;gime r&eacute;el (amortissements) et le micro-BIC pour votre location meubl&eacute;e non professionnelle.</p>
-      <span class="cta">Ouvrir l'outil <span class="arrow">&rarr;</span></span>
-    </a>
-
-    <a class="card" href="solaire.html">
-      <div class="icon">&#9728;&#65039;</div>
-      <span class="badge">&Eacute;nergie Outre-mer</span>
-      <h2>Rentabilit&eacute; solaire</h2>
-      <p>Chiffrez un projet photovolta&iuml;que en ZNI&nbsp;: prime &agrave; l'investissement, &eacute;conomies, revente du surplus et pr&ecirc;t relais pour avancer la prime.</p>
-      <span class="cta">Ouvrir l'outil <span class="arrow">&rarr;</span></span>
-    </a>
-
+    <button class="ak-burger" data-ak-burger type="button" aria-label="Menu" aria-expanded="false">☰</button>
+    <nav class="ak-nav">
+      <a href="#outils">Les simulateurs</a>
+      <a href="#methode">Comment ça marche</a>
+      <a href="#partenaires">Partenaires</a>
+      <a href="https://akapa.fr" target="_blank" rel="noopener">Akapa</a>
+      <a class="ak-btn ak-btn-primary" href="#contact">Être mis en relation</a>
+    </nav>
   </div>
+</header>
 
-  <footer>Simulations indicatives &mdash; usage informatif, ne remplacent pas une &eacute;tude personnalis&eacute;e par un professionnel (courtier, banque, expert-comptable).</footer>
-</div>
+<!-- ================================ HERO ================================ -->
+<section class="ak-hero">
+  <div class="ak-wrap ak-hero-grid">
+    <div>
+      <h1>Chiffrez votre projet.<br>On vous met en relation avec le <em>bon partenaire local</em>.</h1>
+      <p class="ak-hero-p">Des simulateurs calibrés pour les Antilles-Guyane — barèmes ZNI, droits de mutation par département, fiscalité Outre-mer. Vous obtenez un chiffrage sérieux en deux minutes, puis, si vous le souhaitez, le contact d'un professionnel qualifié près de chez vous.</p>
+      <div class="ak-hero-cta">
+        <a class="ak-btn ak-btn-light ak-btn-lg" href="#outils">Voir les simulateurs</a>
+        <a class="ak-btn ak-btn-ghost ak-btn-lg" href="#contact">Parler à un expert</a>
+      </div>
+      <p class="ak-hero-note">Gratuit, sans création de compte. Vos coordonnées ne sont transmises que si vous le demandez.</p>
+    </div>
+    <div class="ak-stats">
+      <div class="ak-stat"><span class="ak-stat-i">🧮</span><b>6</b><span class="ak-stat-l">simulateurs en ligne</span></div>
+      <div class="ak-stat"><span class="ak-stat-i">🏝️</span><b>4</b><span class="ak-stat-l">territoires couverts</span></div>
+      <div class="ak-stat"><span class="ak-stat-i">⏱️</span><b>2 min</b><span class="ak-stat-l">pour un premier chiffrage</span></div>
+      <div class="ak-stat"><span class="ak-stat-i">🤝</span><b>48 h</b><span class="ak-stat-l">pour être rappelé</span></div>
+    </div>
+  </div>
+</section>
 
+<!-- =============================== OUTILS =============================== -->
+<section class="ak-section" id="outils">
+  <div class="ak-wrap">
+    <div class="ak-section-head">
+      <span class="ak-eyebrow">Les simulateurs</span>
+      <h2>Chaque projet a son outil</h2>
+      <p>Tous les calculs intègrent les spécificités de l'Outre-mer : barèmes de prime ZNI, droits de mutation majorés, crédit d'impôt CIOP, tarifs de rachat locaux.</p>
+    </div>
+
+    <div class="ak-group">
+      <p class="ak-group-title">Acheter et financer</p>
+      <div class="ak-cards">
+
+        <a class="ak-card" href="capacite-emprunt.html">
+          <div class="ak-card-icon">🏦</div>
+          <span class="ak-tag">Financement</span>
+          <h3>Capacité d'emprunt</h3>
+          <p>Combien pouvez-vous emprunter ? Montant finançable, budget total et prix du bien accessible selon vos revenus, vos charges et votre apport.</p>
+          <span class="ak-card-link">Ouvrir l'outil <span class="ak-arrow">→</span></span>
+        </a>
+
+        <a class="ak-card" href="mensualites-credit.html">
+          <div class="ak-card-icon">📆</div>
+          <span class="ak-tag">Financement</span>
+          <h3>Mensualités de crédit</h3>
+          <p>Mensualité crédit + assurance, coût total des intérêts et tableau d'amortissement complet, année par année.</p>
+          <span class="ak-card-link">Ouvrir l'outil <span class="ak-arrow">→</span></span>
+        </a>
+
+        <a class="ak-card" href="frais-notaire.html">
+          <div class="ak-card-icon">📝</div>
+          <span class="ak-tag">Acquisition</span>
+          <h3>Frais de notaire</h3>
+          <p>Droits de mutation au barème de votre département, émoluments du notaire, débours et coût total réel de l'acquisition.</p>
+          <span class="ak-card-link">Ouvrir l'outil <span class="ak-arrow">→</span></span>
+        </a>
+
+        <div class="ak-card is-soon">
+          <div class="ak-card-icon">🛡️</div>
+          <span class="ak-tag ak-tag-soon">Bientôt</span>
+          <h3>Comparateur d'assurance emprunteur</h3>
+          <p>Assurance de la banque contre délégation : économie estimée sur la durée restante du prêt et démarche de substitution.</p>
+          <span class="ak-card-link" style="color:var(--ak-muted)">En préparation</span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="ak-group">
+      <p class="ak-group-title">Investir et défiscaliser</p>
+      <div class="ak-cards">
+
+        <a class="ak-card" href="ciop.html">
+          <div class="ak-card-icon">🏝️</div>
+          <span class="ak-tag">Fiscalité Outre-mer</span>
+          <h3>Rentabilité CIOP</h3>
+          <p>Plafond et montant du crédit d'impôt Outre-mer productif, échéancier de versement et projection de trésorerie de l'investissement.</p>
+          <span class="ak-card-link">Ouvrir l'outil <span class="ak-arrow">→</span></span>
+        </a>
+
+        <a class="ak-card" href="lmnp.html">
+          <div class="ak-card-icon">🛋️</div>
+          <span class="ak-tag">Fiscalité locative</span>
+          <h3>Simulateur LMNP</h3>
+          <p>Régime réel avec amortissements contre micro-BIC : quel régime laisse le plus de revenu net dans votre poche, et pendant combien d'années.</p>
+          <span class="ak-card-link">Ouvrir l'outil <span class="ak-arrow">→</span></span>
+        </a>
+
+        <div class="ak-card is-soon">
+          <div class="ak-card-icon">📈</div>
+          <span class="ak-tag ak-tag-soon">Bientôt</span>
+          <h3>Rentabilité locative</h3>
+          <p>Rendement brut et net de charges, cash-flow mensuel et effort d'épargne réel, saisonnier ou longue durée.</p>
+          <span class="ak-card-link" style="color:var(--ak-muted)">En préparation</span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="ak-group">
+      <p class="ak-group-title">Énergie, rénovation et mobilité</p>
+      <div class="ak-cards">
+
+        <a class="ak-card" href="solaire.html">
+          <div class="ak-card-icon">☀️</div>
+          <span class="ak-tag">Énergie Outre-mer</span>
+          <h3>Rentabilité solaire</h3>
+          <p>À partir de votre facture d'électricité : puissance adaptée, économies annuelles, prime à l'investissement ZNI, revente du surplus et rentabilité sur 25 ans.</p>
+          <span class="ak-card-link">Ouvrir l'outil <span class="ak-arrow">→</span></span>
+        </a>
+
+        <div class="ak-card is-soon">
+          <div class="ak-card-icon">🧾</div>
+          <span class="ak-tag ak-tag-soon">Bientôt</span>
+          <h3>Éligibilité aux aides locales</h3>
+          <p>MaPrimeRénov' Outre-mer, aides régionales et départementales, éco-PTZ, prime ZNI : un questionnaire court qui dit à quoi vous avez droit.</p>
+          <span class="ak-card-link" style="color:var(--ak-muted)">En préparation</span>
+        </div>
+
+        <div class="ak-card is-soon">
+          <div class="ak-card-icon">🚗</div>
+          <span class="ak-tag ak-tag-soon">Bientôt</span>
+          <h3>Véhicule : acheter ou louer</h3>
+          <p>Coût total de possession aux Antilles, LOA contre achat comptant ou à crédit, aides à l'acquisition d'un véhicule propre.</p>
+          <span class="ak-card-link" style="color:var(--ak-muted)">En préparation</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== MÉTHODE =============================== -->
+<section class="ak-section ak-alt" id="methode">
+  <div class="ak-wrap">
+    <div class="ak-section-head">
+      <span class="ak-eyebrow">Comment ça marche</span>
+      <h2>Du chiffrage au bon interlocuteur, en trois étapes</h2>
+      <p>Un simulateur ne signe pas un devis. Son rôle est de vous donner les bons ordres de grandeur, puis de vous adresser à quelqu'un qui pourra les confirmer.</p>
+    </div>
+    <div class="ak-steps">
+      <div class="ak-step">
+        <h3>Vous simulez</h3>
+        <p>Quelques champs suffisent. Les hypothèses par défaut correspondent déjà à votre territoire : barèmes, tarifs et taux locaux sont préremplis, vous n'ajustez que ce que vous connaissez.</p>
+      </div>
+      <div class="ak-step">
+        <h3>Vous demandez à être rappelé</h3>
+        <p>Si le résultat vous intéresse, vous laissez vos coordonnées. Le récapitulatif de votre simulation est joint à la demande : le professionnel sait déjà de quoi vous voulez parler.</p>
+      </div>
+      <div class="ak-step">
+        <h3>Un partenaire local vous contacte</h3>
+        <p>Nous transmettons votre demande au partenaire de votre territoire le plus adapté à votre projet. Il vous rappelle sous 48 heures ouvrées. Aucun frais pour vous, aucun engagement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= PARTENAIRES ============================ -->
+<section class="ak-section" id="partenaires">
+  <div class="ak-wrap ak-split">
+    <div>
+      <span class="ak-eyebrow">Le réseau</span>
+      <h2>Des professionnels installés aux Antilles-Guyane</h2>
+      <p style="font-size:16px; color:var(--ak-muted); margin:0 0 20px; line-height:1.65;">Nous ne travaillons qu'avec des professionnels implantés sur le territoire, qui connaissent les barèmes locaux, les délais réels de versement des primes et les contraintes de terrain. Chaque demande est orientée vers un seul partenaire, jamais diffusée à une liste.</p>
+      <ul class="ak-checks" style="grid-template-columns:1fr; gap:10px;">
+        <li>Un seul interlocuteur par demande, pas de mise en concurrence sauvage</li>
+        <li>Partenaires sélectionnés et suivis sur la qualité de leurs retours</li>
+        <li>Vos données ne sont jamais revendues à des annonceurs</li>
+      </ul>
+      <p style="margin:26px 0 0;"><a class="ak-btn ak-btn-outline" href="#contact">Devenir partenaire du réseau →</a></p>
+    </div>
+    <div class="ak-partners">
+      <div class="ak-partner"><span class="ak-p-i">🏦</span><div><b>Courtiers en crédit</b><span>Montage du financement, négociation des taux et de l'assurance emprunteur.</span></div></div>
+      <div class="ak-partner"><span class="ak-p-i">☀️</span><div><b>Installateurs RGE QualiPV</b><span>Étude de toiture, devis photovoltaïque, dossier de prime ZNI.</span></div></div>
+      <div class="ak-partner"><span class="ak-p-i">📊</span><div><b>Experts-comptables</b><span>Régime LMNP, CIOP, montage fiscal d'un investissement Outre-mer.</span></div></div>
+      <div class="ak-partner"><span class="ak-p-i">🏗️</span><div><b>Entreprises de rénovation</b><span>Travaux d'isolation, de chauffe-eau solaire, de mise aux normes.</span></div></div>
+      <div class="ak-partner"><span class="ak-p-i">🏠</span><div><b>Agences et promoteurs</b><span>Biens neufs et anciens correspondant au budget calculé.</span></div></div>
+      <div class="ak-partner"><span class="ak-p-i">🛡️</span><div><b>Assureurs et gestionnaires</b><span>Assurance de prêt, garantie loyers impayés, gestion locative.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================== CONTACT ============================== -->
+<section class="ak-section ak-alt" id="contact" style="padding-top:64px;">
+  <div class="ak-wrap">
+    <div class="ak-section-head" style="margin-bottom:28px;">
+      <span class="ak-eyebrow">Mise en relation</span>
+      <h2>Dites-nous votre projet, on trouve le bon interlocuteur</h2>
+      <p>Vous ne savez pas par quel simulateur commencer, ou votre projet mélange plusieurs sujets ? Décrivez-le en une phrase, nous faisons le tri.</p>
+    </div>
+
+    <div data-ak-lead
+         data-outil="accueil"
+         data-outil-label="Demande générale (accueil)"
+         data-titre="Vous êtes intéressé par un projet aux Antilles-Guyane ?"
+         data-texte="Nous vous mettons en relation avec le partenaire local adapté à votre projet : courtier, installateur, expert-comptable ou entreprise de travaux, selon ce dont vous avez besoin."
+         data-avantages="Gratuit et sans engagement|Un seul partenaire contacté, choisi pour votre projet|Réponse sous 48 heures ouvrées|Vos coordonnées ne sont jamais revendues"
+         data-besoins="Acheter un bien immobilier|Financer ou renégocier un crédit|Installer du photovoltaïque|Rénover ou améliorer mon logement|Investir en locatif (LMNP, CIOP)|Devenir partenaire du réseau Akapa|Autre projet"
+         data-bouton="Être mis en relation"></div>
+  </div>
+</section>
+
+<!-- ================================ FOOTER ============================== -->
+<footer class="ak-footer">
+  <div class="ak-wrap">
+    <div class="ak-footer-grid">
+      <div>
+        <p class="ak-footer-brand">AKAPA</p>
+        <p>Simulateurs financiers, énergétiques et fiscaux adaptés aux Antilles-Guyane, et mise en relation avec des partenaires implantés sur le territoire.</p>
+        <div class="ak-footer-contact">
+          <span>📧 <a href="mailto:hello@akapa.fr">hello@akapa.fr</a></span>
+          <span>📞 <a href="tel:+590690289902">+590 690 28 99 02</a></span>
+          <span>📍 Baie-Mahault, Guadeloupe</span>
+        </div>
+      </div>
+      <div>
+        <h4>Simulateurs</h4>
+        <ul>
+          <li><a href="capacite-emprunt.html">Capacité d'emprunt</a></li>
+          <li><a href="mensualites-credit.html">Mensualités de crédit</a></li>
+          <li><a href="frais-notaire.html">Frais de notaire</a></li>
+          <li><a href="ciop.html">Rentabilité CIOP</a></li>
+          <li><a href="lmnp.html">Simulateur LMNP</a></li>
+          <li><a href="solaire.html">Rentabilité solaire</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Le site</h4>
+        <ul>
+          <li><a href="#methode">Comment ça marche</a></li>
+          <li><a href="#partenaires">Le réseau de partenaires</a></li>
+          <li><a href="#contact">Être mis en relation</a></li>
+          <li><a href="#contact">Devenir partenaire</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Akapa</h4>
+        <ul>
+          <li><a href="https://akapa.fr" target="_blank" rel="noopener">akapa.fr</a></li>
+          <li><a href="https://akapa.fr/services" target="_blank" rel="noopener">Nos services</a></li>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="confidentialite.html">Confidentialité</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="ak-disclaimer">Les simulateurs proposés sur ce site fournissent des estimations à titre indicatif, établies à partir des barèmes publics en vigueur et des hypothèses que vous renseignez. Elles ne constituent ni une offre de crédit, ni un conseil en investissement, ni un conseil fiscal, et ne remplacent pas l'étude personnalisée d'un professionnel (courtier, banque, notaire, expert-comptable, installateur RGE).</p>
+
+    <div class="ak-footer-bottom">
+      <span>© 2026 Akapa Automation — Baie-Mahault, Guadeloupe</span>
+      <span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Politique de confidentialité</a></span>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"Simulateurs Akapa",
+  "url":"https://simu.akapa.fr/",
+  "inLanguage":"fr-FR",
+  "publisher":{
+    "@type":"Organization",
+    "name":"Akapa Automation",
+    "url":"https://akapa.fr",
+    "email":"hello@akapa.fr",
+    "address":{"@type":"PostalAddress","addressLocality":"Baie-Mahault","addressRegion":"Guadeloupe","addressCountry":"FR"},
+    "areaServed":["Guadeloupe","Martinique","Guyane","Saint-Martin"]
+  }
+}
+</script>
+<script src="assets/akapa-config.js"></script>
+<script src="assets/akapa-lead.js"></script>
 </body>
 </html>
