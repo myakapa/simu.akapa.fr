@@ -196,7 +196,7 @@ a.ak-card:hover .ak-card-link .ak-arrow{transform:translateX(4px);}
   border-radius:20px; padding:34px 32px; color:#fff; margin:22px 0 0; max-width:100%;
   box-shadow:var(--ak-shadow-lg);
 }
-.ak-lead-grid{display:grid; grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr); gap:36px; align-items:start;}
+.ak-lead-grid{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:40px; align-items:center;}
 .ak-lead h2, .ak-lead h3{
   font-size:25px; line-height:1.18; font-weight:800; letter-spacing:-.02em; margin:0 0 12px; color:#fff;
 }
@@ -235,6 +235,24 @@ a.ak-card:hover .ak-card-link .ak-arrow{transform:translateX(4px);}
   outline:none; border-color:var(--ak-blue-500); box-shadow:0 0 0 3px rgba(59,130,246,.18);
 }
 .ak-field.is-error input, .ak-field.is-error select{border-color:#dc2626; box-shadow:0 0 0 3px rgba(220,38,38,.12);}
+/* Puces de préqualification : un clic, aucune saisie */
+.ak-field-choix{margin-bottom:16px;}
+.ak-chips{display:flex; flex-wrap:wrap; gap:8px;}
+.ak-chip{
+  font-family:var(--ak-font); font-size:13.5px; font-weight:600; line-height:1;
+  padding:10px 14px; border-radius:999px; cursor:pointer;
+  border:1px solid #cbd5e1; background:#fff; color:var(--ak-body);
+  transition:border-color .14s ease, background .14s ease, color .14s ease;
+}
+.ak-chip:hover{border-color:var(--ak-blue-500); color:var(--ak-blue-700);}
+.ak-chip.is-on{background:var(--ak-blue-600); border-color:var(--ak-blue-600); color:#fff;}
+.ak-chip:focus-visible{outline:2px solid var(--ak-blue-500); outline-offset:2px;}
+
+.ak-lead .ak-form-legal, .ak-form-legal{
+  margin:12px 0 0; font-size:11.6px; line-height:1.5; color:#94a3b8; text-align:center;
+}
+.ak-lead .ak-form-legal a, .ak-form-legal a{color:#64748b; text-decoration:underline;}
+
 .ak-hp{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;}
 .ak-consent{display:flex; gap:10px; align-items:flex-start; font-size:12.2px; line-height:1.5; color:var(--ak-muted); margin:4px 0 16px;}
 .ak-consent input{width:16px; height:16px; flex:0 0 auto; margin-top:1px; accent-color:var(--ak-blue-600);}

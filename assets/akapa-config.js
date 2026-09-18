@@ -12,6 +12,13 @@ window.AKAPA_CONFIG = {
      le contenu dans la console du navigateur, sans rien envoyer. */
   webhook: "",
 
+  /* Case à cocher de consentement.
+     false (par défaut) : le formulaire reste à 3 champs, l'accord est donné par
+     l'envoi lui-même, annoncé en clair sous le bouton — la transmission au
+     partenaire étant l'objet même de la demande.
+     true : ajoute une case à cocher obligatoire (posture RGPD la plus stricte). */
+  consentementExplicite: false,
+
   /* Coordonnées affichées dans le pied de page et les pages légales. */
   contact: {
     email: "hello@akapa.fr",
