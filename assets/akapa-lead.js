@@ -9,7 +9,7 @@
           data-titre="..."            (optionnel)
           data-texte="..."            (optionnel)
           data-avantages="a|b|c"      (optionnel)
-          data-besoins="x|y|z"        (optionnel)
+          data-besoins="x|y|z"        ← PROPRE À CHAQUE SIMULATEUR
           data-bouton="..."           (optionnel)
      ></div>
 
@@ -17,6 +17,8 @@
      window.akapaLeadContext = function(){
        return { "Puissance": "6 kWc", "Économies / an": "1 240 €" };
      };
+   Si ce récapitulatif contient une clé "Territoire" ou "Département"
+   correspondant à un département de la liste, le menu est présélectionné.
    ============================================================================= */
 (function () {
   "use strict";
@@ -24,9 +26,8 @@
   var CFG = window.AKAPA_CONFIG || {};
   var STORE_KEY = "akapa_lead_identite";
 
-  var TERRITOIRES = [
-    "Guadeloupe", "Martinique", "Guyane", "Saint-Martin",
-    "Saint-Barthélemy", "La Réunion", "Mayotte", "Hexagone / autre"
+  var DEPARTEMENTS = [
+    "Guadeloupe", "Martinique", "Guyane", "Saint-Martin", "La Réunion"
   ];
 
   /* ------------------------------------------------------------------ utils */
@@ -41,12 +42,22 @@
     catch (e) { return {}; }
   }
 
-  function memoTerritoire() {
-    return readStore().territoire || "";
-  }
-
   function writeStore(o) {
     try { localStorage.setItem(STORE_KEY, JSON.stringify(o)); } catch (e) {}
+  }
+
+  function contexte() {
+    if (typeof window.akapaLeadContext !== "function") return {};
+    try { return window.akapaLeadContext() || {}; } catch (e) { return {}; }
+  }
+
+  // Département déduit de la simulation, sinon du dernier choix mémorisé.
+  function departementConnu() {
+    var c = contexte();
+    var v = c["Département"] || c["Departement"] || c["Territoire"] || "";
+    if (DEPARTEMENTS.indexOf(v) !== -1) return v;
+    var m = readStore().departement || readStore().territoire || "";
+    return DEPARTEMENTS.indexOf(m) !== -1 ? m : "";
   }
 
   function utms() {
@@ -96,16 +107,15 @@
     var d = hote.dataset;
     var outil = d.outil || "site";
     var outilLabel = d.outilLabel || document.title;
-    var titre = d.titre || "Vous voulez un chiffrage r\u00e9el pour votre projet\u00a0?";
-    var texte = d.texte || "Laissez vos coordonn\u00e9es\u00a0: nous vous mettons en relation avec le partenaire local adapt\u00e9 \u00e0 votre projet.";
-    var bouton = d.bouton || "\u00catre mis en relation";
-    var avantages = (d.avantages || "Partenaires locaux s\u00e9lectionn\u00e9s|Sans engagement et sans frais pour vous|Une seule demande, une seule saisie").split("|");
-    var question = d.question || "Quand souhaitez-vous concr\u00e9tiser\u00a0?";
-    var choix = (d.choix || "D\u00e8s que possible|D\u2019ici 6 mois|Je me renseigne").split("|");
-    var territoireDemande = d.territoire === "oui";
-    var delai = CFG.delaiRappel || "48 heures ouvr\u00e9es";
+    var titre = d.titre || "Vous voulez un chiffrage réel pour votre projet ?";
+    var texte = d.texte || "Laissez vos coordonnées : nous vous mettons en relation avec le partenaire local adapté à votre projet.";
+    var bouton = d.bouton || "Être mis en relation";
+    var avantages = (d.avantages || "Partenaires locaux sélectionnés|Sans engagement et sans frais pour vous|Une seule demande, une seule saisie").split("|");
+    var besoins = (d.besoins || "Être rappelé pour en parler|Recevoir un devis|Je me renseigne pour plus tard").split("|");
+    var delai = CFG.delaiRappel || "48 heures ouvrées";
     var explicite = CFG.consentementExplicite === true;
     var memo = readStore();
+    var dep = departementConnu();
     var id = function (n) { return outil + "-" + n; };
 
     var recap = "";
@@ -113,19 +123,10 @@
       recap = '<div class="ak-lead-recap" data-ak-recap hidden></div>';
     }
 
-    var champTerritoire = territoireDemande
-      ? '<div class="ak-field"><label for="' + id("terr") + '">Votre territoire <span class="ak-req">*</span></label>' +
-          '<select id="' + id("terr") + '" name="territoire" required><option value="">Choisir\u2026</option>' +
-            TERRITOIRES.map(function (t) {
-              return '<option' + (memo.territoire === t ? " selected" : "") + ">" + esc(t) + "</option>";
-            }).join("") +
-          "</select></div>"
-      : "";
-
     var consentement = explicite
       ? '<label class="ak-consent"><input type="checkbox" name="consentement" required>' +
-          '<span>J\'accepte qu\'Akapa transmette ma demande \u00e0 un partenaire local qualifi\u00e9. ' +
-          '<a href="confidentialite.html" target="_blank" rel="noopener">Confidentialit\u00e9</a></span></label>'
+          "<span>J'accepte qu'Akapa transmette ma demande à un partenaire local qualifié. " +
+          '<a href="confidentialite.html" target="_blank" rel="noopener">Confidentialité</a></span></label>'
       : "";
 
     hote.className = "ak-lead";
@@ -140,60 +141,62 @@
           recap +
         "</div>" +
         '<form class="ak-form" novalidate>' +
-          '<div class="ak-field"><label for="' + id("nom") + '">Votre nom <span class="ak-req">*</span></label>' +
-            '<input id="' + id("nom") + '" name="nom" type="text" autocomplete="name" value="' + esc(memo.nom || "") + '" required></div>' +
           '<div class="ak-form-row">' +
-            '<div class="ak-field"><label for="' + id("tel") + '">T\u00e9l\u00e9phone <span class="ak-req">*</span></label>' +
+            '<div class="ak-field"><label for="' + id("nom") + '">Nom et prénom <span class="ak-req">*</span></label>' +
+              '<input id="' + id("nom") + '" name="nom" type="text" autocomplete="name" value="' + esc(memo.nom || "") + '" required></div>' +
+            '<div class="ak-field"><label for="' + id("tel") + '">Téléphone <span class="ak-req">*</span></label>' +
               '<input id="' + id("tel") + '" name="telephone" type="tel" autocomplete="tel" placeholder="0690 00 00 00" value="' + esc(memo.telephone || "") + '" required></div>' +
-            '<div class="ak-field"><label for="' + id("mail") + '">E-mail <span class="ak-req">*</span></label>' +
-              '<input id="' + id("mail") + '" name="email" type="email" autocomplete="email" value="' + esc(memo.email || "") + '" required></div>' +
           "</div>" +
-          champTerritoire +
-          '<div class="ak-field ak-field-choix"><label>' + esc(question) + "</label>" +
-            '<div class="ak-chips" role="group">' +
-              choix.map(function (c, i) {
-                return '<button type="button" class="ak-chip" data-valeur="' + esc(c) + '"' +
-                       (i === 0 ? ' data-defaut="1"' : "") + ">" + esc(c) + "</button>";
-              }).join("") +
-            '</div><input type="hidden" name="qualif" value=""></div>' +
+          '<div class="ak-field"><label for="' + id("mail") + '">Adresse e-mail <span class="ak-req">*</span></label>' +
+            '<input id="' + id("mail") + '" name="email" type="email" autocomplete="email" value="' + esc(memo.email || "") + '" required></div>' +
+          '<div class="ak-form-row">' +
+            '<div class="ak-field"><label for="' + id("dep") + '">Département <span class="ak-req">*</span></label>' +
+              '<select id="' + id("dep") + '" name="departement" required><option value="">Choisir…</option>' +
+                DEPARTEMENTS.map(function (t) {
+                  return "<option" + (dep === t ? " selected" : "") + ">" + esc(t) + "</option>";
+                }).join("") +
+              "</select></div>" +
+            '<div class="ak-field"><label for="' + id("comm") + '">Commune</label>' +
+              '<input id="' + id("comm") + '" name="commune" type="text" autocomplete="address-level2" value="' + esc(memo.commune || "") + '"></div>' +
+          "</div>" +
+          '<div class="ak-field"><label for="' + id("besoin") + '">Votre demande</label>' +
+            '<select id="' + id("besoin") + '" name="besoin">' +
+              besoins.map(function (b) { return "<option>" + esc(b) + "</option>"; }).join("") +
+            "</select></div>" +
+          '<div class="ak-field"><label for="' + id("msg") + '">Précisions (facultatif)</label>' +
+            '<textarea id="' + id("msg") + '" name="message" rows="3"></textarea></div>' +
           '<div class="ak-hp"><label>Ne pas remplir<input name="societe_bis" tabindex="-1" autocomplete="off"></label></div>' +
           consentement +
           '<button type="submit" class="ak-btn ak-btn-primary ak-btn-lg">' + esc(bouton) + "</button>" +
           '<p class="ak-form-msg"></p>' +
           '<p class="ak-form-legal">' +
-            (explicite ? "" : "En envoyant ce formulaire, vous acceptez qu\u2019Akapa transmette votre demande \u00e0 un partenaire local qualifi\u00e9. ") +
-            "R\u00e9ponse sous " + esc(delai) + ". Aucune revente \u00e0 des annonceurs. " +
-            '<a href="confidentialite.html" target="_blank" rel="noopener">Confidentialit\u00e9</a></p>' +
+            (explicite ? "" : "En envoyant ce formulaire, vous acceptez qu’Akapa transmette votre demande à un partenaire local qualifié. ") +
+            "Réponse sous " + esc(delai) + ". Aucune revente à des annonceurs. " +
+            '<a href="confidentialite.html" target="_blank" rel="noopener">Confidentialité</a></p>' +
         "</form>" +
       "</div>";
 
-    brancher(hote, outil, outilLabel, question);
+    brancher(hote, outil, outilLabel);
   }
 
   /* ------------------------------------------------------ logique du formulaire */
-  function brancher(hote, outil, outilLabel, question) {
+  function brancher(hote, outil, outilLabel) {
     var form = hote.querySelector("form");
     var msg = hote.querySelector(".ak-form-msg");
     var recapBox = hote.querySelector("[data-ak-recap]");
+    var champDep = form.elements["departement"];
+    var depTouche = false;
+    champDep.addEventListener("change", function () { depTouche = true; });
 
-    // Puces de préqualification : un seul clic, aucune saisie.
-    var puces = [].slice.call(hote.querySelectorAll(".ak-chip"));
-    var champEcheance = form.elements["qualif"];
-    puces.forEach(function (b) {
-      b.addEventListener("click", function () {
-        var deja = b.classList.contains("is-on");
-        puces.forEach(function (o) { o.classList.remove("is-on"); });
-        if (!deja) { b.classList.add("is-on"); champEcheance.value = b.dataset.valeur; }
-        else { champEcheance.value = ""; }
-      });
-    });
-
-    // Le récapitulatif de simulation se met à jour à chaque ouverture de page
-    // et à chaque changement de valeur dans le simulateur.
+    // Récapitulatif de simulation : mis à jour à chaque calcul du simulateur.
     function majRecap() {
-      if (!recapBox || typeof window.akapaLeadContext !== "function") return;
-      var ctx = {};
-      try { ctx = window.akapaLeadContext() || {}; } catch (e) { return; }
+      // Le département suit la simulation tant que le visiteur n'y a pas touché.
+      if (!depTouche) {
+        var d = departementConnu();
+        if (d && champDep.value !== d) champDep.value = d;
+      }
+      if (!recapBox) return;
+      var ctx = contexte();
       var cles = Object.keys(ctx).filter(function (k) {
         var v = ctx[k];
         return v !== null && v !== undefined && v !== "" && v !== "-";
@@ -203,7 +206,7 @@
       recapBox.innerHTML =
         "<b>Joint à votre demande</b><div class=\"ak-recap-list\">" +
         cles.map(function (k) {
-          return '<div class="ak-recap-row"><span>' + esc(k) + '</span><b>' + esc(ctx[k]) + "</b></div>";
+          return '<div class="ak-recap-row"><span>' + esc(k) + "</span><b>" + esc(ctx[k]) + "</b></div>";
         }).join("") +
         "</div>";
     }
@@ -214,7 +217,8 @@
       msg.textContent = texte;
       msg.className = "ak-form-msg is-visible is-error";
       if (champ) {
-        champ.closest(".ak-field") && champ.closest(".ak-field").classList.add("is-error");
+        var f = champ.closest(".ak-field");
+        if (f) f.classList.add("is-error");
         champ.focus();
       }
     }
@@ -236,22 +240,17 @@
         return erreur("Merci d'indiquer un numéro de téléphone joignable.", g("telephone"));
       if (!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(g("email").value.trim()))
         return erreur("L'adresse e-mail ne semble pas valide.", g("email"));
-      if (g("territoire") && !g("territoire").value)
-        return erreur("Merci de sélectionner votre territoire.", g("territoire"));
+      if (!g("departement").value)
+        return erreur("Merci de sélectionner votre département.", g("departement"));
       if (g("consentement") && !g("consentement").checked)
         return erreur("Merci de cocher la case d'accord pour être mis en relation.", g("consentement"));
-
-      var simulation = {};
-      if (typeof window.akapaLeadContext === "function") {
-        try { simulation = window.akapaLeadContext() || {}; } catch (err) { simulation = {}; }
-      }
 
       var identite = {
         nom: g("nom").value.trim(),
         email: g("email").value.trim(),
         telephone: g("telephone").value.trim(),
-        // Le territoire vient du formulaire, ou de la simulation quand celle-ci le connait deja.
-        territoire: g("territoire") ? g("territoire").value : (simulation["Territoire"] || memoTerritoire())
+        departement: g("departement").value,
+        commune: g("commune").value.trim()
       };
       writeStore(identite);
 
@@ -260,16 +259,15 @@
         date: new Date().toISOString(),
         outil: outil,
         outil_label: outilLabel,
-        qualification: {
-          question: question,
-          reponse: (g("qualif") && g("qualif").value) || "Non précisé"
-        },
+        besoin: g("besoin").value,
+        message: g("message").value.trim(),
         nom: identite.nom,
         email: identite.email,
         telephone: identite.telephone,
-        territoire: identite.territoire,
+        departement: identite.departement,
+        commune: identite.commune,
         consentement: true,
-        simulation: simulation,
+        simulation: contexte(),
         page_url: location.href,
         page_titre: document.title,
         referer: document.referrer || "",
@@ -289,7 +287,7 @@
             '<div class="ak-tick">✓</div>' +
             "<h4>Demande bien reçue" + (res.demo ? " (mode démonstration)" : "") + "</h4>" +
             "<p>Merci " + esc(identite.nom.split(" ")[0]) + ". Un partenaire local adapté à votre projet vous recontacte sous " +
-            esc(CFG.delaiRappel || "48 heures ouvrées") + ".<br>Référence de votre demande : <strong>" + esc(payload.lead_id) + "</strong></p>" +
+            esc(CFG.delaiRappel || "48 heures ouvrées") + ".<br>Référence de votre demande : <strong>" + esc(payload.lead_id) + "</strong></p>" +
           "</div>";
         document.dispatchEvent(new CustomEvent("akapa:lead", { detail: payload }));
       }).catch(function () {
