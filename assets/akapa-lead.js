@@ -327,6 +327,13 @@
         code_postal: identite.code_postal,
         consentement: true,
         simulation: contexte(),
+        simulation_texte: (function () {      // version prête à coller dans un e-mail
+          var c = contexte();
+          return Object.keys(c)
+            .filter(function (k) { return c[k] !== "" && c[k] !== "-" && c[k] != null; })
+            .map(function (k) { return k + " : " + c[k]; })
+            .join("\n");
+        })(),
         page_url: location.href,
         page_titre: document.title,
         referer: document.referrer || "",

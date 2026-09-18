@@ -10,7 +10,7 @@ window.AKAPA_CONFIG = {
      Tant que la valeur reste vide, le formulaire fonctionne en mode
      démonstration : il affiche le message de confirmation et journalise
      le contenu dans la console du navigateur, sans rien envoyer. */
-  webhook: "",
+  webhook: "https://hook.eu2.make.com/qf0974vo758ioa02slh6fsygg3ler14p",
 
   /* reCAPTCHA v3 (invisible, aucune image à cliquer).
      1. Créer une clé sur https://www.google.com/recaptcha/admin
