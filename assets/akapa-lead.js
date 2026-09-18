@@ -314,6 +314,15 @@
       var payload = {
         lead_id: leadId(),
         date: new Date().toISOString(),
+        date_locale: (function () {           // date lisible, heure des Antilles
+          try {
+            return new Date().toLocaleString("fr-FR", {
+              timeZone: "America/Guadeloupe",
+              day: "2-digit", month: "2-digit", year: "numeric",
+              hour: "2-digit", minute: "2-digit"
+            });
+          } catch (e) { return new Date().toISOString(); }
+        })(),
         outil: outil,
         outil_label: outilLabel,
         besoin: g("besoin").value,
