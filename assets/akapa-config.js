@@ -23,7 +23,7 @@ window.AKAPA_CONFIG = {
         puis un filtre qui ne laisse passer que success = true et score >= 0.5.
      Laissé vide, le formulaire fonctionne sans reCAPTCHA (le piège à robots
      du formulaire reste actif dans tous les cas). */
-  recaptchaSiteKey: "",
+  recaptchaSiteKey: "6LffncEtAAAAAHJrcAU5dnsFp7AUI0UaBoqDyhEH",
   recaptchaAction: "mise_en_relation",
 
   /* Case à cocher de consentement.
