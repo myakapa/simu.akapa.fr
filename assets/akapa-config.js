@@ -12,6 +12,12 @@ window.AKAPA_CONFIG = {
      le contenu dans la console du navigateur, sans rien envoyer. */
   webhook: "https://hook.eu2.make.com/qf0974vo758ioa02slh6fsygg3ler14p",
 
+  /* Identifiant de mesure GA4 (format G-XXXXXXXXXX).
+     Laissé vide, aucun script Google Analytics n'est chargé.
+     Renseigné, GA4 n'est chargé QUE si le visiteur accepte la mesure d'audience
+     dans le bandeau cookies — rien avant. */
+  ga4Id: "",
+
   /* reCAPTCHA v3 (invisible, aucune image à cliquer).
      1. Créer une clé sur https://www.google.com/recaptcha/admin
         → type « reCAPTCHA v3 », domaine « simu.akapa.fr ».

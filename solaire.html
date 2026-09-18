@@ -257,11 +257,11 @@
 </style>
 <link rel="stylesheet" href="assets/akapa.css">
 </head>
-<body class="ak-chrome mode-simple profil-part regime-surplus fin-comptant relais-non batt-non saisie-facture">
+<body data-ak-outil="solaire" data-ak-outil-label="Rentabilité solaire (ZNI)" class="ak-chrome mode-simple profil-part regime-surplus fin-comptant relais-non batt-non saisie-facture">
 <header class="ak-header">
   <div class="ak-wrap">
     <a class="ak-brand" href="index.html">
-      <img src="assets/logo-akapa.png" alt="Akapa" onerror="this.outerHTML='<strong style=&quot;font-size:19px;color:#1e40af&quot;>AKAPA</strong>'">
+      <img src="assets/logo-akapa.svg" alt="AKAPA" onerror="this.outerHTML='<strong style=&quot;font-size:19px;color:#1e40af&quot;>AKAPA</strong>'">
       <span class="ak-brand-sub">Simulateurs</span>
     </a>
     <button class="ak-burger" data-ak-burger type="button" aria-label="Menu" aria-expanded="false"><svg class="ak-ico ak-ico-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.6 6.6h16.8M3.6 12h16.8M3.6 17.4h16.8"/></svg></button>
@@ -285,10 +285,22 @@
   </div>
 </header>
 
+<div class="ak-titlebar">
+  <div class="ak-wrap">
+    <h1>Rentabilité solaire</h1>
+    <p>Partez de votre facture d’électricité : puissance adaptée, économies, prime ZNI et rentabilité sur 25 ans.</p>
+    <button type="button" class="ak-tb-plus" data-ak-tb-plus aria-expanded="false" aria-controls="ak-tb-long">Détails</button>
+    <div class="ak-tb-actions">
+      <button type="button" class="ak-btn ak-btn-pdf" data-ak-pdf><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.4v12.2"/><path d="m7.2 11 4.8 4.8 4.8-4.8"/><path d="M4.2 17.4v1.6a1.8 1.8 0 0 0 1.8 1.8h12a1.8 1.8 0 0 0 1.8-1.8v-1.6"/></svg> <span class="ak-btn-txt">PDF</span></button>
+      <a class="ak-btn ak-btn-primary" href="#mise-en-relation" aria-label="Recevoir un devis"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.4 3.2H7.2a2 2 0 0 0-2 2v13.6a2 2 0 0 0 2 2h9.6a2 2 0 0 0 2-2V8.6z"/><path d="M13.4 3.2v5.4h5.4"/><path d="M8.6 13h6.8M8.6 16.4h4.8"/></svg> <span class="ak-btn-txt">Recevoir un devis</span></a>
+    </div>
+  </div>
+</div>
+<div class="ak-tb-long" id="ak-tb-long"><div class="ak-wrap">Partez de votre facture d'électricité : le simulateur estime votre consommation, la puissance adaptée, vos économies annuelles, la prime à l'investissement ZNI (Antilles, Guyane, Réunion, Mayotte) et la rentabilité du projet sur 25&nbsp;ans.</div></div>
+
 <div class="page">
 
-<h1>Combien le solaire peut-il vous faire économiser&nbsp;?</h1>
-<p class="subtitle">Partez de votre facture d'électricité : le simulateur estime votre consommation, la puissance adaptée, vos économies annuelles, la prime à l'investissement ZNI (Antilles, Guyane, Réunion, Mayotte) et la rentabilité du projet sur 25&nbsp;ans.</p>
+
 
 <div class="mode-switch">
   <div class="seg-group" id="grp_mode">
@@ -535,15 +547,13 @@
   </div>
 
   <div class="kpis" id="kpis"></div>
+<div class="ak-actions-res">
+  <button type="button" class="ak-btn ak-btn-pdf" data-ak-pdf><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.4v12.2"/><path d="m7.2 11 4.8 4.8 4.8-4.8"/><path d="M4.2 17.4v1.6a1.8 1.8 0 0 0 1.8 1.8h12a1.8 1.8 0 0 0 1.8-1.8v-1.6"/></svg> Télécharger cette simulation en PDF</button>
+  <a class="ak-btn ak-btn-primary" href="#mise-en-relation"><svg class="ak-ico ak-ico-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.5 12h15"/><path d="m13.2 5.7 6.3 6.3-6.3 6.3"/></svg> Faire confirmer par un installateur</a>
+</div>
 
-<div id="mise-en-relation" data-ak-lead
-     data-outil="solaire"
-     data-outil-label="Rentabilité solaire (ZNI)"
-     data-titre="Ces chiffres vous parlent ? Faites-les confirmer par un installateur local."
-     data-texte="Une simulation ne remplace pas une étude de toiture. Laissez vos coordonnées : nous transmettons votre demande, récapitulatif de simulation inclus, à un installateur RGE QualiPV de votre territoire."
-     data-avantages="Installateurs RGE QualiPV implantés sur votre île|Devis gratuit, sans engagement et sans frais pour vous|Votre simulation est jointe : pas besoin de tout réexpliquer|Accompagnement possible sur le dossier de prime ZNI"
-     data-besoins="Recevoir un devis d’installation|Étudier le financement et le prêt relais sur la prime|Faire vérifier ma toiture et mon raccordement|Ajouter une batterie à une installation existante|Je me renseigne pour plus tard"
-     data-bouton="Recevoir un devis d’installateur"></div>
+
+
 
 
   <!-- JOURNÉE TYPE -->
@@ -614,11 +624,14 @@
   <p class="note" id="sources">-</p>
 </div>
 
-<div class="ak-cta-band" style="margin-top:26px;">
-  <h2>Prêt à passer du calcul au devis ?</h2>
-  <p>Un installateur RGE QualiPV de votre territoire peut confirmer ces chiffres sur votre toiture, et monter le dossier de prime à l’investissement avec vous.</p>
-  <a class="ak-btn ak-btn-primary ak-btn-lg" href="#mise-en-relation">Demander un devis gratuit</a>
-</div>
+<div id="mise-en-relation" data-ak-lead
+     data-outil="solaire"
+     data-outil-label="Rentabilité solaire (ZNI)"
+     data-titre="Ces chiffres vous parlent ? Faites-les confirmer par un installateur local."
+     data-texte="Une simulation ne remplace pas une étude de toiture. Laissez vos coordonnées : nous transmettons votre demande, récapitulatif de simulation inclus, à un installateur RGE QualiPV de votre territoire."
+     data-avantages="Installateurs RGE QualiPV sélectionnés sur le prix, la qualité, la réactivité et les garanties|Un seul partenaire contacté, implanté sur votre île|Devis gratuit, sans engagement et sans frais pour vous|Votre simulation est jointe : pas besoin de tout réexpliquer"
+     data-besoins="Recevoir un devis d’installation|Étudier le financement et le prêt relais sur la prime|Faire vérifier ma toiture et mon raccordement|Ajouter une batterie à une installation existante|Je me renseigne pour plus tard"
+     data-bouton="Recevoir un devis d’installateur"></div>
 
 <p class="note" style="margin-top:22px;">Simulateur indicatif — les barèmes de prime et tarifs d’achat ZNI sont révisés chaque trimestre par la CRE. Ne remplace pas un devis d’installateur RGE QualiPV ni une étude de financement personnalisée.</p>
 </div>
@@ -660,13 +673,14 @@
           <li><a href="https://akapa.fr" target="_blank" rel="noopener">akapa.fr</a></li>
           <li><a href="mentions-legales.html">Mentions légales</a></li>
           <li><a href="confidentialite.html">Confidentialité</a></li>
+          <li><a href="#" data-ak-cookies>Gérer mes cookies</a></li>
         </ul>
       </div>
     </div>
     <p class="ak-disclaimer">Les simulateurs proposés sur ce site fournissent des estimations à titre indicatif, établies à partir des barèmes publics en vigueur et des hypothèses que vous renseignez. Elles ne constituent ni une offre de crédit, ni un conseil en investissement, ni un conseil fiscal, et ne remplacent pas l’étude personnalisée d’un professionnel.</p>
     <div class="ak-footer-bottom">
       <span>© 2026 Akapa Automation — Baie-Mahault, Guadeloupe</span>
-      <span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Politique de confidentialité</a></span>
+      <span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Politique de confidentialité</a> · <a href="#" data-ak-cookies>Gérer mes cookies</a></span>
     </div>
   </div>
 </footer>
@@ -1665,5 +1679,19 @@ compute();
 })();
 </script>
 <script src="assets/akapa-lead.js"></script>
+<script src="assets/akapa-pdf.js"></script>
+<script src="assets/akapa-cookies.js"></script>
+<script>
+/* Repli du sous-titre long de la bande de titre. */
+(function(){
+  var b = document.querySelector('[data-ak-tb-plus]'), l = document.getElementById('ak-tb-long');
+  if (!b || !l) return;
+  b.addEventListener('click', function(){
+    var ouvert = l.classList.toggle('is-open');
+    b.setAttribute('aria-expanded', ouvert ? 'true' : 'false');
+    b.textContent = ouvert ? 'Masquer' : 'D\u00e9tails';
+  });
+})();
+</script>
 </body>
 </html>
