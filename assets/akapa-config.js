@@ -12,6 +12,20 @@ window.AKAPA_CONFIG = {
      le contenu dans la console du navigateur, sans rien envoyer. */
   webhook: "",
 
+  /* reCAPTCHA v3 (invisible, aucune image à cliquer).
+     1. Créer une clé sur https://www.google.com/recaptcha/admin
+        → type « reCAPTCHA v3 », domaine « simu.akapa.fr ».
+     2. Coller ici la CLÉ DU SITE (publique). La clé secrète ne doit JAMAIS
+        apparaître dans ces fichiers : elle reste dans Make.
+     3. Côté Make, premier module après le webhook : HTTP › Make a request
+        POST https://www.google.com/recaptcha/api/siteverify
+        avec secret=<clé secrète> et response={{recaptcha_token}},
+        puis un filtre qui ne laisse passer que success = true et score >= 0.5.
+     Laissé vide, le formulaire fonctionne sans reCAPTCHA (le piège à robots
+     du formulaire reste actif dans tous les cas). */
+  recaptchaSiteKey: "",
+  recaptchaAction: "mise_en_relation",
+
   /* Case à cocher de consentement.
      false (par défaut) : le formulaire reste à 3 champs, l'accord est donné par
      l'envoi lui-même, annoncé en clair sous le bouton — la transmission au

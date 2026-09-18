@@ -81,10 +81,25 @@ body.ak-chrome .page{padding:24px 20px 8px;}
 .ak-dd-menu hr{border:0; border-top:1px solid var(--ak-line); margin:6px 4px;}
 
 .ak-burger{
-  display:none; margin-left:auto; background:none; border:1px solid var(--ak-line);
+  display:none; align-items:center; justify-content:center; margin-left:auto; background:none; border:1px solid var(--ak-line);
   border-radius:10px; width:40px; height:38px; cursor:pointer; color:var(--ak-ink);
-  font-size:17px; line-height:1;
+  line-height:1; padding:0;
 }
+
+/* ================================= ICÔNES ================================= */
+.ak-ico{width:1.15em; height:1.15em; flex:0 0 auto; display:inline-block; vertical-align:-.2em;}
+.ak-ico-menu{width:20px; height:20px; vertical-align:middle;}
+.ak-ico-arrow{width:1.05em; height:1.05em; vertical-align:-.16em;}
+.ak-card-icon .ak-ico{width:23px; height:23px;}
+.ak-stat .ak-stat-i .ak-ico{width:22px; height:22px;}
+.ak-p-i .ak-ico{width:21px; height:21px; color:var(--ak-blue-600);}
+.ak-footer-contact .ak-ico{width:16px; height:16px; color:#64748b; margin-right:2px;}
+.ak-cta-band .ak-ico, .ak-btn .ak-ico{width:1.05em; height:1.05em;}
+.ak-dd-menu .ak-ico{width:18px; height:18px; color:var(--ak-blue-600);}
+body.ak-chrome h2 > .ak-ico{width:17px; height:17px; color:var(--ak-blue-600); vertical-align:-.19em;}
+body.ak-chrome .chip .ak-ico{width:15px; height:15px; vertical-align:-.2em;}
+body.ak-chrome .cmp .t .ak-ico{width:15px; height:15px; vertical-align:-.2em; color:#b45309;}
+body.ak-chrome .cmp:not(.after) .t .ak-ico{color:#a16207;}
 
 /* ================================ BOUTONS ================================= */
 .ak-btn{
@@ -125,7 +140,7 @@ body.ak-chrome .page{padding:24px 20px 8px;}
   border-radius:20px; padding:20px; display:grid; grid-template-columns:1fr 1fr; gap:14px;
 }
 .ak-stat{background:rgba(255,255,255,.12); border-radius:14px; padding:20px 16px; text-align:center;}
-.ak-stat .ak-stat-i{font-size:21px; display:block; margin-bottom:8px;}
+.ak-stat .ak-stat-i{display:flex; justify-content:center; margin-bottom:9px; color:var(--ak-yellow);}
 .ak-stat b{display:block; font-size:25px; font-weight:800; letter-spacing:-.02em;}
 .ak-stat span.ak-stat-l{display:block; font-size:12px; color:rgba(255,255,255,.78); margin-top:3px;}
 
@@ -313,6 +328,7 @@ body.ak-chrome h1{font-family:var(--ak-font); letter-spacing:-.018em;}
 }
 @media (max-width:820px){
   .ak-wrap{padding:0 18px;}
+  .ak-burger{display:flex;}
   .ak-nav{
     display:none; position:absolute; left:14px; right:14px; top:60px;
     background:#fff; border:1px solid var(--ak-line); border-radius:14px;
@@ -321,7 +337,6 @@ body.ak-chrome h1{font-family:var(--ak-font); letter-spacing:-.018em;}
   .ak-nav.is-open{display:flex;}
   .ak-nav a{padding:11px 13px;}
   .ak-nav .ak-btn{margin:6px 0 0; width:100%;}
-  .ak-burger{display:block;}
   .ak-dd{width:100%;}
   .ak-dd > button{width:100%; justify-content:space-between;}
   .ak-dd-menu{position:static; box-shadow:none; border:0; padding:2px 0 6px 10px; min-width:0;}

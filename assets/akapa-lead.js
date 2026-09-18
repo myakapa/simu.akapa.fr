@@ -72,6 +72,42 @@
            "-" + Math.random().toString(36).slice(2, 6).toUpperCase();
   }
 
+  /* ------------------------------------------------------------- reCAPTCHA v3 */
+  var recaptchaPret = null;
+
+  function chargerRecaptcha() {
+    if (recaptchaPret) return recaptchaPret;
+    var cle = CFG.recaptchaSiteKey;
+    if (!cle) { recaptchaPret = Promise.resolve(false); return recaptchaPret; }
+
+    recaptchaPret = new Promise(function (ok) {
+      var sc = document.createElement("script");
+      sc.src = "https://www.google.com/recaptcha/api.js?render=" + encodeURIComponent(cle);
+      sc.async = true;
+      sc.defer = true;
+      sc.onload = function () { ok(true); };
+      sc.onerror = function () { ok(false); };   // le formulaire reste utilisable
+      document.head.appendChild(sc);
+    });
+    return recaptchaPret;
+  }
+
+  // Renvoie un jeton, ou "" si reCAPTCHA n'est pas configuré / indisponible.
+  function jetonRecaptcha() {
+    var cle = CFG.recaptchaSiteKey;
+    if (!cle) return Promise.resolve("");
+    return chargerRecaptcha().then(function (dispo) {
+      if (!dispo || !window.grecaptcha) return "";
+      return new Promise(function (ok) {
+        window.grecaptcha.ready(function () {
+          window.grecaptcha
+            .execute(cle, { action: CFG.recaptchaAction || "mise_en_relation" })
+            .then(function (t) { ok(t || ""); }, function () { ok(""); });
+        });
+      });
+    });
+  }
+
   /* -------------------------------------------------- envoi vers le webhook */
   function envoyer(payload) {
     var url = CFG.webhook;
@@ -142,29 +178,33 @@
         "</div>" +
         '<form class="ak-form" novalidate>' +
           '<div class="ak-form-row">' +
-            '<div class="ak-field"><label for="' + id("nom") + '">Nom et prénom <span class="ak-req">*</span></label>' +
-              '<input id="' + id("nom") + '" name="nom" type="text" autocomplete="name" value="' + esc(memo.nom || "") + '" required></div>' +
+            '<div class="ak-field"><label for="' + id("prenom") + '">Prénom <span class="ak-req">*</span></label>' +
+              '<input id="' + id("prenom") + '" name="prenom" type="text" autocomplete="given-name" value="' + esc(memo.prenom || "") + '" required></div>' +
+            '<div class="ak-field"><label for="' + id("nom") + '">Nom <span class="ak-req">*</span></label>' +
+              '<input id="' + id("nom") + '" name="nom" type="text" autocomplete="family-name" value="' + esc(memo.nom || "") + '" required></div>' +
+          "</div>" +
+          '<div class="ak-form-row">' +
             '<div class="ak-field"><label for="' + id("tel") + '">Téléphone <span class="ak-req">*</span></label>' +
               '<input id="' + id("tel") + '" name="telephone" type="tel" autocomplete="tel" placeholder="0690 00 00 00" value="' + esc(memo.telephone || "") + '" required></div>' +
+            '<div class="ak-field"><label for="' + id("cp") + '">Code postal</label>' +
+              '<input id="' + id("cp") + '" name="code_postal" type="text" inputmode="numeric" maxlength="5" autocomplete="postal-code" placeholder="97190" value="' + esc(memo.code_postal || "") + '"></div>' +
           "</div>" +
-          '<div class="ak-field"><label for="' + id("mail") + '">Adresse e-mail <span class="ak-req">*</span></label>' +
-            '<input id="' + id("mail") + '" name="email" type="email" autocomplete="email" value="' + esc(memo.email || "") + '" required></div>' +
           '<div class="ak-form-row">' +
+            '<div class="ak-field"><label for="' + id("mail") + '">Adresse e-mail <span class="ak-req">*</span></label>' +
+              '<input id="' + id("mail") + '" name="email" type="email" autocomplete="email" value="' + esc(memo.email || "") + '" required></div>' +
             '<div class="ak-field"><label for="' + id("dep") + '">Département <span class="ak-req">*</span></label>' +
               '<select id="' + id("dep") + '" name="departement" required><option value="">Choisir…</option>' +
                 DEPARTEMENTS.map(function (t) {
                   return "<option" + (dep === t ? " selected" : "") + ">" + esc(t) + "</option>";
                 }).join("") +
               "</select></div>" +
-            '<div class="ak-field"><label for="' + id("comm") + '">Commune</label>' +
-              '<input id="' + id("comm") + '" name="commune" type="text" autocomplete="address-level2" value="' + esc(memo.commune || "") + '"></div>' +
           "</div>" +
           '<div class="ak-field"><label for="' + id("besoin") + '">Votre demande</label>' +
             '<select id="' + id("besoin") + '" name="besoin">' +
               besoins.map(function (b) { return "<option>" + esc(b) + "</option>"; }).join("") +
             "</select></div>" +
-          '<div class="ak-field"><label for="' + id("msg") + '">Précisions (facultatif)</label>' +
-            '<textarea id="' + id("msg") + '" name="message" rows="3"></textarea></div>' +
+          '<div class="ak-field"><label for="' + id("msg") + '">Votre message <span class="ak-req">*</span></label>' +
+            '<textarea id="' + id("msg") + '" name="message" rows="3" placeholder="' + esc(d.placeholderMessage || "Décrivez votre projet en quelques mots\u00a0: ce que vous voulez faire, où, et dans quel délai.") + '" required></textarea></div>' +
           '<div class="ak-hp"><label>Ne pas remplir<input name="societe_bis" tabindex="-1" autocomplete="off"></label></div>' +
           consentement +
           '<button type="submit" class="ak-btn ak-btn-primary ak-btn-lg">' + esc(bouton) + "</button>" +
@@ -172,7 +212,13 @@
           '<p class="ak-form-legal">' +
             (explicite ? "" : "En envoyant ce formulaire, vous acceptez qu’Akapa transmette votre demande à un partenaire local qualifié. ") +
             "Réponse sous " + esc(delai) + ". Aucune revente à des annonceurs. " +
-            '<a href="confidentialite.html" target="_blank" rel="noopener">Confidentialité</a></p>' +
+            '<a href="confidentialite.html" target="_blank" rel="noopener">Confidentialité</a>' +
+            (CFG.recaptchaSiteKey
+              ? '<br>Ce site est protégé par reCAPTCHA ; la ' +
+                '<a href="https://policies.google.com/privacy" target="_blank" rel="noopener">politique de confidentialité</a> et les ' +
+                '<a href="https://policies.google.com/terms" target="_blank" rel="noopener">conditions d’utilisation</a> de Google s’appliquent.'
+              : "") +
+            "</p>" +
         "</form>" +
       "</div>";
 
@@ -213,6 +259,10 @@
     majRecap();
     hote._akapaMajRecap = majRecap;
 
+    // reCAPTCHA se charge dès qu'un champ est touché, pour que le jeton
+    // soit prêt au moment de l'envoi sans ralentir l'affichage de la page.
+    form.addEventListener("focusin", chargerRecaptcha, { once: true });
+
     function erreur(texte, champ) {
       msg.textContent = texte;
       msg.className = "ak-form-msg is-visible is-error";
@@ -235,6 +285,7 @@
       var g = function (n) { return form.elements[n]; };
       if (g("societe_bis").value) return;                     // piège à robots
 
+      if (!g("prenom").value.trim()) return erreur("Merci d'indiquer votre prénom.", g("prenom"));
       if (!g("nom").value.trim()) return erreur("Merci d'indiquer votre nom.", g("nom"));
       if (g("telephone").value.replace(/\D/g, "").length < 8)
         return erreur("Merci d'indiquer un numéro de téléphone joignable.", g("telephone"));
@@ -242,15 +293,21 @@
         return erreur("L'adresse e-mail ne semble pas valide.", g("email"));
       if (!g("departement").value)
         return erreur("Merci de sélectionner votre département.", g("departement"));
+      var cp = g("code_postal").value.trim();
+      if (cp && !/^\d{5}$/.test(cp))
+        return erreur("Le code postal doit comporter 5 chiffres.", g("code_postal"));
+      if (g("message").value.trim().length < 10)
+        return erreur("Merci de décrire votre projet en quelques mots.", g("message"));
       if (g("consentement") && !g("consentement").checked)
         return erreur("Merci de cocher la case d'accord pour être mis en relation.", g("consentement"));
 
       var identite = {
+        prenom: g("prenom").value.trim(),
         nom: g("nom").value.trim(),
         email: g("email").value.trim(),
         telephone: g("telephone").value.trim(),
         departement: g("departement").value,
-        commune: g("commune").value.trim()
+        code_postal: cp
       };
       writeStore(identite);
 
@@ -261,11 +318,13 @@
         outil_label: outilLabel,
         besoin: g("besoin").value,
         message: g("message").value.trim(),
+        prenom: identite.prenom,
         nom: identite.nom,
+        nom_complet: identite.prenom + " " + identite.nom,
         email: identite.email,
         telephone: identite.telephone,
         departement: identite.departement,
-        commune: identite.commune,
+        code_postal: identite.code_postal,
         consentement: true,
         simulation: contexte(),
         page_url: location.href,
@@ -281,12 +340,16 @@
       btn.disabled = true;
       btn.textContent = "Envoi en cours…";
 
-      envoyer(payload).then(function (res) {
+      jetonRecaptcha().then(function (jeton) {
+        payload.recaptcha_token = jeton;
+        payload.recaptcha_action = jeton ? (CFG.recaptchaAction || "mise_en_relation") : "";
+        return envoyer(payload);
+      }).then(function (res) {
         form.innerHTML =
           '<div class="ak-form-done">' +
             '<div class="ak-tick">✓</div>' +
             "<h4>Demande bien reçue" + (res.demo ? " (mode démonstration)" : "") + "</h4>" +
-            "<p>Merci " + esc(identite.nom.split(" ")[0]) + ". Un partenaire local adapté à votre projet vous recontacte sous " +
+            "<p>Merci " + esc(identite.prenom) + ". Un partenaire local adapté à votre projet vous recontacte sous " +
             esc(CFG.delaiRappel || "48 heures ouvrées") + ".<br>Référence de votre demande : <strong>" + esc(payload.lead_id) + "</strong></p>" +
           "</div>";
         document.dispatchEvent(new CustomEvent("akapa:lead", { detail: payload }));
