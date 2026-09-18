@@ -16,7 +16,7 @@ window.AKAPA_CONFIG = {
      Laissé vide, aucun script Google Analytics n'est chargé.
      Renseigné, GA4 n'est chargé QUE si le visiteur accepte la mesure d'audience
      dans le bandeau cookies — rien avant. */
-  ga4Id: "",
+  ga4Id: "G-2KVSEV5441",
 
   /* reCAPTCHA v3 (invisible, aucune image à cliquer).
      1. Créer une clé sur https://www.google.com/recaptcha/admin

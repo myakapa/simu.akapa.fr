@@ -153,28 +153,50 @@
     .seg-btn{font-size:12px; padding:9px 4px;}
   }
 </style>
+<link rel="stylesheet" href="assets/akapa.css">
 </head>
-<body class="mode-simple">
-<div class="page">
-
-<div class="back-link"><a href="index.html">← Tous les outils</a></div>
-<header class="site-header">
-  <a class="brand" href="index.html"><img src="assets/logo-akapa.png" alt="Akapa" class="brand-logo"></a>
-  <div class="menu-wrap">
-    <button class="menu-btn" id="menuBtn" type="button" aria-haspopup="true" aria-expanded="false">Autres simulateurs <span class="chev">▾</span></button>
-    <nav class="menu-dropdown" id="menuDropdown">
-      <a class="home" href="index.html">🏠 Tous les outils</a>
-      <a href="mensualites-credit.html">📆 Mensualités de crédit</a>
-      <a href="frais-notaire.html">📝 Frais de notaire</a>
-      <a href="ciop.html">🏝️ Rentabilité CIOP</a>
-      <a href="lmnp.html">🛋️ Simulateur LMNP</a>
-      <a href="solaire.html">☀️ Rentabilité solaire</a>
+<body data-ak-outil="capacite-emprunt" data-ak-outil-label="Capacité d’emprunt" class="ak-chrome mode-simple">
+<header class="ak-header">
+  <div class="ak-wrap">
+    <a class="ak-brand" href="index.html">
+      <img src="assets/logo-akapa.svg" alt="AKAPA" onerror="this.outerHTML='<strong style=&quot;font-size:19px;color:#1e40af&quot;>AKAPA</strong>'">
+      <span class="ak-brand-sub">Simulateurs</span>
+    </a>
+    <button class="ak-burger" data-ak-burger type="button" aria-label="Menu" aria-expanded="false"><svg class="ak-ico ak-ico-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.6 6.6h16.8M3.6 12h16.8M3.6 17.4h16.8"/></svg></button>
+    <nav class="ak-nav">
+      <a href="index.html">Accueil</a>
+      <div class="ak-dd">
+        <button type="button" aria-haspopup="true" aria-expanded="false">Tous les simulateurs <span class="ak-chev">▾</span></button>
+        <nav class="ak-dd-menu">
+          <a href="index.html#outils"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 10.4 12 3.7l8.5 6.7"/><path d="M5.7 9.2V19a1.6 1.6 0 0 0 1.6 1.6h9.4a1.6 1.6 0 0 0 1.6-1.6V9.2"/><path d="M9.9 20.6v-5.3h4.2v5.3"/></svg> Tous les outils</a>
+          <hr>
+          <a href="mensualites-credit.html"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.3" y="5" width="17.4" height="15.4" rx="2.4"/><path d="M8 3v4M16 3v4M3.3 10h17.4"/><path d="M7.6 13.8h2.6M13.8 13.8h2.6M7.6 17h2.6"/></svg> Mensualités de crédit</a>
+          <a href="frais-notaire.html"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.4 3.2H7.2a2 2 0 0 0-2 2v13.6a2 2 0 0 0 2 2h9.6a2 2 0 0 0 2-2V8.6z"/><path d="M13.4 3.2v5.4h5.4"/><path d="M8.6 13h6.8M8.6 16.4h4.8"/></svg> Frais de notaire</a>
+          <a href="ciop.html"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.8"/><path d="m8.9 15.1 6.2-6.2"/><circle cx="9.5" cy="9.5" r="1.3"/><circle cx="14.5" cy="14.5" r="1.3"/></svg> Rentabilité CIOP</a>
+          <a href="lmnp.html"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5.2 11.6V8.3A2.2 2.2 0 0 1 7.4 6.1h9.2a2.2 2.2 0 0 1 2.2 2.2v3.3"/><path d="M3 14.1a2 2 0 0 1 4 0v2.4h10v-2.4a2 2 0 0 1 4 0v4.4H3z"/><path d="M6.6 18.5v1.6M17.4 18.5v1.6"/></svg> Simulateur LMNP</a>
+          <a href="solaire.html"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.1"/><path d="M12 2.6v2.1M12 19.3v2.1M5 5l1.5 1.5M17.5 17.5 19 19M2.6 12h2.1M19.3 12h2.1M5 19l1.5-1.5M17.5 6.5 19 5"/></svg> Rentabilité solaire</a>
+        </nav>
+      </div>
+      <a href="index.html#methode">Comment ça marche</a>
+      <a class="ak-btn ak-btn-primary" href="#mise-en-relation">Être mis en relation</a>
     </nav>
   </div>
 </header>
 
-<h1>Calculatrice de capacit&eacute; d'emprunt</h1>
-<p class="subtitle">Estimez le montant que vous pouvez emprunter, votre budget total et le prix du bien accessible.</p>
+<div class="ak-titlebar">
+  <div class="ak-wrap">
+    <h1>Capacité d’emprunt</h1>
+    <p>Combien pouvez-vous emprunter ? Mensualité maximale, budget total et prix du bien accessible.</p>
+    <button type="button" class="ak-tb-plus" data-ak-tb-plus aria-expanded="false" aria-controls="ak-tb-long">Détails</button>
+    <div class="ak-tb-actions">
+      <button type="button" class="ak-btn ak-btn-pdf" data-ak-pdf><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.4v12.2"/><path d="m7.2 11 4.8 4.8 4.8-4.8"/><path d="M4.2 17.4v1.6a1.8 1.8 0 0 0 1.8 1.8h12a1.8 1.8 0 0 0 1.8-1.8v-1.6"/></svg> <span class="ak-btn-txt">PDF</span></button>
+      <a class="ak-btn ak-btn-primary" href="#mise-en-relation" aria-label="Être mis en relation"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.4 3.2H7.2a2 2 0 0 0-2 2v13.6a2 2 0 0 0 2 2h9.6a2 2 0 0 0 2-2V8.6z"/><path d="M13.4 3.2v5.4h5.4"/><path d="M8.6 13h6.8M8.6 16.4h4.8"/></svg> <span class="ak-btn-txt">Être mis en relation</span></a>
+    </div>
+  </div>
+</div>
+<div class="ak-tb-long" id="ak-tb-long"><div class="ak-wrap">Le simulateur applique le taux d’endettement maximal recommandé de 35&nbsp;% (règle HCSF), tient compte de vos revenus, de vos crédits en cours, de votre apport, du coût de l’assurance et des frais de notaire pour estimer le montant empruntable et le prix du bien réellement accessible.</div></div>
+
+<div class="page">
 
 <div class="mode-switch">
   <div class="seg-group" id="grp_mode">
@@ -188,7 +210,7 @@
 <div class="grid">
 
   <div class="card">
-    <h2>&#128100; Votre situation</h2>
+    <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9.2" cy="8.4" r="3.3"/><path d="M3.2 20.2c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16.4 5.6a3.3 3.3 0 0 1 0 6.2M17.6 14.6c2 .9 3.4 2.9 3.4 5.6"/></svg> Votre situation</h2>
     <p class="seg-label">Vous &ecirc;tes</p>
     <div class="seg-group" id="grp_statut">
       <button type="button" class="seg-btn" data-value="seul">Je vis seul</button>
@@ -203,7 +225,7 @@
   </div>
 
   <div class="card">
-    <h2>&#128180; Vos revenus</h2>
+    <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.8"/><path d="M15.7 8.5a4.3 4.3 0 0 0-6.2 1.6 6.1 6.1 0 0 0 0 3.8 4.3 4.3 0 0 0 6.2 1.6"/><path d="M7.6 11h5.1M7.6 13.4h5.1"/></svg> Vos revenus</h2>
     <div class="row"><label>Vos revenus nets</label><input type="number" id="revenuVous" value="3000" step="50"><span class="unit">&euro;/mois</span></div>
     <div class="row" id="row_revenuCo"><label>Revenus nets du co-emprunteur</label><input type="number" id="revenuCo" value="2200" step="50"><span class="unit">&euro;/mois</span></div>
     <hr class="divider">
@@ -211,7 +233,7 @@
   </div>
 
   <div class="card">
-    <h2>&#127959;&#65039; Votre projet</h2>
+    <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.2 20.4V6.3a1.5 1.5 0 0 1 1.5-1.5h6.1a1.5 1.5 0 0 1 1.5 1.5v14.1"/><path d="M13.3 11.2h4.9a1.5 1.5 0 0 1 1.5 1.5v7.7"/><path d="M2.6 20.4h18.8"/><path d="M7 8.4h2.6M7 11.9h2.6M7 15.4h2.6M15.6 14.6h1.7M15.6 17.6h1.7"/></svg> Votre projet</h2>
     <div class="row"><label>Mensualit&eacute; souhait&eacute;e</label><input type="number" id="mensualite" value="900" step="10"><span class="unit">&euro;/mois</span></div>
     <div class="row"><label>Votre apport personnel</label><input type="number" id="apport" value="15000" step="500"><span class="unit">&euro;</span></div>
     <hr class="divider">
@@ -220,7 +242,7 @@
   </div>
 
   <div class="card advanced-only">
-    <h2>&#9881;&#65039; Param&egrave;tres du pr&ecirc;t</h2>
+    <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.4 7.2h11.2M18.6 7.2h2M3.4 12h5.2M12.6 12h8M3.4 16.8h9.2M16.8 16.8h3.8"/><circle cx="16.6" cy="7.2" r="2"/><circle cx="10.6" cy="12" r="2"/><circle cx="14.8" cy="16.8" r="2"/></svg> Param&egrave;tres du pr&ecirc;t</h2>
     <div class="row"><label>Dur&eacute;e du pr&ecirc;t</label>
       <input type="range" id="dureeRange" min="5" max="25" step="1" value="20">
       <input type="number" id="duree" value="20" step="1" style="width:64px;"><span class="unit">ans</span>
@@ -237,9 +259,15 @@
 
 <div class="kpis" id="kpis"></div>
 
+<div class="ak-actions-res">
+  <button type="button" class="ak-btn ak-btn-pdf" data-ak-pdf><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.4v12.2"/><path d="m7.2 11 4.8 4.8 4.8-4.8"/><path d="M4.2 17.4v1.6a1.8 1.8 0 0 0 1.8 1.8h12a1.8 1.8 0 0 0 1.8-1.8v-1.6"/></svg> Télécharger cette simulation en PDF</button>
+  <a class="ak-btn ak-btn-primary" href="#mise-en-relation"><svg class="ak-ico ak-ico-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.5 12h15"/><path d="m13.2 5.7 6.3 6.3-6.3 6.3"/></svg> Faire valider cette simulation</a>
+</div>
+
+
 <div class="grid advanced-only" style="margin-top:16px;">
   <div class="card">
-    <h2>&#128203; D&eacute;tail de la mensualit&eacute;</h2>
+    <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9.2 4.6H7.3a2.2 2.2 0 0 0-2.2 2.2v12a2.2 2.2 0 0 0 2.2 2.2h9.4a2.2 2.2 0 0 0 2.2-2.2v-12a2.2 2.2 0 0 0-2.2-2.2h-1.9"/><rect x="9.2" y="2.9" width="5.6" height="3.5" rx="1.2"/><path d="m9.5 13.6 1.9 1.9 3.6-3.8"/></svg> D&eacute;tail de la mensualit&eacute;</h2>
     <div class="row"><label>Mensualit&eacute; de cr&eacute;dit (hors assurance)</label><span class="result" id="out_mensualiteCredit">-</span></div>
     <div class="row"><label>Mensualit&eacute; d'assurance</label><span class="result" id="out_mensualiteAssurance">-</span></div>
     <hr class="divider">
@@ -249,7 +277,7 @@
   </div>
 
   <div class="card">
-    <h2>&#127969; Budget d'achat</h2>
+    <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 10.4 12 3.7l8.5 6.7"/><path d="M5.7 9.2V19a1.6 1.6 0 0 0 1.6 1.6h9.4a1.6 1.6 0 0 0 1.6-1.6V9.2"/><path d="M9.9 20.6v-5.3h4.2v5.3"/></svg> Budget d'achat</h2>
     <div class="row"><label>Capacit&eacute; d'emprunt</label><span class="result" id="out_capacite2">-</span></div>
     <div class="row"><label>+ Apport personnel</label><span class="result" id="out_apport2">-</span></div>
     <hr class="divider">
@@ -264,8 +292,67 @@
 
 <p class="note">Simulation indicative bas&eacute;e sur un taux d'endettement maximal recommand&eacute; de 35&nbsp;% (r&egrave;gle HCSF), assurance et taux de garantie appliqu&eacute;s sur le capital emprunt&eacute;, frais de notaire appliqu&eacute;s sur le prix net vendeur. Les taux d'int&eacute;r&ecirc;t et d'assurance sont des hypoth&egrave;ses de march&eacute; &agrave; ajuster selon votre profil et &agrave; confirmer aupr&egrave;s de votre banque ou courtier.</p>
 
-<footer>Calculatrice de capacit&eacute; d'emprunt &mdash; usage indicatif, ne remplace pas une &eacute;tude de financement personnalis&eacute;e par un professionnel.</footer>
+<div id="mise-en-relation" data-ak-lead
+     data-outil="capacite-emprunt"
+     data-outil-label="Capacité d’emprunt"
+     data-titre="Vous avez votre budget ? Faites-le valider par un courtier local."
+     data-texte="Une simulation ne remplace pas un accord de principe. Laissez vos coordonnées : nous transmettons votre demande, récapitulatif inclus, à un courtier en crédit implanté sur votre territoire."
+     data-avantages="Courtiers sélectionnés sur le taux obtenu, la qualité du suivi, la réactivité et les garanties proposées|Un seul partenaire contacté, implanté sur votre île|Étude gratuite, sans engagement et sans frais pour vous|Votre simulation est jointe : pas besoin de tout réexpliquer"
+     data-besoins="Obtenir une simulation de prêt immobilier|Faire jouer la concurrence entre plusieurs banques|Financer un investissement locatif|Renégocier ou racheter un crédit en cours|Je me renseigne pour plus tard"
+     data-bouton="Être rappelé par un courtier"></div>
+
+<p class="note" style="margin-top:22px;">Simulateur indicatif — ne remplace pas une étude de financement personnalisée par une banque ou un courtier.</p>
 </div>
+
+<footer class="ak-footer">
+  <div class="ak-wrap">
+    <div class="ak-footer-grid">
+      <div>
+        <p class="ak-footer-brand">AKAPA</p>
+        <p>Simulateurs financiers, énergétiques et fiscaux adaptés aux Antilles-Guyane, et mise en relation avec des partenaires implantés sur le territoire.</p>
+        <div class="ak-footer-contact">
+          <span><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2.8" y="5.2" width="18.4" height="13.6" rx="2.4"/><path d="m3.6 7.2 7.3 5.1a2 2 0 0 0 2.2 0l7.3-5.1"/></svg> <a href="mailto:hello@akapa.fr">hello@akapa.fr</a></span>
+          <span><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8.5 3.6H5.7a2.1 2.1 0 0 0-2.1 2.3c.6 8 6.6 14 14.6 14.6a2.1 2.1 0 0 0 2.2-2.1v-2.8l-4.2-1.7-2 2a13.7 13.7 0 0 1-5.8-5.8l2-2z"/></svg> <a href="tel:+590690289902">+590 690 28 99 02</a></span>
+          <span><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.4c0 0 7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11"/><circle cx="12" cy="10.4" r="2.6"/></svg> Baie-Mahault, Guadeloupe</span>
+        </div>
+      </div>
+      <div>
+        <h4>Simulateurs</h4>
+        <ul>
+          <li><a href="capacite-emprunt.html">Capacité d’emprunt</a></li>
+          <li><a href="mensualites-credit.html">Mensualités de crédit</a></li>
+          <li><a href="frais-notaire.html">Frais de notaire</a></li>
+          <li><a href="ciop.html">Rentabilité CIOP</a></li>
+          <li><a href="lmnp.html">Simulateur LMNP</a></li>
+          <li><a href="solaire.html">Rentabilité solaire</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Le site</h4>
+        <ul>
+          <li><a href="index.html#methode">Comment ça marche</a></li>
+          <li><a href="index.html#selection">Notre sélection</a></li>
+          <li><a href="index.html#partenaires">Le réseau de partenaires</a></li>
+          <li><a href="index.html#contact">Être mis en relation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Akapa</h4>
+        <ul>
+          <li><a href="https://akapa.fr" target="_blank" rel="noopener">akapa.fr</a></li>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="confidentialite.html">Confidentialité</a></li>
+          <li><a href="#" data-ak-cookies>Gérer mes cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="ak-disclaimer">Simulateur indicatif — ne remplace pas une étude de financement personnalisée par une banque ou un courtier.</p>
+    <div class="ak-footer-bottom">
+      <span>© 2026 Akapa Automation — Baie-Mahault, Guadeloupe</span>
+      <span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Politique de confidentialité</a> · <a href="#" data-ak-cookies>Gérer mes cookies</a></span>
+    </div>
+  </div>
+</footer>
 <script>
 const $ = id => document.getElementById(id);
 const num = id => parseFloat($(id).value) || 0;
@@ -433,6 +520,59 @@ compute();
     });
   }
   setMode(getMode());
+})();
+</script>
+
+<script src="assets/akapa-config.js"></script>
+<script>
+/* Recapitulatif de simulation joint a la demande de mise en relation. */
+(function(){
+  function t(id){ var e = document.getElementById(id); return e ? (e.tagName === 'INPUT' || e.tagName === 'SELECT' ? e.value : e.textContent).trim() : ''; }
+  function sel(id){ var e = document.getElementById(id); return e && e.selectedIndex >= 0 ? e.options[e.selectedIndex].text.trim() : ''; }
+  function eur(id){ var v = parseFloat(t(id)); return isFinite(v) ? v.toLocaleString('fr-FR') + ' \u20ac' : ''; }
+  function pc(id){ var v = t(id); return v ? v.replace('.', ',') + ' %' : ''; }
+
+  window.akapaLeadContext = function(){
+    var c = {};
+    c['Revenus nets du foyer'] = (function(){ var a=parseFloat(t('revenuVous'))||0, b=parseFloat(t('revenuCo'))||0; return (a+b) ? (a+b).toLocaleString('fr-FR')+' \u20ac / mois' : ''; })();
+    c['Apport personnel'] = eur('apport');
+    c['Taux d\u2019int\u00e9r\u00eat retenu'] = pc('tauxInteret');
+    c['Dur\u00e9e du pr\u00eat'] = t('duree') ? t('duree') + ' ans' : '';
+    document.querySelectorAll('#kpis .kpi').forEach(function(k){
+      var l = k.querySelector('.l'), v = k.querySelector('.v');
+      if (l && v && v.textContent.trim() && v.textContent.trim() !== '-') c[l.textContent.trim()] = v.textContent.trim();
+    });
+    Object.keys(c).forEach(function(k){ if (!c[k]) delete c[k]; });
+    return c;
+  };
+
+  var minuteur = null;
+  function planifier(){
+    clearTimeout(minuteur);
+    minuteur = setTimeout(function(){
+      if (typeof window.akapaRafraichirRecap === 'function') window.akapaRafraichirRecap();
+    }, 260);
+  }
+  document.addEventListener('input', planifier, true);
+  document.addEventListener('change', planifier, true);
+  document.addEventListener('click', planifier, true);
+  window.addEventListener('load', planifier);
+})();
+</script>
+<script src="assets/akapa-lead.js"></script>
+<script src="assets/akapa-pdf.js"></script>
+<script src="assets/akapa-cookies.js"></script>
+
+<script>
+/* Repli du sous-titre long de la bande de titre. */
+(function(){
+  var b = document.querySelector('[data-ak-tb-plus]'), l = document.getElementById('ak-tb-long');
+  if (!b || !l) return;
+  b.addEventListener('click', function(){
+    var ouvert = l.classList.toggle('is-open');
+    b.setAttribute('aria-expanded', ouvert ? 'true' : 'false');
+    b.textContent = ouvert ? 'Masquer' : 'D\u00e9tails';
+  });
 })();
 </script>
 </body>

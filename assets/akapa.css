@@ -425,6 +425,8 @@ body.ak-chrome input[type=range]{accent-color:var(--ak-blue-600);}
 body.ak-chrome .back-link{display:none;}
 body.ak-chrome > .page > footer{display:none;}
 body.ak-chrome h1{font-family:var(--ak-font); letter-spacing:-.018em;}
+/* Les CSS internes des calculatrices bornent la largeur des champs : on la libère dans le formulaire. */
+body.ak-chrome .ak-field input, body.ak-chrome .ak-field select, body.ak-chrome .ak-field textarea{max-width:none; min-width:0;}
 
 /* ============================== RESPONSIVE ================================ */
 @media (max-width:1000px){

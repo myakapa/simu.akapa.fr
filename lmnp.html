@@ -153,28 +153,50 @@
     .seg-btn{font-size:12px; padding:9px 4px;}
   }
 </style>
+<link rel="stylesheet" href="assets/akapa.css">
 </head>
-<body class="mode-simple">
-<div class="page">
-
-<div class="back-link"><a href="index.html">← Tous les outils</a></div>
-<header class="site-header">
-  <a class="brand" href="index.html"><img src="assets/logo-akapa.png" alt="Akapa" class="brand-logo"></a>
-  <div class="menu-wrap">
-    <button class="menu-btn" id="menuBtn" type="button" aria-haspopup="true" aria-expanded="false">Autres simulateurs <span class="chev">▾</span></button>
-    <nav class="menu-dropdown" id="menuDropdown">
-      <a class="home" href="index.html">🏠 Tous les outils</a>
-      <a href="capacite-emprunt.html">🏦 Capacité d'emprunt</a>
-      <a href="mensualites-credit.html">📆 Mensualités de crédit</a>
-      <a href="frais-notaire.html">📝 Frais de notaire</a>
-      <a href="ciop.html">🏝️ Rentabilité CIOP</a>
-      <a href="solaire.html">☀️ Rentabilité solaire</a>
+<body data-ak-outil="lmnp" data-ak-outil-label="Simulateur LMNP" class="ak-chrome mode-simple">
+<header class="ak-header">
+  <div class="ak-wrap">
+    <a class="ak-brand" href="index.html">
+      <img src="assets/logo-akapa.svg" alt="AKAPA" onerror="this.outerHTML='<strong style=&quot;font-size:19px;color:#1e40af&quot;>AKAPA</strong>'">
+      <span class="ak-brand-sub">Simulateurs</span>
+    </a>
+    <button class="ak-burger" data-ak-burger type="button" aria-label="Menu" aria-expanded="false"><svg class="ak-ico ak-ico-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.6 6.6h16.8M3.6 12h16.8M3.6 17.4h16.8"/></svg></button>
+    <nav class="ak-nav">
+      <a href="index.html">Accueil</a>
+      <div class="ak-dd">
+        <button type="button" aria-haspopup="true" aria-expanded="false">Tous les simulateurs <span class="ak-chev">▾</span></button>
+        <nav class="ak-dd-menu">
+          <a href="index.html#outils"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 10.4 12 3.7l8.5 6.7"/><path d="M5.7 9.2V19a1.6 1.6 0 0 0 1.6 1.6h9.4a1.6 1.6 0 0 0 1.6-1.6V9.2"/><path d="M9.9 20.6v-5.3h4.2v5.3"/></svg> Tous les outils</a>
+          <hr>
+          <a href="capacite-emprunt.html"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 9.8 12 4.5l9 5.3"/><path d="M5.6 11v7.4M10 11v7.4M14 11v7.4M18.4 11v7.4"/><path d="M3 20.4h18"/></svg> Capacité d’emprunt</a>
+          <a href="mensualites-credit.html"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.3" y="5" width="17.4" height="15.4" rx="2.4"/><path d="M8 3v4M16 3v4M3.3 10h17.4"/><path d="M7.6 13.8h2.6M13.8 13.8h2.6M7.6 17h2.6"/></svg> Mensualités de crédit</a>
+          <a href="frais-notaire.html"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.4 3.2H7.2a2 2 0 0 0-2 2v13.6a2 2 0 0 0 2 2h9.6a2 2 0 0 0 2-2V8.6z"/><path d="M13.4 3.2v5.4h5.4"/><path d="M8.6 13h6.8M8.6 16.4h4.8"/></svg> Frais de notaire</a>
+          <a href="ciop.html"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.8"/><path d="m8.9 15.1 6.2-6.2"/><circle cx="9.5" cy="9.5" r="1.3"/><circle cx="14.5" cy="14.5" r="1.3"/></svg> Rentabilité CIOP</a>
+          <a href="solaire.html"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.1"/><path d="M12 2.6v2.1M12 19.3v2.1M5 5l1.5 1.5M17.5 17.5 19 19M2.6 12h2.1M19.3 12h2.1M5 19l1.5-1.5M17.5 6.5 19 5"/></svg> Rentabilité solaire</a>
+        </nav>
+      </div>
+      <a href="index.html#methode">Comment ça marche</a>
+      <a class="ak-btn ak-btn-primary" href="#mise-en-relation">Être mis en relation</a>
     </nav>
   </div>
 </header>
 
-<h1>Simulateur LMNP</h1>
-<p class="subtitle">Location Meubl&eacute;e Non Professionnelle &mdash; comparez le r&eacute;gime r&eacute;el (amortissements) et le micro-BIC sur la dur&eacute;e de votre investissement.</p>
+<div class="ak-titlebar">
+  <div class="ak-wrap">
+    <h1>Simulateur LMNP</h1>
+    <p>Régime réel ou micro-BIC : comparez les deux et trouvez lequel vous coûte le moins d’impôt.</p>
+    <button type="button" class="ak-tb-plus" data-ak-tb-plus aria-expanded="false" aria-controls="ak-tb-long">Détails</button>
+    <div class="ak-tb-actions">
+      <button type="button" class="ak-btn ak-btn-pdf" data-ak-pdf><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.4v12.2"/><path d="m7.2 11 4.8 4.8 4.8-4.8"/><path d="M4.2 17.4v1.6a1.8 1.8 0 0 0 1.8 1.8h12a1.8 1.8 0 0 0 1.8-1.8v-1.6"/></svg> <span class="ak-btn-txt">PDF</span></button>
+      <a class="ak-btn ak-btn-primary" href="#mise-en-relation" aria-label="Être mis en relation"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.4 3.2H7.2a2 2 0 0 0-2 2v13.6a2 2 0 0 0 2 2h9.6a2 2 0 0 0 2-2V8.6z"/><path d="M13.4 3.2v5.4h5.4"/><path d="M8.6 13h6.8M8.6 16.4h4.8"/></svg> <span class="ak-btn-txt">Être mis en relation</span></a>
+    </div>
+  </div>
+</div>
+<div class="ak-tb-long" id="ak-tb-long"><div class="ak-wrap">Location Meublée Non Professionnelle : le simulateur amortit le bien, le mobilier et les frais d’acquisition, déduit les charges, les intérêts d’emprunt et la taxe foncière, puis compare année par année le résultat imposable en régime réel et en micro-BIC sur la durée de votre investissement.</div></div>
+
+<div class="page">
 
 <div class="mode-switch">
   <div class="seg-group" id="grp_mode">
@@ -188,7 +210,7 @@
 <div class="grid">
 
   <div class="card">
-    <h2>&#127968; Acquisition</h2>
+    <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 10.4 12 3.7l8.5 6.7"/><path d="M5.7 9.2V19a1.6 1.6 0 0 0 1.6 1.6h9.4a1.6 1.6 0 0 0 1.6-1.6V9.2"/><path d="M9.9 20.6v-5.3h4.2v5.3"/></svg> Acquisition</h2>
     <div class="row"><label>Prix du bien immobilier</label><input type="number" id="prixBien" value="180000" step="1000"><span class="unit">&euro;</span></div>
     <div class="row advanced-only"><label>Part du terrain (non amortissable)</label><input type="number" id="partTerrain" value="12" step="1"><span class="unit">%</span></div>
     <div class="row advanced-only"><label>Mobilier &amp; &eacute;quipements</label><input type="number" id="prixMobilier" value="8000" step="500"><span class="unit">&euro;</span></div>
@@ -197,7 +219,7 @@
   </div>
 
   <div class="card">
-    <h2>&#127974; Financement (optionnel)</h2>
+    <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 9.8 12 4.5l9 5.3"/><path d="M5.6 11v7.4M10 11v7.4M14 11v7.4M18.4 11v7.4"/><path d="M3 20.4h18"/></svg> Financement (optionnel)</h2>
     <div class="row"><label>Capital emprunt&eacute;</label><input type="number" id="capital" value="180000" step="1000"><span class="unit">&euro;</span></div>
     <div class="row advanced-only"><label>Taux d'int&eacute;r&ecirc;t</label><input type="number" id="tauxInteret" value="3.55" step="0.05"><span class="unit">%</span></div>
     <div class="row advanced-only"><label>Taux d'assurance emprunteur</label><input type="number" id="tauxAssurance" value="0.34" step="0.01"><span class="unit">%</span></div>
@@ -205,7 +227,7 @@
   </div>
 
   <div class="card">
-    <h2>&#128180; Exploitation locative</h2>
+    <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.8"/><path d="M15.7 8.5a4.3 4.3 0 0 0-6.2 1.6 6.1 6.1 0 0 0 0 3.8 4.3 4.3 0 0 0 6.2 1.6"/><path d="M7.6 11h5.1M7.6 13.4h5.1"/></svg> Exploitation locative</h2>
     <div class="row"><label>Loyer mensuel</label><input type="number" id="loyerMensuel" value="750" step="10"><span class="unit">&euro;</span></div>
     <div class="row advanced-only"><label>Charges (copro, gestion, assurance PNO)</label><input type="number" id="chargesAnnuelles" value="1200" step="50"><span class="unit">&euro;/an</span></div>
     <div class="row advanced-only"><label>Taxe fonci&egrave;re</label><input type="number" id="taxeFonciere" value="900" step="50"><span class="unit">&euro;/an</span></div>
@@ -213,7 +235,7 @@
   </div>
 
   <div class="card advanced-only">
-    <h2>&#9881;&#65039; Amortissements &amp; horizon</h2>
+    <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.4 7.2h11.2M18.6 7.2h2M3.4 12h5.2M12.6 12h8M3.4 16.8h9.2M16.8 16.8h3.8"/><circle cx="16.6" cy="7.2" r="2"/><circle cx="10.6" cy="12" r="2"/><circle cx="14.8" cy="16.8" r="2"/></svg> Amortissements &amp; horizon</h2>
     <div class="row"><label>Dur&eacute;e d'amortissement du bien</label><input type="number" id="dureeAmortBien" value="30" step="1"><span class="unit">ans</span></div>
     <div class="row"><label>Dur&eacute;e d'amortissement du mobilier</label><input type="number" id="dureeAmortMobilier" value="7" step="1"><span class="unit">ans</span></div>
     <div class="row"><label>Dur&eacute;e d'amortissement des frais d'acquisition</label><input type="number" id="dureeAmortFrais" value="5" step="1"><span class="unit">ans</span></div>
@@ -222,7 +244,7 @@
   </div>
 
   <div class="card">
-    <h2>&#129534; Fiscalit&eacute;</h2>
+    <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.4 3.2H7.2a2 2 0 0 0-2 2v13.6a2 2 0 0 0 2 2h9.6a2 2 0 0 0 2-2V8.6z"/><path d="M13.4 3.2v5.4h5.4"/><path d="M8.6 13h6.8M8.6 16.4h4.8"/></svg> Fiscalit&eacute;</h2>
     <div class="row"><label>Tranche marginale d'imposition (TMI)</label><input type="number" id="tmi" value="30" step="1"><span class="unit">%</span></div>
     <div class="row advanced-only"><label>Pr&eacute;l&egrave;vements sociaux</label><input type="number" id="prelevSociaux" value="17.2" step="0.1"><span class="unit">%</span></div>
     <div class="row advanced-only"><label>Abattement micro-BIC</label><input type="number" id="abattementMicro" value="50" step="1"><span class="unit">%</span></div>
@@ -235,13 +257,19 @@
 
 <div class="kpis" id="kpis"></div>
 
+<div class="ak-actions-res">
+  <button type="button" class="ak-btn ak-btn-pdf" data-ak-pdf><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.4v12.2"/><path d="m7.2 11 4.8 4.8 4.8-4.8"/><path d="M4.2 17.4v1.6a1.8 1.8 0 0 0 1.8 1.8h12a1.8 1.8 0 0 0 1.8-1.8v-1.6"/></svg> Télécharger cette simulation en PDF</button>
+  <a class="ak-btn ak-btn-primary" href="#mise-en-relation"><svg class="ak-ico ak-ico-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.5 12h15"/><path d="m13.2 5.7 6.3 6.3-6.3 6.3"/></svg> Faire valider cette simulation</a>
+</div>
+
+
 <div class="card advanced-only" style="margin-top:16px;">
-  <h2>&#128200; Cash-flow net cumul&eacute; &mdash; r&eacute;gime r&eacute;el vs micro-BIC</h2>
+  <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.4 16.6 9.5 10.5l3.5 3.5 7.6-7.6"/><path d="M15.4 6.4h5.2v5.2"/></svg> Cash-flow net cumul&eacute; &mdash; r&eacute;gime r&eacute;el vs micro-BIC</h2>
   <canvas id="chart"></canvas>
 </div>
 
 <div class="card advanced-only" style="margin-top:16px;">
-  <h2>&#128202; Projection annuelle d&eacute;taill&eacute;e</h2>
+  <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.3" y="4.6" width="17.4" height="14.8" rx="2.2"/><path d="M3.3 9.4h17.4M3.3 14.4h17.4M9.2 9.4v10M15.1 9.4v10"/></svg> Projection annuelle d&eacute;taill&eacute;e</h2>
   <div class="table-wrap">
     <table id="projTable">
       <thead>
@@ -259,8 +287,67 @@
   <p class="note">R&eacute;sultat imposable (r&eacute;gime r&eacute;el) = Loyer &minus; charges &minus; taxe fonci&egrave;re &minus; int&eacute;r&ecirc;ts d'emprunt &minus; assurance emprunteur &minus; amortissements utilis&eacute;s (plafonn&eacute;s au r&eacute;sultat avant amortissement&nbsp;; l'exc&eacute;dent est report&eacute; sans limite de dur&eacute;e). Cash-flow = Loyer &minus; mensualit&eacute; totale du pr&ecirc;t (capital + int&eacute;r&ecirc;ts + assurance) &minus; charges &minus; taxe fonci&egrave;re &minus; imp&ocirc;t et pr&eacute;l&egrave;vements sociaux dus.</p>
 </div>
 
-<footer>Simulateur LMNP &mdash; usage indicatif, ne remplace pas une &eacute;tude personnalis&eacute;e par un expert-comptable.</footer>
+<div id="mise-en-relation" data-ak-lead
+     data-outil="lmnp"
+     data-outil-label="Simulateur LMNP"
+     data-titre="Régime réel ou micro-BIC ? Faites trancher par un expert-comptable."
+     data-texte="Le choix du régime vous engage plusieurs années et dépend de votre situation fiscale réelle. Laissez vos coordonnées : nous transmettons votre demande, récapitulatif inclus, à un expert-comptable spécialisé en LMNP sur votre territoire."
+     data-avantages="Partenaires sélectionnés sur les honoraires, la qualité du suivi, la réactivité et les garanties proposées|Un seul partenaire contacté, implanté sur votre territoire|Premier échange gratuit, sans engagement|Votre simulation est jointe : pas besoin de tout réexpliquer"
+     data-besoins="Être accompagné sur ma déclaration LMNP|Faire valider le choix réel ou micro-BIC|Trouver un expert-comptable spécialisé LMNP|Étudier le financement de mon investissement|Je me renseigne pour plus tard"
+     data-bouton="Être rappelé par un expert-comptable"></div>
+
+<p class="note" style="margin-top:22px;">Simulateur indicatif — ne remplace pas une étude personnalisée par un expert-comptable.</p>
 </div>
+
+<footer class="ak-footer">
+  <div class="ak-wrap">
+    <div class="ak-footer-grid">
+      <div>
+        <p class="ak-footer-brand">AKAPA</p>
+        <p>Simulateurs financiers, énergétiques et fiscaux adaptés aux Antilles-Guyane, et mise en relation avec des partenaires implantés sur le territoire.</p>
+        <div class="ak-footer-contact">
+          <span><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2.8" y="5.2" width="18.4" height="13.6" rx="2.4"/><path d="m3.6 7.2 7.3 5.1a2 2 0 0 0 2.2 0l7.3-5.1"/></svg> <a href="mailto:hello@akapa.fr">hello@akapa.fr</a></span>
+          <span><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8.5 3.6H5.7a2.1 2.1 0 0 0-2.1 2.3c.6 8 6.6 14 14.6 14.6a2.1 2.1 0 0 0 2.2-2.1v-2.8l-4.2-1.7-2 2a13.7 13.7 0 0 1-5.8-5.8l2-2z"/></svg> <a href="tel:+590690289902">+590 690 28 99 02</a></span>
+          <span><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.4c0 0 7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11"/><circle cx="12" cy="10.4" r="2.6"/></svg> Baie-Mahault, Guadeloupe</span>
+        </div>
+      </div>
+      <div>
+        <h4>Simulateurs</h4>
+        <ul>
+          <li><a href="capacite-emprunt.html">Capacité d’emprunt</a></li>
+          <li><a href="mensualites-credit.html">Mensualités de crédit</a></li>
+          <li><a href="frais-notaire.html">Frais de notaire</a></li>
+          <li><a href="ciop.html">Rentabilité CIOP</a></li>
+          <li><a href="lmnp.html">Simulateur LMNP</a></li>
+          <li><a href="solaire.html">Rentabilité solaire</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Le site</h4>
+        <ul>
+          <li><a href="index.html#methode">Comment ça marche</a></li>
+          <li><a href="index.html#selection">Notre sélection</a></li>
+          <li><a href="index.html#partenaires">Le réseau de partenaires</a></li>
+          <li><a href="index.html#contact">Être mis en relation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Akapa</h4>
+        <ul>
+          <li><a href="https://akapa.fr" target="_blank" rel="noopener">akapa.fr</a></li>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="confidentialite.html">Confidentialité</a></li>
+          <li><a href="#" data-ak-cookies>Gérer mes cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="ak-disclaimer">Simulateur indicatif — ne remplace pas une étude personnalisée par un expert-comptable.</p>
+    <div class="ak-footer-bottom">
+      <span>© 2026 Akapa Automation — Baie-Mahault, Guadeloupe</span>
+      <span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Politique de confidentialité</a> · <a href="#" data-ak-cookies>Gérer mes cookies</a></span>
+    </div>
+  </div>
+</footer>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.js" integrity="sha384-iU8HYtnGQ8Cy4zl7gbNMOhsDTTKX02BTXptVP/vqAWIaTfM7isw76iyZCsjL2eVi" crossorigin="anonymous"></script>
 <script>
 const $ = id => document.getElementById(id);
@@ -481,6 +568,60 @@ compute();
     });
   }
   setMode(getMode());
+})();
+</script>
+
+<script src="assets/akapa-config.js"></script>
+<script>
+/* Recapitulatif de simulation joint a la demande de mise en relation. */
+(function(){
+  function t(id){ var e = document.getElementById(id); return e ? (e.tagName === 'INPUT' || e.tagName === 'SELECT' ? e.value : e.textContent).trim() : ''; }
+  function sel(id){ var e = document.getElementById(id); return e && e.selectedIndex >= 0 ? e.options[e.selectedIndex].text.trim() : ''; }
+  function eur(id){ var v = parseFloat(t(id)); return isFinite(v) ? v.toLocaleString('fr-FR') + ' \u20ac' : ''; }
+  function pc(id){ var v = t(id); return v ? v.replace('.', ',') + ' %' : ''; }
+
+  window.akapaLeadContext = function(){
+    var c = {};
+    c['Prix du bien'] = eur('prixBien');
+    c['Mobilier'] = eur('prixMobilier');
+    c['Loyer mensuel'] = eur('loyerMensuel');
+    c['Capital emprunt\u00e9'] = eur('capital');
+    c['Horizon d\u2019investissement'] = t('horizon') ? t('horizon') + ' ans' : '';
+    document.querySelectorAll('#kpis .kpi').forEach(function(k){
+      var l = k.querySelector('.l'), v = k.querySelector('.v');
+      if (l && v && v.textContent.trim() && v.textContent.trim() !== '-') c[l.textContent.trim()] = v.textContent.trim();
+    });
+    Object.keys(c).forEach(function(k){ if (!c[k]) delete c[k]; });
+    return c;
+  };
+
+  var minuteur = null;
+  function planifier(){
+    clearTimeout(minuteur);
+    minuteur = setTimeout(function(){
+      if (typeof window.akapaRafraichirRecap === 'function') window.akapaRafraichirRecap();
+    }, 260);
+  }
+  document.addEventListener('input', planifier, true);
+  document.addEventListener('change', planifier, true);
+  document.addEventListener('click', planifier, true);
+  window.addEventListener('load', planifier);
+})();
+</script>
+<script src="assets/akapa-lead.js"></script>
+<script src="assets/akapa-pdf.js"></script>
+<script src="assets/akapa-cookies.js"></script>
+
+<script>
+/* Repli du sous-titre long de la bande de titre. */
+(function(){
+  var b = document.querySelector('[data-ak-tb-plus]'), l = document.getElementById('ak-tb-long');
+  if (!b || !l) return;
+  b.addEventListener('click', function(){
+    var ouvert = l.classList.toggle('is-open');
+    b.setAttribute('aria-expanded', ouvert ? 'true' : 'false');
+    b.textContent = ouvert ? 'Masquer' : 'D\u00e9tails';
+  });
 })();
 </script>
 </body>
