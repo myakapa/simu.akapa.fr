@@ -55,6 +55,9 @@ body.ak-chrome .page{padding:24px 20px 8px;}
 .ak-nav a:hover{background:var(--ak-blue-50); color:var(--ak-blue-700);}
 .ak-nav a.is-active{background:var(--ak-blue-50); color:var(--ak-blue-700); font-weight:600;}
 .ak-nav .ak-btn{margin-left:8px;}
+/* .ak-nav a l'emportait sur .ak-btn-primary : le bouton du header s'affichait en gris ardoise sur bleu. */
+.ak-nav a.ak-btn-primary, .ak-nav a.ak-btn-primary:hover{color:#fff;}
+.ak-nav a.ak-btn-outline, .ak-nav a.ak-btn-outline:hover{color:var(--ak-blue-700);}
 
 /* Menu déroulant "Tous les outils" (header des pages outils) */
 .ak-dd{position:relative;}
