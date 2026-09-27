@@ -49,9 +49,11 @@
     if (CFG.googleAdsId) gtag("config", CFG.googleAdsId, { allow_enhanced_conversions: false });
   }
 
+  var territoire = (document.body && document.body.getAttribute("data-ak-territoire")) || "";
   function evenement(nom, params) {
     var p = params || {};
     if (!p.outil) p.outil = outil;
+    if (territoire && !p.territoire) p.territoire = territoire;
     if (CFG.ga4Id) gtag("event", nom, p);
     document.dispatchEvent(new CustomEvent("akapa:track", { detail: { nom: nom, params: p } }));
   }

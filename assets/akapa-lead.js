@@ -76,6 +76,9 @@
 
   // Département déduit de la simulation, sinon du dernier choix mémorisé.
   function departementConnu() {
+    // Page territoire : le département est fixé par la page elle-même.
+    var fixe = document.body && document.body.getAttribute("data-ak-territoire");
+    if (fixe && DEPARTEMENTS.indexOf(fixe) !== -1) return fixe;
     var c = contexte();
     var v = c["Département"] || c["Departement"] || c["Territoire"] || "";
     if (DEPARTEMENTS.indexOf(v) !== -1) return v;
@@ -553,6 +556,15 @@
     });
     document.addEventListener("click", function () {
       dds.forEach(function (o) { o.classList.remove("is-open"); });
+    });
+
+    // Pages territoire : « Lire la suite » du bloc local sur mobile.
+    document.addEventListener("click", function (e) {
+      var b = e.target.closest(".ak-local-more");
+      if (!b) return;
+      var box = b.closest(".ak-local");
+      box.classList.add("is-open");
+      b.setAttribute("aria-expanded", "true");
     });
 
     // Ancres internes en défilement doux, en tenant compte du header collant.
