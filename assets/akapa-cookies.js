@@ -3,8 +3,9 @@
    Conforme aux recommandations CNIL : refuser est aussi simple qu'accepter,
    rien n'est déposé avant le choix, et le choix est modifiable à tout moment.
 
-   Émet les signaux Google Consent Mode v2 : GA4 ou Google Ads peuvent être
-   branchés plus tard sans retoucher ce fichier.
+   Émet les signaux Google Consent Mode v2 (mode « avancé ») : le tag Google est
+   chargé par akapa-track.js avec tout refusé par défaut — aucun cookie tant que
+   le visiteur n'a pas accepté. Le pixel Meta n'est chargé qu'après acceptation.
    ============================================================================= */
 (function () {
   "use strict";
@@ -75,16 +76,8 @@
     });
     document.dispatchEvent(new CustomEvent("akapa:consentement", { detail: choix }));
 
-    // GA4 n'est chargé que si la mesure d'audience est acceptée.
-    if (choix.mesure && CFG.ga4Id && !window.__akapaGA) {
-      window.__akapaGA = true;
-      var sc = document.createElement("script");
-      sc.async = true;
-      sc.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(CFG.ga4Id);
-      document.head.appendChild(sc);
-      gtag("js", new Date());
-      gtag("config", CFG.ga4Id, { anonymize_ip: true });
-    }
+    // Le chargement des tags (GA4, Google Ads, Meta) est assuré par akapa-track.js,
+    // qui écoute le signal ci-dessus : ici on ne fait que transmettre le choix.
   }
 
   /* ------------------------------------------------------------------ rendu */
@@ -100,15 +93,18 @@
 
     hote.innerHTML =
       '<div class="ak-ck-box">' +
-        "<h2>Cookies et mesure d'audience</h2>" +
-        "<p>Les simulateurs fonctionnent entièrement dans votre navigateur : vos montants et vos " +
-        "hypothèses ne nous sont jamais transmis. Nous aimerions seulement mesurer la fréquentation " +
-        "du site, et l'efficacité des campagnes qui y amènent des visiteurs. " +
-        '<a href="confidentialite.html">En savoir plus</a></p>' +
-        '<div class="ak-ck-actions">' +
-          '<button type="button" class="ak-btn ak-btn-primary" data-ck="tout">Tout accepter</button>' +
-          '<button type="button" class="ak-btn ak-btn-outline" data-ck="rien">Tout refuser</button>' +
-          '<button type="button" class="ak-ck-plus" data-ck="plus">Personnaliser</button>' +
+        '<div class="ak-ck-main">' +
+          '<div class="ak-ck-text">' +
+            "<h2>Cookies</h2>" +
+            "<p>Vos simulations restent dans votre navigateur. Avec votre accord, nous mesurons " +
+            "la fréquentation du site et l'efficacité de nos campagnes. " +
+            '<a href="/confidentialite">En savoir plus</a></p>' +
+          "</div>" +
+          '<div class="ak-ck-actions">' +
+            '<button type="button" class="ak-btn ak-btn-primary" data-ck="tout">Tout accepter</button>' +
+            '<button type="button" class="ak-btn ak-btn-outline" data-ck="rien">Tout refuser</button>' +
+            '<button type="button" class="ak-ck-plus" data-ck="plus">Personnaliser</button>' +
+          "</div>" +
         "</div>" +
         '<div class="ak-ck-detail">' +
           CATEGORIES.map(function (c) {
@@ -163,9 +159,10 @@
       hote.querySelector('[data-ck="plus"]').textContent = "Masquer le détail";
     }
     hote.classList.add("is-open");
+    document.body.classList.add("ak-ck-open");
   }
 
-  function fermer() { if (hote) hote.classList.remove("is-open"); }
+  function fermer() { if (hote) hote.classList.remove("is-open"); document.body.classList.remove("ak-ck-open"); }
 
   /* ------------------------------------------------------------------ amorce */
   function init() {

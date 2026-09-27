@@ -3,13 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#f6f7f9">
-<link rel="icon" href="assets/favicon.ico" sizes="any">
-<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-<title>Simulateur LMNP</title>
+<meta name="theme-color" content="#2563eb">
+<title>Simulateur LMNP aux Antilles-Guyane : régime réel ou micro-BIC — Akapa</title>
+<meta name="description" content="Louez en meublé en Guadeloupe, Martinique, Guyane ou à La Réunion ? Comparez le régime réel avec amortissements et le micro-BIC : revenu net dans votre poche, impôt économisé et durée de l'avantage, année par année.">
+<link rel="canonical" href="https://simu.akapa.fr/lmnp">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Simulateurs Akapa">
+<meta property="og:title" content="Simulateur LMNP — réel ou micro-BIC ?">
+<meta property="og:description" content="Quel régime laisse le plus de revenu net dans votre poche, et pendant combien d'années.">
+<meta property="og:url" content="https://simu.akapa.fr/lmnp">
+<meta property="og:image" content="https://simu.akapa.fr/assets/og-lmnp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 <style>
   :root{ color-scheme: light; }
   *{box-sizing:border-box;}
@@ -154,31 +166,32 @@
     .seg-btn{font-size:12px; padding:9px 4px;}
   }
 </style>
-<link rel="stylesheet" href="assets/akapa.css">
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="stylesheet" href="/assets/akapa.css">
 </head>
 <body data-ak-outil="lmnp" data-ak-outil-label="Simulateur LMNP" class="ak-chrome mode-simple">
 <header class="ak-header">
   <div class="ak-wrap">
-    <a class="ak-brand" href="index.html">
-      <img src="assets/logo-akapa.svg" alt="AKAPA" onerror="this.outerHTML='<strong style=&quot;font-size:19px;color:#1e40af&quot;>AKAPA</strong>'">
+    <a class="ak-brand" href="/">
+      <img src="/assets/logo-akapa.svg" alt="AKAPA" onerror="this.outerHTML='<strong style=&quot;font-size:19px;color:#1e40af&quot;>AKAPA</strong>'">
       <span class="ak-brand-sub">Simulateurs</span>
     </a>
     <button class="ak-burger" data-ak-burger type="button" aria-label="Menu" aria-expanded="false"><svg class="ak-ico ak-ico-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.6 6.6h16.8M3.6 12h16.8M3.6 17.4h16.8"/></svg></button>
     <nav class="ak-nav">
-      <a href="index.html">Accueil</a>
+      <a href="/">Accueil</a>
       <div class="ak-dd">
         <button type="button" aria-haspopup="true" aria-expanded="false">Tous les simulateurs <span class="ak-chev">▾</span></button>
         <nav class="ak-dd-menu">
-          <a href="index.html#outils"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 10.4 12 3.7l8.5 6.7"/><path d="M5.7 9.2V19a1.6 1.6 0 0 0 1.6 1.6h9.4a1.6 1.6 0 0 0 1.6-1.6V9.2"/><path d="M9.9 20.6v-5.3h4.2v5.3"/></svg> Tous les outils</a>
+          <a href="/#outils"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 10.4 12 3.7l8.5 6.7"/><path d="M5.7 9.2V19a1.6 1.6 0 0 0 1.6 1.6h9.4a1.6 1.6 0 0 0 1.6-1.6V9.2"/><path d="M9.9 20.6v-5.3h4.2v5.3"/></svg> Tous les outils</a>
           <hr>
-          <a href="capacite-emprunt.html"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 9.8 12 4.5l9 5.3"/><path d="M5.6 11v7.4M10 11v7.4M14 11v7.4M18.4 11v7.4"/><path d="M3 20.4h18"/></svg> Capacité d’emprunt</a>
-          <a href="mensualites-credit.html"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.3" y="5" width="17.4" height="15.4" rx="2.4"/><path d="M8 3v4M16 3v4M3.3 10h17.4"/><path d="M7.6 13.8h2.6M13.8 13.8h2.6M7.6 17h2.6"/></svg> Mensualités de crédit</a>
-          <a href="frais-notaire.html"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.4 3.2H7.2a2 2 0 0 0-2 2v13.6a2 2 0 0 0 2 2h9.6a2 2 0 0 0 2-2V8.6z"/><path d="M13.4 3.2v5.4h5.4"/><path d="M8.6 13h6.8M8.6 16.4h4.8"/></svg> Frais de notaire</a>
-          <a href="ciop.html"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.8"/><path d="m8.9 15.1 6.2-6.2"/><circle cx="9.5" cy="9.5" r="1.3"/><circle cx="14.5" cy="14.5" r="1.3"/></svg> Rentabilité CIOP</a>
-          <a href="solaire.html"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.1"/><path d="M12 2.6v2.1M12 19.3v2.1M5 5l1.5 1.5M17.5 17.5 19 19M2.6 12h2.1M19.3 12h2.1M5 19l1.5-1.5M17.5 6.5 19 5"/></svg> Rentabilité solaire</a>
+          <a href="/capacite-emprunt"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 9.8 12 4.5l9 5.3"/><path d="M5.6 11v7.4M10 11v7.4M14 11v7.4M18.4 11v7.4"/><path d="M3 20.4h18"/></svg> Capacité d’emprunt</a>
+          <a href="/mensualites-credit"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.3" y="5" width="17.4" height="15.4" rx="2.4"/><path d="M8 3v4M16 3v4M3.3 10h17.4"/><path d="M7.6 13.8h2.6M13.8 13.8h2.6M7.6 17h2.6"/></svg> Mensualités de crédit</a>
+          <a href="/frais-notaire"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.4 3.2H7.2a2 2 0 0 0-2 2v13.6a2 2 0 0 0 2 2h9.6a2 2 0 0 0 2-2V8.6z"/><path d="M13.4 3.2v5.4h5.4"/><path d="M8.6 13h6.8M8.6 16.4h4.8"/></svg> Frais de notaire</a>
+          <a href="/ciop"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.8"/><path d="m8.9 15.1 6.2-6.2"/><circle cx="9.5" cy="9.5" r="1.3"/><circle cx="14.5" cy="14.5" r="1.3"/></svg> Rentabilité CIOP</a>
+          <a href="/solaire"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.1"/><path d="M12 2.6v2.1M12 19.3v2.1M5 5l1.5 1.5M17.5 17.5 19 19M2.6 12h2.1M19.3 12h2.1M5 19l1.5-1.5M17.5 6.5 19 5"/></svg> Rentabilité solaire</a>
         </nav>
       </div>
-      <a href="index.html#methode">Comment ça marche</a>
+      <a href="/#methode">Comment ça marche</a>
       <a class="ak-btn ak-btn-primary" href="#mise-en-relation">Être mis en relation</a>
     </nav>
   </div>
@@ -190,7 +203,7 @@
     <p>Régime réel ou micro-BIC : comparez les deux et trouvez lequel vous coûte le moins d’impôt.</p>
     <button type="button" class="ak-tb-plus" data-ak-tb-plus aria-expanded="false" aria-controls="ak-tb-long">Détails</button>
     <div class="ak-tb-actions">
-      <button type="button" class="ak-btn ak-btn-pdf" data-ak-pdf><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.4v12.2"/><path d="m7.2 11 4.8 4.8 4.8-4.8"/><path d="M4.2 17.4v1.6a1.8 1.8 0 0 0 1.8 1.8h12a1.8 1.8 0 0 0 1.8-1.8v-1.6"/></svg> <span class="ak-btn-txt">PDF</span></button>
+      <button type="button" class="ak-btn ak-btn-pdf" data-ak-pdf aria-label="Télécharger la simulation en PDF"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.4v12.2"/><path d="m7.2 11 4.8 4.8 4.8-4.8"/><path d="M4.2 17.4v1.6a1.8 1.8 0 0 0 1.8 1.8h12a1.8 1.8 0 0 0 1.8-1.8v-1.6"/></svg> <span class="ak-btn-txt">PDF</span></button>
       <a class="ak-btn ak-btn-primary" href="#mise-en-relation" aria-label="Être mis en relation"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.4 3.2H7.2a2 2 0 0 0-2 2v13.6a2 2 0 0 0 2 2h9.6a2 2 0 0 0 2-2V8.6z"/><path d="M13.4 3.2v5.4h5.4"/><path d="M8.6 13h6.8M8.6 16.4h4.8"/></svg> <span class="ak-btn-txt">Être mis en relation</span></a>
     </div>
   </div>
@@ -212,43 +225,43 @@
 
   <div class="card">
     <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 10.4 12 3.7l8.5 6.7"/><path d="M5.7 9.2V19a1.6 1.6 0 0 0 1.6 1.6h9.4a1.6 1.6 0 0 0 1.6-1.6V9.2"/><path d="M9.9 20.6v-5.3h4.2v5.3"/></svg> Acquisition</h2>
-    <div class="row"><label>Prix du bien immobilier</label><input type="number" id="prixBien" value="180000" step="1000"><span class="unit">&euro;</span></div>
-    <div class="row advanced-only"><label>Part du terrain (non amortissable)</label><input type="number" id="partTerrain" value="12" step="1"><span class="unit">%</span></div>
-    <div class="row advanced-only"><label>Mobilier &amp; &eacute;quipements</label><input type="number" id="prixMobilier" value="8000" step="500"><span class="unit">&euro;</span></div>
-    <div class="row advanced-only"><label>Frais d'acquisition (notaire, garantie&hellip;)</label><input type="number" id="fraisAcquisition" value="12000" step="500"><span class="unit">&euro;</span></div>
+    <div class="row"><label for="prixBien">Prix du bien immobilier</label><input type="number" id="prixBien" value="180000" step="1000"><span class="unit">&euro;</span></div>
+    <div class="row advanced-only"><label for="partTerrain">Part du terrain (non amortissable)</label><input type="number" id="partTerrain" value="12" step="1"><span class="unit">%</span></div>
+    <div class="row advanced-only"><label for="prixMobilier">Mobilier &amp; &eacute;quipements</label><input type="number" id="prixMobilier" value="8000" step="500"><span class="unit">&euro;</span></div>
+    <div class="row advanced-only"><label for="fraisAcquisition">Frais d'acquisition (notaire, garantie&hellip;)</label><input type="number" id="fraisAcquisition" value="12000" step="500"><span class="unit">&euro;</span></div>
     <div class="note advanced-only">Astuce&nbsp;: utilisez l'outil &laquo;&nbsp;Estimer les frais de notaire&nbsp;&raquo; pour ce dernier montant.</div>
   </div>
 
   <div class="card">
     <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 9.8 12 4.5l9 5.3"/><path d="M5.6 11v7.4M10 11v7.4M14 11v7.4M18.4 11v7.4"/><path d="M3 20.4h18"/></svg> Financement (optionnel)</h2>
-    <div class="row"><label>Capital emprunt&eacute;</label><input type="number" id="capital" value="180000" step="1000"><span class="unit">&euro;</span></div>
-    <div class="row advanced-only"><label>Taux d'int&eacute;r&ecirc;t</label><input type="number" id="tauxInteret" value="3.55" step="0.05"><span class="unit">%</span></div>
-    <div class="row advanced-only"><label>Taux d'assurance emprunteur</label><input type="number" id="tauxAssurance" value="0.34" step="0.01"><span class="unit">%</span></div>
-    <div class="row advanced-only"><label>Dur&eacute;e du pr&ecirc;t</label><input type="number" id="dureePret" value="20" step="1"><span class="unit">ans</span></div>
+    <div class="row"><label for="capital">Capital emprunt&eacute;</label><input type="number" id="capital" value="180000" step="1000"><span class="unit">&euro;</span></div>
+    <div class="row advanced-only"><label for="tauxInteret">Taux d'int&eacute;r&ecirc;t</label><input type="number" id="tauxInteret" value="3.55" step="0.05"><span class="unit">%</span></div>
+    <div class="row advanced-only"><label for="tauxAssurance">Taux d'assurance emprunteur</label><input type="number" id="tauxAssurance" value="0.34" step="0.01"><span class="unit">%</span></div>
+    <div class="row advanced-only"><label for="dureePret">Dur&eacute;e du pr&ecirc;t</label><input type="number" id="dureePret" value="20" step="1"><span class="unit">ans</span></div>
   </div>
 
   <div class="card">
     <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.8"/><path d="M15.7 8.5a4.3 4.3 0 0 0-6.2 1.6 6.1 6.1 0 0 0 0 3.8 4.3 4.3 0 0 0 6.2 1.6"/><path d="M7.6 11h5.1M7.6 13.4h5.1"/></svg> Exploitation locative</h2>
-    <div class="row"><label>Loyer mensuel</label><input type="number" id="loyerMensuel" value="750" step="10"><span class="unit">&euro;</span></div>
-    <div class="row advanced-only"><label>Charges (copro, gestion, assurance PNO)</label><input type="number" id="chargesAnnuelles" value="1200" step="50"><span class="unit">&euro;/an</span></div>
-    <div class="row advanced-only"><label>Taxe fonci&egrave;re</label><input type="number" id="taxeFonciere" value="900" step="50"><span class="unit">&euro;/an</span></div>
-    <div class="row advanced-only"><label>Indexation annuelle (loyer &amp; charges)</label><input type="number" id="indexation" value="0" step="0.5"><span class="unit">%</span></div>
+    <div class="row"><label for="loyerMensuel">Loyer mensuel</label><input type="number" id="loyerMensuel" value="750" step="10"><span class="unit">&euro;</span></div>
+    <div class="row advanced-only"><label for="chargesAnnuelles">Charges (copro, gestion, assurance PNO)</label><input type="number" id="chargesAnnuelles" value="1200" step="50"><span class="unit">&euro;/an</span></div>
+    <div class="row advanced-only"><label for="taxeFonciere">Taxe fonci&egrave;re</label><input type="number" id="taxeFonciere" value="900" step="50"><span class="unit">&euro;/an</span></div>
+    <div class="row advanced-only"><label for="indexation">Indexation annuelle (loyer &amp; charges)</label><input type="number" id="indexation" value="0" step="0.5"><span class="unit">%</span></div>
   </div>
 
   <div class="card advanced-only">
     <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.4 7.2h11.2M18.6 7.2h2M3.4 12h5.2M12.6 12h8M3.4 16.8h9.2M16.8 16.8h3.8"/><circle cx="16.6" cy="7.2" r="2"/><circle cx="10.6" cy="12" r="2"/><circle cx="14.8" cy="16.8" r="2"/></svg> Amortissements &amp; horizon</h2>
-    <div class="row"><label>Dur&eacute;e d'amortissement du bien</label><input type="number" id="dureeAmortBien" value="30" step="1"><span class="unit">ans</span></div>
-    <div class="row"><label>Dur&eacute;e d'amortissement du mobilier</label><input type="number" id="dureeAmortMobilier" value="7" step="1"><span class="unit">ans</span></div>
-    <div class="row"><label>Dur&eacute;e d'amortissement des frais d'acquisition</label><input type="number" id="dureeAmortFrais" value="5" step="1"><span class="unit">ans</span></div>
-    <div class="row"><label>Horizon de projection</label><input type="number" id="horizon" value="20" step="1"><span class="unit">ans</span></div>
-    <div class="row"><label>Ann&eacute;e de d&eacute;part</label><input type="number" id="anneeDepart" value="2026" step="1"><span class="unit"></span></div>
+    <div class="row"><label for="dureeAmortBien">Dur&eacute;e d'amortissement du bien</label><input type="number" id="dureeAmortBien" value="30" step="1"><span class="unit">ans</span></div>
+    <div class="row"><label for="dureeAmortMobilier">Dur&eacute;e d'amortissement du mobilier</label><input type="number" id="dureeAmortMobilier" value="7" step="1"><span class="unit">ans</span></div>
+    <div class="row"><label for="dureeAmortFrais">Dur&eacute;e d'amortissement des frais d'acquisition</label><input type="number" id="dureeAmortFrais" value="5" step="1"><span class="unit">ans</span></div>
+    <div class="row"><label for="horizon">Horizon de projection</label><input type="number" id="horizon" value="20" step="1"><span class="unit">ans</span></div>
+    <div class="row"><label for="anneeDepart">Ann&eacute;e de d&eacute;part</label><input type="number" id="anneeDepart" value="2026" step="1"><span class="unit"></span></div>
   </div>
 
   <div class="card">
     <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.4 3.2H7.2a2 2 0 0 0-2 2v13.6a2 2 0 0 0 2 2h9.6a2 2 0 0 0 2-2V8.6z"/><path d="M13.4 3.2v5.4h5.4"/><path d="M8.6 13h6.8M8.6 16.4h4.8"/></svg> Fiscalit&eacute;</h2>
-    <div class="row"><label>Tranche marginale d'imposition (TMI)</label><input type="number" id="tmi" value="30" step="1"><span class="unit">%</span></div>
-    <div class="row advanced-only"><label>Pr&eacute;l&egrave;vements sociaux</label><input type="number" id="prelevSociaux" value="17.2" step="0.1"><span class="unit">%</span></div>
-    <div class="row advanced-only"><label>Abattement micro-BIC</label><input type="number" id="abattementMicro" value="50" step="1"><span class="unit">%</span></div>
+    <div class="row"><label for="tmi">Tranche marginale d'imposition (TMI)</label><input type="number" id="tmi" value="30" step="1"><span class="unit">%</span></div>
+    <div class="row advanced-only"><label for="prelevSociaux">Pr&eacute;l&egrave;vements sociaux</label><input type="number" id="prelevSociaux" value="17.2" step="0.1"><span class="unit">%</span></div>
+    <div class="row advanced-only"><label for="abattementMicro">Abattement micro-BIC</label><input type="number" id="abattementMicro" value="50" step="1"><span class="unit">%</span></div>
     <div class="note advanced-only">Abattement micro-BIC&nbsp;: 50&nbsp;% pour un meubl&eacute; classique (plafond de recettes 77&nbsp;700&nbsp;&euro;), 71&nbsp;% pour un meubl&eacute; de tourisme class&eacute;.</div>
   </div>
 
@@ -289,6 +302,8 @@
 </div>
 
 <div id="mise-en-relation" data-ak-lead
+     data-suite="/ciop|Découvrir le CIOP"
+     data-bouton-court="Être accompagné"
      data-outil="lmnp"
      data-outil-label="Simulateur LMNP"
      data-titre="Régime réel ou micro-BIC ? Faites trancher par un expert-comptable."
@@ -298,6 +313,28 @@
      data-bouton="Être rappelé par un expert-comptable"></div>
 
 <p class="note" style="margin-top:22px;">Simulateur indicatif — ne remplace pas une étude personnalisée par un expert-comptable.</p>
+
+<!-- ======================= CONTENU ÉDITORIAL ET FAQ ======================= -->
+<section class="ak-seo" id="guide" aria-labelledby="guide-titre">
+  <h2 id="guide-titre">Louer en meublé aux Antilles-Guyane : réel ou micro-BIC ?</h2>
+<p>La location meublée non professionnelle (LMNP) est le statut de la plupart des propriétaires qui louent un logement meublé, à l'année ou en meublé de tourisme. Ses revenus sont imposés dans la catégorie des bénéfices industriels et commerciaux (BIC), et non des revenus fonciers, ce qui ouvre deux régimes très différents. Ce simulateur les compare année par année pour votre bien.</p>
+<h3>Le micro-BIC : simple, mais un abattement qui a changé</h3>
+<p>Le micro-BIC applique un abattement forfaitaire sur les loyers, sans déduction possible des charges réelles. Depuis les revenus 2025, l'abattement est de <strong>50 % pour la location meublée classique et les meublés de tourisme classés</strong> (plafond de 77 700 € de recettes), et de <strong>30 % seulement pour les meublés de tourisme non classés</strong> (plafond de 15 000 €). Aux Antilles, où la location saisonnière est fréquente, faire classer son meublé de tourisme est devenu déterminant.</p>
+<h3>Le régime réel : les amortissements changent tout</h3>
+<p>Au réel, vous déduisez toutes les charges (intérêts d'emprunt, assurance, taxe foncière, copropriété, gestion, comptable) et, surtout, l'<strong>amortissement</strong> du bien et du mobilier, une charge comptable qui ne correspond à aucune sortie d'argent. Il en résulte fréquemment un résultat fiscal nul pendant dix à quinze ans : des loyers encaissés sans impôt ni prélèvements sociaux. Le simulateur calcule la durée pendant laquelle cet avantage tient, selon votre prix, votre loyer et vos charges.</p>
+<h3>Ce qui a changé en 2025 sur la revente</h3>
+<p>La loi de finances pour 2025 a modifié le calcul de la plus-value : les amortissements déduits au réel sont désormais <strong>réintégrés dans le prix d'acquisition</strong> au moment de la revente, ce qui augmente la plus-value imposable. Les abattements pour durée de détention continuent de s'appliquer (exonération totale d'impôt après 22 ans, de prélèvements sociaux après 30 ans). Pour un investissement de long terme, le réel reste généralement plus avantageux ; pour une détention courte, le calcul mérite d'être posé avec un expert-comptable.</p>
+<h3>LMNP ou LMP ?</h3>
+<p>Vous devenez loueur en meublé professionnel (LMP) si vos recettes meublées dépassent 23 000 € par an <em>et</em> les autres revenus d'activité de votre foyer. Le LMP entraîne l'affiliation aux cotisations sociales des indépendants mais permet d'imputer les déficits sur le revenu global. Le simulateur reste dans le cadre LMNP.</p>
+<p class="ak-seo-note">Les seuils, abattements et règles de plus-value sont ceux connus à la date de mise à jour du simulateur ; ils peuvent évoluer avec chaque loi de finances. Un expert-comptable spécialisé LMNP confirmera le régime adapté à votre situation et tiendra la comptabilité exigée par le réel.</p>
+  <h3 id="faq">Questions fréquentes</h3>
+  <div class="ak-faq"><details><summary>Faut-il un expert-comptable pour le LMNP au réel ?</summary><p>Ce n'est pas obligatoire, mais fortement recommandé : le réel exige un bilan, un tableau d'amortissement et une liasse fiscale (formulaire 2031). L'adhésion à un organisme de gestion agréé et le recours à un comptable coûtent quelques centaines d'euros par an, souvent déductibles, pour une économie d'impôt bien supérieure.</p></details><details><summary>Le micro-BIC est-il encore intéressant pour un meublé de tourisme aux Antilles ?</summary><p>Pour un meublé de tourisme non classé, l'abattement n'est plus que de 30 % avec un plafond de 15 000 € : le réel est presque toujours plus favorable. Pour un meublé classé, l'abattement de 50 % reste possible, mais le réel l'emporte dès que le bien est financé à crédit ou génère des charges importantes.</p></details><details><summary>Peut-on passer du micro-BIC au réel, et inversement ?</summary><p>Oui. L'option pour le réel se prend avant la date limite de dépôt de la déclaration des revenus de l'année concernée et engage pour un an, renouvelable tacitement. Revenir au micro-BIC est possible si vos recettes restent sous le plafond, en renonçant à l'option.</p></details><details><summary>Les amortissements sont-ils réintégrés à la revente ?</summary><p>Depuis la loi de finances 2025, oui : les amortissements déduits viennent minorer le prix d'acquisition retenu pour le calcul de la plus-value. Les abattements pour durée de détention s'appliquent ensuite normalement. L'effet est faible pour une détention longue, sensible pour une revente rapide.</p></details><details><summary>Le LMNP est-il compatible avec un investissement Girardin ou CIOP ?</summary><p>Le CIOP impose une location nue, incompatible avec le meublé. Le statut LMNP concerne un bien loué meublé, sans avantage fiscal à l'entrée mais avec une fiscalité des loyers très allégée au réel. Ce sont deux logiques différentes qu'un expert-comptable peut vous aider à comparer.</p></details></div>
+  <div class="ak-seo-cta">
+    <a class="ak-btn ak-btn-primary" data-ak-cta="guide" href="#mise-en-relation">Faire trancher par un expert-comptable <svg class="ak-ico ak-ico-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.5 12h15"/><path d="m13.2 5.7 6.3 6.3-6.3 6.3"/></svg></a>
+    <a class="ak-btn ak-btn-outline" href="/#outils">Tous les simulateurs</a>
+  </div>
+</section>
+
 </div>
 
 <footer class="ak-footer">
@@ -315,37 +352,37 @@
       <div>
         <h4>Simulateurs</h4>
         <ul>
-          <li><a href="capacite-emprunt.html">Capacité d’emprunt</a></li>
-          <li><a href="mensualites-credit.html">Mensualités de crédit</a></li>
-          <li><a href="frais-notaire.html">Frais de notaire</a></li>
-          <li><a href="ciop.html">Rentabilité CIOP</a></li>
-          <li><a href="lmnp.html">Simulateur LMNP</a></li>
-          <li><a href="solaire.html">Rentabilité solaire</a></li>
+          <li><a href="/capacite-emprunt">Capacité d’emprunt</a></li>
+          <li><a href="/mensualites-credit">Mensualités de crédit</a></li>
+          <li><a href="/frais-notaire">Frais de notaire</a></li>
+          <li><a href="/ciop">Rentabilité CIOP</a></li>
+          <li><a href="/lmnp">Simulateur LMNP</a></li>
+          <li><a href="/solaire">Rentabilité solaire</a></li>
         </ul>
       </div>
       <div>
         <h4>Le site</h4>
         <ul>
-          <li><a href="index.html#methode">Comment ça marche</a></li>
-          <li><a href="index.html#selection">Notre sélection</a></li>
-          <li><a href="index.html#partenaires">Le réseau de partenaires</a></li>
-          <li><a href="index.html#contact">Être mis en relation</a></li>
+          <li><a href="/#methode">Comment ça marche</a></li>
+          <li><a href="/#selection">Notre sélection</a></li>
+          <li><a href="/#partenaires">Le réseau de partenaires</a></li>
+          <li><a href="/#contact">Être mis en relation</a></li>
         </ul>
       </div>
       <div>
         <h4>Akapa</h4>
         <ul>
           <li><a href="https://akapa.fr" target="_blank" rel="noopener">akapa.fr</a></li>
-          <li><a href="mentions-legales.html">Mentions légales</a></li>
-          <li><a href="confidentialite.html">Confidentialité</a></li>
+          <li><a href="/mentions-legales">Mentions légales</a></li>
+          <li><a href="/confidentialite">Confidentialité</a></li>
           <li><a href="#" data-ak-cookies>Gérer mes cookies</a></li>
         </ul>
       </div>
     </div>
     <p class="ak-disclaimer">Simulateur indicatif — ne remplace pas une étude personnalisée par un expert-comptable.</p>
     <div class="ak-footer-bottom">
-      <span>© 2026 Akapa Automation — Baie-Mahault, Guadeloupe</span>
-      <span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Politique de confidentialité</a> · <a href="#" data-ak-cookies>Gérer mes cookies</a></span>
+      <span>© 2026 AKAPA SAS — Baie-Mahault, Guadeloupe</span>
+      <span><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Politique de confidentialité</a> · <a href="#" data-ak-cookies>Gérer mes cookies</a></span>
     </div>
   </div>
 </footer>
@@ -572,7 +609,10 @@ compute();
 })();
 </script>
 
-<script src="assets/akapa-config.js"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Simulateur LMNP", "url": "https://simu.akapa.fr/lmnp", "description": "Louez en meublé en Guadeloupe, Martinique, Guyane ou à La Réunion ? Comparez le régime réel avec amortissements et le micro-BIC : revenu net dans votre poche, impôt économisé et durée de l'avantage, année par année.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "browserRequirements": "Requires JavaScript", "inLanguage": "fr-FR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "areaServed": ["Guadeloupe", "Martinique", "Guyane", "La Réunion"], "provider": {"@type": "Organization", "name": "AKAPA", "url": "https://akapa.fr"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Simulateurs Akapa", "item": "https://simu.akapa.fr/"}, {"@type": "ListItem", "position": 2, "name": "Simulateur LMNP", "item": "https://simu.akapa.fr/lmnp"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Faut-il un expert-comptable pour le LMNP au réel ?", "acceptedAnswer": {"@type": "Answer", "text": "Ce n'est pas obligatoire, mais fortement recommandé : le réel exige un bilan, un tableau d'amortissement et une liasse fiscale (formulaire 2031). L'adhésion à un organisme de gestion agréé et le recours à un comptable coûtent quelques centaines d'euros par an, souvent déductibles, pour une économie d'impôt bien supérieure."}}, {"@type": "Question", "name": "Le micro-BIC est-il encore intéressant pour un meublé de tourisme aux Antilles ?", "acceptedAnswer": {"@type": "Answer", "text": "Pour un meublé de tourisme non classé, l'abattement n'est plus que de 30 % avec un plafond de 15 000 € : le réel est presque toujours plus favorable. Pour un meublé classé, l'abattement de 50 % reste possible, mais le réel l'emporte dès que le bien est financé à crédit ou génère des charges importantes."}}, {"@type": "Question", "name": "Peut-on passer du micro-BIC au réel, et inversement ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. L'option pour le réel se prend avant la date limite de dépôt de la déclaration des revenus de l'année concernée et engage pour un an, renouvelable tacitement. Revenir au micro-BIC est possible si vos recettes restent sous le plafond, en renonçant à l'option."}}, {"@type": "Question", "name": "Les amortissements sont-ils réintégrés à la revente ?", "acceptedAnswer": {"@type": "Answer", "text": "Depuis la loi de finances 2025, oui : les amortissements déduits viennent minorer le prix d'acquisition retenu pour le calcul de la plus-value. Les abattements pour durée de détention s'appliquent ensuite normalement. L'effet est faible pour une détention longue, sensible pour une revente rapide."}}, {"@type": "Question", "name": "Le LMNP est-il compatible avec un investissement Girardin ou CIOP ?", "acceptedAnswer": {"@type": "Answer", "text": "Le CIOP impose une location nue, incompatible avec le meublé. Le statut LMNP concerne un bien loué meublé, sans avantage fiscal à l'entrée mais avec une fiscalité des loyers très allégée au réel. Ce sont deux logiques différentes qu'un expert-comptable peut vous aider à comparer."}}]}</script>
+<script src="/assets/akapa-config.js"></script>
 <script>
 /* Recapitulatif de simulation joint a la demande de mise en relation. */
 (function(){
@@ -609,9 +649,10 @@ compute();
   window.addEventListener('load', planifier);
 })();
 </script>
-<script src="assets/akapa-lead.js"></script>
-<script src="assets/akapa-pdf.js"></script>
-<script src="assets/akapa-cookies.js"></script>
+<script src="/assets/akapa-lead.js"></script>
+<script src="/assets/akapa-pdf.js"></script>
+<script src="/assets/akapa-cookies.js"></script>
+<script src="/assets/akapa-track.js"></script>
 
 <script>
 /* Repli du sous-titre long de la bande de titre. */

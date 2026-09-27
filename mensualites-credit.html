@@ -3,13 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#f6f7f9">
-<link rel="icon" href="assets/favicon.ico" sizes="any">
-<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-<title>Calculatrice de mensualités de crédit</title>
+<meta name="theme-color" content="#2563eb">
+<title>Calculette de mensualités de crédit immobilier — Antilles-Guyane | Akapa</title>
+<meta name="description" content="Calculez la mensualité de votre prêt immobilier, assurance comprise, le coût total des intérêts et le tableau d'amortissement complet. Simulateur gratuit adapté aux emprunteurs de Guadeloupe, Martinique, Guyane et La Réunion.">
+<link rel="canonical" href="https://simu.akapa.fr/mensualites-credit">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Simulateurs Akapa">
+<meta property="og:title" content="Mensualités de crédit — calculez votre prêt immobilier">
+<meta property="og:description" content="Mensualité crédit + assurance, coût total des intérêts et tableau d'amortissement, année par année.">
+<meta property="og:url" content="https://simu.akapa.fr/mensualites-credit">
+<meta property="og:image" content="https://simu.akapa.fr/assets/og-mensualites-credit.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 <style>
   :root{ color-scheme: light; }
   *{box-sizing:border-box;}
@@ -154,31 +166,32 @@
     .seg-btn{font-size:12px; padding:9px 4px;}
   }
 </style>
-<link rel="stylesheet" href="assets/akapa.css">
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="stylesheet" href="/assets/akapa.css">
 </head>
 <body data-ak-outil="mensualites-credit" data-ak-outil-label="Mensualités de crédit" class="ak-chrome mode-simple">
 <header class="ak-header">
   <div class="ak-wrap">
-    <a class="ak-brand" href="index.html">
-      <img src="assets/logo-akapa.svg" alt="AKAPA" onerror="this.outerHTML='<strong style=&quot;font-size:19px;color:#1e40af&quot;>AKAPA</strong>'">
+    <a class="ak-brand" href="/">
+      <img src="/assets/logo-akapa.svg" alt="AKAPA" onerror="this.outerHTML='<strong style=&quot;font-size:19px;color:#1e40af&quot;>AKAPA</strong>'">
       <span class="ak-brand-sub">Simulateurs</span>
     </a>
     <button class="ak-burger" data-ak-burger type="button" aria-label="Menu" aria-expanded="false"><svg class="ak-ico ak-ico-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.6 6.6h16.8M3.6 12h16.8M3.6 17.4h16.8"/></svg></button>
     <nav class="ak-nav">
-      <a href="index.html">Accueil</a>
+      <a href="/">Accueil</a>
       <div class="ak-dd">
         <button type="button" aria-haspopup="true" aria-expanded="false">Tous les simulateurs <span class="ak-chev">▾</span></button>
         <nav class="ak-dd-menu">
-          <a href="index.html#outils"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 10.4 12 3.7l8.5 6.7"/><path d="M5.7 9.2V19a1.6 1.6 0 0 0 1.6 1.6h9.4a1.6 1.6 0 0 0 1.6-1.6V9.2"/><path d="M9.9 20.6v-5.3h4.2v5.3"/></svg> Tous les outils</a>
+          <a href="/#outils"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 10.4 12 3.7l8.5 6.7"/><path d="M5.7 9.2V19a1.6 1.6 0 0 0 1.6 1.6h9.4a1.6 1.6 0 0 0 1.6-1.6V9.2"/><path d="M9.9 20.6v-5.3h4.2v5.3"/></svg> Tous les outils</a>
           <hr>
-          <a href="capacite-emprunt.html"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 9.8 12 4.5l9 5.3"/><path d="M5.6 11v7.4M10 11v7.4M14 11v7.4M18.4 11v7.4"/><path d="M3 20.4h18"/></svg> Capacité d’emprunt</a>
-          <a href="frais-notaire.html"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.4 3.2H7.2a2 2 0 0 0-2 2v13.6a2 2 0 0 0 2 2h9.6a2 2 0 0 0 2-2V8.6z"/><path d="M13.4 3.2v5.4h5.4"/><path d="M8.6 13h6.8M8.6 16.4h4.8"/></svg> Frais de notaire</a>
-          <a href="ciop.html"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.8"/><path d="m8.9 15.1 6.2-6.2"/><circle cx="9.5" cy="9.5" r="1.3"/><circle cx="14.5" cy="14.5" r="1.3"/></svg> Rentabilité CIOP</a>
-          <a href="lmnp.html"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5.2 11.6V8.3A2.2 2.2 0 0 1 7.4 6.1h9.2a2.2 2.2 0 0 1 2.2 2.2v3.3"/><path d="M3 14.1a2 2 0 0 1 4 0v2.4h10v-2.4a2 2 0 0 1 4 0v4.4H3z"/><path d="M6.6 18.5v1.6M17.4 18.5v1.6"/></svg> Simulateur LMNP</a>
-          <a href="solaire.html"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.1"/><path d="M12 2.6v2.1M12 19.3v2.1M5 5l1.5 1.5M17.5 17.5 19 19M2.6 12h2.1M19.3 12h2.1M5 19l1.5-1.5M17.5 6.5 19 5"/></svg> Rentabilité solaire</a>
+          <a href="/capacite-emprunt"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 9.8 12 4.5l9 5.3"/><path d="M5.6 11v7.4M10 11v7.4M14 11v7.4M18.4 11v7.4"/><path d="M3 20.4h18"/></svg> Capacité d’emprunt</a>
+          <a href="/frais-notaire"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.4 3.2H7.2a2 2 0 0 0-2 2v13.6a2 2 0 0 0 2 2h9.6a2 2 0 0 0 2-2V8.6z"/><path d="M13.4 3.2v5.4h5.4"/><path d="M8.6 13h6.8M8.6 16.4h4.8"/></svg> Frais de notaire</a>
+          <a href="/ciop"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.8"/><path d="m8.9 15.1 6.2-6.2"/><circle cx="9.5" cy="9.5" r="1.3"/><circle cx="14.5" cy="14.5" r="1.3"/></svg> Rentabilité CIOP</a>
+          <a href="/lmnp"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5.2 11.6V8.3A2.2 2.2 0 0 1 7.4 6.1h9.2a2.2 2.2 0 0 1 2.2 2.2v3.3"/><path d="M3 14.1a2 2 0 0 1 4 0v2.4h10v-2.4a2 2 0 0 1 4 0v4.4H3z"/><path d="M6.6 18.5v1.6M17.4 18.5v1.6"/></svg> Simulateur LMNP</a>
+          <a href="/solaire"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.1"/><path d="M12 2.6v2.1M12 19.3v2.1M5 5l1.5 1.5M17.5 17.5 19 19M2.6 12h2.1M19.3 12h2.1M5 19l1.5-1.5M17.5 6.5 19 5"/></svg> Rentabilité solaire</a>
         </nav>
       </div>
-      <a href="index.html#methode">Comment ça marche</a>
+      <a href="/#methode">Comment ça marche</a>
       <a class="ak-btn ak-btn-primary" href="#mise-en-relation">Être mis en relation</a>
     </nav>
   </div>
@@ -190,7 +203,7 @@
     <p>Mensualité crédit + assurance, coût total et tableau d’amortissement complet.</p>
     <button type="button" class="ak-tb-plus" data-ak-tb-plus aria-expanded="false" aria-controls="ak-tb-long">Détails</button>
     <div class="ak-tb-actions">
-      <button type="button" class="ak-btn ak-btn-pdf" data-ak-pdf><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.4v12.2"/><path d="m7.2 11 4.8 4.8 4.8-4.8"/><path d="M4.2 17.4v1.6a1.8 1.8 0 0 0 1.8 1.8h12a1.8 1.8 0 0 0 1.8-1.8v-1.6"/></svg> <span class="ak-btn-txt">PDF</span></button>
+      <button type="button" class="ak-btn ak-btn-pdf" data-ak-pdf aria-label="Télécharger la simulation en PDF"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.4v12.2"/><path d="m7.2 11 4.8 4.8 4.8-4.8"/><path d="M4.2 17.4v1.6a1.8 1.8 0 0 0 1.8 1.8h12a1.8 1.8 0 0 0 1.8-1.8v-1.6"/></svg> <span class="ak-btn-txt">PDF</span></button>
       <a class="ak-btn ak-btn-primary" href="#mise-en-relation" aria-label="Être mis en relation"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.4 3.2H7.2a2 2 0 0 0-2 2v13.6a2 2 0 0 0 2 2h9.6a2 2 0 0 0 2-2V8.6z"/><path d="M13.4 3.2v5.4h5.4"/><path d="M8.6 13h6.8M8.6 16.4h4.8"/></svg> <span class="ak-btn-txt">Être mis en relation</span></a>
     </div>
   </div>
@@ -212,14 +225,14 @@
 
   <div class="card">
     <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 9.8 12 4.5l9 5.3"/><path d="M5.6 11v7.4M10 11v7.4M14 11v7.4M18.4 11v7.4"/><path d="M3 20.4h18"/></svg> Votre pr&ecirc;t</h2>
-    <div class="row"><label>Montant emprunt&eacute;</label><input type="number" id="capital" value="200000" step="1000"><span class="unit">&euro;</span></div>
-    <div class="row"><label>Dur&eacute;e du pr&ecirc;t</label>
-      <input type="range" id="dureeRange" min="1" max="30" step="1" value="20">
+    <div class="row"><label for="capital">Montant emprunt&eacute;</label><input type="number" id="capital" value="200000" step="1000"><span class="unit">&euro;</span></div>
+    <div class="row"><label for="duree">Dur&eacute;e du pr&ecirc;t</label>
+      <input type="range" id="dureeRange" min="1" max="30" step="1" value="20" aria-label="Dure du prt">
       <input type="number" id="duree" value="20" step="1" style="width:64px;"><span class="unit">ans</span>
     </div>
-    <div class="row"><label>Taux d'int&eacute;r&ecirc;t</label><input type="number" id="tauxInteret" value="3.55" step="0.05"><span class="unit">%</span></div>
-    <div class="row advanced-only"><label>Taux d'assurance emprunteur</label><input type="number" id="tauxAssurance" value="0.34" step="0.01"><span class="unit">%</span></div>
-    <div class="row advanced-only"><label>Frais de dossier</label><input type="number" id="fraisDossier" value="0" step="50"><span class="unit">&euro;</span></div>
+    <div class="row"><label for="tauxInteret">Taux d'int&eacute;r&ecirc;t</label><input type="number" id="tauxInteret" value="3.55" step="0.05"><span class="unit">%</span></div>
+    <div class="row advanced-only"><label for="tauxAssurance">Taux d'assurance emprunteur</label><input type="number" id="tauxAssurance" value="0.34" step="0.01"><span class="unit">%</span></div>
+    <div class="row advanced-only"><label for="fraisDossier">Frais de dossier</label><input type="number" id="fraisDossier" value="0" step="50"><span class="unit">&euro;</span></div>
   </div>
 
   <div class="card advanced-only">
@@ -273,6 +286,8 @@
 <p class="note">Simulation indicative. Le taux d'int&eacute;r&ecirc;t, le taux d'assurance et les frais sont des hypoth&egrave;ses de march&eacute; &agrave; ajuster selon votre profil et &agrave; confirmer aupr&egrave;s de votre banque ou courtier. Le TAEG r&eacute;el peut diff&eacute;rer selon les frais annexes (garantie, notaire, courtage) non inclus ici.</p>
 
 <div id="mise-en-relation" data-ak-lead
+     data-suite="/capacite-emprunt|Vérifier ma capacité d’emprunt"
+     data-bouton-court="Être rappelé"
      data-outil="mensualites-credit"
      data-outil-label="Mensualités de crédit"
      data-titre="Cette mensualité vous convient ? Faites-vous proposer mieux."
@@ -282,6 +297,27 @@
      data-bouton="Être rappelé par un courtier"></div>
 
 <p class="note" style="margin-top:22px;">Simulateur indicatif — ne remplace pas une offre de prêt ni une étude de financement personnalisée.</p>
+
+<!-- ======================= CONTENU ÉDITORIAL ET FAQ ======================= -->
+<section class="ak-seo" id="guide" aria-labelledby="guide-titre">
+  <h2 id="guide-titre">Comprendre votre mensualité de crédit immobilier</h2>
+<p>Une mensualité de crédit se compose du remboursement d'une partie du capital, des intérêts calculés sur le capital restant dû, et de la cotisation d'assurance emprunteur. Au début du prêt, la part d'intérêts est la plus forte ; elle diminue chaque mois au profit du capital. Le tableau d'amortissement du simulateur montre cette bascule année par année.</p>
+<h3>Taux nominal, TAEG et coût total</h3>
+<p>Le taux affiché par la banque est le taux nominal. Le <strong>TAEG</strong> (taux annuel effectif global) y ajoute l'assurance, les frais de dossier, la garantie et les éventuels frais de courtage : c'est lui qui permet de comparer deux offres. Il ne peut pas dépasser le taux d'usure publié chaque trimestre par la Banque de France. Le coût total du crédit affiché par le simulateur additionne les intérêts et l'assurance sur toute la durée.</p>
+<h3>L'assurance emprunteur : le poste que l'on peut vraiment négocier</h3>
+<p>L'assurance représente souvent 15 à 30 % du coût total d'un crédit. Depuis la <strong>loi Lemoine</strong>, vous pouvez la résilier et la remplacer à tout moment, sans frais, par un contrat aux garanties équivalentes, et le questionnaire de santé est supprimé pour les prêts de moins de 200 000 € par assuré remboursés avant 60 ans. Une délégation d'assurance permet fréquemment d'économiser plusieurs milliers d'euros, en particulier pour les emprunteurs jeunes et non-fumeurs.</p>
+<h3>Durée courte ou mensualité basse ?</h3>
+<p>Allonger la durée réduit la mensualité mais augmente le coût total : sur 200 000 €, passer de 20 à 25 ans coûte plusieurs milliers d'euros d'intérêts supplémentaires. À l'inverse, une mensualité trop élevée fragilise votre budget. Le bon réglage est celui qui respecte les 35 % d'endettement tout en laissant une marge pour les imprévus. Testez plusieurs durées avec le curseur : le coût total se recalcule instantanément.</p>
+<h3>Renégocier ou faire racheter son crédit</h3>
+<p>Si vous avez emprunté à un taux nettement supérieur aux taux actuels, une renégociation auprès de votre banque ou un rachat par un concurrent peut être rentable, surtout dans le premier tiers du prêt, quand il reste beaucoup d'intérêts à payer. Comptez les indemnités de remboursement anticipé (au maximum six mois d'intérêts, plafonnées à 3 % du capital restant dû) et les frais de garantie du nouveau prêt.</p>
+  <h3 id="faq">Questions fréquentes</h3>
+  <div class="ak-faq"><details><summary>Comment est calculée une mensualité de prêt immobilier ?</summary><p>Avec la formule de l'annuité constante : M = C × t / (1 − (1 + t)^−n), où C est le capital, t le taux mensuel (taux annuel divisé par 12) et n le nombre de mois. On y ajoute la cotisation d'assurance. Le simulateur applique cette formule et détaille le partage capital/intérêts.</p></details><details><summary>L'assurance est-elle calculée sur le capital emprunté ou sur le capital restant dû ?</summary><p>Les contrats bancaires calculent le plus souvent la cotisation sur le capital initial (mensualité constante) ; les contrats en délégation la calculent souvent sur le capital restant dû (cotisation décroissante). Sur la durée totale, le second mode est généralement moins cher. Le simulateur retient un taux annuel appliqué au capital emprunté, hypothèse prudente.</p></details><details><summary>Peut-on changer d'assurance de prêt en cours de crédit ?</summary><p>Oui, à tout moment et sans frais depuis la loi Lemoine (2022), à condition de présenter un contrat aux garanties au moins équivalentes. La banque a dix jours pour répondre et doit motiver un refus.</p></details><details><summary>Quel taux immobilier aux Antilles-Guyane ?</summary><p>Les taux pratiqués dans les DOM sont proches de ceux de la métropole, avec des écarts selon la banque, la durée et le profil. Le simulateur est prérempli avec une valeur de marché que vous pouvez ajuster en mode avancé ; un courtier vous indiquera le taux réellement obtenable pour votre dossier.</p></details><details><summary>Est-il intéressant de rembourser par anticipation ?</summary><p>Oui si le capital restant dû est important et que vous n'avez pas de placement mieux rémunéré que le taux du crédit. Les indemnités sont plafonnées à six mois d'intérêts et 3 % du capital restant dû, et souvent négociables au moment de la signature.</p></details></div>
+  <div class="ak-seo-cta">
+    <a class="ak-btn ak-btn-primary" data-ak-cta="guide" href="#mise-en-relation">Obtenir une proposition de prêt <svg class="ak-ico ak-ico-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.5 12h15"/><path d="m13.2 5.7 6.3 6.3-6.3 6.3"/></svg></a>
+    <a class="ak-btn ak-btn-outline" href="/#outils">Tous les simulateurs</a>
+  </div>
+</section>
+
 </div>
 
 <footer class="ak-footer">
@@ -299,37 +335,37 @@
       <div>
         <h4>Simulateurs</h4>
         <ul>
-          <li><a href="capacite-emprunt.html">Capacité d’emprunt</a></li>
-          <li><a href="mensualites-credit.html">Mensualités de crédit</a></li>
-          <li><a href="frais-notaire.html">Frais de notaire</a></li>
-          <li><a href="ciop.html">Rentabilité CIOP</a></li>
-          <li><a href="lmnp.html">Simulateur LMNP</a></li>
-          <li><a href="solaire.html">Rentabilité solaire</a></li>
+          <li><a href="/capacite-emprunt">Capacité d’emprunt</a></li>
+          <li><a href="/mensualites-credit">Mensualités de crédit</a></li>
+          <li><a href="/frais-notaire">Frais de notaire</a></li>
+          <li><a href="/ciop">Rentabilité CIOP</a></li>
+          <li><a href="/lmnp">Simulateur LMNP</a></li>
+          <li><a href="/solaire">Rentabilité solaire</a></li>
         </ul>
       </div>
       <div>
         <h4>Le site</h4>
         <ul>
-          <li><a href="index.html#methode">Comment ça marche</a></li>
-          <li><a href="index.html#selection">Notre sélection</a></li>
-          <li><a href="index.html#partenaires">Le réseau de partenaires</a></li>
-          <li><a href="index.html#contact">Être mis en relation</a></li>
+          <li><a href="/#methode">Comment ça marche</a></li>
+          <li><a href="/#selection">Notre sélection</a></li>
+          <li><a href="/#partenaires">Le réseau de partenaires</a></li>
+          <li><a href="/#contact">Être mis en relation</a></li>
         </ul>
       </div>
       <div>
         <h4>Akapa</h4>
         <ul>
           <li><a href="https://akapa.fr" target="_blank" rel="noopener">akapa.fr</a></li>
-          <li><a href="mentions-legales.html">Mentions légales</a></li>
-          <li><a href="confidentialite.html">Confidentialité</a></li>
+          <li><a href="/mentions-legales">Mentions légales</a></li>
+          <li><a href="/confidentialite">Confidentialité</a></li>
           <li><a href="#" data-ak-cookies>Gérer mes cookies</a></li>
         </ul>
       </div>
     </div>
     <p class="ak-disclaimer">Simulateur indicatif — ne remplace pas une offre de prêt ni une étude de financement personnalisée.</p>
     <div class="ak-footer-bottom">
-      <span>© 2026 Akapa Automation — Baie-Mahault, Guadeloupe</span>
-      <span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Politique de confidentialité</a> · <a href="#" data-ak-cookies>Gérer mes cookies</a></span>
+      <span>© 2026 AKAPA SAS — Baie-Mahault, Guadeloupe</span>
+      <span><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Politique de confidentialité</a> · <a href="#" data-ak-cookies>Gérer mes cookies</a></span>
     </div>
   </div>
 </footer>
@@ -482,7 +518,10 @@ compute();
 })();
 </script>
 
-<script src="assets/akapa-config.js"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Calculette de mensualités de crédit", "url": "https://simu.akapa.fr/mensualites-credit", "description": "Calculez la mensualité de votre prêt immobilier, assurance comprise, le coût total des intérêts et le tableau d'amortissement complet. Simulateur gratuit adapté aux emprunteurs de Guadeloupe, Martinique, Guyane et La Réunion.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "browserRequirements": "Requires JavaScript", "inLanguage": "fr-FR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "areaServed": ["Guadeloupe", "Martinique", "Guyane", "La Réunion"], "provider": {"@type": "Organization", "name": "AKAPA", "url": "https://akapa.fr"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Simulateurs Akapa", "item": "https://simu.akapa.fr/"}, {"@type": "ListItem", "position": 2, "name": "Mensualités de crédit", "item": "https://simu.akapa.fr/mensualites-credit"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Comment est calculée une mensualité de prêt immobilier ?", "acceptedAnswer": {"@type": "Answer", "text": "Avec la formule de l'annuité constante : M = C × t / (1 − (1 + t)^−n), où C est le capital, t le taux mensuel (taux annuel divisé par 12) et n le nombre de mois. On y ajoute la cotisation d'assurance. Le simulateur applique cette formule et détaille le partage capital/intérêts."}}, {"@type": "Question", "name": "L'assurance est-elle calculée sur le capital emprunté ou sur le capital restant dû ?", "acceptedAnswer": {"@type": "Answer", "text": "Les contrats bancaires calculent le plus souvent la cotisation sur le capital initial (mensualité constante) ; les contrats en délégation la calculent souvent sur le capital restant dû (cotisation décroissante). Sur la durée totale, le second mode est généralement moins cher. Le simulateur retient un taux annuel appliqué au capital emprunté, hypothèse prudente."}}, {"@type": "Question", "name": "Peut-on changer d'assurance de prêt en cours de crédit ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, à tout moment et sans frais depuis la loi Lemoine (2022), à condition de présenter un contrat aux garanties au moins équivalentes. La banque a dix jours pour répondre et doit motiver un refus."}}, {"@type": "Question", "name": "Quel taux immobilier aux Antilles-Guyane ?", "acceptedAnswer": {"@type": "Answer", "text": "Les taux pratiqués dans les DOM sont proches de ceux de la métropole, avec des écarts selon la banque, la durée et le profil. Le simulateur est prérempli avec une valeur de marché que vous pouvez ajuster en mode avancé ; un courtier vous indiquera le taux réellement obtenable pour votre dossier."}}, {"@type": "Question", "name": "Est-il intéressant de rembourser par anticipation ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui si le capital restant dû est important et que vous n'avez pas de placement mieux rémunéré que le taux du crédit. Les indemnités sont plafonnées à six mois d'intérêts et 3 % du capital restant dû, et souvent négociables au moment de la signature."}}]}</script>
+<script src="/assets/akapa-config.js"></script>
 <script>
 /* Recapitulatif de simulation joint a la demande de mise en relation. */
 (function(){
@@ -518,9 +557,10 @@ compute();
   window.addEventListener('load', planifier);
 })();
 </script>
-<script src="assets/akapa-lead.js"></script>
-<script src="assets/akapa-pdf.js"></script>
-<script src="assets/akapa-cookies.js"></script>
+<script src="/assets/akapa-lead.js"></script>
+<script src="/assets/akapa-pdf.js"></script>
+<script src="/assets/akapa-cookies.js"></script>
+<script src="/assets/akapa-track.js"></script>
 
 <script>
 /* Repli du sous-titre long de la bande de titre. */

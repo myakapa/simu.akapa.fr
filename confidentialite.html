@@ -5,14 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#2563eb">
 <title>Politique de confidentialité — Simulateurs Akapa</title>
-<meta name="description" content="Traitement des données personnelles collectées par les formulaires de mise en relation du site simu.akapa.fr.">
+<link rel="canonical" href="https://simu.akapa.fr/confidentialite">
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 <meta name="robots" content="noindex, follow">
-<link rel="icon" href="assets/favicon.ico" sizes="any">
-<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/akapa.css">
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="stylesheet" href="/assets/akapa.css">
 <style>
   *{box-sizing:border-box;}
   body{margin:0; background:var(--ak-bg); color:var(--ak-body); font-family:var(--ak-font); font-size:15px; line-height:1.65;}
@@ -35,16 +36,16 @@
 
 <header class="ak-header">
   <div class="ak-wrap">
-    <a class="ak-brand" href="index.html">
-      <img src="assets/logo-akapa.svg" alt="AKAPA" onerror="this.outerHTML='<strong style=&quot;font-size:19px;color:#1e40af&quot;>AKAPA</strong>'">
+    <a class="ak-brand" href="/">
+      <img src="/assets/logo-akapa.svg" alt="AKAPA" onerror="this.outerHTML='<strong style=&quot;font-size:19px;color:#1e40af&quot;>AKAPA</strong>'">
       <span class="ak-brand-sub">Simulateurs</span>
     </a>
     <button class="ak-burger" data-ak-burger type="button" aria-label="Menu" aria-expanded="false"><svg class="ak-ico ak-ico-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.6 6.6h16.8M3.6 12h16.8M3.6 17.4h16.8"/></svg></button>
     <nav class="ak-nav">
-      <a href="index.html#outils">Les simulateurs</a>
-      <a href="index.html#methode">Comment ça marche</a>
-      <a href="index.html#partenaires">Partenaires</a>
-      <a class="ak-btn ak-btn-primary" href="index.html#contact">Être mis en relation</a>
+      <a href="/#outils">Les simulateurs</a>
+      <a href="/#methode">Comment ça marche</a>
+      <a href="/#partenaires">Partenaires</a>
+      <a class="ak-btn ak-btn-primary" href="/#contact">Être mis en relation</a>
     </nav>
   </div>
 </header>
@@ -57,16 +58,16 @@
 
 <h2>1. Ce que le site collecte — et ce qu'il ne collecte pas</h2>
 <p><strong>Les simulateurs fonctionnent entièrement dans votre navigateur.</strong> Les montants, revenus, factures et hypothèses que vous saisissez pour obtenir un résultat ne sont pas transmis à Akapa&nbsp;: aucun calcul n'est effectué sur un serveur. Vous pouvez utiliser tous les outils du site sans qu'aucune donnée ne nous parvienne.</p>
-<p>Des données ne nous sont transmises que dans un seul cas&nbsp;: lorsque vous remplissez volontairement un formulaire de mise en relation et que vous cochez la case d'accord.</p>
+<p>Des données personnelles ne nous sont transmises que lorsque vous remplissez volontairement un formulaire de mise en relation ou que vous choisissez de nous écrire sur WhatsApp. La mesure d'audience, décrite au point 8, ne porte que sur des données agrégées et dépend de votre choix dans le bandeau cookies.</p>
 
 <h2>2. Données traitées lors d'une demande de mise en relation</h2>
 <table>
   <tr><th>Catégorie</th><th>Données</th><th>Caractère</th></tr>
-  <tr><td>Identification</td><td>Prénom, nom</td><td>Obligatoire</td></tr>
+  <tr><td>Identification</td><td>Prénom, nom</td><td>Prénom obligatoire, nom facultatif</td></tr>
   <tr><td>Contact</td><td>Adresse e-mail, numéro de téléphone</td><td>Obligatoire</td></tr>
   <tr><td>Localisation</td><td>Département, code postal</td><td>Département obligatoire, code postal facultatif</td></tr>
-  <tr><td>Projet</td><td>Nature de la demande, message décrivant le projet, récapitulatif de la simulation réalisée (montants et paramètres clés)</td><td>Message obligatoire</td></tr>
-  <tr><td>Technique</td><td>Page d'origine, date et heure, page de provenance, paramètres de campagne (utm), langue et taille d'écran</td><td>Collecte automatique</td></tr>
+  <tr><td>Projet</td><td>Nature de la demande, message décrivant le projet, récapitulatif de la simulation réalisée (montants et paramètres clés)</td><td>Nature de la demande obligatoire, message facultatif</td></tr>
+  <tr><td>Technique</td><td>Page d'origine, date et heure, page de provenance, page d'arrivée sur le site, paramètres de campagne (utm, identifiants de clic publicitaire), langue et taille d'écran</td><td>Collecte automatique</td></tr>
 </table>
 
 <h2>3. Finalités et base légale</h2>
@@ -98,28 +99,37 @@
 <h2>7. Protection contre les envois automatisés</h2>
 <p>Les formulaires de mise en relation sont protégés par <strong>Google reCAPTCHA v3</strong>, un service de Google Ireland Limited qui distingue un visiteur humain d’un robot sans aucune manipulation de votre part. À cette occasion, Google collecte des informations techniques sur votre navigateur et votre comportement sur la page, et peut déposer des cookies sur votre terminal. Ce traitement repose sur l’<strong>intérêt légitime</strong> d’Akapa à protéger ses formulaires contre les envois frauduleux et massifs. Les données correspondantes sont régies par la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">politique de confidentialité de Google</a> et ses <a href="https://policies.google.com/terms" target="_blank" rel="noopener">conditions d’utilisation</a>. reCAPTCHA n’est chargé qu’au moment où vous commencez à remplir un formulaire, jamais à la simple consultation d’un simulateur.</p>
 
-<h2>8. Cookies et traceurs</h2>
-<p>Le site <strong>n'utilise aucun cookie publicitaire et aucun outil de mesure d'audience nécessitant votre consentement</strong>. Le seul service tiers est reCAPTCHA, décrit au point 7, chargé uniquement lors de la saisie d'un formulaire. Il utilise uniquement le stockage local de votre navigateur pour mémoriser vos préférences d'affichage et, le cas échéant, pré-remplir vos coordonnées d'un formulaire à l'autre. Ce stockage est effaçable à tout moment depuis les réglages de votre navigateur.</p>
+<h2>8. Cookies, mesure d'audience et publicité</h2>
+<p>À votre première visite, un bandeau vous propose d'accepter, de refuser ou de personnaliser l'usage des traceurs, par catégorie. Votre choix est mémorisé six mois dans votre navigateur et modifiable à tout moment par le lien « Gérer mes cookies » en pied de page. <strong>Aucun cookie de mesure ou de publicité n'est déposé avant votre choix.</strong></p>
+<table>
+  <tr><th>Catégorie</th><th>Ce qu'elle couvre</th><th>Base</th></tr>
+  <tr><td>Strictement nécessaires</td><td>Fonctionnement du site, protection des formulaires (reCAPTCHA, point 7), mémorisation dans votre navigateur de vos préférences d'affichage, de vos coordonnées d'un simulateur à l'autre, de votre choix en matière de cookies et, le temps de la visite, des paramètres de la campagne qui vous a amené sur le site. Ces éléments ne quittent pas votre navigateur.</td><td>Exemptés de consentement</td></tr>
+  <tr><td>Mesure d'audience</td><td><strong>Google Analytics 4</strong> (Google Ireland Limited) : pages consultées, simulateurs utilisés, demandes de mise en relation envoyées, de façon agrégée, adresse IP tronquée. Le tag Google est chargé en « mode consentement avancé » : tant que vous n'avez pas accepté, il ne dépose aucun cookie et n'envoie à Google que des signaux anonymes, sans identifiant, qui ne permettent pas de vous suivre d'une visite à l'autre. Après acceptation, des cookies d'analyse (_ga) d'une durée maximale de 13 mois sont déposés.</td><td>Consentement</td></tr>
+  <tr><td>Publicité et mesure des campagnes</td><td>Mesure des conversions <strong>Google Ads</strong> et pixel <strong>Meta</strong> (Facebook, Instagram), lorsqu'une campagne est en cours : ils nous permettent de savoir quelles annonces conduisent à une demande de mise en relation et d'éviter de vous montrer plusieurs fois la même annonce. Ces services ne sont chargés qu'après votre acceptation de cette catégorie.</td><td>Consentement</td></tr>
+</table>
+<p>Le bouton <strong>WhatsApp</strong> proposé sur les simulateurs ouvre une conversation avec Akapa dans l'application WhatsApp (WhatsApp Ireland Limited, groupe Meta), avec un message prérempli reprenant le récapitulatif de votre simulation. Rien n'est transmis tant que vous n'appuyez pas sur ce bouton ; la conversation est ensuite régie par la <a href="https://www.whatsapp.com/legal/privacy-policy-eea" target="_blank" rel="noopener">politique de confidentialité de WhatsApp</a>.</p>
+<p>Le stockage local de votre navigateur (localStorage, sessionStorage) est effaçable à tout moment depuis ses réglages.</p>
 
 <h2>9. Sécurité</h2>
 <p>Le site est servi exclusivement en HTTPS. Les demandes de mise en relation transitent par une liaison chiffrée et ne sont accessibles qu'aux personnes habilitées d'Akapa et au partenaire destinataire.</p>
 
 <h2>10. Contact</h2>
 <p><strong>Responsable de traitement</strong>&nbsp;: <strong>AKAPA</strong>, SAS au capital de 1&nbsp;000&nbsp;€, siège social 13 allée des Citronnelles, 97170 Petit-Bourg, Guadeloupe — SIREN 889&nbsp;272&nbsp;217.<br>Responsable de la publication&nbsp;: Maxime DEBARD.<br>Pour toute question ou demande relative à vos données&nbsp;: <a href="mailto:hello@akapa.fr">hello@akapa.fr</a>, <a href="tel:+590690289902">0690 28 99 02</a>, ou par courrier à AKAPA, 36 rue de la Chapelle, 97122 Baie-Mahault, Guadeloupe.</p>
-<p style="margin:38px 0 0;"><a class="ak-btn ak-btn-outline" href="index.html"><svg class="ak-ico ak-ico-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19.5 12h-15"/><path d="m10.8 5.7-6.3 6.3 6.3 6.3"/></svg> Retour aux simulateurs</a></p>
+<p style="margin:38px 0 0;"><a class="ak-btn ak-btn-outline" href="/"><svg class="ak-ico ak-ico-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19.5 12h-15"/><path d="m10.8 5.7-6.3 6.3 6.3 6.3"/></svg> Retour aux simulateurs</a></p>
 </main>
 
 <footer class="ak-footer" style="margin-top:48px;">
   <div class="ak-wrap">
     <div class="ak-footer-bottom" style="border-top:0; margin-top:0; padding-top:0;">
-      <span>© 2026 Akapa Automation — Baie-Mahault, Guadeloupe</span>
-      <span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Politique de confidentialité</a> · <a href="#" data-ak-cookies>Gérer mes cookies</a></span>
+      <span>© 2026 AKAPA SAS — Baie-Mahault, Guadeloupe</span>
+      <span><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Politique de confidentialité</a> · <a href="#" data-ak-cookies>Gérer mes cookies</a></span>
     </div>
   </div>
 </footer>
 
-<script src="assets/akapa-config.js"></script>
-<script src="assets/akapa-lead.js"></script>
-<script src="assets/akapa-cookies.js"></script>
+<script src="/assets/akapa-config.js"></script>
+<script src="/assets/akapa-lead.js"></script>
+<script src="/assets/akapa-cookies.js"></script>
+<script src="/assets/akapa-track.js"></script>
 </body>
 </html>

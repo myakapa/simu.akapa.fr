@@ -3,13 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#f6f7f9">
-<link rel="icon" href="assets/favicon.ico" sizes="any">
-<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-<title>Simulateur CIOP</title>
+<meta name="theme-color" content="#2563eb">
+<title>Simulateur CIOP : crédit d'impôt pour investissement productif Outre-mer — Akapa</title>
+<meta name="description" content="Simulez votre investissement locatif éligible au CIOP (crédit d'impôt Outre-mer productif) : plafond et montant du crédit d'impôt, échéancier de versement et projection de trésorerie sur la durée de l'engagement.">
+<link rel="canonical" href="https://simu.akapa.fr/ciop">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Simulateurs Akapa">
+<meta property="og:title" content="Rentabilité CIOP — crédit d'impôt Outre-mer productif">
+<meta property="og:description" content="Plafond et montant du crédit d'impôt, échéancier de versement et projection de trésorerie de votre investissement.">
+<meta property="og:url" content="https://simu.akapa.fr/ciop">
+<meta property="og:image" content="https://simu.akapa.fr/assets/og-ciop.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 <style>
   :root{ color-scheme: light; }
   *{box-sizing:border-box;}
@@ -154,31 +166,32 @@
     .seg-btn{font-size:12px; padding:9px 4px;}
   }
 </style>
-<link rel="stylesheet" href="assets/akapa.css">
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="stylesheet" href="/assets/akapa.css">
 </head>
 <body data-ak-outil="ciop" data-ak-outil-label="Rentabilité CIOP" class="ak-chrome mode-simple">
 <header class="ak-header">
   <div class="ak-wrap">
-    <a class="ak-brand" href="index.html">
-      <img src="assets/logo-akapa.svg" alt="AKAPA" onerror="this.outerHTML='<strong style=&quot;font-size:19px;color:#1e40af&quot;>AKAPA</strong>'">
+    <a class="ak-brand" href="/">
+      <img src="/assets/logo-akapa.svg" alt="AKAPA" onerror="this.outerHTML='<strong style=&quot;font-size:19px;color:#1e40af&quot;>AKAPA</strong>'">
       <span class="ak-brand-sub">Simulateurs</span>
     </a>
     <button class="ak-burger" data-ak-burger type="button" aria-label="Menu" aria-expanded="false"><svg class="ak-ico ak-ico-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.6 6.6h16.8M3.6 12h16.8M3.6 17.4h16.8"/></svg></button>
     <nav class="ak-nav">
-      <a href="index.html">Accueil</a>
+      <a href="/">Accueil</a>
       <div class="ak-dd">
         <button type="button" aria-haspopup="true" aria-expanded="false">Tous les simulateurs <span class="ak-chev">▾</span></button>
         <nav class="ak-dd-menu">
-          <a href="index.html#outils"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 10.4 12 3.7l8.5 6.7"/><path d="M5.7 9.2V19a1.6 1.6 0 0 0 1.6 1.6h9.4a1.6 1.6 0 0 0 1.6-1.6V9.2"/><path d="M9.9 20.6v-5.3h4.2v5.3"/></svg> Tous les outils</a>
+          <a href="/#outils"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 10.4 12 3.7l8.5 6.7"/><path d="M5.7 9.2V19a1.6 1.6 0 0 0 1.6 1.6h9.4a1.6 1.6 0 0 0 1.6-1.6V9.2"/><path d="M9.9 20.6v-5.3h4.2v5.3"/></svg> Tous les outils</a>
           <hr>
-          <a href="capacite-emprunt.html"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 9.8 12 4.5l9 5.3"/><path d="M5.6 11v7.4M10 11v7.4M14 11v7.4M18.4 11v7.4"/><path d="M3 20.4h18"/></svg> Capacité d’emprunt</a>
-          <a href="mensualites-credit.html"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.3" y="5" width="17.4" height="15.4" rx="2.4"/><path d="M8 3v4M16 3v4M3.3 10h17.4"/><path d="M7.6 13.8h2.6M13.8 13.8h2.6M7.6 17h2.6"/></svg> Mensualités de crédit</a>
-          <a href="frais-notaire.html"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.4 3.2H7.2a2 2 0 0 0-2 2v13.6a2 2 0 0 0 2 2h9.6a2 2 0 0 0 2-2V8.6z"/><path d="M13.4 3.2v5.4h5.4"/><path d="M8.6 13h6.8M8.6 16.4h4.8"/></svg> Frais de notaire</a>
-          <a href="lmnp.html"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5.2 11.6V8.3A2.2 2.2 0 0 1 7.4 6.1h9.2a2.2 2.2 0 0 1 2.2 2.2v3.3"/><path d="M3 14.1a2 2 0 0 1 4 0v2.4h10v-2.4a2 2 0 0 1 4 0v4.4H3z"/><path d="M6.6 18.5v1.6M17.4 18.5v1.6"/></svg> Simulateur LMNP</a>
-          <a href="solaire.html"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.1"/><path d="M12 2.6v2.1M12 19.3v2.1M5 5l1.5 1.5M17.5 17.5 19 19M2.6 12h2.1M19.3 12h2.1M5 19l1.5-1.5M17.5 6.5 19 5"/></svg> Rentabilité solaire</a>
+          <a href="/capacite-emprunt"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 9.8 12 4.5l9 5.3"/><path d="M5.6 11v7.4M10 11v7.4M14 11v7.4M18.4 11v7.4"/><path d="M3 20.4h18"/></svg> Capacité d’emprunt</a>
+          <a href="/mensualites-credit"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.3" y="5" width="17.4" height="15.4" rx="2.4"/><path d="M8 3v4M16 3v4M3.3 10h17.4"/><path d="M7.6 13.8h2.6M13.8 13.8h2.6M7.6 17h2.6"/></svg> Mensualités de crédit</a>
+          <a href="/frais-notaire"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.4 3.2H7.2a2 2 0 0 0-2 2v13.6a2 2 0 0 0 2 2h9.6a2 2 0 0 0 2-2V8.6z"/><path d="M13.4 3.2v5.4h5.4"/><path d="M8.6 13h6.8M8.6 16.4h4.8"/></svg> Frais de notaire</a>
+          <a href="/lmnp"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5.2 11.6V8.3A2.2 2.2 0 0 1 7.4 6.1h9.2a2.2 2.2 0 0 1 2.2 2.2v3.3"/><path d="M3 14.1a2 2 0 0 1 4 0v2.4h10v-2.4a2 2 0 0 1 4 0v4.4H3z"/><path d="M6.6 18.5v1.6M17.4 18.5v1.6"/></svg> Simulateur LMNP</a>
+          <a href="/solaire"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.1"/><path d="M12 2.6v2.1M12 19.3v2.1M5 5l1.5 1.5M17.5 17.5 19 19M2.6 12h2.1M19.3 12h2.1M5 19l1.5-1.5M17.5 6.5 19 5"/></svg> Rentabilité solaire</a>
         </nav>
       </div>
-      <a href="index.html#methode">Comment ça marche</a>
+      <a href="/#methode">Comment ça marche</a>
       <a class="ak-btn ak-btn-primary" href="#mise-en-relation">Être mis en relation</a>
     </nav>
   </div>
@@ -190,7 +203,7 @@
     <p>Crédit d’Impôt pour l’Investissement Outre-mer Productif : gain fiscal, cash-flow et rendement net.</p>
     <button type="button" class="ak-tb-plus" data-ak-tb-plus aria-expanded="false" aria-controls="ak-tb-long">Détails</button>
     <div class="ak-tb-actions">
-      <button type="button" class="ak-btn ak-btn-pdf" data-ak-pdf><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.4v12.2"/><path d="m7.2 11 4.8 4.8 4.8-4.8"/><path d="M4.2 17.4v1.6a1.8 1.8 0 0 0 1.8 1.8h12a1.8 1.8 0 0 0 1.8-1.8v-1.6"/></svg> <span class="ak-btn-txt">PDF</span></button>
+      <button type="button" class="ak-btn ak-btn-pdf" data-ak-pdf aria-label="Télécharger la simulation en PDF"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.4v12.2"/><path d="m7.2 11 4.8 4.8 4.8-4.8"/><path d="M4.2 17.4v1.6a1.8 1.8 0 0 0 1.8 1.8h12a1.8 1.8 0 0 0 1.8-1.8v-1.6"/></svg> <span class="ak-btn-txt">PDF</span></button>
       <a class="ak-btn ak-btn-primary" href="#mise-en-relation" aria-label="Être mis en relation"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.4 3.2H7.2a2 2 0 0 0-2 2v13.6a2 2 0 0 0 2 2h9.6a2 2 0 0 0 2-2V8.6z"/><path d="M13.4 3.2v5.4h5.4"/><path d="M8.6 13h6.8M8.6 16.4h4.8"/></svg> <span class="ak-btn-txt">Être mis en relation</span></a>
     </div>
   </div>
@@ -214,19 +227,19 @@
 
   <div class="card">
     <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 10.4 12 3.7l8.5 6.7"/><path d="M5.7 9.2V19a1.6 1.6 0 0 0 1.6 1.6h9.4a1.6 1.6 0 0 0 1.6-1.6V9.2"/><path d="M9.9 20.6v-5.3h4.2v5.3"/></svg> Bien &amp; plafond CIOP</h2>
-    <div class="row"><label>Prix de vente</label><input type="number" id="prixVente" value="211500" step="100"><span class="unit">&euro;</span></div>
-    <div class="row"><label>Surface habitable</label><input type="number" id="surface" value="51.74" step="0.01"><span class="unit">m&sup2;</span></div>
-    <div class="row advanced-only"><label>Prix plafond CIOP</label><input type="number" id="plafondM2" value="3575.075" step="0.001"><span class="unit">&euro;/m&sup2;</span></div>
+    <div class="row"><label for="prixVente">Prix de vente</label><input type="number" id="prixVente" value="211500" step="100"><span class="unit">&euro;</span></div>
+    <div class="row"><label for="surface">Surface habitable</label><input type="number" id="surface" value="51.74" step="0.01"><span class="unit">m&sup2;</span></div>
+    <div class="row advanced-only"><label for="plafondM2">Prix plafond CIOP</label><input type="number" id="plafondM2" value="3575.075" step="0.001"><span class="unit">&euro;/m&sup2;</span></div>
     <hr class="divider">
     <div class="row"><label>Assiette plafonn&eacute;e (surface &times; plafond)</label><span class="result" id="out_plafondTotal">-</span></div>
-    <div class="row advanced-only"><label>Taux du cr&eacute;dit d'imp&ocirc;t</label><input type="number" id="tauxCIOP" value="35" step="1"><span class="unit">%</span></div>
+    <div class="row advanced-only"><label for="tauxCIOP">Taux du cr&eacute;dit d'imp&ocirc;t</label><input type="number" id="tauxCIOP" value="35" step="1"><span class="unit">%</span></div>
     <div class="row"><label>Cr&eacute;dit d'imp&ocirc;t total</label><span class="result big" id="out_creditImpot">-</span></div>
     <div class="note" id="note_assiette"></div>
   </div>
 
   <div class="card">
     <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.4 7.2h11.2M18.6 7.2h2M3.4 12h5.2M12.6 12h8M3.4 16.8h9.2M16.8 16.8h3.8"/><circle cx="16.6" cy="7.2" r="2"/><circle cx="10.6" cy="12" r="2"/><circle cx="14.8" cy="16.8" r="2"/></svg> Loyer plafonn&eacute; (contr&ocirc;le r&eacute;glementaire)</h2>
-    <div class="row advanced-only"><label>Plafond de loyer</label><input type="number" id="loyerPlafondM2" value="207" step="1"><span class="unit">&euro;/m&sup2;</span></div>
+    <div class="row advanced-only"><label for="loyerPlafondM2">Plafond de loyer</label><input type="number" id="loyerPlafondM2" value="207" step="1"><span class="unit">&euro;/m&sup2;</span></div>
     <div class="row"><label>Loyer plafonn&eacute; annuel</label><span class="result" id="out_loyerPlafAn">-</span></div>
     <div class="row"><label>Loyer plafonn&eacute; mensuel</label><span class="result" id="out_loyerPlafMois">-</span></div>
     <hr class="divider">
@@ -236,18 +249,18 @@
 
   <div class="card">
     <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.8"/><path d="M15.7 8.5a4.3 4.3 0 0 0-6.2 1.6 6.1 6.1 0 0 0 0 3.8 4.3 4.3 0 0 0 6.2 1.6"/><path d="M7.6 11h5.1M7.6 13.4h5.1"/></svg> Exploitation locative</h2>
-    <div class="row"><label>Loyer mensuel</label><input type="number" id="loyerMensuel" value="890" step="5"><span class="unit">&euro;</span></div>
-    <div class="row"><label>Mensualit&eacute; bancaire</label><input type="number" id="mensualite" value="1400" step="5"><span class="unit">&euro;</span></div>
-    <div class="row advanced-only"><label>Charges locatives</label><input type="number" id="tauxCharges" value="10" step="1"><span class="unit">%</span></div>
-    <div class="row advanced-only"><label>Taxe fonci&egrave;re</label><input type="number" id="taxeFonciere" value="1000" step="10"><span class="unit">&euro;/an</span></div>
-    <div class="row advanced-only"><label>Amortissement comptable</label><input type="number" id="amortissement" value="12400" step="100"><span class="unit">&euro;/an</span></div>
+    <div class="row"><label for="loyerMensuel">Loyer mensuel</label><input type="number" id="loyerMensuel" value="890" step="5"><span class="unit">&euro;</span></div>
+    <div class="row"><label for="mensualite">Mensualit&eacute; bancaire</label><input type="number" id="mensualite" value="1400" step="5"><span class="unit">&euro;</span></div>
+    <div class="row advanced-only"><label for="tauxCharges">Charges locatives</label><input type="number" id="tauxCharges" value="10" step="1"><span class="unit">%</span></div>
+    <div class="row advanced-only"><label for="taxeFonciere">Taxe fonci&egrave;re</label><input type="number" id="taxeFonciere" value="1000" step="10"><span class="unit">&euro;/an</span></div>
+    <div class="row advanced-only"><label for="amortissement">Amortissement comptable</label><input type="number" id="amortissement" value="12400" step="100"><span class="unit">&euro;/an</span></div>
   </div>
 
   <div class="card advanced-only">
     <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.3" y="5" width="17.4" height="15.4" rx="2.4"/><path d="M8 3v4M16 3v4M3.3 10h17.4"/><path d="M7.6 13.8h2.6M13.8 13.8h2.6M7.6 17h2.6"/></svg> &Eacute;ch&eacute;ancier de versement du CIOP</h2>
-    <div class="row"><label>&Agrave; l'ach&egrave;vement des fondations</label><input type="number" id="pct1" value="70" step="1"><span class="unit">%</span></div>
-    <div class="row"><label>&Agrave; la mise hors d'eau</label><input type="number" id="pct2" value="20" step="1"><span class="unit">%</span></div>
-    <div class="row"><label>&Agrave; la livraison</label><input type="number" id="pct3" value="10" step="1"><span class="unit">%</span></div>
+    <div class="row"><label for="pct1">&Agrave; l'ach&egrave;vement des fondations</label><input type="number" id="pct1" value="70" step="1"><span class="unit">%</span></div>
+    <div class="row"><label for="pct2">&Agrave; la mise hors d'eau</label><input type="number" id="pct2" value="20" step="1"><span class="unit">%</span></div>
+    <div class="row"><label for="pct3">&Agrave; la livraison</label><input type="number" id="pct3" value="10" step="1"><span class="unit">%</span></div>
     <hr class="divider">
     <div class="row"><label>Tranche 1</label><span class="result" id="out_tr1">-</span></div>
     <div class="row"><label>Tranche 2</label><span class="result" id="out_tr2">-</span></div>
@@ -257,14 +270,14 @@
 
   <div class="card advanced-only">
     <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.4 7.2h11.2M18.6 7.2h2M3.4 12h5.2M12.6 12h8M3.4 16.8h9.2M16.8 16.8h3.8"/><circle cx="16.6" cy="7.2" r="2"/><circle cx="10.6" cy="12" r="2"/><circle cx="14.8" cy="16.8" r="2"/></svg> Param&egrave;tres de la projection</h2>
-    <div class="row"><label>Dur&eacute;e du pr&ecirc;t</label><input type="number" id="dureePret" value="15" step="1"><span class="unit">ans</span></div>
-    <div class="row"><label>&Eacute;talement du cr&eacute;dit d'imp&ocirc;t</label><input type="number" id="dureeEtal" value="5" step="1"><span class="unit">ans</span></div>
-    <div class="row"><label>Dur&eacute;e d'amortissement comptable</label><input type="number" id="dureeAmort" value="20" step="1"><span class="unit">ans</span></div>
-    <div class="row"><label>Horizon de projection</label><input type="number" id="horizon" value="15" step="1"><span class="unit">ans</span></div>
-    <div class="row"><label>Ann&eacute;e de d&eacute;part</label><input type="number" id="anneeDepart" value="2026" step="1"><span class="unit"></span></div>
+    <div class="row"><label for="dureePret">Dur&eacute;e du pr&ecirc;t</label><input type="number" id="dureePret" value="15" step="1"><span class="unit">ans</span></div>
+    <div class="row"><label for="dureeEtal">&Eacute;talement du cr&eacute;dit d'imp&ocirc;t</label><input type="number" id="dureeEtal" value="5" step="1"><span class="unit">ans</span></div>
+    <div class="row"><label for="dureeAmort">Dur&eacute;e d'amortissement comptable</label><input type="number" id="dureeAmort" value="20" step="1"><span class="unit">ans</span></div>
+    <div class="row"><label for="horizon">Horizon de projection</label><input type="number" id="horizon" value="15" step="1"><span class="unit">ans</span></div>
+    <div class="row"><label for="anneeDepart">Ann&eacute;e de d&eacute;part</label><input type="number" id="anneeDepart" value="2026" step="1"><span class="unit"></span></div>
     <hr class="divider">
-    <div class="row"><label>Indexation annuelle du loyer</label><input type="number" id="indexLoyer" value="0" step="0.5"><span class="unit">%</span></div>
-    <div class="row"><label>Indexation annuelle taxe fonci&egrave;re</label><input type="number" id="indexTaxe" value="0" step="0.5"><span class="unit">%</span></div>
+    <div class="row"><label for="indexLoyer">Indexation annuelle du loyer</label><input type="number" id="indexLoyer" value="0" step="0.5"><span class="unit">%</span></div>
+    <div class="row"><label for="indexTaxe">Indexation annuelle taxe fonci&egrave;re</label><input type="number" id="indexTaxe" value="0" step="0.5"><span class="unit">%</span></div>
   </div>
 
 </div>
@@ -303,6 +316,8 @@
 </div>
 
 <div id="mise-en-relation" data-ak-lead
+     data-suite="/lmnp|Comparer avec le LMNP"
+     data-bouton-court="Être accompagné"
      data-outil="ciop"
      data-outil-label="Rentabilité CIOP"
      data-titre="Ce montage vous intéresse ? Faites-le valider avant de vous engager."
@@ -312,6 +327,31 @@
      data-bouton="Être rappelé par un spécialiste"></div>
 
 <p class="note" style="margin-top:22px;">Simulateur indicatif — ne remplace pas une étude fiscale personnalisée par un expert-comptable.</p>
+
+<!-- ======================= CONTENU ÉDITORIAL ET FAQ ======================= -->
+<section class="ak-seo" id="guide" aria-labelledby="guide-titre">
+  <h2 id="guide-titre">Le CIOP : investir dans le logement intermédiaire outre-mer avec un crédit d'impôt</h2>
+<p>Le crédit d'impôt pour investissement outre-mer (article 244 quater W du Code général des impôts) permet à une <strong>entreprise</strong> — société soumise à l'impôt sur les sociétés, SCI à l'IS, entreprise individuelle — qui construit ou achète des logements neufs dans un département d'Outre-mer pour les louer dans le secteur intermédiaire de bénéficier d'un crédit d'impôt calculé sur le prix de revient. Ce simulateur reprend la mécanique du dispositif : montant du crédit d'impôt, étalement, loyers plafonnés, charges et financement, pour une projection de trésorerie sur votre horizon.</p>
+<h3>Le principe du crédit d'impôt</h3>
+<p>Le crédit d'impôt est égal à <strong>35 % du prix de revient</strong> de l'opération (38,25 % en Guyane et à Mayotte), dans la limite d'un <strong>prix plafond au m² de surface habitable</strong> révisé chaque année. Contrairement à une réduction d'impôt, un crédit d'impôt est restitué s'il dépasse l'impôt dû : il constitue donc une véritable ressource de trésorerie, versée selon un échéancier (généralement 30 % à l'achèvement des fondations, 30 % à la mise hors d'eau, le solde à la livraison, ou étalé sur plusieurs exercices selon le montage). Le simulateur vous laisse définir cet échéancier en mode avancé.</p>
+<h3>Les conditions à respecter</h3>
+<ul>
+<li>Logement <strong>neuf</strong>, situé dans un DOM, respectant les normes de performance énergétique en vigueur.</li>
+<li>Location <strong>nue, à usage de résidence principale</strong> du locataire, pendant au moins cinq ans à compter de l'achèvement.</li>
+<li><strong>Loyer plafonné</strong> (barème au m²/an révisé chaque année) et <strong>ressources du locataire plafonnées</strong>.</li>
+<li>Investissement réalisé par une entreprise, et non par un particulier en direct : c'est ce qui distingue le CIOP de la réduction d'impôt « Girardin » ou du dispositif Pinel Outre-mer, aujourd'hui éteint.</li>
+</ul>
+<h3>Pourquoi se faire accompagner</h3>
+<p>Le dispositif est puissant mais exigeant : un manquement aux conditions de location (loyer, ressources, durée) entraîne la reprise du crédit d'impôt. Les opérations d'un certain montant nécessitent un agrément préalable. Un expert-comptable ou un conseil spécialisé en défiscalisation outre-mer sécurise le montage, vérifie l'éligibilité du programme et de la structure porteuse, et optimise l'articulation avec le financement bancaire. Le récapitulatif de votre simulation lui donne d'emblée les bons ordres de grandeur.</p>
+<p class="ak-seo-note">Les plafonds de prix, de loyer et de ressources sont actualisés chaque année par arrêté. Les valeurs préremplies correspondent au dernier barème connu lors de la mise à jour du simulateur et doivent être confirmées pour la date de votre opération.</p>
+  <h3 id="faq">Questions fréquentes</h3>
+  <div class="ak-faq"><details><summary>Qui peut bénéficier du CIOP ?</summary><p>Les entreprises exerçant une activité dans un DOM : sociétés à l'IS, SCI ayant opté pour l'IS, entreprises individuelles soumises à un régime réel. Un particulier qui achète en direct n'y a pas accès ; il doit passer par une structure. Un conseil spécialisé vous indiquera le montage adapté.</p></details><details><summary>Quel est le taux du crédit d'impôt outre-mer ?</summary><p>35 % du prix de revient plafonné en Guadeloupe, Martinique et à La Réunion, 38,25 % en Guyane et à Mayotte. Le prix de revient retenu est limité par un plafond au m² de surface habitable, révisé chaque année ; le simulateur applique ce plafond à la surface que vous saisissez.</p></details><details><summary>Quelle différence entre le CIOP et la loi Girardin ?</summary><p>Le Girardin (article 199 undecies) est une réduction d'impôt pour les particuliers, aujourd'hui limitée au logement social et à l'investissement productif via des sociétés de portage. Le CIOP est un crédit d'impôt pour les entreprises, restituable même s'il dépasse l'impôt dû, applicable au logement intermédiaire neuf.</p></details><details><summary>Combien de temps faut-il louer le logement ?</summary><p>Au moins cinq ans à compter de l'achèvement ou de l'acquisition, en location nue à titre de résidence principale, dans le respect des plafonds de loyer et de ressources. En cas de non-respect, le crédit d'impôt est repris.</p></details><details><summary>Le crédit d'impôt est-il versé en une fois ?</summary><p>Non, il est en général étalé selon l'avancement de la construction ou sur plusieurs exercices fiscaux. Le simulateur propose un étalement sur cinq ans par défaut, que vous pouvez modifier en mode avancé pour coller à votre montage.</p></details></div>
+  <div class="ak-seo-cta">
+    <a class="ak-btn ak-btn-primary" data-ak-cta="guide" href="#mise-en-relation">Faire valider mon montage CIOP <svg class="ak-ico ak-ico-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.5 12h15"/><path d="m13.2 5.7 6.3 6.3-6.3 6.3"/></svg></a>
+    <a class="ak-btn ak-btn-outline" href="/#outils">Tous les simulateurs</a>
+  </div>
+</section>
+
 </div>
 
 <footer class="ak-footer">
@@ -329,37 +369,37 @@
       <div>
         <h4>Simulateurs</h4>
         <ul>
-          <li><a href="capacite-emprunt.html">Capacité d’emprunt</a></li>
-          <li><a href="mensualites-credit.html">Mensualités de crédit</a></li>
-          <li><a href="frais-notaire.html">Frais de notaire</a></li>
-          <li><a href="ciop.html">Rentabilité CIOP</a></li>
-          <li><a href="lmnp.html">Simulateur LMNP</a></li>
-          <li><a href="solaire.html">Rentabilité solaire</a></li>
+          <li><a href="/capacite-emprunt">Capacité d’emprunt</a></li>
+          <li><a href="/mensualites-credit">Mensualités de crédit</a></li>
+          <li><a href="/frais-notaire">Frais de notaire</a></li>
+          <li><a href="/ciop">Rentabilité CIOP</a></li>
+          <li><a href="/lmnp">Simulateur LMNP</a></li>
+          <li><a href="/solaire">Rentabilité solaire</a></li>
         </ul>
       </div>
       <div>
         <h4>Le site</h4>
         <ul>
-          <li><a href="index.html#methode">Comment ça marche</a></li>
-          <li><a href="index.html#selection">Notre sélection</a></li>
-          <li><a href="index.html#partenaires">Le réseau de partenaires</a></li>
-          <li><a href="index.html#contact">Être mis en relation</a></li>
+          <li><a href="/#methode">Comment ça marche</a></li>
+          <li><a href="/#selection">Notre sélection</a></li>
+          <li><a href="/#partenaires">Le réseau de partenaires</a></li>
+          <li><a href="/#contact">Être mis en relation</a></li>
         </ul>
       </div>
       <div>
         <h4>Akapa</h4>
         <ul>
           <li><a href="https://akapa.fr" target="_blank" rel="noopener">akapa.fr</a></li>
-          <li><a href="mentions-legales.html">Mentions légales</a></li>
-          <li><a href="confidentialite.html">Confidentialité</a></li>
+          <li><a href="/mentions-legales">Mentions légales</a></li>
+          <li><a href="/confidentialite">Confidentialité</a></li>
           <li><a href="#" data-ak-cookies>Gérer mes cookies</a></li>
         </ul>
       </div>
     </div>
     <p class="ak-disclaimer">Simulateur indicatif — ne remplace pas une étude fiscale personnalisée par un expert-comptable.</p>
     <div class="ak-footer-bottom">
-      <span>© 2026 Akapa Automation — Baie-Mahault, Guadeloupe</span>
-      <span><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Politique de confidentialité</a> · <a href="#" data-ak-cookies>Gérer mes cookies</a></span>
+      <span>© 2026 AKAPA SAS — Baie-Mahault, Guadeloupe</span>
+      <span><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Politique de confidentialité</a> · <a href="#" data-ak-cookies>Gérer mes cookies</a></span>
     </div>
   </div>
 </footer>
@@ -565,7 +605,10 @@ compute();
 })();
 </script>
 
-<script src="assets/akapa-config.js"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Simulateur CIOP (crédit d'impôt logement intermédiaire outre-mer)", "url": "https://simu.akapa.fr/ciop", "description": "Simulez votre investissement locatif éligible au CIOP (crédit d'impôt Outre-mer productif) : plafond et montant du crédit d'impôt, échéancier de versement et projection de trésorerie sur la durée de l'engagement.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "browserRequirements": "Requires JavaScript", "inLanguage": "fr-FR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "areaServed": ["Guadeloupe", "Martinique", "Guyane", "La Réunion"], "provider": {"@type": "Organization", "name": "AKAPA", "url": "https://akapa.fr"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Simulateurs Akapa", "item": "https://simu.akapa.fr/"}, {"@type": "ListItem", "position": 2, "name": "Rentabilité CIOP", "item": "https://simu.akapa.fr/ciop"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Qui peut bénéficier du CIOP ?", "acceptedAnswer": {"@type": "Answer", "text": "Les entreprises exerçant une activité dans un DOM : sociétés à l'IS, SCI ayant opté pour l'IS, entreprises individuelles soumises à un régime réel. Un particulier qui achète en direct n'y a pas accès ; il doit passer par une structure. Un conseil spécialisé vous indiquera le montage adapté."}}, {"@type": "Question", "name": "Quel est le taux du crédit d'impôt outre-mer ?", "acceptedAnswer": {"@type": "Answer", "text": "35 % du prix de revient plafonné en Guadeloupe, Martinique et à La Réunion, 38,25 % en Guyane et à Mayotte. Le prix de revient retenu est limité par un plafond au m² de surface habitable, révisé chaque année ; le simulateur applique ce plafond à la surface que vous saisissez."}}, {"@type": "Question", "name": "Quelle différence entre le CIOP et la loi Girardin ?", "acceptedAnswer": {"@type": "Answer", "text": "Le Girardin (article 199 undecies) est une réduction d'impôt pour les particuliers, aujourd'hui limitée au logement social et à l'investissement productif via des sociétés de portage. Le CIOP est un crédit d'impôt pour les entreprises, restituable même s'il dépasse l'impôt dû, applicable au logement intermédiaire neuf."}}, {"@type": "Question", "name": "Combien de temps faut-il louer le logement ?", "acceptedAnswer": {"@type": "Answer", "text": "Au moins cinq ans à compter de l'achèvement ou de l'acquisition, en location nue à titre de résidence principale, dans le respect des plafonds de loyer et de ressources. En cas de non-respect, le crédit d'impôt est repris."}}, {"@type": "Question", "name": "Le crédit d'impôt est-il versé en une fois ?", "acceptedAnswer": {"@type": "Answer", "text": "Non, il est en général étalé selon l'avancement de la construction ou sur plusieurs exercices fiscaux. Le simulateur propose un étalement sur cinq ans par défaut, que vous pouvez modifier en mode avancé pour coller à votre montage."}}]}</script>
+<script src="/assets/akapa-config.js"></script>
 <script>
 /* Recapitulatif de simulation joint a la demande de mise en relation. */
 (function(){
@@ -602,9 +645,10 @@ compute();
   window.addEventListener('load', planifier);
 })();
 </script>
-<script src="assets/akapa-lead.js"></script>
-<script src="assets/akapa-pdf.js"></script>
-<script src="assets/akapa-cookies.js"></script>
+<script src="/assets/akapa-lead.js"></script>
+<script src="/assets/akapa-pdf.js"></script>
+<script src="/assets/akapa-cookies.js"></script>
+<script src="/assets/akapa-track.js"></script>
 
 <script>
 /* Repli du sous-titre long de la bande de titre. */

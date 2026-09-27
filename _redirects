@@ -1,0 +1,10 @@
+# URL propres : les anciennes adresses en .html redirigent définitivement
+/index.html               /                     301
+/solaire.html             /solaire              301
+/capacite-emprunt.html    /capacite-emprunt     301
+/mensualites-credit.html  /mensualites-credit   301
+/frais-notaire.html       /frais-notaire        301
+/ciop.html                /ciop                 301
+/lmnp.html                /lmnp                 301
+/mentions-legales.html    /mentions-legales     301
+/confidentialite.html     /confidentialite      301
