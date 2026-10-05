@@ -609,18 +609,21 @@ body.ak-chrome .tag{font-size:12px !important;}
 .ak-local-r{background:var(--ak-bg); border:1px solid var(--ak-line); border-radius:12px; padding:11px 14px; display:flex; flex-direction:column; gap:2px;}
 .ak-local-r b{font-size:13.5px; color:var(--ak-ink);}
 .ak-local-r span{font-size:13px; color:#4b5563; line-height:1.45;}
+.ak-local p.ak-local-src{font-size:12px; line-height:1.5; color:#6b7280; margin:12px 0 0; max-width:none;}
 .ak-terr{display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:26px 0 4px; padding-top:18px; border-top:1px solid var(--ak-line);}
 .ak-terr-t{flex:1 1 100%; font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--ak-muted); margin-bottom:2px;}
 .ak-terr-link{display:inline-flex; align-items:center; gap:6px; font-size:13.5px; font-weight:600; padding:9px 13px; min-height:40px; border-radius:999px; border:1px solid var(--ak-blue-200); color:var(--ak-blue-700); background:#fff; text-decoration:none;}
 a.ak-terr-link:hover{background:var(--ak-blue-50);}
 .ak-terr-link.is-current{background:var(--ak-blue-600); border-color:var(--ak-blue-600); color:#fff;}
-.ak-local-more{display:none;}
+/* Le 3e paragraphe (repères chiffrés) et les sources se déplient à la demande, pour laisser le simulateur en vue. */
+.ak-local p:nth-of-type(n+3){display:none;}
+.ak-local.is-open p:nth-of-type(n+3){display:block;}
+.ak-local-more{display:inline-flex; align-items:center; background:none; border:0; padding:4px 0; min-height:40px; font:inherit; font-size:14px; font-weight:600; color:var(--ak-blue-600); cursor:pointer;}
+.ak-local.is-open .ak-local-more{display:none;}
 @media (max-width:700px){
-  .ak-local p:nth-of-type(2), .ak-local .ak-local-rep{display:none;}
-  .ak-local.is-open p:nth-of-type(2){display:block;}
+  .ak-local p:nth-of-type(n+2), .ak-local .ak-local-rep{display:none;}
+  .ak-local.is-open p:nth-of-type(n+2){display:block;}
   .ak-local.is-open .ak-local-rep{display:grid;}
-  .ak-local-more{display:inline-flex; align-items:center; background:none; border:0; padding:8px 0; min-height:40px; font:inherit; font-size:14px; font-weight:600; color:var(--ak-blue-600); cursor:pointer;}
-  .ak-local.is-open .ak-local-more{display:none;}
   .ak-local .ak-wrap{padding-top:16px; padding-bottom:12px;}
   .ak-local h2{font-size:17px;}
   .ak-local p{font-size:14px;}

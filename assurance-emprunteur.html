@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2563eb">
+<title>Assurance emprunteur : comparateur Antilles-Guyane | Akapa</title>
+<meta name="description" content="Comparez l’assurance de prêt de votre banque à une délégation et chiffrez l’économie mensuelle et totale (loi Lemoine). Gratuit, Antilles-Guyane et La Réunion.">
+<link rel="canonical" href="https://simu.akapa.fr/assurance-emprunteur">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Simulateurs Akapa">
+<meta property="og:title" content="Assurance emprunteur — comparez banque et délégation">
+<meta property="og:description" content="Cotisation actuelle, nouvelle cotisation, économie mensuelle et totale sur la durée restante de votre prêt.">
+<meta property="og:url" content="https://simu.akapa.fr/assurance-emprunteur">
+<meta property="og:image" content="https://simu.akapa.fr/assets/og-assurance-emprunteur.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<style>
+  :root{ color-scheme: light; }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0; padding:22px 20px 32px; background:#f6f7f9; color:#1f2430;
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size:14px; line-height:1.5;
+  }
+  .page{max-width:1180px; margin:0 auto;}
+  h1{font-size:22px; margin:0 0 4px 0; line-height:1.25;}
+  .subtitle{color:#6b7280; margin:0 0 18px 0; font-size:13px;}
+
+  /* --- Cartes de formulaire --- */
+  .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(330px, 1fr)); gap:16px; margin-bottom:20px;}
+  .card{background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px 18px; min-width:0;}
+  .grid > .card{max-width:640px;}
+  .card h2{font-size:14px; margin:0 0 12px 0; color:#111827; display:flex; align-items:center; gap:8px;}
+  .row{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px; flex-wrap:wrap;}
+  .row:last-child{margin-bottom:0;}
+  label{color:#4b5563; font-size:13px; flex:1 1 130px; min-width:0;}
+  .row.stacked{flex-direction:column; align-items:stretch;}
+  .row.stacked label{flex:1 1 auto; margin-bottom:5px;}
+  .row.stacked select{max-width:none; width:100%;}
+
+  input[type=number]{
+    width:120px; flex:0 0 auto; padding:7px 9px; border:1px solid #d1d5db; border-radius:7px;
+    font-size:13px; text-align:right; background:#eef4ff; color:#1f2430; min-width:0;
+  }
+  input[type=number]:focus{outline:2px solid #6366f1; outline-offset:1px;}
+  input[type=number]:disabled{background:#f3f4f6; color:#9ca3af;}
+  input[type=range]{flex:1 1 90px; min-width:80px; max-width:190px; accent-color:#4338ca;}
+  select{
+    padding:7px 9px; border:1px solid #d1d5db; border-radius:7px; font-size:13px;
+    background:#eef4ff; color:#1f2430; max-width:230px; min-width:0;
+  }
+  select:focus{outline:2px solid #6366f1; outline-offset:1px;}
+  select:disabled{background:#f3f4f6; color:#9ca3af;}
+  .unit{color:#9ca3af; font-size:12px; flex:0 0 auto; min-width:32px; text-align:left;}
+
+  .result{font-weight:600; color:#111827; text-align:right;}
+  .result.big{font-size:18px;}
+  .muted{color:#6b7280; font-size:12px;}
+  .divider{border:none; border-top:1px solid #eef0f2; margin:12px 0;}
+  .badge{display:inline-block; font-size:11px; padding:2px 8px; border-radius:999px; background:#eef2ff; color:#4338ca; font-weight:600;}
+  .warn{background:#fff7ed; border:1px solid #fdba74; color:#9a3412; padding:8px 10px; border-radius:8px; font-size:12.5px; margin-top:8px;}
+  .ok{background:#f0fdf4; border:1px solid #86efac; color:#166534; padding:8px 10px; border-radius:8px; font-size:12.5px; margin-top:8px;}
+  .note{font-size:11.5px; color:#9ca3af; margin-top:10px;}
+  .seg-label{font-size:12px; color:#6b7280; margin:0 0 6px 0;}
+  .section-title{font-size:12px; font-weight:700; color:#4338ca; margin:14px 0 8px 0; text-transform:uppercase; letter-spacing:.02em;}
+
+  /* --- Boutons segmentés --- */
+  .seg-group{display:flex; gap:6px; background:#f3f4f6; padding:4px; border-radius:9px; margin-bottom:14px;}
+  .seg-btn{flex:1 1 0; min-width:0; text-align:center; padding:9px 6px; border:none; border-radius:7px;
+    background:transparent; color:#4b5563; font-size:13px; cursor:pointer; font-weight:600;
+    transition:background .12s, color .12s;}
+  .seg-btn.active{background:#fff; color:#4338ca; box-shadow:0 1px 2px rgba(0,0,0,.08);}
+
+  /* --- Indicateurs --- */
+  .kpis{display:grid; grid-template-columns:repeat(auto-fit, minmax(190px,1fr)); gap:12px; margin-top:16px;}
+  .kpi{background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:14px 16px; min-width:0;}
+  .kpi .v{font-size:20px; font-weight:700; color:#111827; overflow-wrap:anywhere;}
+  .kpi .l{font-size:12px; color:#6b7280; margin-top:2px;}
+  .kpi.highlight{background:#eef2ff; border-color:#c7d2fe;}
+
+  /* --- Tableaux --- */
+  table{width:100%; border-collapse:collapse; font-size:12.5px;}
+  th,td{padding:7px 8px; text-align:right; border-bottom:1px solid #eef0f2; white-space:nowrap;}
+  th{background:#f9fafb; color:#4b5563; font-weight:600; position:sticky; top:0; z-index:1;}
+  td:first-child, th:first-child{text-align:left;}
+  tr.total td{font-weight:700; background:#f9fafb; border-top:2px solid #e5e7eb;}
+  .table-wrap{overflow-x:auto; -webkit-overflow-scrolling:touch; max-height:440px; overflow-y:auto;}
+  .pos{color:#166534;} .neg{color:#b91c1c;}
+  .scroll-hint{display:none; margin-top:6px;}
+
+  canvas{max-height:280px;}
+  .title-input{border-bottom:1px dashed transparent; cursor:text;}
+  .title-input:focus{outline:none; border-bottom:1px solid #c7d2fe;}
+
+  /* --- En-tête --- */
+  .back-link{margin-bottom:10px;}
+  .back-link a{color:#4338ca; font-size:12.5px; text-decoration:none; font-weight:600;}
+  .back-link a:hover{text-decoration:underline;}
+  .site-header{display:flex; align-items:center; justify-content:space-between; gap:12px;
+    margin-bottom:18px; padding-bottom:14px; border-bottom:1px solid #e5e7eb;}
+  .brand{display:flex; align-items:center;}
+  .brand-logo{height:30px; display:block;}
+  .menu-wrap{position:relative;}
+  .menu-btn{background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:8px 12px; font-size:13px;
+    font-weight:600; color:#4338ca; cursor:pointer; display:flex; align-items:center; gap:5px; white-space:nowrap;}
+  .menu-btn:hover{border-color:#c7d2fe; background:#f5f3ff;}
+  .menu-btn .chev{font-size:10px; transition:transform .15s ease;}
+  .menu-btn.open .chev{transform:rotate(180deg);}
+  .menu-dropdown{display:none; position:absolute; right:0; top:calc(100% + 6px); background:#fff;
+    border:1px solid #e5e7eb; border-radius:10px; box-shadow:0 8px 20px rgba(0,0,0,.10); padding:6px;
+    min-width:230px; max-width:calc(100vw - 32px); z-index:30;}
+  .menu-dropdown.open{display:block;}
+  .menu-dropdown a{display:block; padding:9px 10px; border-radius:6px; font-size:13px; color:#1f2430; text-decoration:none;}
+  .menu-dropdown a:hover{background:#eef2ff; color:#4338ca;}
+  .menu-dropdown a.home{border-bottom:1px solid #eef0f2; margin-bottom:4px; padding-bottom:10px; font-weight:600; color:#4338ca;}
+
+  /* --- Bascule mode simple / avancé --- */
+  .mode-switch{display:flex; align-items:center; gap:12px; margin-bottom:18px; flex-wrap:wrap;}
+  .mode-switch .seg-group{margin-bottom:0; flex:0 1 320px; max-width:320px;}
+  .mode-switch .mode-hint{font-size:12px; color:#9ca3af; flex:1 1 200px;}
+  body.mode-simple .advanced-only{display:none !important;}
+  body.mode-avance .simple-only{display:none !important;}
+
+  footer{margin-top:26px; font-size:11.5px; color:#9ca3af; text-align:center;}
+
+  /* --- Responsive --- */
+  @media (max-width:860px){
+    .grid{grid-template-columns:1fr;}
+  }
+  @media (max-width:760px){
+    body{padding:18px 16px 28px;}
+    .kpis{grid-template-columns:repeat(auto-fit, minmax(155px,1fr)); gap:10px;}
+    .kpi{padding:12px 13px;}
+    .kpi .v{font-size:18px;}
+    .scroll-hint{display:block;}
+    .table-wrap{max-height:none; overflow-y:visible;}
+    th{position:static;}
+  }
+  @media (max-width:560px){
+    h1{font-size:19px;}
+    .card{padding:14px;}
+    .grid > .card{max-width:none;}
+    .row{gap:6px;}
+    .row label{flex:1 1 100%;}
+    input[type=number]{flex:1 1 auto; width:auto; font-size:16px;}
+    input[type=range]{max-width:none;}
+    select{width:100%; max-width:none; font-size:16px;}
+    .unit{min-width:28px;}
+    .mode-switch .seg-group{flex:1 1 100%; max-width:none;}
+    th,td{padding:6px 7px; font-size:12px;}
+    .brand-logo{height:26px;}
+    .menu-btn{padding:7px 10px; font-size:12.5px;}
+    canvas{max-height:230px;}
+  }
+  @media (max-width:360px){
+    .kpis{grid-template-columns:1fr;}
+    .seg-btn{font-size:12px; padding:9px 4px;}
+  }
+
+  /* --- Spécifique au comparateur d'assurance emprunteur --- */
+  [hidden]{display:none !important;}
+  .seg-btn{min-height:40px;}
+  .lbl{color:#4b5563; font-size:13px; flex:1 1 130px; min-width:0;}
+  .hint{font-size:12px; color:#4b5563; margin:-4px 0 10px 0;}
+  .row.terr{margin-top:14px; padding-top:12px; border-top:1px solid #eef0f2; margin-bottom:8px;}
+  .row.terr select{font-size:12.5px; max-width:190px;}
+  .card > .hint:last-child{margin-bottom:0;}
+  .aide{margin-top:12px; border:1px solid #e5e7eb; border-radius:9px; background:#f9fafb;}
+  .aide summary{cursor:pointer; padding:11px 12px; min-height:40px; font-size:13px; font-weight:600; color:#1e40af; list-style-position:inside;}
+  .aide summary:focus-visible{outline:2px solid #6366f1; outline-offset:2px; border-radius:8px;}
+  .aide-in{padding:2px 12px 12px;}
+  .aide-res{font-size:13px; color:#1f2430; margin:4px 0 10px 0;}
+  .aide-btn{min-height:40px; padding:9px 14px; border:1px solid #bfdbfe; border-radius:8px; background:#fff; color:#1e40af;
+    font-size:13px; font-weight:600; cursor:pointer;}
+  .aide-btn:hover{background:#eff6ff;}
+  .aide-btn:focus-visible{outline:2px solid #6366f1; outline-offset:1px;}
+  .cmp-wrap{max-height:none; overflow-y:visible;}
+  .cmp-table th{position:static;}
+  .cmp-table tbody th{background:transparent; font-weight:400; color:#4b5563; text-align:left; white-space:normal;}
+  .cmp-table td{font-weight:600; color:#111827;}
+  .cmp-table .deg{display:block; font-size:11.5px; font-weight:400; color:#4b5563;}
+  .sr{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap;}
+  .chart-box{position:relative; height:280px;}
+  .chart-box canvas{max-height:none;}
+  #info_sante:empty{display:none;}
+  @media (max-width:560px){
+    .row .lbl{flex:1 1 55%;}
+    input[type=number], select{min-height:40px;}
+    input[type=range]{min-height:40px;}
+    .row.terr select{max-width:none;}
+    .chart-box{height:240px;}
+    .cmp-table th, .cmp-table td{padding:7px 5px;}
+  }
+</style>
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="stylesheet" href="/assets/akapa.css">
+</head>
+<body data-ak-outil="assurance-emprunteur" data-ak-outil-label="Assurance emprunteur" class="ak-chrome mode-simple">
+<header class="ak-header">
+  <div class="ak-wrap">
+    <a class="ak-brand" href="/">
+      <img src="/assets/logo-akapa.svg" alt="AKAPA" onerror="this.outerHTML='<strong style=&quot;font-size:19px;color:#1e40af&quot;>AKAPA</strong>'">
+      <span class="ak-brand-sub">Simulateurs</span>
+    </a>
+    <button class="ak-burger" data-ak-burger type="button" aria-label="Menu" aria-expanded="false"><svg class="ak-ico ak-ico-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.6 6.6h16.8M3.6 12h16.8M3.6 17.4h16.8"/></svg></button>
+    <nav class="ak-nav">
+      <a href="/">Accueil</a>
+      <div class="ak-dd">
+        <button type="button" aria-haspopup="true" aria-expanded="false">Tous les simulateurs <span class="ak-chev">▾</span></button>
+        <nav class="ak-dd-menu">
+          <a href="/#outils"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 10.4 12 3.7l8.5 6.7"/><path d="M5.7 9.2V19a1.6 1.6 0 0 0 1.6 1.6h9.4a1.6 1.6 0 0 0 1.6-1.6V9.2"/><path d="M9.9 20.6v-5.3h4.2v5.3"/></svg> Tous les outils</a>
+          <hr>
+          <a href="/capacite-emprunt"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 9.8 12 4.5l9 5.3"/><path d="M5.6 11v7.4M10 11v7.4M14 11v7.4M18.4 11v7.4"/><path d="M3 20.4h18"/></svg> Capacité d’emprunt</a>
+          <a href="/mensualites-credit"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.3" y="5" width="17.4" height="15.4" rx="2.4"/><path d="M8 3v4M16 3v4M3.3 10h17.4"/><path d="M7.6 13.8h2.6M13.8 13.8h2.6M7.6 17h2.6"/></svg> Mensualités de crédit</a>
+          <a href="/frais-notaire"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.4 3.2H7.2a2 2 0 0 0-2 2v13.6a2 2 0 0 0 2 2h9.6a2 2 0 0 0 2-2V8.6z"/><path d="M13.4 3.2v5.4h5.4"/><path d="M8.6 13h6.8M8.6 16.4h4.8"/></svg> Frais de notaire</a>
+          <a href="/ciop"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.8"/><path d="m8.9 15.1 6.2-6.2"/><circle cx="9.5" cy="9.5" r="1.3"/><circle cx="14.5" cy="14.5" r="1.3"/></svg> Rentabilité CIOP</a>
+          <a href="/lmnp"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5.2 11.6V8.3A2.2 2.2 0 0 1 7.4 6.1h9.2a2.2 2.2 0 0 1 2.2 2.2v3.3"/><path d="M3 14.1a2 2 0 0 1 4 0v2.4h10v-2.4a2 2 0 0 1 4 0v4.4H3z"/><path d="M6.6 18.5v1.6M17.4 18.5v1.6"/></svg> Simulateur LMNP</a>
+          <a href="/rentabilite-locative"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.4 16.6 9.5 10.5l3.5 3.5 7.6-7.6"/><path d="M15.4 6.4h5.2v5.2"/></svg> Rentabilité locative</a>
+          <a href="/solaire"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.1"/><path d="M12 2.6v2.1M12 19.3v2.1M5 5l1.5 1.5M17.5 17.5 19 19M2.6 12h2.1M19.3 12h2.1M5 19l1.5-1.5M17.5 6.5 19 5"/></svg> Rentabilité solaire</a>
+          <a href="/aides-renovation"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9.2 4.6H7.3a2.2 2.2 0 0 0-2.2 2.2v12a2.2 2.2 0 0 0 2.2 2.2h9.4a2.2 2.2 0 0 0 2.2-2.2v-12a2.2 2.2 0 0 0-2.2-2.2h-1.9"/><rect x="9.2" y="2.9" width="5.6" height="3.5" rx="1.2"/><path d="m9.5 13.6 1.9 1.9 3.6-3.8"/></svg> Aides à la rénovation</a>
+          <a href="/vehicule-achat-location"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.4 16.4v-3.6l1.9-4.9a2 2 0 0 1 1.9-1.3h9.6a2 2 0 0 1 1.9 1.3l1.9 4.9v3.6z"/><path d="M5.3 12.8h13.4"/><path d="M4.8 16.4v2.1a1 1 0 0 0 1 1h1.5a1 1 0 0 0 1-1v-2.1M14.7 16.4v2.1a1 1 0 0 0 1 1h1.5a1 1 0 0 0 1-1v-2.1"/></svg> Véhicule : acheter ou louer</a>
+        </nav>
+      </div>
+      <a href="/#methode">Comment ça marche</a>
+      <a class="ak-btn ak-btn-primary" href="#mise-en-relation">Être mis en relation</a>
+    </nav>
+  </div>
+</header>
+
+<div class="ak-titlebar">
+  <div class="ak-wrap">
+    <h1>Assurance emprunteur</h1>
+    <p>Assurance de la banque ou délégation : chiffrez l’économie sur la durée restante de votre prêt.</p>
+    <button type="button" class="ak-tb-plus" data-ak-tb-plus aria-expanded="false" aria-controls="ak-tb-long">Détails</button>
+    <div class="ak-tb-actions">
+      <button type="button" class="ak-btn ak-btn-pdf" data-ak-pdf aria-label="Télécharger la simulation en PDF"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.4v12.2"/><path d="m7.2 11 4.8 4.8 4.8-4.8"/><path d="M4.2 17.4v1.6a1.8 1.8 0 0 0 1.8 1.8h12a1.8 1.8 0 0 0 1.8-1.8v-1.6"/></svg> <span class="ak-btn-txt">PDF</span></button>
+      <a class="ak-btn ak-btn-primary" href="#mise-en-relation" aria-label="Être mis en relation"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.4 3.2H7.2a2 2 0 0 0-2 2v13.6a2 2 0 0 0 2 2h9.6a2 2 0 0 0 2-2V8.6z"/><path d="M13.4 3.2v5.4h5.4"/><path d="M8.6 13h6.8M8.6 16.4h4.8"/></svg> <span class="ak-btn-txt">Être mis en relation</span></a>
+    </div>
+  </div>
+</div>
+<div class="ak-tb-long" id="ak-tb-long"><div class="ak-wrap">Indiquez votre prêt, le taux de votre assurance actuelle et celui d’une assurance alternative : le simulateur compare les cotisations mensuelles, le coût restant de chaque contrat, l’économie totale et l’équivalent en TAEA, pour un prêt en cours (changement d’assurance, loi Lemoine) ou un nouveau prêt.</div></div>
+
+<div class="page">
+
+<div class="mode-switch">
+  <div class="seg-group" id="grp_mode">
+    <button type="button" class="seg-btn" data-value="simple">Mode simple</button>
+    <button type="button" class="seg-btn" data-value="avance">Mode avanc&eacute;</button>
+  </div>
+  <span class="mode-hint simple-only">Un emprunteur assuré à 100&nbsp;%, sans frais de dossier&nbsp;: hypothèses par défaut.</span>
+  <span class="mode-hint advanced-only">Quotité, mode de calcul de chaque contrat, frais, second emprunteur, tableau et graphique sont disponibles.</span>
+</div>
+
+<div class="grid">
+
+  <div class="card">
+    <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 9.8 12 4.5l9 5.3"/><path d="M5.6 11v7.4M10 11v7.4M14 11v7.4M18.4 11v7.4"/><path d="M3 20.4h18"/></svg> Votre prêt</h2>
+    <p class="seg-label" id="lbl_situation">Votre situation</p>
+    <div class="seg-group" id="grp_situation" role="group" aria-labelledby="lbl_situation">
+      <button type="button" class="seg-btn active" data-value="encours" aria-pressed="true">Prêt en cours</button>
+      <button type="button" class="seg-btn" data-value="nouveau" aria-pressed="false">Nouveau prêt</button>
+    </div>
+    <div class="row"><label for="capital">Capital emprunté</label><input type="number" id="capital" value="200000" step="1000" min="0" inputmode="decimal"><span class="unit">&euro;</span></div>
+    <div class="row"><label for="duree">Durée totale</label>
+      <input type="range" id="dureeRange" min="1" max="30" step="1" value="20" aria-label="Durée totale du prêt">
+      <input type="number" id="duree" value="20" step="1" min="1" max="40" inputmode="numeric" style="width:64px;"><span class="unit">ans</span>
+    </div>
+    <div class="row" id="row_ecoulees"><label for="anneesEcoulees">Années déjà écoulées</label><input type="number" id="anneesEcoulees" value="3" step="1" min="0" inputmode="numeric"><span class="unit">ans</span></div>
+    <div class="row"><label for="tauxCredit">Taux du crédit</label><input type="number" id="tauxCredit" value="3.55" step="0.05" min="0" inputmode="decimal"><span class="unit">%</span></div>
+    <div class="row terr"><label for="territoire">Territoire</label>
+      <select id="territoire"><option value="GP">Guadeloupe</option><option value="MQ">Martinique</option><option value="GF">Guyane</option><option value="RE">La Réunion</option></select>
+    </div>
+    <p class="hint" id="hint_terr">Le territoire ne modifie pas le calcul&nbsp;: il sert à orienter votre demande.</p>
+  </div>
+
+  <div class="card">
+    <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.2 5 6v5.4c0 4.3 2.9 7.6 7 9.4 4.1-1.8 7-5.1 7-9.4V6z"/><path d="m9.4 12.2 1.9 1.9 3.5-3.7"/></svg> Les deux assurances</h2>
+    <div class="row"><label for="tauxActuel" id="lbl_tauxActuel">Taux de l’assurance actuelle</label><input type="number" id="tauxActuel" value="0.34" step="0.01" min="0" inputmode="decimal"><span class="unit">%</span></div>
+    <p class="hint" id="hint_actuel">Taux annuel appliqué au capital emprunté. Il figure sur votre offre de prêt ou votre échéancier.</p>
+    <div class="row stacked advanced-only"><label for="modeActuel" id="lbl_modeActuel">Base de calcul du contrat actuel</label>
+      <select id="modeActuel"><option value="initial">Capital initial (cotisation fixe)</option><option value="crd">Capital restant dû (dégressive)</option></select>
+    </div>
+    <hr class="divider">
+    <div class="row"><label for="tauxNouveau" id="lbl_tauxNouveau">Taux de la nouvelle assurance</label><input type="number" id="tauxNouveau" value="0.17" step="0.01" min="0" inputmode="decimal"><span class="unit">%</span></div>
+    <p class="hint"><span class="badge">Hypothèse</span> <span id="hint_nouveau">À remplacer par le taux d’un devis.</span></p>
+    <div class="row stacked advanced-only"><label for="modeNouveau" id="lbl_modeNouveau">Base de calcul du nouveau contrat</label>
+      <select id="modeNouveau"><option value="fixe">Capital assuré au départ (fixe)</option><option value="crd">Capital restant dû (dégressive)</option></select>
+    </div>
+    <div class="row advanced-only"><label for="fraisDossier">Frais de dossier de la nouvelle assurance</label><input type="number" id="fraisDossier" value="0" step="10" min="0" inputmode="decimal"><span class="unit">&euro;</span></div>
+
+    <details class="aide" id="aide">
+      <summary>Quel taux alternatif retenir&nbsp;? Repères indicatifs</summary>
+      <div class="aide-in">
+        <div class="row"><label for="aideAge">Âge de l’assuré aujourd’hui</label>
+          <select id="aideAge"><option value="20-29">20 à 29 ans</option><option value="30-39" selected>30 à 39 ans</option><option value="40-49">40 à 49 ans</option><option value="50-59">50 à 59 ans</option></select>
+        </div>
+        <div class="row"><label for="aideFumeur">Fumeur</label>
+          <select id="aideFumeur"><option value="nf" selected>Non</option><option value="f">Oui</option></select>
+        </div>
+        <p class="aide-res" id="aide_res" aria-live="polite">-</p>
+        <button type="button" class="aide-btn" id="aide_btn">Utiliser ce repère</button>
+        <p class="note">Taux moyens publiés par deux courtiers (Réassurez-moi, 24&nbsp;septembre 2026&nbsp;; Meilleurtaux, 25&nbsp;août 2026), pour un seul assuré, rapportés au capital emprunté. Ce ne sont pas des tarifs&nbsp;: le vôtre dépendra de votre âge, de votre santé, de votre profession et des garanties exigées par votre banque.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="card advanced-only">
+    <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9" cy="8.4" r="3.2"/><path d="M3.2 19.6a5.8 5.8 0 0 1 11.6 0"/><circle cx="17" cy="9.4" r="2.5"/><path d="M16.4 14.4a4.6 4.6 0 0 1 4.4 4.6"/></svg> Emprunteurs et quotités</h2>
+    <div class="seg-group" id="grp_emprunteurs" role="group" aria-label="Nombre d’emprunteurs assurés">
+      <button type="button" class="seg-btn active" data-value="1" aria-pressed="true">Un emprunteur</button>
+      <button type="button" class="seg-btn" data-value="2" aria-pressed="false">Deux emprunteurs</button>
+    </div>
+    <div class="row"><label for="quotite" id="lbl_quotite">Quotité assurée</label><input type="number" id="quotite" value="100" step="5" min="0" max="100" inputmode="decimal"><span class="unit">%</span></div>
+    <div id="bloc_emp2" hidden>
+      <p class="section-title">Second emprunteur</p>
+      <div class="row"><label for="quotite2">Quotité assurée (emprunteur&nbsp;2)</label><input type="number" id="quotite2" value="50" step="5" min="0" max="100" inputmode="decimal"><span class="unit">%</span></div>
+      <div class="row"><label for="tauxActuel2" id="lbl_tauxActuel2">Taux de l’assurance actuelle (emprunteur&nbsp;2)</label><input type="number" id="tauxActuel2" value="0.34" step="0.01" min="0" inputmode="decimal"><span class="unit">%</span></div>
+      <div class="row"><label for="tauxNouveau2" id="lbl_tauxNouveau2">Taux de la nouvelle assurance (emprunteur&nbsp;2)</label><input type="number" id="tauxNouveau2" value="0.17" step="0.01" min="0" inputmode="decimal"><span class="unit">%</span></div>
+    </div>
+    <p class="note">La quotité est la part du prêt couverte pour chaque assuré. Les taux saisis dans «&nbsp;Les deux assurances&nbsp;» s’appliquent au premier emprunteur.</p>
+  </div>
+
+  <div class="card">
+    <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.8"/><path d="M15.4 8.8a4.2 4.2 0 0 0-6 1.6 6 6 0 0 0 0 3.2 4.2 4.2 0 0 0 6 1.6"/><path d="M7.8 11h4.9M7.8 13.4h4.9"/></svg> Comparaison</h2>
+    <div class="table-wrap cmp-wrap">
+      <table class="cmp-table">
+        <thead><tr><th scope="col"><span class="sr">Poste</span></th><th scope="col" id="th_a">Actuelle</th><th scope="col" id="th_b">Nouvelle</th></tr></thead>
+        <tbody>
+          <tr><th scope="row" id="rl_mens">Cotisation mensuelle</th><td id="out_mensA">-</td><td id="out_mensB">-</td></tr>
+          <tr><th scope="row" id="rl_cout">Coût sur la durée restante</th><td id="out_coutA">-</td><td id="out_coutB">-</td></tr>
+          <tr><th scope="row" id="rl_part">Part dans le coût restant du crédit</th><td id="out_partA">-</td><td id="out_partB">-</td></tr>
+          <tr><th scope="row" id="rl_taea">Équivalent TAEA</th><td id="out_taeaA">-</td><td id="out_taeaB">-</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <hr class="divider">
+    <div class="row"><span class="lbl" id="rl_base">Capital restant à assurer aujourd’hui</span><span class="result" id="out_base">-</span></div>
+    <div class="row"><span class="lbl" id="rl_duree">Durée restante</span><span class="result" id="out_dureeRest">-</span></div>
+    <div class="row"><span class="lbl" id="rl_ecoMens">Économie mensuelle</span><span class="result" id="out_ecoMens">-</span></div>
+    <div class="row"><span class="lbl" id="rl_eco">Économie totale estimée</span><span class="result big" id="out_eco">-</span></div>
+    <div id="msg"></div>
+    <p class="note" id="info_sante"></p>
+  </div>
+
+</div>
+
+<p class="note simple-only" style="margin-top:-8px;">Estimation pour <strong>un emprunteur assuré à 100&nbsp;%</strong>, avec une cotisation actuelle calculée sur le capital emprunté, une nouvelle cotisation fixe calculée sur le capital à assurer au départ du nouveau contrat et <strong>sans frais de dossier</strong> (hypothèses par défaut). Le taux de la nouvelle assurance est une hypothèse. Passez en <strong>mode avancé</strong> pour ajuster ces paramètres et voir le détail année par année.</p>
+
+<div class="kpis" id="kpis"></div>
+
+<div class="ak-actions-res">
+  <button type="button" class="ak-btn ak-btn-pdf" data-ak-pdf><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.4v12.2"/><path d="m7.2 11 4.8 4.8 4.8-4.8"/><path d="M4.2 17.4v1.6a1.8 1.8 0 0 0 1.8 1.8h12a1.8 1.8 0 0 0 1.8-1.8v-1.6"/></svg> Télécharger cette simulation en PDF</button>
+  <a class="ak-btn ak-btn-primary" href="#mise-en-relation"><svg class="ak-ico ak-ico-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.5 12h15"/><path d="m13.2 5.7 6.3 6.3-6.3 6.3"/></svg> Faire comparer mon assurance de prêt</a>
+</div>
+
+
+<div class="card advanced-only" style="margin-top:16px;">
+  <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.4 16.6 9.5 10.5l3.5 3.5 7.6-7.6"/><path d="M15.4 6.4h5.2v5.2"/></svg> Cotisations cumulées des deux contrats</h2>
+  <div class="chart-box"><canvas id="chart" role="img" aria-label="Cotisations cumulées, année par année, de l’assurance actuelle et de la nouvelle assurance"></canvas></div>
+</div>
+
+<div class="card advanced-only" style="margin-top:16px;">
+  <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.3" y="4.6" width="17.4" height="14.8" rx="2.2"/><path d="M3.3 9.4h17.4M3.3 14.4h17.4M9.2 9.4v10M15.1 9.4v10"/></svg> Détail année par année</h2>
+  <div class="table-wrap">
+    <table id="detailTable">
+      <thead>
+        <tr>
+          <th>Année du prêt</th><th>Capital dû (début)</th><th id="th_ta">Cotisation actuelle</th><th id="th_tb">Cotisation nouvelle</th>
+          <th>Économie de l’année</th><th id="th_ca">Cumul actuel</th><th id="th_cb">Cumul nouveau</th><th>Économie cumulée</th>
+        </tr>
+      </thead>
+      <tbody id="detailBody"></tbody>
+    </table>
+  </div>
+  <p class="note scroll-hint">&#8596; Faites glisser le tableau horizontalement pour voir toutes les colonnes.</p>
+  <p class="note">Les frais de dossier de la nouvelle assurance sont comptés la première année. Chaque taux est supposé constant jusqu’à la fin du prêt&nbsp;; dans les contrats tarifés selon l’âge, la cotisation réelle peut évoluer différemment.</p>
+</div>
+
+<p class="note">Hypothèses&nbsp;: prêt amortissable à mensualités constantes, sans différé ni remboursement anticipé&nbsp;; taux d’assurance constants&nbsp;; pour un prêt en cours, la nouvelle assurance porte sur le capital restant dû au jour du changement. L’équivalent TAEA est l’écart entre le taux actuariel du prêt avec et sans assurance, calculé sur la durée restante&nbsp;; il peut différer du TAEA de votre offre de prêt. Sources&nbsp;: loi n°&nbsp;2022-270 du 28&nbsp;février 2022 (loi Lemoine), service-public.gouv.fr, economie.gouv.fr, ABE Info Service (ACPR – Banque de France), CCSF, convention AERAS, UFC-Que Choisir&nbsp;; repères de taux Meilleurtaux et Réassurez-moi. Vérifié le 4&nbsp;octobre 2026.</p>
+
+<div id="mise-en-relation" data-ak-lead
+     data-suite="/mensualites-credit|Recalculer ma mensualité"
+     data-bouton-court="Comparer"
+     data-outil="assurance-emprunteur"
+     data-outil-label="Assurance emprunteur"
+     data-titre="Cette économie vous parle ? Faites comparer votre assurance de prêt."
+     data-texte="Depuis la loi Lemoine, vous pouvez changer d’assurance emprunteur à tout moment, sans frais. Laissez vos coordonnées : nous transmettons votre demande, récapitulatif inclus, à un courtier qui compare les contrats à garanties équivalentes."
+     data-avantages="Courtiers sélectionnés sur le tarif obtenu, la qualité du suivi, la réactivité et les garanties proposées|Un seul partenaire contacté, qui connaît les banques de votre territoire|Étude gratuite, sans engagement et sans frais pour vous|Votre simulation est jointe : pas besoin de tout réexpliquer"
+     data-besoins="Comparer des offres d’assurance emprunteur|Changer l’assurance de mon prêt en cours (loi Lemoine)|Assurer un nouveau prêt immobilier|Trouver une assurance malgré un risque de santé (AERAS)|Je me renseigne pour plus tard"
+     data-bouton="Faire comparer mon assurance de prêt"></div>
+
+<p class="note" style="margin-top:22px;">Simulation indicative — ne remplace ni un devis d’assurance ni l’étude de l’équivalence des garanties exigée par votre banque.</p>
+
+<!-- ======================= CONTENU ÉDITORIAL ET FAQ ======================= -->
+<section class="ak-seo" id="guide" aria-labelledby="guide-titre">
+  <h2 id="guide-titre">Assurance emprunteur : ce qu’il faut savoir avant de comparer</h2>
+<p>L’assurance emprunteur rembourse la banque à votre place en cas de décès, d’invalidité ou d’arrêt de travail. Aucune loi ne l’impose, mais aucune banque ne finance un achat immobilier sans elle. Selon l’UFC-Que Choisir, elle peut représenter jusqu’à un tiers du coût global d’un prêt, et un contrat individuel coûte en moyenne deux fois moins cher que celui de la banque. C’est le seul poste du crédit que vous pouvez remettre en concurrence pendant toute la durée du prêt.</p>
+<h3>Loi Lemoine : changer à tout moment, sans frais</h3>
+<p>La loi du 28 février 2022, dite loi Lemoine, permet de résilier l’assurance d’un prêt immobilier à tout moment, sans attendre la date anniversaire du contrat : depuis le 1<sup>er</sup> juin 2022 pour les nouveaux prêts, depuis le 1<sup>er</sup> septembre 2022 pour les contrats déjà en cours. Vous transmettez à votre banque le nouveau contrat ; elle dispose de <strong>dix jours ouvrés</strong>, à compter de la réception du dossier complet, pour répondre. Si elle accepte, elle modifie le prêt par avenant, sans frais et sans toucher au taux du crédit. Si elle refuse, sa décision doit être écrite et détailler tous les motifs. Le prêteur qui ne respecte pas ces règles s’expose à une amende administrative pouvant atteindre 15 000 €. Votre assureur doit par ailleurs vous rappeler ce droit chaque année.</p>
+<h3>Équivalence des garanties : la seule condition posée par la banque</h3>
+<p>La banque ne peut refuser un contrat extérieur que s’il ne présente pas un niveau de garantie équivalent au sien. Cette équivalence se vérifie sur une liste établie par le Comité consultatif du secteur financier (CCSF) : la banque retient au plus 11 critères parmi 18 pour les garanties décès, perte totale et irréversible d’autonomie (PTIA), incapacité temporaire de travail (ITT) et invalidité permanente totale ou partielle (IPT, IPP), et au plus 4 parmi 8 pour la perte d’emploi lorsqu’elle l’exige. Ces critères vous sont communiqués dans une fiche personnalisée ; la <strong>fiche standardisée d’information</strong> (FSI), remise dès la première simulation, résume de son côté les garanties demandées et le coût de l’assurance proposée. Ce sont les deux documents à transmettre à l’assureur ou au courtier consulté. Comparer deux contrats sur leur seul prix n’a donc pas de sens : délai de franchise, exclusions et âge limite de couverture comptent autant que le tarif.</p>
+<h3>Questionnaire de santé, droit à l’oubli et convention AERAS</h3>
+<p>Depuis le 1<sup>er</sup> juin 2022, l’assureur ne peut plus demander aucune information médicale lorsque la part assurée ne dépasse pas <strong>200 000 € par personne</strong>, tous crédits immobiliers confondus, et que le prêt se termine avant le 60<sup>e</sup> anniversaire de l’assuré. Au-delà, le questionnaire reste la règle, mais le droit à l’oubli vous dispense de déclarer un cancer ou une hépatite C dont le protocole thérapeutique est terminé depuis plus de cinq ans, sans rechute, pour un contrat prenant fin avant vos 71 ans. Si votre état de santé complique l’accès à l’assurance, la convention AERAS prévoit un examen du dossier sur trois niveaux successifs ; le troisième, confié à des experts médicaux, concerne les prêts dont la part assurée n’excède pas 420 000 € et dont l’assurance s’achève avant vos 71 ans.</p>
+<h3>Capital initial ou capital restant dû : comparer ce qui est comparable</h3>
+<p>Deux contrats affichant le même taux ne coûtent pas forcément la même chose. Les contrats de groupe des banques appliquent le plus souvent leur taux au capital emprunté : la cotisation reste fixe jusqu’à la dernière échéance. Beaucoup de contrats individuels sont calculés sur le capital restant dû : la cotisation diminue au fil des remboursements. Pour comparer, fiez-vous au coût total en euros et au <strong>TAEA</strong> (taux annuel effectif de l’assurance), qui exprime le poids de l’assurance dans le TAEG du prêt. Pour un prêt en cours, le simulateur applique le taux de la nouvelle assurance au capital qu’il reste à assurer aujourd’hui, et non au capital de départ : c’est sur ce montant que l’assureur établit son devis. Le taux alternatif prérempli est une hypothèse, pas un tarif : remplacez-le par celui d’un devis établi à votre âge, pour votre profession et avec les garanties exigées par votre banque.</p>
+<h3>En Guadeloupe, en Martinique, en Guyane et à La Réunion</h3>
+<p>Le Code de la consommation et le Code des assurances s’appliquent de plein droit dans les départements et régions d’outre-mer : la résiliation à tout moment, le délai de dix jours ouvrés et la suppression du questionnaire de santé y valent comme dans l’Hexagone, quelle que soit la banque qui a accordé le prêt. La différence peut tenir à l’offre. Des courtiers spécialisés signalent que certains assureurs n’ouvrent pas leurs contrats aux personnes domiciliées outre-mer, ou seulement pour les garanties décès et PTIA, et que d’autres appliquent une surprime. La souscription à distance, par signature électronique, permet en revanche de consulter des assureurs qui n’ont pas d’agence sur place. Demandez donc un devis qui mentionne explicitement votre département de résidence et l’ensemble des garanties exigées par votre banque.</p>
+  <h3 id="faq">Questions fréquentes</h3>
+  <div class="ak-faq"><details><summary>Peut-on changer d’assurance de prêt immobilier à tout moment ?</summary><p>Oui. Depuis la loi Lemoine, l’assurance d’un prêt immobilier peut être résiliée à tout moment, sans frais ni pénalité, quelle que soit la date de signature du prêt. Il suffit de présenter à la banque un nouveau contrat aux garanties équivalentes. En cas de refus, l’ancien contrat continue de vous couvrir : vous n’êtes jamais sans assurance.</p></details><details><summary>Combien peut-on économiser en changeant d’assurance emprunteur ?</summary><p>Tout dépend de votre âge, de votre état de santé, du capital restant dû et du nombre d’années restantes. L’UFC-Que Choisir estime qu’un contrat individuel coûte en moyenne deux fois moins cher qu’un contrat bancaire. À taux égaux, plus il reste d’années à rembourser, plus l’économie est élevée ; elle peut être nulle si votre contrat actuel est déjà compétitif ou si votre situation de santé a changé. Le simulateur chiffre l’écart avec vos propres taux.</p></details><details><summary>La banque peut-elle refuser une délégation d’assurance ?</summary><p>Uniquement si le nouveau contrat n’offre pas des garanties équivalentes à celles qu’elle exige. Elle doit répondre dans les dix jours ouvrés suivant la réception de la demande complète et, en cas de refus, préciser par écrit tous les motifs. Elle ne peut ni facturer de frais, ni modifier le taux du crédit.</p></details><details><summary>Faut-il remplir un questionnaire de santé pour changer d’assurance emprunteur ?</summary><p>Non si la part assurée ne dépasse pas 200 000 € par personne, tous crédits immobiliers confondus, et si le prêt se termine avant vos 60 ans. Dans les autres cas, le nouvel assureur peut demander un questionnaire, voire des examens : faites établir le devis définitif avant d’engager le changement.</p></details><details><summary>La loi Lemoine s’applique-t-elle en Guadeloupe, en Martinique, en Guyane et à La Réunion ?</summary><p>Oui. Ces quatre territoires sont des départements et régions d’outre-mer, où le Code de la consommation et le Code des assurances s’appliquent comme dans l’Hexagone. Vous pouvez donc changer d’assurance à tout moment et souscrire à distance auprès d’un assureur sans agence locale, à condition qu’il accepte les résidents de votre département.</p></details></div>
+<nav class="ak-terr" aria-label="Ce simulateur par territoire"><span class="ak-terr-t">Ce simulateur par territoire</span><a class="ak-terr-link" href="/assurance-emprunteur-guadeloupe"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.4c0 0 7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11"/><circle cx="12" cy="10.4" r="2.6"/></svg> Guadeloupe</a><a class="ak-terr-link" href="/assurance-emprunteur-martinique"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.4c0 0 7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11"/><circle cx="12" cy="10.4" r="2.6"/></svg> Martinique</a><a class="ak-terr-link" href="/assurance-emprunteur-guyane"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.4c0 0 7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11"/><circle cx="12" cy="10.4" r="2.6"/></svg> Guyane</a><a class="ak-terr-link" href="/assurance-emprunteur-la-reunion"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.4c0 0 7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11"/><circle cx="12" cy="10.4" r="2.6"/></svg> La Réunion</a></nav>
+  <div class="ak-seo-cta">
+    <a class="ak-btn ak-btn-primary" data-ak-cta="guide" href="#mise-en-relation">Faire comparer mon assurance de prêt <svg class="ak-ico ak-ico-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.5 12h15"/><path d="m13.2 5.7 6.3 6.3-6.3 6.3"/></svg></a>
+    <a class="ak-btn ak-btn-outline" href="/#outils">Tous les simulateurs</a>
+  </div>
+</section>
+
+</div>
+
+<footer class="ak-footer">
+  <div class="ak-wrap">
+    <div class="ak-footer-grid">
+      <div>
+        <p class="ak-footer-brand">AKAPA</p>
+        <p>Simulateurs financiers, énergétiques et fiscaux adaptés aux Antilles-Guyane, et mise en relation avec des partenaires implantés sur le territoire.</p>
+        <div class="ak-footer-contact">
+          <span><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2.8" y="5.2" width="18.4" height="13.6" rx="2.4"/><path d="m3.6 7.2 7.3 5.1a2 2 0 0 0 2.2 0l7.3-5.1"/></svg> <a href="mailto:hello@akapa.fr">hello@akapa.fr</a></span>
+          <span><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8.5 3.6H5.7a2.1 2.1 0 0 0-2.1 2.3c.6 8 6.6 14 14.6 14.6a2.1 2.1 0 0 0 2.2-2.1v-2.8l-4.2-1.7-2 2a13.7 13.7 0 0 1-5.8-5.8l2-2z"/></svg> <a href="tel:+590690289902">+590 690 28 99 02</a></span>
+          <span><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.4c0 0 7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11"/><circle cx="12" cy="10.4" r="2.6"/></svg> Baie-Mahault, Guadeloupe</span>
+        </div>
+      </div>
+      <div>
+        <h4>Simulateurs</h4>
+        <ul>
+          <li><a href="/capacite-emprunt">Capacité d’emprunt</a></li>
+          <li><a href="/mensualites-credit">Mensualités de crédit</a></li>
+          <li><a href="/frais-notaire">Frais de notaire</a></li>
+          <li><a href="/assurance-emprunteur">Assurance emprunteur</a></li>
+          <li><a href="/ciop">Rentabilité CIOP</a></li>
+          <li><a href="/lmnp">Simulateur LMNP</a></li>
+          <li><a href="/rentabilite-locative">Rentabilité locative</a></li>
+          <li><a href="/solaire">Rentabilité solaire</a></li>
+          <li><a href="/aides-renovation">Aides à la rénovation</a></li>
+          <li><a href="/vehicule-achat-location">Véhicule : acheter ou louer</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Le site</h4>
+        <ul>
+          <li><a href="/#methode">Comment ça marche</a></li>
+          <li><a href="/#selection">Notre sélection</a></li>
+          <li><a href="/#partenaires">Le réseau de partenaires</a></li>
+          <li><a href="/#contact">Être mis en relation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Akapa</h4>
+        <ul>
+          <li><a href="https://akapa.fr" target="_blank" rel="noopener">akapa.fr</a></li>
+          <li><a href="/mentions-legales">Mentions légales</a></li>
+          <li><a href="/confidentialite">Confidentialité</a></li>
+          <li><a href="#" data-ak-cookies>Gérer mes cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="ak-disclaimer">Simulation indicative — ne remplace ni un devis d’assurance ni l’étude de l’équivalence des garanties exigée par votre banque.</p>
+    <div class="ak-footer-bottom">
+      <span>© 2026 AKAPA SAS — Baie-Mahault, Guadeloupe</span>
+      <span><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Politique de confidentialité</a> · <a href="#" data-ak-cookies>Gérer mes cookies</a></span>
+    </div>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.js" integrity="sha384-iU8HYtnGQ8Cy4zl7gbNMOhsDTTKX02BTXptVP/vqAWIaTfM7isw76iyZCsjL2eVi" crossorigin="anonymous"></script>
+<script>
+const $ = id => document.getElementById(id);
+const arr0 = v => (Math.abs(v) < 0.5 ? 0 : v);
+const arr2 = v => (Math.abs(v) < 0.005 ? 0 : v);
+const eur = v => arr0(v).toLocaleString('fr-FR', {style:'currency', currency:'EUR', maximumFractionDigits:0});
+const eur2 = v => arr2(v).toLocaleString('fr-FR', {style:'currency', currency:'EUR', minimumFractionDigits:2, maximumFractionDigits:2});
+const pct1 = v => (v*100).toLocaleString('fr-FR', {minimumFractionDigits:1, maximumFractionDigits:1}) + ' %';
+const pct2 = v => (v*100).toLocaleString('fr-FR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' %';
+const tx = v => v.toLocaleString('fr-FR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' %';
+
+/* Lecture d'un champ numérique, bornée : vide ou invalide = 0, puis bornes. */
+function val(id, min, max){
+  let v = parseFloat($(id).value);
+  if (!isFinite(v)) v = 0;
+  return Math.min(max, Math.max(min, v));
+}
+
+const state = { situation:'encours', emprunteurs:1 };
+let chart;
+
+/* Repères indicatifs de taux (en % du capital emprunté, un assuré).
+   Bornes = valeurs publiées par Réassurez-moi (24/09/2026, par tranche d'âge)
+   et Meilleurtaux (25/08/2026, à 25, 35, 45 et 55 ans). Voir la note du projet. */
+const REPERES = {
+  '20-29': { nf:[0.06, 0.10], f:[0.14, 0.14] },
+  '30-39': { nf:[0.08, 0.13], f:[0.13, 0.20] },
+  '40-49': { nf:[0.17, 0.24], f:[0.26, 0.34] },
+  '50-59': { nf:[0.33, 0.47], f:[0.52, 0.73] }
+};
+
+const TERR_DE = { GP:'de Guadeloupe', MQ:'de Martinique', GF:'de Guyane', RE:'de La Réunion' };
+
+function annuite(C, i, n){
+  if (!(C > 0) || !(n > 0)) return 0;
+  return i > 0 ? C * i / (1 - Math.pow(1 + i, -n)) : C / n;
+}
+
+/* Équivalent TAEA : écart entre le taux actuariel annuel du prêt avec assurance
+   et sans assurance, sur les échéances restantes.
+   principal = capital restant dû (moins les frais payés au départ) ;
+   M = mensualité hors assurance ; primes = cotisations mensuelles. */
+function taea(principal, M, primes, i){
+  if (!(principal > 0) || !primes.length) return null;
+  const f = r => { let s = 0, d = 1; for (let j = 0; j < primes.length; j++){ d *= (1 + r); s += (M + primes[j]) / d; } return s - principal; };
+  let lo = i, hi = i + 0.001, garde = 0;
+  if (f(lo) <= 1e-9) return 0;
+  while (f(hi) > 0 && garde++ < 40) hi = lo + (hi - lo) * 2;
+  if (f(hi) > 0) return null;
+  for (let k = 0; k < 70; k++){ const mid = (lo + hi) / 2; if (f(mid) > 0) lo = mid; else hi = mid; }
+  const r = (lo + hi) / 2;
+  const t = Math.pow(1 + r, 12) - Math.pow(1 + i, 12);
+  return isFinite(t) ? Math.max(0, t) : null;
+}
+
+function noms(){
+  return state.situation === 'encours'
+    ? { a:'Assurance actuelle', b:'Nouvelle assurance', ac:'Actuelle', bc:'Nouvelle' }
+    : { a:'Assurance de la banque', b:'Assurance alternative', ac:'Banque', bc:'Alternative' };
+}
+
+function majLibelles(){
+  const enc = state.situation === 'encours';
+  const deux = state.emprunteurs === 2 && !document.body.classList.contains('mode-simple');
+  const s1 = deux ? ' (emprunteur 1)' : '';
+  $('row_ecoulees').hidden = !enc;
+  $('lbl_tauxActuel').textContent = (enc ? 'Taux de l’assurance actuelle' : 'Taux de l’assurance de la banque') + s1;
+  $('lbl_tauxNouveau').textContent = (enc ? 'Taux de la nouvelle assurance' : 'Taux de l’assurance alternative') + s1;
+  $('lbl_tauxActuel2').textContent = (enc ? 'Taux de l’assurance actuelle' : 'Taux de l’assurance de la banque') + ' (emprunteur 2)';
+  $('lbl_tauxNouveau2').textContent = (enc ? 'Taux de la nouvelle assurance' : 'Taux de l’assurance alternative') + ' (emprunteur 2)';
+  $('lbl_modeActuel').textContent = enc ? 'Base de calcul du contrat actuel' : 'Base de calcul du contrat de la banque';
+  $('lbl_modeNouveau').textContent = enc ? 'Base de calcul du nouveau contrat' : 'Base de calcul du contrat alternatif';
+  $('lbl_quotite').textContent = deux ? 'Quotité assurée (emprunteur 1)' : 'Quotité assurée';
+  $('hint_actuel').textContent = enc
+    ? 'Taux annuel du contrat en place. Il figure sur votre offre de prêt ou votre échéancier.'
+    : 'Taux annuel proposé par la banque. Il figure sur la fiche standardisée d’information ou l’offre de prêt.';
+  $('rl_cout').textContent = enc ? 'Coût sur la durée restante' : 'Coût sur la durée du prêt';
+  $('rl_part').textContent = enc ? 'Part dans le coût restant du crédit' : 'Part dans le coût du crédit';
+  $('rl_taea').textContent = enc ? 'Équivalent TAEA (durée restante)' : 'Équivalent TAEA';
+  $('rl_base').textContent = enc ? 'Capital restant à assurer aujourd’hui' : 'Capital à assurer';
+  $('rl_duree').textContent = enc ? 'Durée restante' : 'Durée du prêt';
+  const n = noms();
+  $('th_a').textContent = n.ac; $('th_b').textContent = n.bc;
+  $('th_ta').textContent = 'Cotisation ' + n.ac.toLowerCase(); $('th_tb').textContent = 'Cotisation ' + n.bc.toLowerCase();
+  $('th_ca').textContent = 'Cumul ' + n.ac.toLowerCase(); $('th_cb').textContent = 'Cumul ' + n.bc.toLowerCase();
+  $('bloc_emp2').hidden = state.emprunteurs !== 2;
+  const t = $('territoire');
+  $('hint_terr').textContent = 'Le territoire ne modifie pas le calcul : il sert à orienter votre demande vers un courtier qui connaît les banques ' + (TERR_DE[t.value] || 'de votre territoire') + '.';
+}
+
+function majAide(){
+  const r = REPERES[$('aideAge').value][$('aideFumeur').value];
+  const unique = r[0] === r[1];
+  $('aide_res').innerHTML = unique
+    ? 'Repère publié : environ <strong>' + tx(r[1]) + '</strong> (une seule source pour ce profil).'
+    : 'Repères publiés : de <strong>' + tx(r[0]) + '</strong> à <strong>' + tx(r[1]) + '</strong>.';
+  $('aide_btn').textContent = 'Utiliser ' + tx(r[1]) + (unique ? '' : ' (haut de la fourchette)');
+  $('aide_btn').dataset.taux = r[1].toFixed(2);
+}
+
+function compute(){
+  majLibelles();
+  const simple = document.body.classList.contains('mode-simple');
+  const enc = state.situation === 'encours';
+  const N = noms();
+
+  const C = val('capital', 0, 1e9);
+  const duree = Math.round(val('duree', 1, 40));
+  let k = enc ? Math.round(val('anneesEcoulees', 0, 40)) : 0;
+  const kHorsBorne = k > duree - 1;
+  if (kHorsBorne) k = duree - 1;
+  const i = val('tauxCredit', 0, 30) / 100 / 12;
+  const a1 = val('tauxActuel', 0, 10) / 100;
+  const a2 = val('tauxNouveau', 0, 10) / 100;
+
+  /* Paramètres avancés : en mode simple, les valeurs par défaut s'appliquent. */
+  let q1 = 1, q2 = 0, a1b = 0, a2b = 0, modeA = 'initial', modeB = 'fixe', frais = 0, deux = false;
+  if (!simple){
+    q1 = val('quotite', 0, 100) / 100;
+    modeA = $('modeActuel').value === 'crd' ? 'crd' : 'initial';
+    modeB = $('modeNouveau').value === 'crd' ? 'crd' : 'fixe';
+    frais = val('fraisDossier', 0, 1e6);
+    deux = state.emprunteurs === 2;
+    if (deux){
+      q2 = val('quotite2', 0, 100) / 100;
+      a1b = val('tauxActuel2', 0, 10) / 100;
+      a2b = val('tauxNouveau2', 0, 10) / 100;
+    }
+  }
+  const QA = q1 * a1 + q2 * a1b;   /* taux pondéré par les quotités, contrat actuel */
+  const QB = q1 * a2 + q2 * a2b;   /* idem, nouveau contrat */
+
+  const n = duree * 12, m0 = k * 12, nr = n - m0;
+  const M = annuite(C, i, n);
+  const crd = new Array(n + 1);
+  crd[0] = C;
+  for (let j = 1; j <= n; j++) crd[j] = Math.max(0, crd[j-1] * (1 + i) - M);
+  const base0 = crd[m0];           /* capital à assurer au départ du nouveau contrat */
+
+  const pA = [], pB = [];
+  let totA = 0, totB = 0, interets = 0;
+  for (let j = 1; j <= nr; j++){
+    const c = crd[m0 + j - 1];
+    const a = (modeA === 'crd' ? c : C) * QA / 12;
+    const b = (modeB === 'crd' ? c : base0) * QB / 12;
+    pA.push(a); pB.push(b);
+    totA += a; totB += b; interets += c * i;
+  }
+  const coutB = totB + frais;
+  const eco = totA - coutB;
+  const ecoMens = nr > 0 ? (totA - totB) / nr : 0;
+  const fixes = modeA !== 'crd' && modeB !== 'crd';
+  const partA = (interets + totA) > 0 ? totA / (interets + totA) : null;
+  const partB = (interets + coutB) > 0 ? coutB / (interets + coutB) : null;
+  const taeaA = taea(base0, M, pA, i);
+  const taeaB = taea(base0 - frais, M, pB, i);
+  const vide = !(C > 0);
+
+  /* --- Carte de comparaison --- */
+  const mens = (p, mode) => vide ? '-' : (mode === 'crd' && p.length > 1
+    ? eur2(p[0]) + ' <span class="deg">puis dégressive</span>' : eur2(p[0] || 0));
+  $('out_mensA').innerHTML = mens(pA, modeA);
+  $('out_mensB').innerHTML = mens(pB, modeB);
+  $('out_coutA').textContent = vide ? '-' : eur(totA);
+  $('out_coutB').textContent = vide ? '-' : eur(coutB);
+  $('out_partA').textContent = vide || partA === null ? '-' : pct1(partA);
+  $('out_partB').textContent = vide || partB === null ? '-' : pct1(partB);
+  $('out_taeaA').textContent = vide || taeaA === null ? '-' : pct2(taeaA);
+  $('out_taeaB').textContent = vide || taeaB === null ? '-' : pct2(taeaB);
+  $('out_base').textContent = vide ? '-' : eur(base0);
+  const ansR = Math.floor(nr / 12);
+  $('out_dureeRest').textContent = ansR + (ansR > 1 ? ' ans' : ' an') + ' (' + nr + ' mois)';
+  $('rl_ecoMens').textContent = fixes ? 'Économie mensuelle' : 'Économie mensuelle moyenne';
+  $('out_ecoMens').textContent = vide ? '-' : eur2(ecoMens);
+  $('out_eco').textContent = vide ? '-' : eur(eco);
+  $('out_eco').className = 'result big ' + (arr0(eco) > 0 ? 'pos' : (arr0(eco) < 0 ? 'neg' : ''));
+  $('hint_nouveau').textContent = (modeB === 'crd'
+      ? 'Appliqué chaque mois au capital restant dû.'
+      : (enc ? 'Appliqué au capital restant à assurer aujourd’hui' + (vide ? '' : ' (' + eur(base0) + ')') + '.'
+             : 'Appliqué au capital emprunté.'))
+    + ' À remplacer par le taux d’un devis.';
+
+  /* --- Messages --- */
+  const msgs = [];
+  if (kHorsBorne) msgs.push('<div class="warn">Le nombre d’années écoulées doit rester inférieur à la durée totale du prêt : le calcul est fait avec ' + (duree - 1) + (duree - 1 > 1 ? ' années écoulées' : ' année écoulée') + '.</div>');
+  if (!simple && (q1 + q2) < 0.9999) msgs.push('<div class="warn">Le total des quotités est inférieur à 100 % : les banques exigent en général que le prêt soit couvert à 100 % au moins.</div>');
+  if (!vide && frais >= base0) msgs.push('<div class="warn">Les frais de dossier saisis dépassent le capital à assurer : vérifiez ce montant.</div>');
+  if (!vide && arr0(eco) < 0) msgs.push('<div class="warn">Avec ces hypothèses, ' + (enc ? 'la nouvelle assurance' : 'l’assurance alternative') + ' coûterait ' + eur(-eco) + ' de plus que ' + (enc ? 'le contrat actuel' : 'celle de la banque') + ' sur la durée ' + (enc ? 'restante' : 'du prêt') + '.</div>');
+  if (!vide && arr0(eco) > 0) msgs.push('<div class="ok">Économie estimée à condition que le nouveau contrat présente des garanties équivalentes à celles exigées par votre banque' + (fixes ? '' : ' ; avec une cotisation dégressive, l’écart mensuel varie d’une année à l’autre') + '.</div>');
+  $('msg').innerHTML = msgs.join('');
+
+  /* --- Repère questionnaire de santé (part assurée par personne) --- */
+  const partMax = base0 * Math.max(q1, q2);
+  $('info_sante').textContent = vide ? '' : (partMax <= 200000
+    ? 'Part assurée par personne : ' + eur(partMax) + ' (seuil : 200 000 €). Si vous n’avez pas d’autre crédit immobilier assuré et si le prêt se termine avant vos 60 ans, l’assureur ne peut pas vous demander de questionnaire de santé.'
+    : 'Part assurée par personne : ' + eur(partMax) + ', au-dessus du seuil de 200 000 €. Le nouvel assureur peut vous demander de remplir un questionnaire de santé.');
+
+  /* --- Indicateurs --- */
+  const lEco = enc ? 'Économie totale estimée sur la durée restante' : 'Économie totale estimée sur la durée du prêt';
+  const lA = enc ? 'Coût restant de l’assurance actuelle' : 'Coût total de l’assurance de la banque';
+  const lB = enc ? 'Coût restant de la nouvelle assurance' : 'Coût total de l’assurance alternative';
+  $('kpis').innerHTML = `
+    <div class="kpi highlight"><div class="v">${vide ? '-' : eur(eco)}</div><div class="l">${lEco}</div></div>
+    <div class="kpi highlight"><div class="v">${vide ? '-' : eur2(ecoMens)}</div><div class="l">${fixes ? 'Économie mensuelle' : 'Économie mensuelle moyenne'}</div></div>
+    <div class="kpi"><div class="v">${vide ? '-' : eur(totA)}</div><div class="l">${lA}</div></div>
+    <div class="kpi"><div class="v">${vide ? '-' : eur(coutB)}</div><div class="l">${lB}</div></div>
+  `;
+
+  /* --- Détail année par année --- */
+  const rows = [];
+  let cumA = 0, cumB = frais;
+  const nbAns = Math.ceil(nr / 12);
+  for (let y = 1; y <= nbAns; y++){
+    let anA = 0, anB = 0;
+    const deb = (y - 1) * 12, fin = Math.min(y * 12, nr);
+    for (let j = deb; j < fin; j++){ anA += pA[j]; anB += pB[j]; }
+    if (y === 1) anB += frais;
+    cumA += anA; cumB += (y === 1 ? anB - frais : anB);
+    rows.push({ annee:k + y, crdDebut:crd[m0 + deb], anA, anB, cumA, cumB });
+  }
+  $('detailBody').innerHTML = rows.map(r => `
+    <tr>
+      <td>${r.annee}</td>
+      <td>${eur(r.crdDebut)}</td>
+      <td>${eur(r.anA)}</td>
+      <td>${eur(r.anB)}</td>
+      <td class="${arr0(r.anA - r.anB) >= 0 ? 'pos' : 'neg'}">${eur(r.anA - r.anB)}</td>
+      <td>${eur(r.cumA)}</td>
+      <td>${eur(r.cumB)}</td>
+      <td class="${arr0(r.cumA - r.cumB) >= 0 ? 'pos' : 'neg'}">${eur(r.cumA - r.cumB)}</td>
+    </tr>`).join('') + `
+    <tr class="total">
+      <td>Total</td>
+      <td>-</td>
+      <td>${eur(totA)}</td>
+      <td>${eur(coutB)}</td>
+      <td class="${arr0(eco) >= 0 ? 'pos' : 'neg'}">${eur(eco)}</td>
+      <td>${eur(totA)}</td>
+      <td>${eur(coutB)}</td>
+      <td class="${arr0(eco) >= 0 ? 'pos' : 'neg'}">${eur(eco)}</td>
+    </tr>`;
+
+  /* --- Graphique (mode avancé uniquement) --- */
+  if (typeof Chart === 'undefined' || simple) return;
+  const ctx = $('chart').getContext('2d');
+  if (chart) chart.destroy();
+  chart = new Chart(ctx, {
+    type: 'line',
+    data: { labels: rows.map(r => r.annee), datasets: [
+      { label:N.a, data: rows.map(r => Math.round(r.cumA)), borderColor:'#6b7280', backgroundColor:'rgba(107,114,128,0.08)', fill:true, tension:0.2, pointRadius:2 },
+      { label:N.b, data: rows.map(r => Math.round(r.cumB)), borderColor:'#2563eb', backgroundColor:'rgba(37,99,235,0.10)', fill:true, tension:0.2, pointRadius:2 }
+    ]},
+    options: {
+      responsive:true, maintainAspectRatio:false,
+      interaction:{ mode:'index', intersect:false },
+      plugins:{ legend:{ display:true, position:'bottom' },
+        tooltip:{ callbacks:{ title: t => 'Année ' + t[0].label + ' du prêt', label: c => c.dataset.label + ' : ' + eur(c.parsed.y) } } },
+      scales:{ x:{ title:{ display:true, text:'Année du prêt' } }, y:{ beginAtZero:true, ticks:{ callback: v => eur(v) } } }
+    }
+  });
+}
+
+/* --- Boutons segmentés (situation, nombre d'emprunteurs) --- */
+function setupSeg(groupId, onChange){
+  const boutons = $(groupId).querySelectorAll('.seg-btn');
+  boutons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      boutons.forEach(b => { b.classList.toggle('active', b === btn); b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+      onChange(btn.dataset.value);
+      compute();
+    });
+  });
+}
+setupSeg('grp_situation', v => { state.situation = v === 'nouveau' ? 'nouveau' : 'encours'; });
+setupSeg('grp_emprunteurs', v => {
+  state.emprunteurs = v === '2' ? 2 : 1;
+  /* Répartition de départ 50/50 à deux, 100 % seul, si la quotité n'a pas été personnalisée. */
+  const q = parseFloat($('quotite').value);
+  if (state.emprunteurs === 2 && q === 100) $('quotite').value = 50;
+  if (state.emprunteurs === 1 && q === 50) $('quotite').value = 100;
+});
+
+$('dureeRange').addEventListener('input', () => { $('duree').value = $('dureeRange').value; compute(); });
+$('duree').addEventListener('input', () => { $('dureeRange').value = $('duree').value; compute(); });
+document.querySelectorAll('.page input[type=number]').forEach(el => {
+  if (el.id !== 'duree') el.addEventListener('input', compute);
+});
+['modeActuel', 'modeNouveau', 'territoire'].forEach(id => $(id).addEventListener('change', compute));
+['aideAge', 'aideFumeur'].forEach(id => $(id).addEventListener('change', majAide));
+$('aide_btn').addEventListener('click', () => {
+  $('tauxNouveau').value = $('aide_btn').dataset.taux;
+  compute();
+});
+
+majAide();
+compute();
+</script>
+<script>
+(function(){
+  var KEY = 'akapa_calc_mode';
+  function getMode(){
+    try { return localStorage.getItem(KEY) || 'simple'; } catch(e){ return 'simple'; }
+  }
+  function setMode(mode){
+    document.body.classList.toggle('mode-avance', mode === 'avance');
+    document.body.classList.toggle('mode-simple', mode !== 'avance');
+    var grp = document.getElementById('grp_mode');
+    if (grp){
+      grp.querySelectorAll('.seg-btn').forEach(function(b){
+        b.classList.toggle('active', b.dataset.value === mode);
+      });
+    }
+    try { localStorage.setItem(KEY, mode); } catch(e){}
+    if (typeof compute === 'function') compute();
+  }
+  var grp = document.getElementById('grp_mode');
+  if (grp){
+    grp.querySelectorAll('.seg-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){ setMode(btn.dataset.value); });
+    });
+  }
+  setMode(getMode());
+})();
+</script>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Comparateur d’assurance emprunteur", "url": "https://simu.akapa.fr/assurance-emprunteur", "description": "Comparez l’assurance de prêt de votre banque à une délégation et chiffrez l’économie mensuelle et totale (loi Lemoine). Gratuit, Antilles-Guyane et La Réunion.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "browserRequirements": "Requires JavaScript", "inLanguage": "fr-FR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "areaServed": ["Guadeloupe", "Martinique", "Guyane", "La Réunion"], "provider": {"@type": "Organization", "name": "AKAPA", "url": "https://akapa.fr"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Simulateurs Akapa", "item": "https://simu.akapa.fr/"}, {"@type": "ListItem", "position": 2, "name": "Assurance emprunteur", "item": "https://simu.akapa.fr/assurance-emprunteur"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Peut-on changer d’assurance de prêt immobilier à tout moment ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Depuis la loi Lemoine, l’assurance d’un prêt immobilier peut être résiliée à tout moment, sans frais ni pénalité, quelle que soit la date de signature du prêt. Il suffit de présenter à la banque un nouveau contrat aux garanties équivalentes. En cas de refus, l’ancien contrat continue de vous couvrir : vous n’êtes jamais sans assurance."}}, {"@type": "Question", "name": "Combien peut-on économiser en changeant d’assurance emprunteur ?", "acceptedAnswer": {"@type": "Answer", "text": "Tout dépend de votre âge, de votre état de santé, du capital restant dû et du nombre d’années restantes. L’UFC-Que Choisir estime qu’un contrat individuel coûte en moyenne deux fois moins cher qu’un contrat bancaire. À taux égaux, plus il reste d’années à rembourser, plus l’économie est élevée ; elle peut être nulle si votre contrat actuel est déjà compétitif ou si votre situation de santé a changé. Le simulateur chiffre l’écart avec vos propres taux."}}, {"@type": "Question", "name": "La banque peut-elle refuser une délégation d’assurance ?", "acceptedAnswer": {"@type": "Answer", "text": "Uniquement si le nouveau contrat n’offre pas des garanties équivalentes à celles qu’elle exige. Elle doit répondre dans les dix jours ouvrés suivant la réception de la demande complète et, en cas de refus, préciser par écrit tous les motifs. Elle ne peut ni facturer de frais, ni modifier le taux du crédit."}}, {"@type": "Question", "name": "Faut-il remplir un questionnaire de santé pour changer d’assurance emprunteur ?", "acceptedAnswer": {"@type": "Answer", "text": "Non si la part assurée ne dépasse pas 200 000 € par personne, tous crédits immobiliers confondus, et si le prêt se termine avant vos 60 ans. Dans les autres cas, le nouvel assureur peut demander un questionnaire, voire des examens : faites établir le devis définitif avant d’engager le changement."}}, {"@type": "Question", "name": "La loi Lemoine s’applique-t-elle en Guadeloupe, en Martinique, en Guyane et à La Réunion ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Ces quatre territoires sont des départements et régions d’outre-mer, où le Code de la consommation et le Code des assurances s’appliquent comme dans l’Hexagone. Vous pouvez donc changer d’assurance à tout moment et souscrire à distance auprès d’un assureur sans agence locale, à condition qu’il accepte les résidents de votre département."}}]}</script>
+<script src="/assets/akapa-config.js"></script>
+<script>
+/* Recapitulatif de simulation joint a la demande de mise en relation. */
+(function(){
+  function t(id){ var e = document.getElementById(id); return e ? (e.tagName === 'INPUT' || e.tagName === 'SELECT' ? e.value : e.textContent).trim() : ''; }
+  function sel(id){ var e = document.getElementById(id); return e && e.selectedIndex >= 0 ? e.options[e.selectedIndex].text.trim() : ''; }
+  function eur(id){ var v = parseFloat(t(id)); return isFinite(v) ? v.toLocaleString('fr-FR') + ' €' : ''; }
+  function pc(id){ var v = t(id); return v ? v.replace('.', ',') + ' %' : ''; }
+  function actif(id){ var b = document.querySelector('#' + id + ' .seg-btn.active'); return b ? b.textContent.trim() : ''; }
+
+  window.akapaLeadContext = function(){
+    var c = {};
+    var enCours = actif('grp_situation') !== 'Nouveau prêt';
+    c['Territoire'] = sel('territoire');
+    c['Situation'] = actif('grp_situation');
+    c['Capital emprunté'] = eur('capital');
+    c['Durée totale du prêt'] = t('duree') ? t('duree') + ' ans' + (enCours && t('anneesEcoulees') ? ' (dont ' + t('anneesEcoulees') + ' déjà écoulés)' : '') : '';
+    c[enCours ? 'Taux de l’assurance actuelle' : 'Taux de l’assurance de la banque'] = pc('tauxActuel');
+    c[enCours ? 'Taux de la nouvelle assurance (hypothèse)' : 'Taux de l’assurance alternative (hypothèse)'] = pc('tauxNouveau');
+    document.querySelectorAll('#kpis .kpi').forEach(function(k){
+      var l = k.querySelector('.l'), v = k.querySelector('.v');
+      if (l && v && v.textContent.trim() && v.textContent.trim() !== '-') c[l.textContent.trim()] = v.textContent.trim();
+    });
+    Object.keys(c).forEach(function(k){ if (!c[k]) delete c[k]; });
+    return c;
+  };
+
+  var minuteur = null;
+  function planifier(){
+    clearTimeout(minuteur);
+    minuteur = setTimeout(function(){
+      if (typeof window.akapaRafraichirRecap === 'function') window.akapaRafraichirRecap();
+    }, 260);
+  }
+  document.addEventListener('input', planifier, true);
+  document.addEventListener('change', planifier, true);
+  document.addEventListener('click', planifier, true);
+  window.addEventListener('load', planifier);
+})();
+</script>
+<script src="/assets/akapa-lead.js"></script>
+<script src="/assets/akapa-pdf.js"></script>
+<script src="/assets/akapa-cookies.js"></script>
+<script src="/assets/akapa-track.js"></script>
+
+<script>
+/* Repli du sous-titre long de la bande de titre. */
+(function(){
+  var b = document.querySelector('[data-ak-tb-plus]'), l = document.getElementById('ak-tb-long');
+  if (!b || !l) return;
+  b.addEventListener('click', function(){
+    var ouvert = l.classList.toggle('is-open');
+    b.setAttribute('aria-expanded', ouvert ? 'true' : 'false');
+    b.textContent = ouvert ? 'Masquer' : 'D\u00e9tails';
+  });
+})();
+</script>
+</body>
+</html>

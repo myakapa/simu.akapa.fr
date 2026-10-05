@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2563eb">
+<title>Simulateur de rentabilité locative en Outre-mer | Akapa</title>
+<meta name="description" content="Calculez le rendement brut, net de charges et net d’impôt de votre investissement locatif en Guadeloupe, Martinique, Guyane ou à La Réunion, cash-flow inclus.">
+<link rel="canonical" href="https://simu.akapa.fr/rentabilite-locative">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Simulateurs Akapa">
+<meta property="og:title" content="Rentabilité locative — calculez le vrai rendement de votre bien">
+<meta property="og:description" content="Rendement brut, net de charges et net d’impôt, cash-flow mensuel et effort d’épargne, en location à l’année ou saisonnière.">
+<meta property="og:url" content="https://simu.akapa.fr/rentabilite-locative">
+<meta property="og:image" content="https://simu.akapa.fr/assets/og-rentabilite-locative.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<style>
+  :root{ color-scheme: light; }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0; padding:22px 20px 32px; background:#f6f7f9; color:#1f2430;
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size:14px; line-height:1.5;
+  }
+  .page{max-width:1180px; margin:0 auto;}
+  h1{font-size:22px; margin:0 0 4px 0; line-height:1.25;}
+  .subtitle{color:#6b7280; margin:0 0 18px 0; font-size:13px;}
+
+  /* --- Cartes de formulaire --- */
+  .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(330px, 1fr)); gap:16px; margin-bottom:20px;}
+  .card{background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px 18px; min-width:0;}
+  .grid > .card{max-width:640px;}
+  .card h2{font-size:14px; margin:0 0 12px 0; color:#111827; display:flex; align-items:center; gap:8px;}
+  .row{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px; flex-wrap:wrap;}
+  .row:last-child{margin-bottom:0;}
+  label{color:#4b5563; font-size:13px; flex:1 1 130px; min-width:0;}
+  .row.stacked{flex-direction:column; align-items:stretch;}
+  .row.stacked label{flex:1 1 auto; margin-bottom:5px;}
+  .row.stacked select{max-width:none; width:100%;}
+
+  input[type=number]{
+    width:120px; flex:0 0 auto; padding:7px 9px; border:1px solid #d1d5db; border-radius:7px;
+    font-size:13px; text-align:right; background:#eef4ff; color:#1f2430; min-width:0;
+  }
+  input[type=number]:focus{outline:2px solid #6366f1; outline-offset:1px;}
+  input[type=number]:disabled{background:#f3f4f6; color:#6b7280;}
+  input[type=range]{flex:1 1 90px; min-width:80px; max-width:190px; accent-color:#4338ca;}
+  select{
+    padding:7px 9px; border:1px solid #d1d5db; border-radius:7px; font-size:13px;
+    background:#eef4ff; color:#1f2430; max-width:230px; min-width:0;
+  }
+  select:focus{outline:2px solid #6366f1; outline-offset:1px;}
+  select:disabled{background:#f3f4f6; color:#6b7280;}
+  .unit{color:#6b7280; font-size:12px; flex:0 0 auto; min-width:32px; text-align:left;}
+
+  .result{font-weight:600; color:#111827; text-align:right;}
+  .result.big{font-size:18px;}
+  .muted{color:#6b7280; font-size:12px;}
+  .divider{border:none; border-top:1px solid #eef0f2; margin:12px 0;}
+  .badge{display:inline-block; font-size:11px; padding:2px 8px; border-radius:999px; background:#eef2ff; color:#4338ca; font-weight:600;}
+  .warn{background:#fff7ed; border:1px solid #fdba74; color:#9a3412; padding:8px 10px; border-radius:8px; font-size:12.5px; margin-top:8px;}
+  .ok{background:#f0fdf4; border:1px solid #86efac; color:#166534; padding:8px 10px; border-radius:8px; font-size:12.5px; margin-top:8px;}
+  .note{font-size:11.5px; color:#6b7280; margin-top:10px;}
+  .seg-label{font-size:12px; color:#6b7280; margin:0 0 6px 0;}
+  .section-title{font-size:12px; font-weight:700; color:#4338ca; margin:14px 0 8px 0; text-transform:uppercase; letter-spacing:.02em;}
+
+  /* --- Boutons segmentés --- */
+  .seg-group{display:flex; gap:6px; background:#f3f4f6; padding:4px; border-radius:9px; margin-bottom:14px;}
+  .seg-btn{flex:1 1 0; min-width:0; text-align:center; padding:9px 6px; border:none; border-radius:7px;
+    background:transparent; color:#4b5563; font-size:13px; cursor:pointer; font-weight:600;
+    transition:background .12s, color .12s;}
+  .seg-btn.active{background:#fff; color:#4338ca; box-shadow:0 1px 2px rgba(0,0,0,.08);}
+
+  /* --- Indicateurs --- */
+  .kpis{display:grid; grid-template-columns:repeat(auto-fit, minmax(190px,1fr)); gap:12px; margin-top:16px;}
+  .kpi{background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:14px 16px; min-width:0;}
+  .kpi .v{font-size:20px; font-weight:700; color:#111827; overflow-wrap:anywhere;}
+  .kpi .l{font-size:12px; color:#6b7280; margin-top:2px;}
+  .kpi.highlight{background:#eef2ff; border-color:#c7d2fe;}
+
+  /* --- Tableaux --- */
+  table{width:100%; border-collapse:collapse; font-size:12.5px;}
+  th,td{padding:7px 8px; text-align:right; border-bottom:1px solid #eef0f2; white-space:nowrap;}
+  th{background:#f9fafb; color:#4b5563; font-weight:600; position:sticky; top:0; z-index:1;}
+  td:first-child, th:first-child{text-align:left;}
+  tr.total td{font-weight:700; background:#f9fafb; border-top:2px solid #e5e7eb;}
+  .table-wrap{overflow-x:auto; -webkit-overflow-scrolling:touch; max-height:440px; overflow-y:auto;}
+  .pos{color:#166534;} .neg{color:#b91c1c;}
+  .scroll-hint{display:none; margin-top:6px;}
+
+  canvas{max-height:280px;}
+  .title-input{border-bottom:1px dashed transparent; cursor:text;}
+  .title-input:focus{outline:none; border-bottom:1px solid #c7d2fe;}
+
+  /* --- En-tête --- */
+  .back-link{margin-bottom:10px;}
+  .back-link a{color:#4338ca; font-size:12.5px; text-decoration:none; font-weight:600;}
+  .back-link a:hover{text-decoration:underline;}
+  .site-header{display:flex; align-items:center; justify-content:space-between; gap:12px;
+    margin-bottom:18px; padding-bottom:14px; border-bottom:1px solid #e5e7eb;}
+  .brand{display:flex; align-items:center;}
+  .brand-logo{height:30px; display:block;}
+  .menu-wrap{position:relative;}
+  .menu-btn{background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:8px 12px; font-size:13px;
+    font-weight:600; color:#4338ca; cursor:pointer; display:flex; align-items:center; gap:5px; white-space:nowrap;}
+  .menu-btn:hover{border-color:#c7d2fe; background:#f5f3ff;}
+  .menu-btn .chev{font-size:10px; transition:transform .15s ease;}
+  .menu-btn.open .chev{transform:rotate(180deg);}
+  .menu-dropdown{display:none; position:absolute; right:0; top:calc(100% + 6px); background:#fff;
+    border:1px solid #e5e7eb; border-radius:10px; box-shadow:0 8px 20px rgba(0,0,0,.10); padding:6px;
+    min-width:230px; max-width:calc(100vw - 32px); z-index:30;}
+  .menu-dropdown.open{display:block;}
+  .menu-dropdown a{display:block; padding:9px 10px; border-radius:6px; font-size:13px; color:#1f2430; text-decoration:none;}
+  .menu-dropdown a:hover{background:#eef2ff; color:#4338ca;}
+  .menu-dropdown a.home{border-bottom:1px solid #eef0f2; margin-bottom:4px; padding-bottom:10px; font-weight:600; color:#4338ca;}
+
+  /* --- Bascule mode simple / avancé --- */
+  .mode-switch{display:flex; align-items:center; gap:12px; margin-bottom:18px; flex-wrap:wrap;}
+  .mode-switch .seg-group{margin-bottom:0; flex:0 1 320px; max-width:320px;}
+  .mode-switch .mode-hint{font-size:12px; color:#6b7280; flex:1 1 200px;}
+  body.mode-simple .advanced-only{display:none !important;}
+  body.mode-avance .simple-only{display:none !important;}
+
+  footer{margin-top:26px; font-size:11.5px; color:#6b7280; text-align:center;}
+
+  /* --- Responsive --- */
+  @media (max-width:860px){
+    .grid{grid-template-columns:1fr;}
+  }
+  @media (max-width:760px){
+    body{padding:18px 16px 28px;}
+    .kpis{grid-template-columns:repeat(auto-fit, minmax(155px,1fr)); gap:10px;}
+    .kpi{padding:12px 13px;}
+    .kpi .v{font-size:18px;}
+    .scroll-hint{display:block;}
+    .table-wrap{max-height:none; overflow-y:visible;}
+    th{position:static;}
+  }
+  @media (max-width:560px){
+    h1{font-size:19px;}
+    .card{padding:14px;}
+    .grid > .card{max-width:none;}
+    .row{gap:6px;}
+    .row label{flex:1 1 100%;}
+    input[type=number]{flex:1 1 auto; width:auto; font-size:16px;}
+    input[type=range]{max-width:none;}
+    select{width:100%; max-width:none; font-size:16px;}
+    .unit{min-width:28px;}
+    .mode-switch .seg-group{flex:1 1 100%; max-width:none;}
+    th,td{padding:6px 7px; font-size:12px;}
+    .brand-logo{height:26px;}
+    .menu-btn{padding:7px 10px; font-size:12.5px;}
+    canvas{max-height:230px;}
+  }
+  @media (max-width:360px){
+    .kpis{grid-template-columns:1fr;}
+    .seg-btn{font-size:12px; padding:9px 4px;}
+  }
+
+  /* --- Ajouts propres au simulateur de rentabilité locative --- */
+  body.type-longue .saison-only{display:none !important;}
+  body.type-saison .longue-only{display:none !important;}
+  input[type=number], select, input[type=range]{min-height:40px;}
+  .seg-btn{min-height:40px;}
+  input[type=number]:disabled, select:disabled{color:#4b5563; -webkit-text-fill-color:#4b5563; opacity:1;}
+  .row .lbl{color:#4b5563; font-size:13px; flex:1 1 130px; min-width:0;}
+  .row.res{flex-wrap:nowrap; align-items:baseline;}
+  .row.res .result{flex:0 0 auto; white-space:nowrap;}
+  .lbl .muted{font-size:11.5px;}
+  .card .note{margin-top:8px;}
+  .row-duree label{flex:1 1 84px;}
+  .row-duree input[type=range]{min-width:64px;}
+  #alertes .warn{margin:0 0 10px 0;}
+  .chart-box{position:relative; height:300px;}
+  .chart-box canvas{max-height:none;}
+  @media (max-width:560px){
+    .chart-box{height:250px;}
+  }
+</style>
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="stylesheet" href="/assets/akapa.css">
+</head>
+<body data-ak-outil="rentabilite-locative" data-ak-outil-label="Rentabilité locative" class="ak-chrome mode-simple type-longue">
+<header class="ak-header">
+  <div class="ak-wrap">
+    <a class="ak-brand" href="/">
+      <img src="/assets/logo-akapa.svg" alt="AKAPA" onerror="this.outerHTML='<strong style=&quot;font-size:19px;color:#1e40af&quot;>AKAPA</strong>'">
+      <span class="ak-brand-sub">Simulateurs</span>
+    </a>
+    <button class="ak-burger" data-ak-burger type="button" aria-label="Menu" aria-expanded="false"><svg class="ak-ico ak-ico-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.6 6.6h16.8M3.6 12h16.8M3.6 17.4h16.8"/></svg></button>
+    <nav class="ak-nav">
+      <a href="/">Accueil</a>
+      <div class="ak-dd">
+        <button type="button" aria-haspopup="true" aria-expanded="false">Tous les simulateurs <span class="ak-chev">▾</span></button>
+        <nav class="ak-dd-menu">
+          <a href="/#outils"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 10.4 12 3.7l8.5 6.7"/><path d="M5.7 9.2V19a1.6 1.6 0 0 0 1.6 1.6h9.4a1.6 1.6 0 0 0 1.6-1.6V9.2"/><path d="M9.9 20.6v-5.3h4.2v5.3"/></svg> Tous les outils</a>
+          <hr>
+          <a href="/capacite-emprunt"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 9.8 12 4.5l9 5.3"/><path d="M5.6 11v7.4M10 11v7.4M14 11v7.4M18.4 11v7.4"/><path d="M3 20.4h18"/></svg> Capacité d’emprunt</a>
+          <a href="/mensualites-credit"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.3" y="5" width="17.4" height="15.4" rx="2.4"/><path d="M8 3v4M16 3v4M3.3 10h17.4"/><path d="M7.6 13.8h2.6M13.8 13.8h2.6M7.6 17h2.6"/></svg> Mensualités de crédit</a>
+          <a href="/frais-notaire"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.4 3.2H7.2a2 2 0 0 0-2 2v13.6a2 2 0 0 0 2 2h9.6a2 2 0 0 0 2-2V8.6z"/><path d="M13.4 3.2v5.4h5.4"/><path d="M8.6 13h6.8M8.6 16.4h4.8"/></svg> Frais de notaire</a>
+          <a href="/assurance-emprunteur"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.2 19 6v6.1c0 4.3-2.9 7.3-7 8.6-4.1-1.3-7-4.3-7-8.6V6z"/><path d="m9.1 12.1 2.2 2.2 4.1-4.2"/></svg> Assurance emprunteur</a>
+          <a href="/ciop"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.8"/><path d="m8.9 15.1 6.2-6.2"/><circle cx="9.5" cy="9.5" r="1.3"/><circle cx="14.5" cy="14.5" r="1.3"/></svg> Rentabilité CIOP</a>
+          <a href="/lmnp"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5.2 11.6V8.3A2.2 2.2 0 0 1 7.4 6.1h9.2a2.2 2.2 0 0 1 2.2 2.2v3.3"/><path d="M3 14.1a2 2 0 0 1 4 0v2.4h10v-2.4a2 2 0 0 1 4 0v4.4H3z"/><path d="M6.6 18.5v1.6M17.4 18.5v1.6"/></svg> Simulateur LMNP</a>
+          <a href="/solaire"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.1"/><path d="M12 2.6v2.1M12 19.3v2.1M5 5l1.5 1.5M17.5 17.5 19 19M2.6 12h2.1M19.3 12h2.1M5 19l1.5-1.5M17.5 6.5 19 5"/></svg> Rentabilité solaire</a>
+          <a href="/aides-renovation"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9.2 4.6H7.3a2.2 2.2 0 0 0-2.2 2.2v12a2.2 2.2 0 0 0 2.2 2.2h9.4a2.2 2.2 0 0 0 2.2-2.2v-12a2.2 2.2 0 0 0-2.2-2.2h-1.9"/><rect x="9.2" y="2.9" width="5.6" height="3.5" rx="1.2"/><path d="m9.5 13.6 1.9 1.9 3.6-3.8"/></svg> Aides à la rénovation</a>
+          <a href="/vehicule-achat-location"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.4 16.4v-3.6l1.9-4.9a2 2 0 0 1 1.9-1.3h9.6a2 2 0 0 1 1.9 1.3l1.9 4.9v3.6z"/><path d="M5.3 12.8h13.4"/><path d="M4.8 16.4v2.1a1 1 0 0 0 1 1h1.5a1 1 0 0 0 1-1v-2.1M14.7 16.4v2.1a1 1 0 0 0 1 1h1.5a1 1 0 0 0 1-1v-2.1"/></svg> Véhicule : acheter ou louer</a>
+        </nav>
+      </div>
+      <a href="/#methode">Comment ça marche</a>
+      <a class="ak-btn ak-btn-primary" href="#mise-en-relation">Être mis en relation</a>
+    </nav>
+  </div>
+</header>
+
+<div class="ak-titlebar">
+  <div class="ak-wrap">
+    <h1>Rentabilité locative</h1>
+    <p>Rendement brut, net de charges et net d’impôt, cash-flow et effort d’épargne, en location à l’année ou saisonnière.</p>
+    <button type="button" class="ak-tb-plus" data-ak-tb-plus aria-expanded="false" aria-controls="ak-tb-long">Détails</button>
+    <div class="ak-tb-actions">
+      <button type="button" class="ak-btn ak-btn-pdf" data-ak-pdf aria-label="Télécharger la simulation en PDF"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.4v12.2"/><path d="m7.2 11 4.8 4.8 4.8-4.8"/><path d="M4.2 17.4v1.6a1.8 1.8 0 0 0 1.8 1.8h12a1.8 1.8 0 0 0 1.8-1.8v-1.6"/></svg> <span class="ak-btn-txt">PDF</span></button>
+      <a class="ak-btn ak-btn-primary" href="#mise-en-relation" aria-label="Être mis en relation"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.4 3.2H7.2a2 2 0 0 0-2 2v13.6a2 2 0 0 0 2 2h9.6a2 2 0 0 0 2-2V8.6z"/><path d="M13.4 3.2v5.4h5.4"/><path d="M8.6 13h6.8M8.6 16.4h4.8"/></svg> <span class="ak-btn-txt">Être mis en relation</span></a>
+    </div>
+  </div>
+</div>
+<div class="ak-tb-long" id="ak-tb-long"><div class="ak-wrap">Indiquez le territoire, le prix du bien, le loyer (ou le prix de la nuitée et le taux d’occupation) et votre financement : le simulateur estime les frais d’acquisition selon le département, déduit les charges, la mensualité, l’impôt et les prélèvements sociaux, puis affiche les trois rendements, le cash-flow mensuel et votre effort d’épargne réel. Le mode avancé détaille chaque hypothèse et projette l’opération année par année.</div></div>
+
+<div class="page">
+
+<div class="mode-switch">
+  <div class="seg-group" id="grp_mode">
+    <button type="button" class="seg-btn" data-value="simple">Mode simple</button>
+    <button type="button" class="seg-btn" data-value="avance">Mode avanc&eacute;</button>
+  </div>
+  <span class="mode-hint simple-only">Frais d’acquisition, charges et fiscalité sont pré-remplis avec des hypothèses par défaut, listées sous le formulaire.</span>
+  <span class="mode-hint advanced-only">Toutes les hypothèses sont modifiables ; la projection année par année est affichée sous les résultats.</span>
+</div>
+
+<div class="grid">
+
+  <div class="card">
+    <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 10.4 12 3.7l8.5 6.7"/><path d="M5.7 9.2V19a1.6 1.6 0 0 0 1.6 1.6h9.4a1.6 1.6 0 0 0 1.6-1.6V9.2"/><path d="M9.9 20.6v-5.3h4.2v5.3"/></svg> Le bien</h2>
+    <div class="row stacked"><label for="territoire">Territoire du bien</label>
+      <select id="territoire"><option value="GP">Guadeloupe</option><option value="MQ">Martinique</option><option value="GF">Guyane</option><option value="RE">La Réunion</option></select>
+    </div>
+    <div class="note" id="note_terr"></div>
+    <hr class="divider">
+    <div class="row"><label for="prix">Prix d’achat</label><input type="number" id="prix" value="160000" min="0" step="1000" inputmode="decimal"><span class="unit">&euro;</span></div>
+    <div class="row stacked advanced-only"><label for="fraisMode">Frais d’acquisition (notaire, droits de mutation)</label>
+      <select id="fraisMode">
+        <option value="ancien">Estimation automatique — bien ancien</option>
+        <option value="neuf">Estimation automatique — bien neuf (VEFA)</option>
+        <option value="manuel">Saisie manuelle (devis du notaire)</option>
+      </select>
+    </div>
+    <div class="row advanced-only"><label for="fraisAcq">Montant des frais d’acquisition</label><input type="number" id="fraisAcq" value="0" min="0" step="100" inputmode="decimal" disabled><span class="unit">&euro;</span></div>
+    <div class="row advanced-only"><label for="travaux">Travaux</label><input type="number" id="travaux" value="0" min="0" step="500" inputmode="decimal"><span class="unit">&euro;</span></div>
+    <div class="row advanced-only"><label for="mobilier">Mobilier et équipement</label><input type="number" id="mobilier" value="0" min="0" step="500" inputmode="decimal"><span class="unit">&euro;</span></div>
+  </div>
+
+  <div class="card">
+    <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.8"/><path d="M15.7 8.5a4.3 4.3 0 0 0-6.2 1.6 6.1 6.1 0 0 0 0 3.8 4.3 4.3 0 0 0 6.2 1.6"/><path d="M7.6 11h5.1M7.6 13.4h5.1"/></svg> La location</h2>
+    <p class="seg-label" id="lbl_type">Type de location</p>
+    <div class="seg-group" id="grp_type" role="group" aria-labelledby="lbl_type">
+      <button type="button" class="seg-btn" data-value="longue" aria-pressed="true">Longue durée</button>
+      <button type="button" class="seg-btn" data-value="saison" aria-pressed="false">Saisonnière</button>
+    </div>
+    <div class="row longue-only"><label for="loyer">Loyer mensuel hors charges</label><input type="number" id="loyer" value="800" min="0" step="10" inputmode="decimal"><span class="unit">&euro;</span></div>
+    <div class="row saison-only"><label for="nuitee">Prix moyen de la nuitée</label><input type="number" id="nuitee" value="80" min="0" step="5" inputmode="decimal"><span class="unit">&euro;</span></div>
+    <div class="row saison-only"><label for="occupation">Taux d’occupation sur l’année</label><input type="number" id="occupation" value="45" min="0" max="100" step="1" inputmode="decimal"><span class="unit">%</span></div>
+    <div class="note" id="note_loc"></div>
+    <div class="row advanced-only longue-only"><label for="vacance">Vacance locative</label><input type="number" id="vacance" value="5" min="0" max="100" step="1" inputmode="decimal"><span class="unit">%</span></div>
+    <div class="row advanced-only"><label for="gestion" id="lbl_gestion">Frais de gestion</label><input type="number" id="gestion" value="7" min="0" max="100" step="0.5" inputmode="decimal"><span class="unit">%</span></div>
+    <div class="row advanced-only saison-only"><label for="plateforme">Commission de plateforme</label><input type="number" id="plateforme" value="15.5" min="0" max="100" step="0.5" inputmode="decimal"><span class="unit">%</span></div>
+    <div class="row advanced-only saison-only"><label for="menage">Ménage, linge et consommables</label><input type="number" id="menage" value="5" min="0" max="100" step="0.5" inputmode="decimal"><span class="unit">%</span></div>
+    <div class="row advanced-only saison-only"><label for="abonnements">Eau, électricité, internet à votre charge</label><input type="number" id="abonnements" value="1200" min="0" step="50" inputmode="decimal"><span class="unit">&euro;/an</span></div>
+    <div class="row advanced-only"><label for="taxeFonciere">Taxe foncière</label><input type="number" id="taxeFonciere" value="1200" min="0" step="50" inputmode="decimal"><span class="unit">&euro;/an</span></div>
+    <div class="row advanced-only"><label for="copro">Charges de copropriété non récupérables</label><input type="number" id="copro" value="600" min="0" step="50" inputmode="decimal"><span class="unit">&euro;/an</span></div>
+    <div class="row advanced-only"><label for="pno">Assurance propriétaire non occupant (PNO)</label><input type="number" id="pno" value="200" min="0" step="10" inputmode="decimal"><span class="unit">&euro;/an</span></div>
+    <div class="row advanced-only"><label for="autres">Entretien, CFE et autres charges</label><input type="number" id="autres" value="300" min="0" step="50" inputmode="decimal"><span class="unit">&euro;/an</span></div>
+    <div class="note advanced-only">Les pourcentages s’appliquent aux loyers encaissés. Toutes ces valeurs sont des exemples à remplacer par vos chiffres réels (avis de taxe foncière, appels de charges, mandat de gestion).</div>
+  </div>
+
+  <div class="card">
+    <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 9.8 12 4.5l9 5.3"/><path d="M5.6 11v7.4M10 11v7.4M14 11v7.4M18.4 11v7.4"/><path d="M3 20.4h18"/></svg> Le financement</h2>
+    <div class="row"><label for="apport">Apport personnel</label><input type="number" id="apport" value="25000" min="0" step="1000" inputmode="decimal"><span class="unit">&euro;</span></div>
+    <div class="row row-duree"><label for="duree">Durée du crédit</label>
+      <input type="range" id="dureeRange" min="1" max="30" step="1" value="20" aria-label="Durée du crédit, en années">
+      <input type="number" id="duree" value="20" min="1" max="30" step="1" inputmode="numeric" style="width:64px;"><span class="unit">ans</span>
+    </div>
+    <div class="row"><label for="taux">Taux du crédit</label><input type="number" id="taux" value="3.55" min="0" step="0.05" inputmode="decimal"><span class="unit">%</span></div>
+    <div class="row advanced-only"><label for="assurance">Taux d’assurance emprunteur</label><input type="number" id="assurance" value="0.34" min="0" step="0.01" inputmode="decimal"><span class="unit">%</span></div>
+    <hr class="divider">
+    <div class="row res"><span class="lbl">Montant emprunté (coût total − apport)</span><span class="result" id="out_emprunt">-</span></div>
+    <div class="row res"><span class="lbl">Mensualité, assurance comprise</span><span class="result" id="out_mens0">-</span></div>
+  </div>
+
+  <div class="card advanced-only">
+    <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.4 3.2H7.2a2 2 0 0 0-2 2v13.6a2 2 0 0 0 2 2h9.6a2 2 0 0 0 2-2V8.6z"/><path d="M13.4 3.2v5.4h5.4"/><path d="M8.6 13h6.8M8.6 16.4h4.8"/></svg> Fiscalité et projection</h2>
+    <div class="row stacked longue-only"><label for="regimeLongue">Régime fiscal des loyers (abattement forfaitaire)</label>
+      <select id="regimeLongue">
+        <option value="nue">Location nue — micro-foncier (30 %)</option>
+        <option value="meuble">Location meublée — micro-BIC (50 %)</option>
+      </select>
+    </div>
+    <div class="row stacked saison-only"><label for="regimeSaison">Régime fiscal des recettes (abattement forfaitaire)</label>
+      <select id="regimeSaison">
+        <option value="nonclasse">Tourisme non classé — micro-BIC (30 %)</option>
+        <option value="classe">Tourisme classé — micro-BIC (50 %)</option>
+      </select>
+    </div>
+    <div class="row"><label for="tmi">Tranche marginale d’imposition (TMI)</label>
+      <select id="tmi"><option value="0">0 %</option><option value="11">11 %</option><option value="30" selected>30 %</option><option value="41">41 %</option><option value="45">45 %</option></select>
+    </div>
+    <div class="row stacked"><label for="refaction">Réduction d’impôt des contribuables domiciliés outre-mer</label>
+      <select id="refaction"><option value="non">Non appliquée (hypothèse prudente)</option><option value="oui">Appliquée</option></select>
+    </div>
+    <div class="row"><label for="ps">Prélèvements sociaux</label><input type="number" id="ps" value="17.2" min="0" max="100" step="0.1" inputmode="decimal"><span class="unit">%</span></div>
+    <div class="note" id="note_fisc"></div>
+    <p class="section-title">Projection</p>
+    <div class="row"><label for="revalLoyer">Revalorisation annuelle des loyers et des charges</label><input type="number" id="revalLoyer" value="1" step="0.1" inputmode="decimal"><span class="unit">%</span></div>
+    <div class="row"><label for="revalBien">Revalorisation annuelle du bien</label><input type="number" id="revalBien" value="0" step="0.1" inputmode="decimal"><span class="unit">%</span></div>
+    <div class="row"><label for="horizon">Horizon de projection</label><input type="number" id="horizon" value="20" min="1" max="40" step="1" inputmode="numeric"><span class="unit">ans</span></div>
+  </div>
+
+</div>
+
+<p class="note simple-only" id="note_hyp" style="margin-top:-8px;"></p>
+
+<div id="alertes" aria-live="polite"></div>
+
+<div class="kpis" id="kpis"></div>
+
+<div class="ak-actions-res">
+  <button type="button" class="ak-btn ak-btn-pdf" data-ak-pdf><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.4v12.2"/><path d="m7.2 11 4.8 4.8 4.8-4.8"/><path d="M4.2 17.4v1.6a1.8 1.8 0 0 0 1.8 1.8h12a1.8 1.8 0 0 0 1.8-1.8v-1.6"/></svg> Télécharger cette simulation en PDF</button>
+  <a class="ak-btn ak-btn-primary" href="#mise-en-relation"><svg class="ak-ico ak-ico-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.5 12h15"/><path d="m13.2 5.7 6.3 6.3-6.3 6.3"/></svg> Faire valider cette simulation</a>
+</div>
+
+<div class="grid" style="margin-top:16px;">
+
+  <div class="card">
+    <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9.2 4.6H7.3a2.2 2.2 0 0 0-2.2 2.2v12a2.2 2.2 0 0 0 2.2 2.2h9.4a2.2 2.2 0 0 0 2.2-2.2v-12a2.2 2.2 0 0 0-2.2-2.2h-1.9"/><rect x="9.2" y="2.9" width="5.6" height="3.5" rx="1.2"/><path d="m9.5 13.6 1.9 1.9 3.6-3.8"/></svg> <span>Détail du résultat (1<sup>re</sup> année)</span></h2>
+    <div class="row res"><span class="lbl">Prix d’achat</span><span class="result" id="out_prix">-</span></div>
+    <div class="row res"><span class="lbl">+ Frais d’acquisition estimés</span><span class="result" id="out_frais">-</span></div>
+    <div class="row res"><span class="lbl">+ Travaux et mobilier</span><span class="result" id="out_travmob">-</span></div>
+    <div class="row res"><span class="lbl"><strong>Coût total de l’opération</strong></span><span class="result big" id="out_cout">-</span></div>
+    <hr class="divider">
+    <div class="row res"><span class="lbl" id="lbl_encaisse">Loyers encaissés par an</span><span class="result" id="out_encaisse">-</span></div>
+    <div class="row res"><span class="lbl">− Charges annuelles (hors crédit)</span><span class="result" id="out_charges">-</span></div>
+    <div class="row res"><span class="lbl">− Mensualités de crédit sur l’année</span><span class="result" id="out_mensAn">-</span></div>
+    <div class="row res"><span class="lbl">− Impôt et prélèvements sociaux</span><span class="result" id="out_impot">-</span></div>
+    <hr class="divider">
+    <div class="row res"><span class="lbl">Mensualité, assurance comprise</span><span class="result" id="out_mens">-</span></div>
+    <div class="row res"><span class="lbl">Cash-flow mensuel avant impôt</span><span class="result" id="out_cfAvant">-</span></div>
+    <div class="row res"><span class="lbl">Cash-flow mensuel après impôt</span><span class="result big" id="out_cfApres">-</span></div>
+    <div class="row res"><span class="lbl">Effort d’épargne mensuel</span><span class="result" id="out_effort">-</span></div>
+  </div>
+
+  <div class="card">
+    <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.8"/><path d="m8.9 15.1 6.2-6.2"/><circle cx="9.5" cy="9.5" r="1.3"/><circle cx="14.5" cy="14.5" r="1.3"/></svg> Les trois rendements</h2>
+    <div class="row res"><span class="lbl">Rendement brut<br><span class="muted">loyers d’une année pleine ÷ prix d’achat</span></span><span class="result" id="out_rBrut">-</span></div>
+    <div class="row res"><span class="lbl">Rendement net de charges<br><span class="muted">(loyers encaissés − charges) ÷ coût total</span></span><span class="result big" id="out_rNet">-</span></div>
+    <div class="row res"><span class="lbl">Rendement net d’impôt<br><span class="muted">(loyers − charges − impôt) ÷ coût total</span></span><span class="result" id="out_rNetImpot">-</span></div>
+    <hr class="divider">
+    <div class="row res"><span class="lbl">Intérêts et assurance sur la durée du crédit</span><span class="result" id="out_coutCredit">-</span></div>
+    <div class="row res"><span class="lbl">Coût total de l’opération, crédit compris</span><span class="result" id="out_coutAvecCredit">-</span></div>
+    <p class="note">Les rendements portent sur la première année et ne tiennent pas compte du crédit : c’est le cash-flow qui mesure l’effet du financement sur votre budget.</p>
+  </div>
+
+  <div class="card advanced-only">
+    <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.4 3.2H7.2a2 2 0 0 0-2 2v13.6a2 2 0 0 0 2 2h9.6a2 2 0 0 0 2-2V8.6z"/><path d="M13.4 3.2v5.4h5.4"/><path d="M8.6 13h6.8M8.6 16.4h4.8"/></svg> Frais d’acquisition estimés</h2>
+    <div class="row res"><span class="lbl" id="lbl_droits">Droits de mutation</span><span class="result" id="out_fd_droits">-</span></div>
+    <div class="row res"><span class="lbl">Émoluments du notaire, TVA comprise</span><span class="result" id="out_fd_emol">-</span></div>
+    <div class="row res"><span class="lbl">Contribution de sécurité immobilière (0,10 %)</span><span class="result" id="out_fd_csi">-</span></div>
+    <div class="row res"><span class="lbl">Débours et formalités (forfait estimatif)</span><span class="result" id="out_fd_debours">-</span></div>
+    <hr class="divider">
+    <div class="row res"><span class="lbl">Total retenu dans le calcul</span><span class="result big" id="out_fd_total">-</span></div>
+    <p class="note" id="note_frais"></p>
+  </div>
+
+  <div class="card advanced-only">
+    <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.4 7.2h11.2M18.6 7.2h2M3.4 12h5.2M12.6 12h8M3.4 16.8h9.2M16.8 16.8h3.8"/><circle cx="16.6" cy="7.2" r="2"/><circle cx="10.6" cy="12" r="2"/><circle cx="14.8" cy="16.8" r="2"/></svg> <span>Charges et impôt (1<sup>re</sup> année)</span></h2>
+    <div class="row res"><span class="lbl">Taxe foncière, copropriété, PNO, autres</span><span class="result" id="out_cd_fixes">-</span></div>
+    <div class="row res"><span class="lbl">Frais de gestion</span><span class="result" id="out_cd_gestion">-</span></div>
+    <div class="row res saison-only"><span class="lbl">Plateforme, ménage et abonnements</span><span class="result" id="out_cd_saison">-</span></div>
+    <div class="row res longue-only"><span class="lbl">Loyers perdus en vacance (déjà déduits des loyers encaissés)</span><span class="result" id="out_cd_vacance">-</span></div>
+    <hr class="divider">
+    <div class="row res"><span class="lbl">Recettes imposables</span><span class="result" id="out_fi_recettes">-</span></div>
+    <div class="row res"><span class="lbl" id="lbl_abatt">Abattement forfaitaire</span><span class="result" id="out_fi_abatt">-</span></div>
+    <div class="row res"><span class="lbl">Revenu imposable</span><span class="result" id="out_fi_base">-</span></div>
+    <div class="row res"><span class="lbl">Impôt sur le revenu</span><span class="result" id="out_fi_ir">-</span></div>
+    <div class="row res"><span class="lbl">Prélèvements sociaux</span><span class="result" id="out_fi_ps">-</span></div>
+  </div>
+
+</div>
+
+<div class="card advanced-only" style="margin-top:16px;">
+  <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.4 16.6 9.5 10.5l3.5 3.5 7.6-7.6"/><path d="M15.4 6.4h5.2v5.2"/></svg> Trésorerie cumulée, capital restant dû et valeur du bien</h2>
+  <div class="chart-box"><canvas id="chart" role="img" aria-label="Courbes de la trésorerie cumulée, du capital restant dû et de la valeur du bien, année par année. Les mêmes données figurent dans le tableau ci-dessous."></canvas></div>
+  <p class="note">Trésorerie cumulée : somme des cash-flows après impôt, apport personnel déduit au départ. Les trois courbes sont en euros, sur la même échelle.</p>
+</div>
+
+<div class="card advanced-only" style="margin-top:16px;">
+  <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.3" y="4.6" width="17.4" height="14.8" rx="2.2"/><path d="M3.3 9.4h17.4M3.3 14.4h17.4M9.2 9.4v10M15.1 9.4v10"/></svg> Projection année par année</h2>
+  <div class="table-wrap">
+    <table id="projTable">
+      <thead>
+        <tr>
+          <th>Année</th><th>Loyers encaissés</th><th>Charges</th><th>Mensualités</th><th>Impôt + PS</th>
+          <th>Cash-flow net</th><th>Trésorerie cumulée</th><th>Capital restant dû</th><th>Valeur du bien</th>
+        </tr>
+      </thead>
+      <tbody id="projBody"></tbody>
+    </table>
+  </div>
+  <p class="note scroll-hint">&#8596; Faites glisser le tableau horizontalement pour voir toutes les colonnes.</p>
+  <p class="note" id="note_proj"></p>
+</div>
+
+<p class="note">Simulation indicative. Sources des barèmes, vérifiés le 4 octobre 2026 : droits de mutation, taux départementaux publiés par la DGFiP (tableau applicable au 1<sup>er</sup> juin 2026) ; émoluments du notaire, barème réglementé (article A444-91 du code de commerce) ; abattements micro-foncier et micro-BIC applicables aux revenus 2026 et prélèvements sociaux (17,2 % en location nue, 18,6 % en location meublée non professionnelle), service-public.gouv.fr et impots.gouv.fr ; réduction d’impôt des contribuables domiciliés outre-mer, brochure pratique 2026 de l’impôt sur le revenu. Les loyers, taux d’occupation, charges, taux de crédit et d’assurance préremplis sont des exemples, pas des moyennes de marché. Le régime réel, la plus-value à la revente et les dispositifs de défiscalisation ne sont pas simulés.</p>
+
+<div id="mise-en-relation" data-ak-lead
+     data-suite="/lmnp|Comparer LMNP réel et micro-BIC"
+     data-bouton-court="Être rappelé"
+     data-outil="rentabilite-locative"
+     data-outil-label="Rentabilité locative"
+     data-titre="Ce rendement vous intéresse ? Faites-le valider par un professionnel local."
+     data-texte="Loyer réaliste, vacance, charges, fiscalité : un rendement se joue sur des détails que seul un professionnel du territoire connaît. Laissez vos coordonnées : nous transmettons votre demande, récapitulatif inclus, à un partenaire implanté sur votre île."
+     data-avantages="Agences, gestionnaires et experts-comptables sélectionnés sur leurs honoraires, la qualité du suivi, la réactivité et les garanties|Un seul partenaire contacté, implanté sur votre île|Premier échange gratuit, sans engagement et sans frais pour vous|Votre simulation est jointe : pas besoin de tout réexpliquer"
+     data-besoins="Faire estimer le loyer de mon bien|Confier la gestion locative de mon bien|Trouver un bien à bon rendement sur mon territoire|Optimiser la fiscalité de mes loyers (LMNP, régime réel)|Je me renseigne pour plus tard"
+     data-bouton="Être rappelé par un professionnel"></div>
+
+<p class="note" style="margin-top:22px;">Simulation indicative — ne constitue ni un conseil en investissement ni un conseil fiscal ; les loyers, charges et régimes fiscaux sont à confirmer avec un professionnel.</p>
+
+<!-- ======================= CONTENU ÉDITORIAL ET FAQ ======================= -->
+<section class="ak-seo" id="guide" aria-labelledby="guide-titre">
+  <h2 id="guide-titre">Rentabilité locative en Outre-mer : lire un rendement sans se tromper</h2>
+<p>Un rendement locatif se résume souvent à un seul pourcentage, alors qu’il en existe au moins trois, qui ne racontent pas la même histoire. Ce simulateur les calcule ensemble, pour une location à l’année comme pour une location saisonnière, avec les frais d’acquisition propres à chaque territoire et la fiscalité applicable aux loyers perçus en 2026.</p>
+<h3>Rendement brut, net de charges, net d’impôt : trois chiffres, trois usages</h3>
+<p>Le <strong>rendement brut</strong> rapporte les loyers d’une année pleine au prix d’achat : c’est le chiffre des annonces, utile pour comparer deux biens, trompeur pour décider. Le <strong>rendement net de charges</strong> retire la taxe foncière, les charges de copropriété non récupérables, l’assurance propriétaire non occupant, les frais de gestion et la vacance, puis rapporte le résultat au coût réel de l’opération, frais d’acquisition, travaux et mobilier compris. Le <strong>rendement net d’impôt</strong> déduit enfin l’impôt sur le revenu et les prélèvements sociaux. Le <strong>cash-flow</strong>, lui, ne mesure pas la rentabilité mais la trésorerie : ce qu’il reste chaque mois une fois la mensualité payée. Quand il est négatif, c’est votre effort d’épargne.</p>
+<h3>Des frais d’acquisition qui varient d’un territoire à l’autre</h3>
+<p>Dans l’ancien, les droits de mutation dépendent du taux voté par chaque collectivité. Au 1<sup>er</sup> juin 2026, le taux départemental est de 4,50 % en Guadeloupe et de 5 % en Martinique, en Guyane et à La Réunion, qui ont appliqué la hausse ouverte par la loi de finances pour 2025. Avec la taxe communale et les frais d’assiette, cela représente <strong>5,81 % du prix en Guadeloupe contre 6,32 % dans les trois autres territoires</strong>, auxquels s’ajoutent les émoluments du notaire et les formalités. Dans le neuf, la taxe de publicité foncière est de 0,715 % partout. Le simulateur applique le barème du territoire choisi ; en mode avancé, vous pouvez saisir le montant exact communiqué par votre notaire.</p>
+<h3>Loyers : partir de données observées, pas d’une moyenne supposée</h3>
+<p>Aucun simulateur ne connaît le loyer de votre bien : les valeurs préremplies sont de simples exemples. Pour vous situer, appuyez-vous sur les observatoires. En Guadeloupe, l’Observatoire des loyers porté par l’ADIL relève un loyer médian de 11,4 €/m² hors charges, soit 680 € par mois, en 2023 dans l’agglomération de Cap Excellence (Pointe-à-Pitre, Les Abymes, Baie-Mahault). À La Réunion, l’observatoire de l’ADIL et de l’AGORAH mesure 10,90 €/m² hors charges en 2024. En Guyane, l’AUDeG calcule 16,20 €/m² hors charges en 2024 à partir des annonces de location, des loyers d’offre qui ne se comparent pas directement à ceux des baux en cours. La Martinique n’a pas d’observatoire dans le réseau national : la carte des loyers du ministère chargé du logement y fournit des loyers d’annonce par commune. Une médiane reste un repère ; la surface, le quartier et l’état du logement font varier le loyer bien davantage.</p>
+<h3>Location saisonnière : ce que la loi Le Meur a changé</h3>
+<p>La loi du 19 novembre 2024, dite Le Meur, a réduit l’avantage fiscal des meublés de tourisme. Pour les revenus 2026, un meublé <strong>non classé</strong> ne bénéficie plus que d’un abattement micro-BIC de 30 %, dans la limite de 15 000 € de recettes ; un meublé <strong>classé</strong> conserve 50 %, jusqu’à 83 600 €. Au-delà de ces plafonds, le régime réel s’impose. La loi prévoit aussi la généralisation, au plus tard le 20 mai 2026, d’une déclaration en mairie donnant lieu à un numéro d’enregistrement : renseignez-vous auprès de votre commune. Côté charges, comptez la commission de la plateforme (Airbnb fait passer ses hôtes à des frais de service uniques, de 15,5 % pour la plupart), le ménage, le linge, les abonnements et, souvent, une conciergerie. Un taux d’occupation se vérifie sur une année entière, basse saison comprise.</p>
+<h3>Impôt et prélèvements sociaux : les règles à connaître outre-mer</h3>
+<p>En location nue, le micro-foncier applique un abattement de 30 % tant que vos loyers ne dépassent pas 15 000 € par an ; en meublé de longue durée, le micro-BIC applique 50 % jusqu’à 83 600 €. Le revenu restant est imposé à votre tranche marginale, puis soumis aux prélèvements sociaux : <strong>17,2 % sur les revenus fonciers, mais 18,6 % sur les revenus de location meublée non professionnelle</strong> depuis la loi de financement de la sécurité sociale pour 2026. Les contribuables domiciliés outre-mer bénéficient en outre d’une réduction de leur impôt sur le revenu de 30 % en Guadeloupe, en Martinique et à La Réunion (plafonnée à 2 450 €) et de 40 % en Guyane (plafonnée à 4 050 €) : le mode avancé permet de l’appliquer. Dès que les intérêts d’emprunt, les charges ou les travaux sont élevés, le régime réel peut se révéler plus favorable ; il n’est pas simulé ici.</p>
+<p class="ak-seo-note">Barèmes, plafonds et taux vérifiés en octobre 2026 auprès de la DGFiP, de service-public.gouv.fr et d’impots.gouv.fr ; ils peuvent évoluer avec chaque loi de finances. Un professionnel implanté sur votre territoire confirmera le loyer réaliste, les charges et le régime fiscal adaptés à votre projet.</p>
+  <h3 id="faq">Questions fréquentes</h3>
+  <div class="ak-faq"><details><summary>Comment calculer le rendement brut d’un investissement locatif ?</summary><p>Divisez le loyer annuel hors charges par le prix d’achat, puis multipliez par 100. Un logement acheté 160 000 € et loué 800 € par mois rapporte 9 600 € par an, soit 6 % brut. Ce chiffre ignore les frais d’acquisition, les charges, la vacance et l’impôt : le rendement net est toujours nettement plus bas.</p></details><details><summary>Quelle différence entre rendement net de charges et rendement net d’impôt ?</summary><p>Le rendement net de charges retire des loyers la taxe foncière, les charges de copropriété non récupérables, l’assurance, les frais de gestion et la vacance, et rapporte le résultat au coût total de l’opération. Le rendement net d’impôt retire en plus l’impôt sur le revenu et les prélèvements sociaux : il dépend donc de votre tranche d’imposition et du régime fiscal choisi.</p></details><details><summary>Location saisonnière ou longue durée : laquelle est la plus rentable en Outre-mer ?</summary><p>Cela dépend du taux d’occupation réel et des charges. La location saisonnière affiche des recettes brutes plus élevées, mais supporte la commission de plateforme, le ménage, les abonnements, souvent une conciergerie, et une fiscalité durcie pour les meublés non classés. La longue durée offre des revenus plus réguliers et moins de gestion. Le simulateur permet de comparer les deux sur le même bien en changeant simplement de type de location.</p></details><details><summary>Quel abattement fiscal pour un meublé de tourisme en 2026 ?</summary><p>Au régime micro-BIC, l’abattement est de 30 % pour un meublé de tourisme non classé, dans la limite de 15 000 € de recettes annuelles, et de 50 % pour un meublé classé, dans la limite de 83 600 €. Ces règles issues de la loi Le Meur s’appliquent en Outre-mer comme dans l’Hexagone. Au-delà des plafonds, vous relevez du régime réel.</p></details><details><summary>Les prélèvements sociaux sur les loyers sont-ils de 17,2 % ou de 18,6 % ?</summary><p>Les deux taux coexistent. Les revenus fonciers d’une location nue restent soumis à 17,2 %. Les revenus d’une location meublée non professionnelle, à l’année ou saisonnière, sont soumis à 18,6 % depuis le relèvement de la CSG par la loi de financement de la sécurité sociale pour 2026. Le simulateur applique automatiquement le taux correspondant au régime choisi.</p></details></div>
+<nav class="ak-terr" aria-label="Ce simulateur par territoire"><span class="ak-terr-t">Ce simulateur par territoire</span><a class="ak-terr-link" href="/rentabilite-locative-guadeloupe"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.4c0 0 7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11"/><circle cx="12" cy="10.4" r="2.6"/></svg> Guadeloupe</a><a class="ak-terr-link" href="/rentabilite-locative-martinique"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.4c0 0 7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11"/><circle cx="12" cy="10.4" r="2.6"/></svg> Martinique</a><a class="ak-terr-link" href="/rentabilite-locative-guyane"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.4c0 0 7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11"/><circle cx="12" cy="10.4" r="2.6"/></svg> Guyane</a><a class="ak-terr-link" href="/rentabilite-locative-la-reunion"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.4c0 0 7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11"/><circle cx="12" cy="10.4" r="2.6"/></svg> La Réunion</a></nav>
+  <div class="ak-seo-cta">
+    <a class="ak-btn ak-btn-primary" data-ak-cta="guide" href="#mise-en-relation">Faire valider ce rendement par un professionnel <svg class="ak-ico ak-ico-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.5 12h15"/><path d="m13.2 5.7 6.3 6.3-6.3 6.3"/></svg></a>
+    <a class="ak-btn ak-btn-outline" href="/#outils">Tous les simulateurs</a>
+  </div>
+</section>
+
+</div>
+
+<footer class="ak-footer">
+  <div class="ak-wrap">
+    <div class="ak-footer-grid">
+      <div>
+        <p class="ak-footer-brand">AKAPA</p>
+        <p>Simulateurs financiers, énergétiques et fiscaux adaptés aux Antilles-Guyane, et mise en relation avec des partenaires implantés sur le territoire.</p>
+        <div class="ak-footer-contact">
+          <span><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2.8" y="5.2" width="18.4" height="13.6" rx="2.4"/><path d="m3.6 7.2 7.3 5.1a2 2 0 0 0 2.2 0l7.3-5.1"/></svg> <a href="mailto:hello@akapa.fr">hello@akapa.fr</a></span>
+          <span><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8.5 3.6H5.7a2.1 2.1 0 0 0-2.1 2.3c.6 8 6.6 14 14.6 14.6a2.1 2.1 0 0 0 2.2-2.1v-2.8l-4.2-1.7-2 2a13.7 13.7 0 0 1-5.8-5.8l2-2z"/></svg> <a href="tel:+590690289902">+590 690 28 99 02</a></span>
+          <span><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.4c0 0 7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11"/><circle cx="12" cy="10.4" r="2.6"/></svg> Baie-Mahault, Guadeloupe</span>
+        </div>
+      </div>
+      <div>
+        <h4>Simulateurs</h4>
+        <ul>
+          <li><a href="/capacite-emprunt">Capacité d’emprunt</a></li>
+          <li><a href="/mensualites-credit">Mensualités de crédit</a></li>
+          <li><a href="/frais-notaire">Frais de notaire</a></li>
+          <li><a href="/assurance-emprunteur">Assurance emprunteur</a></li>
+          <li><a href="/ciop">Rentabilité CIOP</a></li>
+          <li><a href="/lmnp">Simulateur LMNP</a></li>
+          <li><a href="/rentabilite-locative">Rentabilité locative</a></li>
+          <li><a href="/solaire">Rentabilité solaire</a></li>
+          <li><a href="/aides-renovation">Aides à la rénovation</a></li>
+          <li><a href="/vehicule-achat-location">Véhicule : acheter ou louer</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Le site</h4>
+        <ul>
+          <li><a href="/#methode">Comment ça marche</a></li>
+          <li><a href="/#selection">Notre sélection</a></li>
+          <li><a href="/#partenaires">Le réseau de partenaires</a></li>
+          <li><a href="/#contact">Être mis en relation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Akapa</h4>
+        <ul>
+          <li><a href="https://akapa.fr" target="_blank" rel="noopener">akapa.fr</a></li>
+          <li><a href="/mentions-legales">Mentions légales</a></li>
+          <li><a href="/confidentialite">Confidentialité</a></li>
+          <li><a href="#" data-ak-cookies>Gérer mes cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="ak-disclaimer">Simulation indicative — ne constitue ni un conseil en investissement ni un conseil fiscal ; les loyers, charges et régimes fiscaux sont à confirmer avec un professionnel.</p>
+    <div class="ak-footer-bottom">
+      <span>© 2026 AKAPA SAS — Baie-Mahault, Guadeloupe</span>
+      <span><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Politique de confidentialité</a> · <a href="#" data-ak-cookies>Gérer mes cookies</a></span>
+    </div>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.js" integrity="sha384-iU8HYtnGQ8Cy4zl7gbNMOhsDTTKX02BTXptVP/vqAWIaTfM7isw76iyZCsjL2eVi" crossorigin="anonymous"></script>
+<script>
+const $ = id => document.getElementById(id);
+const num = id => { const v = parseFloat($(id).value); return isFinite(v) ? v : 0; };
+const borne = (v, a, b) => Math.min(b, Math.max(a, v));
+const fini = v => (isFinite(v) ? v : 0);
+const eur = v => { v = fini(v); if (Math.abs(v) < 0.5) v = 0; return v.toLocaleString('fr-FR', {style:'currency', currency:'EUR', maximumFractionDigits:0}); };
+const pct2 = v => { v = fini(v) * 100; if (Math.abs(v) < 0.005) v = 0; return v.toLocaleString('fr-FR', {minimumFractionDigits:2, maximumFractionDigits:2}) + ' %'; };
+const nb = (v, d) => fini(v).toLocaleString('fr-FR', {minimumFractionDigits:0, maximumFractionDigits:(d == null ? 2 : d)});
+const nb2 = v => fini(v).toLocaleString('fr-FR', {minimumFractionDigits:2, maximumFractionDigits:2});
+
+/* ---------------------------------------------------------------- Barèmes
+   Droits de mutation : taux départementaux DGFiP applicables au 1er juin 2026.
+   Réduction d'impôt DOM : brochure pratique IR 2026 (revenus 2025).
+   Repères de loyers : observatoires locaux (voir la note de sources). */
+const TERR = {
+  GP: { nom:'Guadeloupe', en:'en Guadeloupe', tauxDep:4.50, refaction:30, plafRef:2450,
+        repere:'Repère : loyer médian du parc privé de Cap Excellence (Pointe-à-Pitre, Les Abymes, Baie-Mahault) de 11,4 €/m² hors charges en 2023, soit 680 € par mois — Observatoire des loyers, ADIL de la Guadeloupe.' },
+  MQ: { nom:'Martinique', en:'en Martinique', tauxDep:5.00, refaction:30, plafRef:2450,
+        repere:'Repère : la Martinique n’a pas d’observatoire local des loyers dans le réseau national ; la carte des loyers du ministère chargé du logement donne des loyers d’annonce par commune.' },
+  GF: { nom:'Guyane', en:'en Guyane', tauxDep:5.00, refaction:40, plafRef:4050,
+        repere:'Repère : loyer médian de 16,20 €/m² hors charges en 2024, calculé sur les annonces de location — Observatoire de l’habitat, AUDeG.' },
+  RE: { nom:'La Réunion', en:'à La Réunion', tauxDep:5.00, refaction:30, plafRef:2450,
+        repere:'Repère : loyer médian du parc privé de 10,90 €/m² hors charges en 2024 — Observatoire des loyers privés, ADIL et AGORAH.' }
+};
+/* Régimes micro applicables aux revenus 2026 (service-public.gouv.fr). */
+const REGIMES = {
+  nue:       { lib:'location nue au micro-foncier', abat:0.30, plafond:15000, ps:17.2, bic:false },
+  meuble:    { lib:'location meublée au micro-BIC', abat:0.50, plafond:83600, ps:18.6, bic:true },
+  nonclasse: { lib:'meublé de tourisme non classé au micro-BIC', abat:0.30, plafond:15000, ps:18.6, bic:true },
+  classe:    { lib:'meublé de tourisme classé au micro-BIC', abat:0.50, plafond:83600, ps:18.6, bic:true }
+};
+const DEBOURS = 800;           // forfait estimatif de débours et formalités
+const TPF_NEUF = 0.715;        // taxe de publicité foncière, bien neuf (%)
+/* Valeurs par défaut qui dépendent du type de location (exemples modifiables). */
+const DEFAUTS = { longue:{ mobilier:0, gestion:7 }, saison:{ mobilier:8000, gestion:20 } };
+
+const etat = { type:'longue' };
+const touche = {};
+let chart = null;
+
+/* Taux global = taux départemental + 1,20 % (taxe communale) + 2,37 % du taux départemental (frais d'assiette). */
+function tauxGlobal(tauxDep){ return tauxDep + 1.20 + tauxDep * 0.0237; }
+
+function emolumentsHT(prix){
+  const t1 = Math.min(prix, 6500) * 0.03870;
+  const t2 = Math.max(0, Math.min(prix, 17000) - 6500) * 0.01596;
+  const t3 = Math.max(0, Math.min(prix, 60000) - 17000) * 0.01064;
+  const t4 = Math.max(0, prix - 60000) * 0.00799;
+  return t1 + t2 + t3 + t4;
+}
+
+function fraisAuto(prix, mode, terr){
+  if (!(prix > 0)) return { taux:0, droits:0, emol:0, csi:0, debours:0, total:0 };
+  const taux = mode === 'neuf' ? TPF_NEUF : tauxGlobal(terr.tauxDep);
+  const droits = prix * taux / 100;
+  const emol = emolumentsHT(prix) * 1.20;
+  const csi = prix * 0.0010;
+  return { taux, droits, emol, csi, debours:DEBOURS, total: droits + emol + csi + DEBOURS };
+}
+
+function lire(){
+  const saison = etat.type === 'saison';
+  return {
+    terr: TERR[$('territoire').value] || TERR.GP,
+    saison: saison,
+    prix: Math.max(0, num('prix')),
+    fraisMode: $('fraisMode').value,
+    fraisManuel: Math.max(0, num('fraisAcq')),
+    travaux: Math.max(0, num('travaux')),
+    mobilier: Math.max(0, num('mobilier')),
+    loyer: Math.max(0, num('loyer')),
+    nuitee: Math.max(0, num('nuitee')),
+    occupation: borne(num('occupation'), 0, 100) / 100,
+    vacance: borne(num('vacance'), 0, 100) / 100,
+    gestion: borne(num('gestion'), 0, 100) / 100,
+    plateforme: borne(num('plateforme'), 0, 100) / 100,
+    menage: borne(num('menage'), 0, 100) / 100,
+    abonnements: Math.max(0, num('abonnements')),
+    taxeFonciere: Math.max(0, num('taxeFonciere')),
+    copro: Math.max(0, num('copro')),
+    pno: Math.max(0, num('pno')),
+    autres: Math.max(0, num('autres')),
+    apport: Math.max(0, num('apport')),
+    duree: borne(Math.round(num('duree')), 1, 30),
+    taux: borne(num('taux'), 0, 30),
+    assurance: borne(num('assurance'), 0, 10),
+    regime: saison ? $('regimeSaison').value : $('regimeLongue').value,
+    tmi: borne(parseFloat($('tmi').value) || 0, 0, 100) / 100,
+    refaction: $('refaction').value === 'oui',
+    ps: borne(num('ps'), 0, 100) / 100,
+    revalLoyer: borne(num('revalLoyer'), -10, 20) / 100,
+    revalBien: borne(num('revalBien'), -10, 20) / 100,
+    horizon: borne(Math.round(num('horizon')), 1, 40)
+  };
+}
+
+/* Calcul pur : ne lit ni n'écrit rien dans la page. */
+function calculer(p){
+  const R = REGIMES[p.regime] || REGIMES.nue;
+  const fa = fraisAuto(p.prix, p.fraisMode, p.terr);
+  const frais = p.fraisMode === 'manuel' ? p.fraisManuel : fa.total;
+  const cout = p.prix + frais + p.travaux + p.mobilier;
+  const apportUtilise = Math.min(p.apport, cout);
+  const emprunt = cout - apportUtilise;
+
+  const n = p.duree * 12;
+  const tm = p.taux / 100 / 12;
+  const mCredit = emprunt > 0 ? (tm > 0 ? emprunt * tm / (1 - Math.pow(1 + tm, -n)) : emprunt / n) : 0;
+  const mAssur = emprunt * p.assurance / 100 / 12;
+  const mensualite = mCredit + mAssur;
+  const coutCredit = Math.max(0, mCredit * n - emprunt) + mAssur * n;
+
+  let crd = emprunt, tresor = -apportUtilise;
+  const lignes = [];
+  for (let a = 1; a <= p.horizon; a++){
+    const idx = Math.pow(1 + p.revalLoyer, a - 1);
+    const brut = (p.saison ? p.nuitee * 365 * p.occupation : p.loyer * 12) * idx;
+    const encaisse = p.saison ? brut : brut * (1 - p.vacance);
+    const fixes = (p.taxeFonciere + p.copro + p.pno + p.autres) * idx;
+    const gestion = encaisse * p.gestion;
+    const saisonnier = p.saison ? encaisse * (p.plateforme + p.menage) + p.abonnements * idx : 0;
+    const charges = fixes + gestion + saisonnier;
+
+    let mensAn = 0;
+    for (let m = 0; m < 12; m++){
+      if (emprunt > 0 && (a - 1) * 12 + m < n){
+        const interet = crd * tm;
+        crd = Math.max(0, crd - (mCredit - interet));
+        mensAn += mensualite;
+      }
+    }
+    if (crd < 0.005) crd = 0;
+
+    const abattement = R.bic ? Math.min(encaisse, Math.max(encaisse * R.abat, 305)) : encaisse * R.abat;
+    const base = Math.max(0, encaisse - abattement);
+    const irBrut = base * p.tmi;
+    const reduc = p.refaction ? Math.min(irBrut * p.terr.refaction / 100, p.terr.plafRef) : 0;
+    const ir = irBrut - reduc;
+    const ps = base * p.ps;
+    const impot = ir + ps;
+
+    const cfAvant = encaisse - charges - mensAn;
+    const cfApres = cfAvant - impot;
+    tresor += cfApres;
+    const valeur = p.prix * Math.pow(1 + p.revalBien, a);
+
+    lignes.push({ a, brut, encaisse, fixes, gestion, saisonnier, charges, mensAn, abattement, base, ir, ps, impot,
+                  cfAvant, cfApres, tresor, crd, valeur });
+  }
+
+  const l1 = lignes[0];
+  return {
+    R, fa, frais, cout, apportUtilise, emprunt, mCredit, mAssur, mensualite, coutCredit, lignes, l1,
+    rBrut: p.prix > 0 ? l1.brut / p.prix : null,
+    rNet: cout > 0 ? (l1.encaisse - l1.charges) / cout : null,
+    rNetImpot: cout > 0 ? (l1.encaisse - l1.charges - l1.impot) / cout : null,
+    cfAvantMois: l1.cfAvant / 12,
+    cfApresMois: l1.cfApres / 12,
+    effort: Math.max(0, -l1.cfApres / 12)
+  };
+}
+
+function ecrire(id, txt, signe){
+  const e = $(id);
+  if (!e) return;
+  e.textContent = txt;
+  if (signe !== undefined){ e.classList.toggle('neg', signe < -0.5); e.classList.toggle('pos', signe > 0.5); }
+}
+
+function compute(){
+  const p = lire();
+  const r = calculer(p);
+  const R = r.R, l1 = r.l1, t = p.terr;
+  const ou = v => (v == null ? '-' : pct2(v));
+
+  /* --- champ des frais d'acquisition : rempli automatiquement, sauf saisie manuelle --- */
+  const champFrais = $('fraisAcq');
+  champFrais.disabled = p.fraisMode !== 'manuel';
+  if (p.fraisMode !== 'manuel') champFrais.value = Math.round(r.fa.total);
+
+  /* --- notes dépendant du territoire et du type --- */
+  $('note_terr').textContent = 'Droits de mutation dans l’ancien ' + t.en + ' : ' + nb2(tauxGlobal(t.tauxDep))
+    + ' % du prix (taux départemental de ' + nb2(t.tauxDep) + ' %). ' + t.repere;
+  $('note_loc').textContent = p.saison
+    ? 'Valeurs d’exemple, à remplacer par les vôtres : ' + nb(p.nuitee * 365 * p.occupation, 0) + ' € de recettes par an, soit ' + nb(365 * p.occupation, 0) + ' nuits louées.'
+    : 'Valeur d’exemple, à remplacer par le loyer réel ou estimé de votre bien.';
+  $('lbl_gestion').textContent = p.saison ? 'Conciergerie ou gestion' : 'Frais de gestion locative';
+  $('lbl_encaisse').textContent = p.saison ? 'Recettes de location par an' : 'Loyers encaissés par an';
+  const optRef = $('refaction').options[1];
+  optRef.textContent = 'Appliquée : −' + t.refaction + ' % ' + t.en + ' (plafond ' + nb(t.plafRef, 0) + ' €)';
+
+  /* --- financement --- */
+  ecrire('out_emprunt', eur(r.emprunt));
+  ecrire('out_mens0', eur(r.mensualite));
+  ecrire('out_mens', eur(r.mensualite));
+
+  /* --- détail du résultat --- */
+  ecrire('out_prix', eur(p.prix));
+  ecrire('out_frais', eur(r.frais));
+  ecrire('out_travmob', eur(p.travaux + p.mobilier));
+  ecrire('out_cout', eur(r.cout));
+  ecrire('out_encaisse', eur(l1.encaisse));
+  ecrire('out_charges', eur(l1.charges));
+  ecrire('out_mensAn', eur(l1.mensAn));
+  ecrire('out_impot', eur(l1.impot));
+  ecrire('out_cfAvant', eur(r.cfAvantMois), r.cfAvantMois);
+  ecrire('out_cfApres', eur(r.cfApresMois), r.cfApresMois);
+  ecrire('out_effort', eur(r.effort));
+  ecrire('out_rBrut', ou(r.rBrut));
+  ecrire('out_rNet', ou(r.rNet));
+  ecrire('out_rNetImpot', ou(r.rNetImpot));
+  ecrire('out_coutCredit', eur(r.coutCredit));
+  ecrire('out_coutAvecCredit', eur(r.cout + r.coutCredit));
+
+  /* --- frais d'acquisition --- */
+  const manuel = p.fraisMode === 'manuel';
+  $('lbl_droits').textContent = p.fraisMode === 'neuf'
+    ? 'Taxe de publicité foncière (' + nb(TPF_NEUF, 3) + ' %)'
+    : 'Droits de mutation (' + nb2(tauxGlobal(t.tauxDep)) + ' %)';
+  ecrire('out_fd_droits', manuel ? '-' : eur(r.fa.droits));
+  ecrire('out_fd_emol', manuel ? '-' : eur(r.fa.emol));
+  ecrire('out_fd_csi', manuel ? '-' : eur(r.fa.csi));
+  ecrire('out_fd_debours', manuel ? '-' : eur(r.fa.debours));
+  ecrire('out_fd_total', eur(r.frais));
+  $('note_frais').textContent = manuel
+    ? 'Montant saisi par vos soins. L’estimation automatique donnerait ' + eur(r.fa.total) + ' pour un bien ancien ' + t.en + '.'
+    : (p.fraisMode === 'neuf'
+        ? 'Bien neuf : la taxe de publicité foncière réduite remplace les droits de mutation, quel que soit le territoire. Le prix s’entend TVA comprise.'
+        : 'Estimation pour un bien ancien, calculée sur le prix d’achat, hors frais de garantie du prêt et honoraires d’agence. Demandez un décompte à votre notaire.');
+
+  /* --- charges et impôt --- */
+  ecrire('out_cd_fixes', eur(l1.fixes));
+  ecrire('out_cd_gestion', eur(l1.gestion));
+  ecrire('out_cd_saison', eur(l1.saisonnier));
+  ecrire('out_cd_vacance', eur(l1.brut - l1.encaisse));
+  ecrire('out_fi_recettes', eur(l1.encaisse));
+  $('lbl_abatt').textContent = 'Abattement forfaitaire (' + nb(R.abat * 100, 0) + ' %)';
+  ecrire('out_fi_abatt', eur(l1.abattement));
+  ecrire('out_fi_base', eur(l1.base));
+  ecrire('out_fi_ir', eur(l1.ir));
+  ecrire('out_fi_ps', eur(l1.ps));
+
+  $('note_fisc').textContent = 'Régime retenu : ' + R.lib + ', plafond de ' + nb(R.plafond, 0)
+    + ' € de recettes par an. Prélèvements sociaux : 17,2 % en location nue, 18,6 % en location meublée ; le champ se met à jour quand vous changez de régime.'
+    + (p.refaction ? ' La réduction outre-mer est plafonnée à ' + nb(t.plafRef, 0) + ' € par foyer et par an : si votre impôt atteint déjà ce plafond, choisissez « Non appliquée ».'
+                   : ' La réduction outre-mer ne concerne que les contribuables fiscalement domiciliés dans le département.');
+
+  /* --- hypothèses du mode simple --- */
+  const h = [];
+  h.push('frais d’acquisition ' + (manuel ? 'saisis à ' : 'estimés à ') + eur(r.frais)
+    + (manuel ? '' : (p.fraisMode === 'neuf' ? ' (bien neuf)' : ' (bien ancien, droits de mutation de ' + nb2(tauxGlobal(t.tauxDep)) + ' % ' + t.en + ')')));
+  if (p.travaux > 0) h.push('travaux ' + eur(p.travaux));
+  if (p.mobilier > 0) h.push('mobilier ' + eur(p.mobilier));
+  h.push('taxe foncière ' + eur(p.taxeFonciere) + ' par an');
+  h.push('charges de copropriété non récupérables ' + eur(p.copro) + ' par an');
+  h.push('assurance PNO ' + eur(p.pno) + ' par an');
+  h.push('entretien et divers ' + eur(p.autres) + ' par an');
+  if (p.saison){
+    h.push('conciergerie ' + nb(p.gestion * 100) + ' % des recettes');
+    h.push('commission de plateforme ' + nb(p.plateforme * 100) + ' %');
+    h.push('ménage et linge ' + nb(p.menage * 100) + ' %');
+    h.push('abonnements ' + eur(p.abonnements) + ' par an');
+  } else {
+    h.push('gestion locative ' + nb(p.gestion * 100) + ' % des loyers');
+    h.push('vacance ' + nb(p.vacance * 100) + ' %');
+  }
+  h.push('assurance emprunteur ' + nb(p.assurance) + ' %');
+  h.push(R.lib + ' (abattement de ' + nb(R.abat * 100, 0) + ' %)');
+  h.push('tranche marginale d’imposition de ' + nb(p.tmi * 100, 0) + ' %' + (p.refaction ? ', réduction outre-mer appliquée' : ', sans réduction outre-mer'));
+  h.push('prélèvements sociaux de ' + nb(p.ps * 100, 1) + ' %');
+  $('note_hyp').innerHTML = '<strong>Hypothèses par défaut de ce calcul</strong> : ' + h.join(' ; ')
+    + '. Ce sont des exemples, pas des moyennes de marché : passez en <strong>mode avancé</strong> pour les remplacer par vos chiffres.';
+
+  /* --- alertes --- */
+  const al = [];
+  if (l1.brut <= 0) al.push(p.saison ? 'Indiquez un prix de nuitée et un taux d’occupation pour obtenir un rendement.' : 'Indiquez un loyer mensuel pour obtenir un rendement.');
+  if (p.prix <= 0) al.push('Indiquez le prix d’achat du bien pour obtenir un rendement.');
+  if (l1.encaisse > R.plafond) al.push('Avec ' + eur(l1.encaisse) + ' de recettes par an, vous dépassez le plafond de ' + nb(R.plafond, 0)
+    + ' € du régime retenu (' + R.lib + ') : le régime réel s’applique alors et l’impôt affiché n’est qu’un ordre de grandeur.');
+  if (p.apport > r.cout && r.cout > 0) al.push('Votre apport dépasse le coût total de l’opération : le calcul retient un achat sans emprunt, avec ' + eur(r.cout) + ' d’apport.');
+  if (p.regime === 'meuble' && p.mobilier <= 0) al.push('Une location meublée suppose un logement équipé : pensez à renseigner le budget mobilier en mode avancé.');
+  $('alertes').innerHTML = al.map(m => '<div class="warn">' + m + '</div>').join('');
+
+  /* --- indicateurs --- */
+  $('kpis').innerHTML =
+      '<div class="kpi highlight"><div class="v">' + ou(r.rNet) + '</div><div class="l">Rendement net de charges</div></div>'
+    + '<div class="kpi highlight"><div class="v">' + eur(r.cfApresMois) + '</div><div class="l">Cash-flow mensuel après impôt</div></div>'
+    + '<div class="kpi"><div class="v">' + eur(r.effort) + '</div><div class="l">Effort d’épargne mensuel</div></div>'
+    + '<div class="kpi"><div class="v">' + ou(r.rBrut) + '</div><div class="l">Rendement brut</div></div>'
+    + '<div class="kpi"><div class="v">' + ou(r.rNetImpot) + '</div><div class="l">Rendement net d’impôt</div></div>';
+
+  /* --- tableau année par année --- */
+  const L = r.lignes;
+  const somme = k => L.reduce((s, x) => s + x[k], 0);
+  const cl = v => (v < -0.5 ? 'neg' : (v > 0.5 ? 'pos' : ''));
+  $('projBody').innerHTML = L.map(x =>
+      '<tr><td>' + x.a + '</td><td>' + eur(x.encaisse) + '</td><td>' + eur(x.charges) + '</td><td>' + eur(x.mensAn) + '</td><td>' + eur(x.impot)
+    + '</td><td class="' + cl(x.cfApres) + '">' + eur(x.cfApres) + '</td><td class="' + cl(x.tresor) + '">' + eur(x.tresor)
+    + '</td><td>' + eur(x.crd) + '</td><td>' + eur(x.valeur) + '</td></tr>').join('')
+    + '<tr class="total"><td>Total</td><td>' + eur(somme('encaisse')) + '</td><td>' + eur(somme('charges')) + '</td><td>' + eur(somme('mensAn'))
+    + '</td><td>' + eur(somme('impot')) + '</td><td>' + eur(somme('cfApres')) + '</td><td>-</td><td>-</td><td>-</td></tr>';
+  const fin = L[L.length - 1];
+  $('note_proj').textContent = 'Au bout de ' + p.horizon + (p.horizon > 1 ? ' ans' : ' an') + ' : valeur estimée du bien ' + eur(fin.valeur)
+    + ', capital restant dû ' + eur(fin.crd) + ', trésorerie cumulée ' + eur(fin.tresor) + ' (apport de ' + eur(r.apportUtilise)
+    + ' déduit), soit un patrimoine net de ' + eur(fin.valeur - fin.crd + fin.tresor)
+    + ' avant frais de revente et impôt sur la plus-value. Loyers et charges fixes sont revalorisés au même taux ; le régime fiscal est supposé inchangé.';
+
+  dessiner(r, p);
+}
+
+/* Graphique : trois séries en euros sur un seul axe. Palette validée (contraste et daltonisme), tiretés en second codage. */
+function dessiner(r, p){
+  if (typeof Chart === 'undefined' || !document.body.classList.contains('mode-avance')) return;
+  const L = r.lignes;
+  const labels = ['Achat'].concat(L.map(x => 'An ' + x.a));
+  const series = [
+    [-r.apportUtilise].concat(L.map(x => x.tresor)),
+    [r.emprunt].concat(L.map(x => x.crd)),
+    [p.prix].concat(L.map(x => x.valeur))
+  ].map(s => s.map(v => Math.round(fini(v))));
+  if (!chart){
+    const ds = (label, color, dash) => ({ label, data:[], borderColor:color, backgroundColor:color, borderWidth:2, borderDash:dash,
+      pointRadius:0, pointHoverRadius:5, pointHitRadius:14, tension:0.2, fill:false });
+    chart = new Chart($('chart').getContext('2d'), {
+      type:'line',
+      data:{ labels:[], datasets:[ ds('Trésorerie cumulée', '#4338ca', []), ds('Capital restant dû', '#d9541e', [6, 4]), ds('Valeur du bien', '#0e9f6e', [2, 3]) ] },
+      options:{
+        responsive:true, maintainAspectRatio:false, animation:false,
+        interaction:{ mode:'index', intersect:false },
+        plugins:{
+          legend:{ display:true, position:'bottom', labels:{ color:'#1f2430', usePointStyle:true, pointStyle:'line', pointStyleWidth:30 } },
+          tooltip:{ callbacks:{ label: c => c.dataset.label + ' : ' + eur(c.parsed.y) } }
+        },
+        scales:{
+          x:{ ticks:{ color:'#4b5563', maxRotation:0, autoSkip:true, maxTicksLimit:8 }, grid:{ display:false } },
+          y:{ ticks:{ color:'#4b5563', callback: v => eur(v) }, grid:{ color:'#eef0f2' } }
+        }
+      }
+    });
+  }
+  chart.data.labels = labels;
+  chart.data.datasets.forEach((d, i) => { d.data = series[i]; });
+  chart.resize();
+  chart.update('none');
+}
+
+/* ------------------------------------------------------------ interactions */
+function psAuto(){
+  const regime = etat.type === 'saison' ? $('regimeSaison').value : $('regimeLongue').value;
+  $('ps').value = (REGIMES[regime] || REGIMES.nue).ps;
+}
+
+function setType(v){
+  etat.type = v === 'saison' ? 'saison' : 'longue';
+  document.body.classList.toggle('type-saison', etat.type === 'saison');
+  document.body.classList.toggle('type-longue', etat.type !== 'saison');
+  $('grp_type').querySelectorAll('.seg-btn').forEach(b => {
+    const actif = b.dataset.value === etat.type;
+    b.classList.toggle('active', actif);
+    b.setAttribute('aria-pressed', actif ? 'true' : 'false');
+  });
+  const d = DEFAUTS[etat.type];
+  Object.keys(d).forEach(k => { if (!touche[k]) $(k).value = d[k]; });
+  psAuto();
+}
+
+$('grp_type').querySelectorAll('.seg-btn').forEach(b => b.addEventListener('click', () => { setType(b.dataset.value); compute(); }));
+
+$('dureeRange').addEventListener('input', () => { $('duree').value = $('dureeRange').value; compute(); });
+$('duree').addEventListener('input', () => { $('dureeRange').value = borne(Math.round(num('duree')), 1, 30); compute(); });
+
+document.querySelectorAll('.page input[type=number]').forEach(el => {
+  if (el.id === 'duree') return;
+  el.addEventListener('input', () => { touche[el.id] = true; compute(); });
+});
+['territoire', 'fraisMode', 'tmi', 'refaction'].forEach(id => $(id).addEventListener('change', compute));
+['regimeLongue', 'regimeSaison'].forEach(id => $(id).addEventListener('change', () => { psAuto(); compute(); }));
+
+/* Pages par territoire : le département est fixé par la page (attribut data-ak-territoire). */
+(function(){
+  const fixe = document.body.getAttribute('data-ak-territoire');
+  if (!fixe) return;
+  Object.keys(TERR).forEach(k => { if (TERR[k].nom === fixe) $('territoire').value = k; });
+})();
+
+setType('longue');
+compute();
+</script>
+<script>
+(function(){
+  var KEY = 'akapa_calc_mode';
+  function getMode(){
+    try { return localStorage.getItem(KEY) || 'simple'; } catch(e){ return 'simple'; }
+  }
+  function setMode(mode){
+    document.body.classList.toggle('mode-avance', mode === 'avance');
+    document.body.classList.toggle('mode-simple', mode !== 'avance');
+    var grp = document.getElementById('grp_mode');
+    if (grp){
+      grp.querySelectorAll('.seg-btn').forEach(function(b){
+        b.classList.toggle('active', b.dataset.value === mode);
+      });
+    }
+    try { localStorage.setItem(KEY, mode); } catch(e){}
+    if (typeof compute === 'function') compute();
+  }
+  var grp = document.getElementById('grp_mode');
+  if (grp){
+    grp.querySelectorAll('.seg-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){ setMode(btn.dataset.value); });
+    });
+  }
+  setMode(getMode());
+})();
+</script>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Simulateur de rentabilité locative", "url": "https://simu.akapa.fr/rentabilite-locative", "description": "Calculez le rendement brut, net de charges et net d’impôt de votre investissement locatif en Guadeloupe, Martinique, Guyane ou à La Réunion, cash-flow inclus.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "browserRequirements": "Requires JavaScript", "inLanguage": "fr-FR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "areaServed": ["Guadeloupe", "Martinique", "Guyane", "La Réunion"], "provider": {"@type": "Organization", "name": "AKAPA", "url": "https://akapa.fr"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Simulateurs Akapa", "item": "https://simu.akapa.fr/"}, {"@type": "ListItem", "position": 2, "name": "Rentabilité locative", "item": "https://simu.akapa.fr/rentabilite-locative"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Comment calculer le rendement brut d’un investissement locatif ?", "acceptedAnswer": {"@type": "Answer", "text": "Divisez le loyer annuel hors charges par le prix d’achat, puis multipliez par 100. Un logement acheté 160 000 € et loué 800 € par mois rapporte 9 600 € par an, soit 6 % brut. Ce chiffre ignore les frais d’acquisition, les charges, la vacance et l’impôt : le rendement net est toujours nettement plus bas."}}, {"@type": "Question", "name": "Quelle différence entre rendement net de charges et rendement net d’impôt ?", "acceptedAnswer": {"@type": "Answer", "text": "Le rendement net de charges retire des loyers la taxe foncière, les charges de copropriété non récupérables, l’assurance, les frais de gestion et la vacance, et rapporte le résultat au coût total de l’opération. Le rendement net d’impôt retire en plus l’impôt sur le revenu et les prélèvements sociaux : il dépend donc de votre tranche d’imposition et du régime fiscal choisi."}}, {"@type": "Question", "name": "Location saisonnière ou longue durée : laquelle est la plus rentable en Outre-mer ?", "acceptedAnswer": {"@type": "Answer", "text": "Cela dépend du taux d’occupation réel et des charges. La location saisonnière affiche des recettes brutes plus élevées, mais supporte la commission de plateforme, le ménage, les abonnements, souvent une conciergerie, et une fiscalité durcie pour les meublés non classés. La longue durée offre des revenus plus réguliers et moins de gestion. Le simulateur permet de comparer les deux sur le même bien en changeant simplement de type de location."}}, {"@type": "Question", "name": "Quel abattement fiscal pour un meublé de tourisme en 2026 ?", "acceptedAnswer": {"@type": "Answer", "text": "Au régime micro-BIC, l’abattement est de 30 % pour un meublé de tourisme non classé, dans la limite de 15 000 € de recettes annuelles, et de 50 % pour un meublé classé, dans la limite de 83 600 €. Ces règles issues de la loi Le Meur s’appliquent en Outre-mer comme dans l’Hexagone. Au-delà des plafonds, vous relevez du régime réel."}}, {"@type": "Question", "name": "Les prélèvements sociaux sur les loyers sont-ils de 17,2 % ou de 18,6 % ?", "acceptedAnswer": {"@type": "Answer", "text": "Les deux taux coexistent. Les revenus fonciers d’une location nue restent soumis à 17,2 %. Les revenus d’une location meublée non professionnelle, à l’année ou saisonnière, sont soumis à 18,6 % depuis le relèvement de la CSG par la loi de financement de la sécurité sociale pour 2026. Le simulateur applique automatiquement le taux correspondant au régime choisi."}}]}</script>
+<script src="/assets/akapa-config.js"></script>
+<script>
+/* Recapitulatif de simulation joint a la demande de mise en relation. */
+(function(){
+  function t(id){ var e = document.getElementById(id); return e ? (e.tagName === 'INPUT' || e.tagName === 'SELECT' ? e.value : e.textContent).trim() : ''; }
+  function sel(id){ var e = document.getElementById(id); return e && e.selectedIndex >= 0 ? e.options[e.selectedIndex].text.trim() : ''; }
+  function eur(id){ var v = parseFloat(t(id)); return isFinite(v) ? v.toLocaleString('fr-FR') + ' €' : ''; }
+  function pc(id){ var v = t(id); return v ? v.replace('.', ',') + ' %' : ''; }
+
+  window.akapaLeadContext = function(){
+    var c = {};
+    c['Territoire'] = sel('territoire');
+    var b = document.querySelector('#grp_type .seg-btn.active');
+    var saison = !!b && b.getAttribute('data-value') === 'saison';
+    c['Type de location'] = b ? b.textContent.trim() : '';
+    c['Prix d’achat'] = eur('prix');
+    if (saison) c['Nuitée et taux d’occupation'] = (eur('nuitee') && pc('occupation')) ? eur('nuitee') + ' × ' + pc('occupation') : '';
+    else c['Loyer mensuel hors charges'] = eur('loyer');
+    c['Apport personnel'] = eur('apport');
+    c['Crédit'] = (t('duree') && pc('taux')) ? t('duree') + ' ans à ' + pc('taux') : '';
+    document.querySelectorAll('#kpis .kpi').forEach(function(k){
+      var l = k.querySelector('.l'), v = k.querySelector('.v');
+      if (l && v && v.textContent.trim() && v.textContent.trim() !== '-') c[l.textContent.trim()] = v.textContent.trim();
+    });
+    Object.keys(c).forEach(function(k){ if (!c[k]) delete c[k]; });
+    return c;
+  };
+
+  var minuteur = null;
+  function planifier(){
+    clearTimeout(minuteur);
+    minuteur = setTimeout(function(){
+      if (typeof window.akapaRafraichirRecap === 'function') window.akapaRafraichirRecap();
+    }, 260);
+  }
+  document.addEventListener('input', planifier, true);
+  document.addEventListener('change', planifier, true);
+  document.addEventListener('click', planifier, true);
+  window.addEventListener('load', planifier);
+})();
+</script>
+<script src="/assets/akapa-lead.js"></script>
+<script src="/assets/akapa-pdf.js"></script>
+<script src="/assets/akapa-cookies.js"></script>
+<script src="/assets/akapa-track.js"></script>
+
+<script>
+/* Repli du sous-titre long de la bande de titre. */
+(function(){
+  var b = document.querySelector('[data-ak-tb-plus]'), l = document.getElementById('ak-tb-long');
+  if (!b || !l) return;
+  b.addEventListener('click', function(){
+    var ouvert = l.classList.toggle('is-open');
+    b.setAttribute('aria-expanded', ouvert ? 'true' : 'false');
+    b.textContent = ouvert ? 'Masquer' : 'D\u00e9tails';
+  });
+})();
+</script>
+</body>
+</html>

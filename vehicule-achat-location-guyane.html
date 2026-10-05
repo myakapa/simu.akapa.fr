@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2563eb">
+<title>Acheter ou louer un véhicule en Guyane : comparateur — Akapa</title>
+<meta name="description" content="Comptant, crédit, LOA ou LLD ? Comparez le coût total, mensuel et au kilomètre d’une voiture en Guyane, carburant au prix local compris. Offre d’un concessionnaire ou d’un loueur du territoire.">
+<link rel="canonical" href="https://simu.akapa.fr/vehicule-achat-location-guyane">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Simulateurs Akapa">
+<meta property="og:title" content="Acheter ou louer un véhicule en Guyane — simulateur gratuit">
+<meta property="og:description" content="Comptant, crédit, LOA ou LLD ? Comparez le coût total, mensuel et au kilomètre d’une voiture en Guyane, carburant au prix local compris. Offre d’un concessionnaire ou d’un loueur du territoire.">
+<meta property="og:url" content="https://simu.akapa.fr/vehicule-achat-location-guyane">
+<meta property="og:image" content="https://simu.akapa.fr/assets/og-vehicule-achat-location.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<style>
+  :root{ color-scheme: light; }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  [hidden]{display:none !important;}
+  body{
+    margin:0; padding:22px 20px 32px; background:#f6f7f9; color:#1f2430;
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size:14px; line-height:1.5;
+  }
+  .page{max-width:1180px; margin:0 auto;}
+  h1{font-size:22px; margin:0 0 4px 0; line-height:1.25;}
+  .subtitle{color:#6b7280; margin:0 0 18px 0; font-size:13px;}
+
+  /* --- Cartes de formulaire --- */
+  .grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(330px, 1fr)); gap:16px; margin-bottom:20px;}
+  .card{background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:16px 18px; min-width:0;}
+  .grid > .card{max-width:640px;}
+  .card h2{font-size:14px; margin:0 0 12px 0; color:#111827; display:flex; align-items:center; gap:8px;}
+  .row{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px; flex-wrap:wrap;}
+  .row:last-child{margin-bottom:0;}
+  label, .lbl{color:#4b5563; font-size:13px; flex:1 1 130px; min-width:0;}
+  .row.stacked{flex-direction:column; align-items:stretch;}
+  .row.stacked label{flex:1 1 auto; margin-bottom:5px;}
+  .row.stacked select{max-width:none; width:100%;}
+
+  input[type=number]{
+    width:120px; flex:0 0 auto; padding:7px 9px; border:1px solid #d1d5db; border-radius:7px;
+    font-size:13px; text-align:right; background:#eef4ff; color:#1f2430; min-width:0;
+  }
+  input[type=number]:focus{outline:2px solid #6366f1; outline-offset:1px;}
+  input[type=number]:disabled{background:#f3f4f6; color:#6b7280;}
+  input[type=range]{flex:1 1 90px; min-width:80px; max-width:190px; accent-color:#4338ca;}
+  select{
+    padding:7px 9px; border:1px solid #d1d5db; border-radius:7px; font-size:13px;
+    background:#eef4ff; color:#1f2430; max-width:230px; min-width:0;
+  }
+  select:focus{outline:2px solid #6366f1; outline-offset:1px;}
+  select:disabled{background:#f3f4f6; color:#6b7280;}
+  .unit{color:#6b7280; font-size:12px; flex:0 0 auto; min-width:32px; text-align:left;}
+
+  .result{font-weight:600; color:#111827; text-align:right;}
+  .result.big{font-size:18px;}
+  .muted{color:#6b7280; font-size:12px;}
+  .divider{border:none; border-top:1px solid #eef0f2; margin:12px 0;}
+  .badge{display:inline-block; font-size:11px; padding:2px 8px; border-radius:999px; background:#eef2ff; color:#4338ca; font-weight:600;}
+  .warn{background:#fff7ed; border:1px solid #fdba74; color:#9a3412; padding:8px 10px; border-radius:8px; font-size:12.5px; margin-top:8px;}
+  .ok{background:#f0fdf4; border:1px solid #86efac; color:#166534; padding:8px 10px; border-radius:8px; font-size:12.5px; margin-top:8px;}
+  .note{font-size:11.5px; color:#6b7280; margin-top:10px;}
+  .seg-label{font-size:12px; color:#6b7280; margin:0 0 6px 0;}
+  .section-title{font-size:12px; font-weight:700; color:#4338ca; margin:14px 0 8px 0; text-transform:uppercase; letter-spacing:.02em;}
+
+  /* --- Boutons segmentés --- */
+  .seg-group{display:flex; gap:6px; background:#f3f4f6; padding:4px; border-radius:9px; margin-bottom:14px;}
+  .seg-btn{flex:1 1 0; min-width:0; min-height:40px; text-align:center; padding:9px 6px; border:none; border-radius:7px;
+    background:transparent; color:#4b5563; font-size:13px; cursor:pointer; font-weight:600;
+    transition:background .12s, color .12s;}
+  .seg-btn.active{background:#fff; color:#4338ca; box-shadow:0 1px 2px rgba(0,0,0,.08);}
+
+  /* --- Indicateurs --- */
+  .kpis{display:grid; grid-template-columns:repeat(auto-fit, minmax(190px,1fr)); gap:12px; margin-top:16px;}
+  .kpi{background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:14px 16px; min-width:0;}
+  .kpi .v{font-size:20px; font-weight:700; color:#111827; overflow-wrap:anywhere;}
+  .kpi .l{font-size:12px; color:#6b7280; margin-top:2px;}
+  .kpi.highlight{background:#eef2ff; border-color:#c7d2fe;}
+
+  /* --- Tableaux --- */
+  table{width:100%; border-collapse:collapse; font-size:12.5px;}
+  th,td{padding:7px 8px; text-align:right; border-bottom:1px solid #eef0f2; white-space:nowrap;}
+  th{background:#f9fafb; color:#4b5563; font-weight:600; position:sticky; top:0; z-index:1;}
+  td:first-child, th:first-child{text-align:left;}
+  tr.total td{font-weight:700; background:#f9fafb; border-top:2px solid #e5e7eb;}
+  .table-wrap{overflow-x:auto; -webkit-overflow-scrolling:touch; max-height:560px; overflow-y:auto;}
+  .pos{color:#166534;} .neg{color:#b91c1c;}
+  .scroll-hint{display:none; margin-top:6px;}
+
+  /* --- Bascule mode simple / avancé --- */
+  .mode-switch{display:flex; align-items:center; gap:12px; margin-bottom:18px; flex-wrap:wrap;}
+  .mode-switch .seg-group{margin-bottom:0; flex:0 1 320px; max-width:320px;}
+  .mode-switch .mode-hint{font-size:12px; color:#6b7280; flex:1 1 200px;}
+  body.mode-simple .advanced-only{display:none !important;}
+  body.mode-avance .simple-only{display:none !important;}
+
+  /* --- Spécifique : champs préremplis, comparatif des quatre formules --- */
+  .hint{font-size:12.5px; color:#4b5563; margin:-2px 0 10px 0; line-height:1.45;}
+  .hint:last-child{margin-bottom:0;}
+  .hint strong{color:#111827;}
+  .auto-reset{flex:0 0 auto; width:40px; height:40px; border:1px solid #c7d2fe; background:#fff; border-radius:7px;
+    color:#4338ca; font-size:17px; line-height:1; cursor:pointer; padding:0;}
+  .auto-reset:hover{background:#eef2ff;}
+  .auto-reset:focus-visible{outline:2px solid #6366f1; outline-offset:1px;}
+  .formules{display:grid; grid-template-columns:repeat(auto-fit, minmax(215px,1fr)); gap:12px; margin-top:16px;}
+  .formule{background:#fff; border:1px solid #e5e7eb; border-radius:12px; padding:14px 16px; min-width:0;}
+  .formule.best{background:#f0fdf4; border-color:#86efac;}
+  .formule h3{font-size:14px; margin:0 0 6px 0; color:#111827; display:flex; flex-wrap:wrap; align-items:center; gap:6px;}
+  .formule .tot{font-size:21px; font-weight:700; color:#111827; overflow-wrap:anywhere;}
+  .formule .sub{font-size:12.5px; color:#4b5563;}
+  .formule dl{margin:10px 0 0 0; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:5px 10px; font-size:12.5px;}
+  .formule dt{color:#4b5563;}
+  .formule dd{margin:0; font-weight:600; text-align:right; color:#111827;}
+  .tag{display:inline-block; font-size:11.5px; font-weight:700; padding:2px 8px; border-radius:999px; white-space:nowrap;}
+  .tag-best{background:#166534; color:#fff;}
+  .tag-ecart{background:#f3f4f6; color:#374151;}
+  .chart-box{position:relative; height:330px;}
+  td.best, th.best{background:#f0fdf4;}
+  tr.total td.best{background:#dcfce7;}
+
+  /* --- Responsive --- */
+  @media (max-width:860px){
+    .grid{grid-template-columns:1fr;}
+  }
+  @media (max-width:760px){
+    body{padding:18px 16px 28px;}
+    .kpis{grid-template-columns:repeat(auto-fit, minmax(155px,1fr)); gap:10px;}
+    .kpi{padding:12px 13px;}
+    .kpi .v{font-size:18px;}
+    .scroll-hint{display:block;}
+    .table-wrap{max-height:none; overflow-y:visible;}
+    th{position:static;}
+  }
+  @media (max-width:560px){
+    h1{font-size:19px;}
+    .card{padding:14px;}
+    .grid > .card{max-width:none;}
+    .row{gap:6px;}
+    .row label{flex:1 1 100%;}
+    .row .lbl{flex:1 1 55%;}
+    input[type=number]{flex:1 1 auto; width:auto; font-size:16px; min-height:40px;}
+    input[type=range]{max-width:none; min-height:40px;}
+    select{width:100%; max-width:none; font-size:16px; min-height:40px;}
+    .unit{min-width:28px;}
+    .mode-switch .seg-group{flex:1 1 100%; max-width:none;}
+    th,td{padding:6px 7px; font-size:12px;}
+    .chart-box{height:300px;}
+  }
+  @media (max-width:360px){
+    .kpis{grid-template-columns:1fr;}
+    .seg-btn{font-size:12px; padding:9px 4px;}
+  }
+</style>
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="stylesheet" href="/assets/akapa.css">
+</head>
+<body data-ak-territoire="Guyane" data-ak-outil="vehicule-achat-location" data-ak-outil-label="Véhicule : acheter ou louer" class="ak-chrome mode-simple">
+<header class="ak-header">
+  <div class="ak-wrap">
+    <a class="ak-brand" href="/">
+      <img src="/assets/logo-akapa.svg" alt="AKAPA" onerror="this.outerHTML='<strong style=&quot;font-size:19px;color:#1e40af&quot;>AKAPA</strong>'">
+      <span class="ak-brand-sub">Simulateurs</span>
+    </a>
+    <button class="ak-burger" data-ak-burger type="button" aria-label="Menu" aria-expanded="false"><svg class="ak-ico ak-ico-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.6 6.6h16.8M3.6 12h16.8M3.6 17.4h16.8"/></svg></button>
+    <nav class="ak-nav">
+      <a href="/">Accueil</a>
+      <div class="ak-dd">
+        <button type="button" aria-haspopup="true" aria-expanded="false">Tous les simulateurs <span class="ak-chev">▾</span></button>
+        <nav class="ak-dd-menu">
+          <a href="/#outils"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 10.4 12 3.7l8.5 6.7"/><path d="M5.7 9.2V19a1.6 1.6 0 0 0 1.6 1.6h9.4a1.6 1.6 0 0 0 1.6-1.6V9.2"/><path d="M9.9 20.6v-5.3h4.2v5.3"/></svg> Tous les outils</a>
+          <hr>
+          <a href="/capacite-emprunt"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 9.8 12 4.5l9 5.3"/><path d="M5.6 11v7.4M10 11v7.4M14 11v7.4M18.4 11v7.4"/><path d="M3 20.4h18"/></svg> Capacité d’emprunt</a>
+          <a href="/mensualites-credit"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.3" y="5" width="17.4" height="15.4" rx="2.4"/><path d="M8 3v4M16 3v4M3.3 10h17.4"/><path d="M7.6 13.8h2.6M13.8 13.8h2.6M7.6 17h2.6"/></svg> Mensualités de crédit</a>
+          <a href="/frais-notaire"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.4 3.2H7.2a2 2 0 0 0-2 2v13.6a2 2 0 0 0 2 2h9.6a2 2 0 0 0 2-2V8.6z"/><path d="M13.4 3.2v5.4h5.4"/><path d="M8.6 13h6.8M8.6 16.4h4.8"/></svg> Frais de notaire</a>
+          <a href="/assurance-emprunteur"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.2 19 6v6.1c0 4.3-2.9 7.3-7 8.6-4.1-1.3-7-4.3-7-8.6V6z"/><path d="m9.1 12.1 2.2 2.2 4.1-4.2"/></svg> Assurance emprunteur</a>
+          <a href="/ciop"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.8"/><path d="m8.9 15.1 6.2-6.2"/><circle cx="9.5" cy="9.5" r="1.3"/><circle cx="14.5" cy="14.5" r="1.3"/></svg> Rentabilité CIOP</a>
+          <a href="/lmnp"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5.2 11.6V8.3A2.2 2.2 0 0 1 7.4 6.1h9.2a2.2 2.2 0 0 1 2.2 2.2v3.3"/><path d="M3 14.1a2 2 0 0 1 4 0v2.4h10v-2.4a2 2 0 0 1 4 0v4.4H3z"/><path d="M6.6 18.5v1.6M17.4 18.5v1.6"/></svg> Simulateur LMNP</a>
+          <a href="/rentabilite-locative"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.4 16.6 9.5 10.5l3.5 3.5 7.6-7.6"/><path d="M15.4 6.4h5.2v5.2"/></svg> Rentabilité locative</a>
+          <a href="/solaire"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.1"/><path d="M12 2.6v2.1M12 19.3v2.1M5 5l1.5 1.5M17.5 17.5 19 19M2.6 12h2.1M19.3 12h2.1M5 19l1.5-1.5M17.5 6.5 19 5"/></svg> Rentabilité solaire</a>
+          <a href="/aides-renovation"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9.2 4.6H7.3a2.2 2.2 0 0 0-2.2 2.2v12a2.2 2.2 0 0 0 2.2 2.2h9.4a2.2 2.2 0 0 0 2.2-2.2v-12a2.2 2.2 0 0 0-2.2-2.2h-1.9"/><rect x="9.2" y="2.9" width="5.6" height="3.5" rx="1.2"/><path d="m9.5 13.6 1.9 1.9 3.6-3.8"/></svg> Aides à la rénovation</a>
+        </nav>
+      </div>
+      <a href="/#methode">Comment ça marche</a>
+      <a class="ak-btn ak-btn-primary" href="#mise-en-relation">Être mis en relation</a>
+    </nav>
+  </div>
+</header>
+
+<div class="ak-titlebar">
+  <div class="ak-wrap">
+    <h1>Acheter ou louer un véhicule en Guyane</h1>
+    <p>Comptant, crédit, LOA ou LLD : le coût total, carburant et revente compris.</p>
+    <button type="button" class="ak-tb-plus" data-ak-tb-plus aria-expanded="false" aria-controls="ak-tb-long">Détails</button>
+    <div class="ak-tb-actions">
+      <button type="button" class="ak-btn ak-btn-pdf" data-ak-pdf aria-label="Télécharger la simulation en PDF"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.4v12.2"/><path d="m7.2 11 4.8 4.8 4.8-4.8"/><path d="M4.2 17.4v1.6a1.8 1.8 0 0 0 1.8 1.8h12a1.8 1.8 0 0 0 1.8-1.8v-1.6"/></svg> <span class="ak-btn-txt">PDF</span></button>
+      <a class="ak-btn ak-btn-primary" href="#mise-en-relation" aria-label="Recevoir une offre"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.4 3.2H7.2a2 2 0 0 0-2 2v13.6a2 2 0 0 0 2 2h9.6a2 2 0 0 0 2-2V8.6z"/><path d="M13.4 3.2v5.4h5.4"/><path d="M8.6 13h6.8M8.6 16.4h4.8"/></svg> <span class="ak-btn-txt">Recevoir une offre</span></a>
+    </div>
+  </div>
+</div>
+<div class="ak-tb-long" id="ak-tb-long"><div class="ak-wrap">Indiquez le prix du véhicule, sa motorisation, votre kilométrage et la durée d’utilisation : le simulateur compare le coût total de possession en achat comptant, à crédit, en LOA et en LLD, avec les prix réglementés des carburants et de l’électricité de votre territoire, l’entretien, l’assurance, l’immatriculation et la valeur de revente.</div></div>
+
+<section class="ak-local" aria-labelledby="local-titre">
+  <div class="ak-wrap">
+    <h2 id="local-titre"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.4c0 0 7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11"/><circle cx="12" cy="10.4" r="2.6"/></svg> Acheter ou louer un véhicule en Guyane : simulateur préréglé pour votre territoire</h2>
+    <p>Ce simulateur compare quatre façons de rouler en Guyane — achat comptant, achat à crédit, location avec option d’achat et location longue durée — sur la durée pendant laquelle vous comptez garder le véhicule. Il est préréglé avec les prix maximums des carburants fixés par arrêté préfectoral et le tarif de l’électricité d’EDF Guyane. La TVA ne s’applique pas en Guyane, y compris sur les véhicules ; la fiscalité locale passe par l’octroi de mer, voté par l’Assemblée de Guyane.</p>
+    <p>Les loyers et la valeur de reprise proposés sont des hypothèses, pas des offres. Pour obtenir un chiffrage réel, laissez vos coordonnées : un seul concessionnaire ou loueur implanté en Guyane reçoit votre demande, simulation jointe, et vous rappelle sous 48 heures avec une proposition adaptée à votre kilométrage et à votre budget.</p>
+    <p>Au 1er octobre 2026, les prix maximums sont de 2,21 € le litre de sans-plomb et de 2,37 € le litre de gazole, soit 19 centimes de plus en un mois ; ils sont révisés chaque mois par arrêté préfectoral, et le gazole est désormais plus cher que l’essence. Pour un véhicule électrique, le kWh du tarif Bleu d’EDF Guyane coûte 19,05 c€ TTC en option Base depuis le 1er août 2026. Selon le rapport annuel 2024 de l’IEDOM, le réseau routier compte 2 159 km, dont un seul axe littoral d’environ 450 km de Saint-Laurent-du-Maroni à Saint-Georges, et 57,6 % des ménages étaient équipés d’une automobile en 2021.</p>
+    <button type="button" class="ak-local-more" aria-expanded="false">Lire la suite : repères chiffrés et sources</button>
+    <div class="ak-local-rep"><div class="ak-local-r"><b>Sans-plomb</b><span>2,21 €/L au 1er octobre 2026, prix maximum révisé chaque mois</span></div><div class="ak-local-r"><b>Gazole</b><span>2,37 €/L au 1er octobre 2026, prix maximum révisé chaque mois</span></div><div class="ak-local-r"><b>Électricité</b><span>19,05 c€/kWh TTC en option Base au 1er août 2026 (EDF Guyane)</span></div></div>
+    <p class="ak-local-src">Sources : arrêté préfectoral des prix des carburants au 1er octobre 2026 (relayé par France-Guyane et KaribInfo) ; EDF Guyane, tarif Bleu résidentiel au 1er août 2026 ; IEDOM, rapport annuel 2024 ; BOFiP, BOI-TVA-GEO-20.</p>
+  </div>
+</section>
+
+<div class="page">
+
+<div class="mode-switch">
+  <div class="seg-group" id="grp_mode">
+    <button type="button" class="seg-btn" data-value="simple">Mode simple</button>
+    <button type="button" class="seg-btn" data-value="avance">Mode avancé</button>
+  </div>
+  <span class="mode-hint simple-only">Crédit, décote, consommation, entretien et assurance sont préremplis avec des hypothèses par défaut.</span>
+  <span class="mode-hint advanced-only">Toutes les hypothèses sont modifiables : crédit, contrat de location, consommation, entretien, assurance, revente.</span>
+</div>
+
+<div class="grid">
+
+  <div class="card">
+    <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.1 16.8v-4.3l1.8-4.6a2 2 0 0 1 1.9-1.3h8.4a2 2 0 0 1 1.9 1.3l1.8 4.6v4.3"/><path d="M4.1 12.5h15.8"/><circle cx="7.3" cy="16.8" r="1.7"/><circle cx="16.7" cy="16.8" r="1.7"/><path d="M9 16.8h6"/></svg> Votre véhicule</h2>
+    <div class="row stacked"><label for="territoire">Territoire</label>
+      <select id="territoire"><option value="GP">Guadeloupe</option><option value="MQ">Martinique</option><option value="GF" selected>Guyane</option><option value="RE">La Réunion</option></select>
+    </div>
+    <div class="row"><label for="prix">Prix du véhicule neuf (TTC, sur place)</label><input type="number" id="prix" value="25000" min="0" step="500" inputmode="decimal"><span class="unit">€</span></div>
+    <div class="row"><label for="motorisation">Motorisation</label>
+      <select id="motorisation"><option value="essence">Essence</option><option value="diesel">Diesel</option><option value="hybride">Hybride (non rechargeable)</option><option value="electrique">Électrique</option></select>
+    </div>
+    <div class="row"><label for="km">Kilométrage annuel</label><input type="number" id="km" value="12000" min="0" step="500" inputmode="numeric"><span class="unit">km/an</span></div>
+    <div class="row advanced-only"><label for="aide">Aide à l’achat ou à la location estimée</label><input type="number" id="aide" value="0" min="0" step="100" inputmode="decimal"><span class="unit">€</span></div>
+    <p class="hint advanced-only">Champ libre : prime «&nbsp;coup de pouce&nbsp;» (CEE) ou autre aide confirmée par votre vendeur. Elle réduit le prix payé à l’achat et le loyer prérempli ; aucune aide n’est déduite par défaut.</p>
+  </div>
+
+  <div class="card">
+    <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.8"/><path d="M15.4 8.8a4.2 4.2 0 0 0-6 1.6 6 6 0 0 0 0 3.2 4.2 4.2 0 0 0 6 1.6"/><path d="M7.8 11h4.9M7.8 13.4h4.9"/></svg> Durée et financement</h2>
+    <div class="row"><label for="duree">Durée d’utilisation</label>
+      <input type="range" id="dureeRange" min="2" max="7" step="1" value="4" aria-label="Durée d’utilisation en années">
+      <input type="number" id="duree" value="4" min="2" max="7" step="1" inputmode="numeric" style="width:64px;"><span class="unit">ans</span>
+    </div>
+    <div class="row"><label for="apport">Apport (crédit) ou premier loyer (location)</label><input type="number" id="apport" value="3000" min="0" step="100" inputmode="decimal"><span class="unit">€</span></div>
+    <div class="row"><label for="loyer"><span class="simple-only">Loyer mensuel LOA / LLD proposé</span><span class="advanced-only">Loyer mensuel LOA proposé</span></label>
+      <input type="number" id="loyer" min="0" step="1" inputmode="decimal"><span class="unit">€/mois</span>
+      <button type="button" class="auto-reset" data-reset="loyer" aria-label="Revenir au loyer prérempli" title="Revenir au loyer prérempli" hidden>↺</button>
+    </div>
+    <p class="hint" id="hintLoyer"></p>
+    <div class="row advanced-only"><label for="loyerLLD">Loyer mensuel LLD proposé</label>
+      <input type="number" id="loyerLLD" min="0" step="1" inputmode="decimal"><span class="unit">€/mois</span>
+      <button type="button" class="auto-reset" data-reset="loyerLLD" aria-label="Revenir au loyer LLD prérempli" title="Revenir au loyer LLD prérempli" hidden>↺</button>
+    </div>
+    <p class="hint advanced-only">Par défaut, le loyer LLD reprend le loyer LOA (majoré du forfait d’entretien s’il est inclus en LLD seulement). Saisissez le montant de votre devis s’il diffère.</p>
+  </div>
+
+  <div class="card advanced-only">
+    <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 9.8 12 4.5l9 5.3"/><path d="M5.6 11v7.4M10 11v7.4M14 11v7.4M18.4 11v7.4"/><path d="M3 20.4h18"/></svg> Crédit auto</h2>
+    <div class="row"><label for="tauxCredit">Taux du crédit (TAEG)</label><input type="number" id="tauxCredit" value="6.4" min="0" step="0.05" inputmode="decimal"><span class="unit">%</span></div>
+    <div class="row"><label for="dureeCredit">Durée du crédit</label><input type="number" id="dureeCredit" value="60" min="1" max="120" step="1" inputmode="numeric"><span class="unit">mois</span></div>
+    <hr class="divider">
+    <div class="row"><span class="lbl">Montant emprunté</span><span class="result" id="out_emprunt">-</span></div>
+    <div class="row"><span class="lbl">Mensualité du crédit</span><span class="result big" id="out_mensualite">-</span></div>
+    <div class="row"><span class="lbl">Intérêts payés sur la durée d’utilisation</span><span class="result" id="out_interets">-</span></div>
+    <div class="row"><span class="lbl">Capital restant dû à la revente</span><span class="result" id="out_crd">-</span></div>
+    <p class="hint">Taux par défaut : taux effectif moyen des crédits à la consommation de plus de 6&nbsp;000&nbsp;€ constaté par la Banque de France au 3<sup>e</sup> trimestre 2026 (6,42&nbsp;%). Si le crédit dure plus longtemps que l’utilisation, le capital restant dû est soldé à la revente.</p>
+  </div>
+
+  <div class="card advanced-only">
+    <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13.4 3.2H7.2a2 2 0 0 0-2 2v13.6a2 2 0 0 0 2 2h9.6a2 2 0 0 0 2-2V8.6z"/><path d="M13.4 3.2v5.4h5.4"/><path d="M8.6 13h6.8M8.6 16.4h4.8"/></svg> Contrat de location (LOA / LLD)</h2>
+    <div class="row"><label for="tauxLoc">Coût financier retenu pour le loyer prérempli</label><input type="number" id="tauxLoc" value="6.4" min="0" step="0.05" inputmode="decimal"><span class="unit">%/an</span></div>
+    <div class="row"><label for="optionAchat">Option d’achat en fin de LOA</label>
+      <input type="number" id="optionAchat" min="0" step="100" inputmode="decimal"><span class="unit">€</span>
+      <button type="button" class="auto-reset" data-reset="optionAchat" aria-label="Revenir à l’option d’achat préremplie" title="Revenir à l’option d’achat préremplie" hidden>↺</button>
+    </div>
+    <div class="row stacked"><label for="finLOA">À la fin de la LOA</label>
+      <select id="finLOA"><option value="achat">Je lève l’option d’achat</option><option value="restitution">Je restitue le véhicule</option></select>
+    </div>
+    <div class="row stacked"><label for="entInclus">Entretien inclus dans le loyer</label>
+      <select id="entInclus"><option value="non">Non, à ma charge</option><option value="lld">Oui, en LLD seulement</option><option value="both">Oui, en LOA et en LLD</option></select>
+    </div>
+    <div class="row"><label for="kmContrat">Kilométrage annuel prévu au contrat</label><input type="number" id="kmContrat" value="15000" min="0" step="1000" inputmode="numeric"><span class="unit">km/an</span></div>
+    <div class="row"><label for="penaliteKm">Pénalité par kilomètre supplémentaire</label><input type="number" id="penaliteKm" value="0.10" min="0" step="0.01" inputmode="decimal"><span class="unit">€/km</span></div>
+    <div class="row"><label for="remiseEtat">Frais de remise en état à la restitution</label><input type="number" id="remiseEtat" value="0" min="0" step="50" inputmode="decimal"><span class="unit">€</span></div>
+    <p class="hint">Pénalité kilométrique et frais de remise en état ne s’appliquent qu’en cas de restitution (LLD, ou LOA sans levée de l’option). Lever l’option d’achat impose un nouveau certificat d’immatriculation à votre nom, compté une seconde fois.</p>
+  </div>
+
+  <div class="card advanced-only">
+    <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.4 16.6 9.5 10.5l3.5 3.5 7.6-7.6"/><path d="M15.4 6.4h5.2v5.2"/></svg> Usage, entretien et revente</h2>
+    <div class="row"><label for="conso">Consommation</label><input type="number" id="conso" value="6.5" min="0" step="0.1" inputmode="decimal"><span class="unit" id="unitConso">L/100&nbsp;km</span></div>
+    <div class="row"><label for="prixEnergie" id="lblPrixE">Prix du sans-plomb</label><input type="number" id="prixEnergie" value="2.12" min="0" step="0.01" inputmode="decimal"><span class="unit" id="unitPrixE">€/L</span></div>
+    <p class="hint" id="hintEnergie"></p>
+    <div class="row"><label for="entretien">Entretien annuel (révisions, pneus, contrôle technique)</label><input type="number" id="entretien" value="800" min="0" step="50" inputmode="decimal"><span class="unit">€/an</span></div>
+    <div class="row"><label for="assurance">Assurance annuelle</label><input type="number" id="assurance" value="900" min="0" step="50" inputmode="decimal"><span class="unit">€/an</span></div>
+    <div class="row"><label for="decote">Décote annuelle du véhicule</label><input type="number" id="decote" value="15" min="0" max="90" step="1" inputmode="decimal"><span class="unit">%/an</span></div>
+    <div class="row"><label for="reprise">Valeur de reprise en fin de période</label>
+      <input type="number" id="reprise" min="0" step="100" inputmode="decimal"><span class="unit">€</span>
+      <button type="button" class="auto-reset" data-reset="reprise" aria-label="Revenir à la valeur de reprise calculée" title="Revenir à la valeur de reprise calculée" hidden>↺</button>
+    </div>
+    <div class="row"><label for="cvFiscaux">Puissance fiscale</label><input type="number" id="cvFiscaux" value="5" min="0" max="60" step="1" inputmode="numeric"><span class="unit">CV</span></div>
+    <div class="row"><label for="carteGrise">Coût du certificat d’immatriculation</label>
+      <input type="number" id="carteGrise" min="0" step="1" inputmode="decimal"><span class="unit">€</span>
+      <button type="button" class="auto-reset" data-reset="carteGrise" aria-label="Revenir au coût du certificat calculé" title="Revenir au coût du certificat calculé" hidden>↺</button>
+    </div>
+    <p class="hint" id="hintCG"></p>
+  </div>
+
+</div>
+
+<div id="alertes"></div>
+
+<p class="note simple-only" id="noteSimple" style="margin-top:8px;"></p>
+
+<div class="kpis" id="kpis"></div>
+
+<div class="ak-actions-res">
+  <button type="button" class="ak-btn ak-btn-pdf" data-ak-pdf><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.4v12.2"/><path d="m7.2 11 4.8 4.8 4.8-4.8"/><path d="M4.2 17.4v1.6a1.8 1.8 0 0 0 1.8 1.8h12a1.8 1.8 0 0 0 1.8-1.8v-1.6"/></svg> Télécharger cette simulation en PDF</button>
+  <a class="ak-btn ak-btn-primary" href="#mise-en-relation"><svg class="ak-ico ak-ico-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.5 12h15"/><path d="m13.2 5.7 6.3 6.3-6.3 6.3"/></svg> Recevoir une offre adaptée</a>
+</div>
+
+<div class="formules" id="formules"></div>
+
+<div class="card" style="margin-top:16px;">
+  <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.4 16.6 9.5 10.5l3.5 3.5 7.6-7.6"/><path d="M15.4 6.4h5.2v5.2"/></svg> <span id="titreChart">Coût total par formule</span></h2>
+  <div class="chart-box"><canvas id="chart" role="img" aria-label="Coût total par formule, décomposé en financement ou loyers, énergie, entretien, assurance, moins la valeur du véhicule récupérée"></canvas></div>
+  <p class="note">Le montant au-dessus de chaque barre est le coût total net : dépenses de la période, moins la valeur du véhicule conservé ou revendu (partie grise, sous l’axe).</p>
+</div>
+
+<div class="card advanced-only" style="margin-top:16px;">
+  <h2><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.3" y="4.6" width="17.4" height="14.8" rx="2.2"/><path d="M3.3 9.4h17.4M3.3 14.4h17.4M9.2 9.4v10M15.1 9.4v10"/></svg> Tableau comparatif détaillé</h2>
+  <div class="table-wrap">
+    <table id="cmpTable">
+      <thead id="cmpHead"></thead>
+      <tbody id="cmpBody"></tbody>
+    </table>
+  </div>
+  <p class="note scroll-hint">↔ Faites glisser le tableau horizontalement pour voir toutes les colonnes.</p>
+  <p class="note">Coût total = mise de départ + mensualités ou loyers + solde ou option d’achat + immatriculation + frais de restitution + énergie + entretien + assurance − valeur du véhicule en fin de période. L’assurance et le certificat d’immatriculation sont comptés dans les quatre formules.</p>
+</div>
+
+<p class="note">Prix maximums des carburants fixés par arrêté préfectoral, en vigueur au 1<sup>er</sup>&nbsp;octobre 2026 (sans-plomb / gazole, par litre) : Guadeloupe 2,12&nbsp;€ / 2,28&nbsp;€ ; Martinique 2,10&nbsp;€ / 2,27&nbsp;€ ; Guyane 2,21&nbsp;€ / 2,37&nbsp;€ ; La Réunion 2,00&nbsp;€ / 1,80&nbsp;€ — ils sont révisés chaque mois. Électricité : tarif bleu résidentiel EDF, option base 6&nbsp;kVA, TTC, au 1<sup>er</sup>&nbsp;août 2026. Taxe régionale sur les certificats d’immatriculation : tarifs 2026 par cheval fiscal (Guadeloupe 41&nbsp;€, Martinique 53&nbsp;€, Guyane 42,50&nbsp;€, La Réunion 60&nbsp;€), hors malus éventuel. Taux de crédit : Banque de France, 3<sup>e</sup>&nbsp;trimestre 2026. Consommation, entretien, assurance, décote et loyers préremplis sont des hypothèses, non des offres.</p>
+
+<div id="mise-en-relation" data-ak-lead
+     data-suite="/mensualites-credit|Simuler un crédit"
+     data-bouton-court="Recevoir une offre"
+     data-outil="vehicule-achat-location"
+     data-outil-label="Véhicule : acheter ou louer"
+     data-titre="Achat ou location : faites-vous proposer la bonne formule."
+     data-texte="Les loyers, les reprises et les taux varient fortement d’une concession à l’autre. Laissez vos coordonnées : nous transmettons votre demande, récapitulatif inclus, à un professionnel de l’automobile implanté sur votre territoire."
+     data-avantages="Concessionnaires et loueurs sélectionnés sur le prix, la qualité du service, la réactivité et les garanties|Un seul partenaire contacté, implanté sur votre île|Offre gratuite, sans engagement et sans frais pour vous|Votre simulation est jointe : pas besoin de tout réexpliquer"
+     data-besoins="Recevoir une offre de LOA ou de LLD|Obtenir un crédit auto au meilleur taux|Faire reprendre mon véhicule actuel|Passer à l’électrique ou à l’hybride|Je me renseigne pour plus tard"
+     data-bouton="Recevoir une offre adaptée"></div>
+
+<p class="note" style="margin-top:22px;">Simulation indicative — les loyers, reprises, taux et prix des carburants sont des hypothèses à confirmer auprès d'un professionnel ; ne constitue pas une offre de financement.</p>
+
+<!-- ======================= CONTENU ÉDITORIAL ET FAQ ======================= -->
+<section class="ak-seo" id="guide" aria-labelledby="guide-titre">
+  <h2 id="guide-titre">Acheter ou louer sa voiture en Outre-mer : ce qu’il faut vraiment comparer — Guyane</h2>
+<p>Le loyer affiché en concession ne dit rien du coût réel d’une voiture. Pour comparer un achat comptant, un crédit, une LOA et une LLD, il faut raisonner en <strong>coût total de possession</strong> : tout ce que vous déboursez pendant la durée d’utilisation (financement, énergie, entretien, assurance, immatriculation), diminué de la valeur du véhicule que vous récupérez à la fin. C’est le calcul que fait le simulateur, avec les prix des carburants et de l’électricité de votre territoire.</p>
+<h3>Crédit, LOA, LLD : trois contrats, trois logiques</h3>
+<p>Avec un <strong>crédit auto</strong>, vous êtes propriétaire dès la livraison : vous remboursez un capital et des intérêts, puis vous revendez le véhicule quand vous le souhaitez. La <strong>LOA</strong> (location avec option d’achat, souvent appelée leasing) est juridiquement assimilée à un crédit à la consommation : vous versez un premier loyer majoré, puis des loyers, et vous pouvez à l’échéance acheter le véhicule au prix fixé dès la signature ou le restituer. La <strong>LLD</strong> (location longue durée) est une simple location : pas d’option d’achat, restitution obligatoire, mais des services (entretien, assistance) souvent inclus dans le loyer. Dans les deux formules de location, la carte grise est établie au nom du bailleur ; si vous levez l’option d’achat d’une LOA, il faut payer un nouveau certificat d’immatriculation à votre nom, ce que le simulateur compte.</p>
+<h3>Pourquoi les voitures coûtent plus cher en Outre-mer</h3>
+<p>Un véhicule vendu en Guadeloupe, en Martinique, en Guyane ou à La Réunion a traversé un océan : au prix catalogue s’ajoutent le fret maritime, l’assurance du transport, les frais portuaires et le stockage. S’y ajoute l’<strong>octroi de mer</strong>, taxe perçue sur les marchandises importées dans les départements d’outre-mer, complétée par l’octroi de mer régional ; ses taux, votés par chaque collectivité, varient selon le territoire, la cylindrée et la motorisation. En contrepartie, la TVA est de 8,5&nbsp;% en Guadeloupe, en Martinique et à La Réunion (contre 20&nbsp;% dans l’Hexagone) et ne s’applique pas en Guyane. Au total, l’Insee constate que les véhicules neufs sont plus chers dans tous les DOM qu’en France métropolitaine, et les distributeurs entendus par la délégation sénatoriale aux outre-mer en février 2025 ont évoqué un écart de 10 à 15&nbsp;% sur les modèles grand public. Les carburants, eux, sont plafonnés chaque mois par arrêté préfectoral : le prix maximum est le même dans toutes les stations d’un territoire.</p>
+<h3>Décote et marché de l’occasion insulaire</h3>
+<p>Sur une île, le marché de l’occasion est étroit : peu de vendeurs, peu d’acheteurs, et aucune possibilité d’aller chercher un véhicule dans la région voisine. Faire venir une occasion de l’Hexagone suppose de payer le fret et l’octroi de mer, ce qui soutient le prix des modèles recherchés déjà présents sur place. À l’inverse, le soleil, l’humidité et l’air salin accélèrent le vieillissement des carrosseries, et un modèle peu diffusé localement, dont les pièces tardent à arriver, se revend mal. Le simulateur applique par défaut une décote de 15&nbsp;% par an : c’est une hypothèse, pas une cote. Avant de signer, relevez les prix d’annonces locales pour le même modèle âgé de trois à cinq ans et saisissez votre propre valeur de reprise en mode avancé : c’est le paramètre qui pèse le plus sur l’écart entre achat et location.</p>
+<h3>Rouler en électrique sur une île</h3>
+<p>Les distances courtes jouent en faveur de la voiture électrique : l’autonomie est rarement un frein, et la recharge à domicile au tarif réglementé (environ 0,19&nbsp;€ le kWh TTC en option base depuis le 1<sup>er</sup>&nbsp;août 2026) revient nettement moins cher au kilomètre qu’un sans-plomb à plus de 2&nbsp;€ le litre. Deux réserves toutefois. Il faut pouvoir recharger chez soi ou au travail, sans dépendre des seules bornes publiques. Et le bilan carbone dépend du mix électrique local : 96,2&nbsp;% d’énergies renouvelables dans la production d’électricité à La Réunion en 2025 selon EDF, contre 32&nbsp;% en Guadeloupe au second semestre 2025 selon l’Observatoire régional de l’énergie et du climat. Côté aides, le <strong>leasing social</strong> est ouvert aux DROM depuis le 16&nbsp;juillet 2026 (loyer inférieur à 200&nbsp;€ par mois, sous conditions de ressources et de trajets professionnels), et la prime «&nbsp;coup de pouce véhicules particuliers électriques&nbsp;», financée par les certificats d’économies d’énergie, a remplacé le bonus écologique ; son montant n’est pas fixé par la réglementation, dépend du vendeur, et sa disponibilité sur votre territoire est à vérifier auprès de lui. Le simulateur ne déduit donc aucune aide par défaut : saisissez celle que votre concessionnaire vous confirme par écrit.</p>
+<h3>Les pièges des contrats de location</h3>
+<p>Un contrat de LOA ou de LLD fixe un <strong>kilométrage total</strong> : chaque kilomètre supplémentaire est facturé à la restitution, au tarif inscrit au contrat. Mieux vaut choisir dès le départ un forfait réaliste que payer des pénalités. À la restitution, le véhicule est expertisé : rayures, impacts, pneus usés, sellerie tachée ou entretien non réalisé selon les préconisations du constructeur donnent lieu à des <strong>frais de remise en état</strong>. Vérifiez aussi le sort du premier loyer majoré en cas de vol ou de destruction du véhicule (sans garantie de perte financière, il peut être perdu), le coût d’une résiliation anticipée et l’assurance exigée, en pratique tous risques. Enfin, comparez toujours le total des loyers, option d’achat comprise, au prix comptant du véhicule : c’est ce que fait le tableau détaillé du mode avancé.</p>
+  <h3 id="faq">Questions fréquentes</h3>
+  <div class="ak-faq"><details open><summary>Essence, diesel ou électrique : que change le prix de l’énergie en Guyane ?</summary><p>Au 1er octobre 2026, le sans-plomb est plafonné à 2,21 €/L et le gazole à 2,37 €/L ; ces prix, fixés par arrêté préfectoral, changent chaque mois, et le gazole est passé au-dessus de l’essence. L’électricité du tarif Bleu d’EDF Guyane est à 19,05 c€/kWh TTC en option Base depuis le 1er août 2026. Avec les consommations par défaut du simulateur (6,5 L ou 17 kWh aux 100 km), cela représente environ 14,40 € aux 100 km en essence contre environ 3,20 € en électrique. Remplacez ces hypothèses par les vôtres, et gardez en tête qu’en 2024 l’électricité guyanaise a été produite à 56 % par des centrales thermiques.</p></details><details><summary>Quelle est la différence entre une LOA et une LLD ?</summary><p>La LOA (location avec option d’achat) vous permet d’acheter le véhicule en fin de contrat, au prix fixé à la signature, ou de le restituer ; elle est encadrée comme un crédit à la consommation. La LLD (location longue durée) ne prévoit pas d’achat : vous restituez le véhicule à l’échéance, et le loyer inclut souvent l’entretien et l’assistance. Dans les deux cas, le kilométrage est plafonné et l’état du véhicule est contrôlé à la restitution.</p></details><details><summary>Est-il plus rentable d’acheter ou de louer sa voiture en Outre-mer ?</summary><p>Tout dépend de la durée d’utilisation, de la valeur de revente et du loyer proposé. L’achat comptant évite les frais financiers mais immobilise votre épargne ; le crédit peut revenir moins cher qu’une location si vous gardez le véhicule longtemps et qu’il se revend bien ; la LOA et la LLD lissent la dépense et reportent une partie du risque de décote sur le bailleur, au prix d’un coût total souvent plus élevé. Le simulateur chiffre les quatre formules sur la durée que vous choisissez.</p></details><details><summary>Comment sont fixés les prix des carburants en Guadeloupe, en Martinique, en Guyane et à La Réunion ?</summary><p>Ils sont réglementés : dans chaque territoire, le préfet fixe chaque mois par arrêté un prix maximum pour le sans-plomb et le gazole, identique pour toutes les stations. Au 1er octobre 2026, le litre de sans-plomb est plafonné à 2,12 € en Guadeloupe, 2,10 € en Martinique, 2,21 € en Guyane et 2,00 € à La Réunion ; le gazole à 2,28 €, 2,27 €, 2,37 € et 1,80 €. Le simulateur reprend ces valeurs par défaut ; vous pouvez les modifier en mode avancé.</p></details><details><summary>Combien coûte la carte grise d’une voiture neuve en Outre-mer en 2026 ?</summary><p>Le certificat d’immatriculation se calcule en multipliant la puissance fiscale par le tarif du cheval fiscal voté par la collectivité : 41 € en Guadeloupe, 53 € en Martinique, 42,50 € en Guyane et 60 € à La Réunion en 2026. S’y ajoutent une taxe fixe de 11 € et 2,76 € de redevance d’acheminement, ainsi que, le cas échéant, le malus sur les émissions de CO₂ ou sur le poids. Pour une 5 CV, comptez environ 219 € en Guadeloupe et 314 € à La Réunion, hors malus.</p></details><details><summary>Quelles aides pour une voiture électrique en Outre-mer en 2026 ?</summary><p>Le bonus écologique a été remplacé par la prime « coup de pouce véhicules particuliers électriques », financée par les certificats d’économies d’énergie et versée par un professionnel signataire ; son montant n’est pas fixé par la réglementation, le véhicule doit notamment coûter moins de 47 000 € TTC, et il faut vérifier auprès du vendeur qu’elle est bien proposée sur votre territoire. Le leasing social, reconduit le 16 juillet 2026, est ouvert aux DROM : loyer inférieur à 200 € par mois pour les foyers dont le revenu fiscal de référence par part ne dépasse pas 16 880 €, sous condition de trajets professionnels. Faites confirmer par écrit l’aide applicable à votre dossier.</p></details></div>
+<nav class="ak-terr" aria-label="Ce simulateur par territoire"><span class="ak-terr-t">Ce simulateur par territoire</span><a class="ak-terr-link" href="/vehicule-achat-location-guadeloupe"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.4c0 0 7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11"/><circle cx="12" cy="10.4" r="2.6"/></svg> Guadeloupe</a><a class="ak-terr-link" href="/vehicule-achat-location-martinique"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.4c0 0 7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11"/><circle cx="12" cy="10.4" r="2.6"/></svg> Martinique</a><span class="ak-terr-link is-current"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.4c0 0 7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11"/><circle cx="12" cy="10.4" r="2.6"/></svg> Guyane</span><a class="ak-terr-link" href="/vehicule-achat-location-la-reunion"><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.4c0 0 7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11"/><circle cx="12" cy="10.4" r="2.6"/></svg> La Réunion</a><a class="ak-terr-link" href="/vehicule-achat-location">Tous les territoires</a></nav>
+  <div class="ak-seo-cta">
+    <a class="ak-btn ak-btn-primary" data-ak-cta="guide" href="#mise-en-relation">Recevoir une offre adaptée <svg class="ak-ico ak-ico-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.5 12h15"/><path d="m13.2 5.7 6.3 6.3-6.3 6.3"/></svg></a>
+    <a class="ak-btn ak-btn-outline" href="/#outils">Tous les simulateurs</a>
+  </div>
+</section>
+
+</div>
+
+<footer class="ak-footer">
+  <div class="ak-wrap">
+    <div class="ak-footer-grid">
+      <div>
+        <p class="ak-footer-brand">AKAPA</p>
+        <p>Simulateurs financiers, énergétiques et fiscaux adaptés aux Antilles-Guyane, et mise en relation avec des partenaires implantés sur le territoire.</p>
+        <div class="ak-footer-contact">
+          <span><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2.8" y="5.2" width="18.4" height="13.6" rx="2.4"/><path d="m3.6 7.2 7.3 5.1a2 2 0 0 0 2.2 0l7.3-5.1"/></svg> <a href="mailto:hello@akapa.fr">hello@akapa.fr</a></span>
+          <span><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8.5 3.6H5.7a2.1 2.1 0 0 0-2.1 2.3c.6 8 6.6 14 14.6 14.6a2.1 2.1 0 0 0 2.2-2.1v-2.8l-4.2-1.7-2 2a13.7 13.7 0 0 1-5.8-5.8l2-2z"/></svg> <a href="tel:+590690289902">+590 690 28 99 02</a></span>
+          <span><svg class="ak-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.4c0 0 7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11"/><circle cx="12" cy="10.4" r="2.6"/></svg> Baie-Mahault, Guadeloupe</span>
+        </div>
+      </div>
+      <div>
+        <h4>Simulateurs</h4>
+        <ul>
+          <li><a href="/capacite-emprunt">Capacité d’emprunt</a></li>
+          <li><a href="/mensualites-credit">Mensualités de crédit</a></li>
+          <li><a href="/frais-notaire">Frais de notaire</a></li>
+          <li><a href="/assurance-emprunteur">Assurance emprunteur</a></li>
+          <li><a href="/ciop">Rentabilité CIOP</a></li>
+          <li><a href="/lmnp">Simulateur LMNP</a></li>
+          <li><a href="/rentabilite-locative">Rentabilité locative</a></li>
+          <li><a href="/solaire">Rentabilité solaire</a></li>
+          <li><a href="/aides-renovation">Aides à la rénovation</a></li>
+          <li><a href="/vehicule-achat-location">Véhicule : acheter ou louer</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Le site</h4>
+        <ul>
+          <li><a href="/#methode">Comment ça marche</a></li>
+          <li><a href="/#selection">Notre sélection</a></li>
+          <li><a href="/#partenaires">Le réseau de partenaires</a></li>
+          <li><a href="/#contact">Être mis en relation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Akapa</h4>
+        <ul>
+          <li><a href="https://akapa.fr" target="_blank" rel="noopener">akapa.fr</a></li>
+          <li><a href="/mentions-legales">Mentions légales</a></li>
+          <li><a href="/confidentialite">Confidentialité</a></li>
+          <li><a href="#" data-ak-cookies>Gérer mes cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="ak-disclaimer">Simulation indicative — les loyers, reprises, taux et prix des carburants sont des hypothèses à confirmer auprès d'un professionnel ; ne constitue pas une offre de financement.</p>
+    <div class="ak-footer-bottom">
+      <span>© 2026 AKAPA SAS — Baie-Mahault, Guadeloupe</span>
+      <span><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Politique de confidentialité</a> · <a href="#" data-ak-cookies>Gérer mes cookies</a></span>
+    </div>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.js" integrity="sha384-iU8HYtnGQ8Cy4zl7gbNMOhsDTTKX02BTXptVP/vqAWIaTfM7isw76iyZCsjL2eVi" crossorigin="anonymous"></script>
+<script>
+/* ============================================================================
+   Véhicule : acheter ou louer — coût total de possession sur la durée d'utilisation
+   Barèmes (sources et dates dans la note du simulateur) :
+   - carburants : prix maximums fixés par arrêté préfectoral au 1er octobre 2026 ;
+   - électricité : tarif bleu résidentiel EDF, option base 6 kVA, TTC, au 1er août 2026 ;
+   - cv : taxe régionale 2026 par cheval fiscal (certificat d'immatriculation).
+   ============================================================================ */
+const TERR = {
+  GP:{nom:'Guadeloupe', loc:'en Guadeloupe', sp:2.12, go:2.28, kwh:0.1889, cv:41},
+  MQ:{nom:'Martinique', loc:'en Martinique', sp:2.10, go:2.27, kwh:0.1896, cv:53},
+  GF:{nom:'Guyane',     loc:'en Guyane',     sp:2.21, go:2.37, kwh:0.1905, cv:42.5},
+  RE:{nom:'La Réunion', loc:'à La Réunion',  sp:2.00, go:1.80, kwh:0.1948, cv:60}
+};
+/* Consommations et budgets d'entretien : hypothèses par défaut, modifiables. */
+const MOTO = {
+  essence:   {lib:'essence',    e:'sp',  conso:6.5, ent:800, lblPrix:'Prix du sans-plomb'},
+  diesel:    {lib:'diesel',     e:'go',  conso:5.5, ent:900, lblPrix:'Prix du gazole'},
+  hybride:   {lib:'hybride',    e:'sp',  conso:5.0, ent:800, lblPrix:'Prix du sans-plomb'},
+  electrique:{lib:'électrique', e:'kwh', conso:17,  ent:550, lblPrix:'Prix de l’électricité'}
+};
+const DATE_CARBURANT = '1er octobre 2026';
+const DATE_ELEC = '1er août 2026';
+const TAXE_FIXE = 11;        // taxe fixe du certificat d'immatriculation
+const ACHEMINEMENT = 2.76;   // redevance d'acheminement
+
+const $ = id => document.getElementById(id);
+const propre = v => (isFinite(v) && Math.abs(v) >= 0.005) ? v : 0;
+const eur = v => propre(v).toLocaleString('fr-FR', {style:'currency', currency:'EUR', maximumFractionDigits:0});
+const eur2 = v => propre(v).toLocaleString('fr-FR', {style:'currency', currency:'EUR', minimumFractionDigits:2, maximumFractionDigits:2});
+const nb = (v, d) => propre(v).toLocaleString('fr-FR', {minimumFractionDigits:d, maximumFractionDigits:d});
+const nbs = (v, d) => propre(v).toLocaleString('fr-FR', {maximumFractionDigits:d});
+function val(id, min, max){
+  let v = parseFloat($(id).value);
+  if (!isFinite(v)) v = 0;
+  if (min != null && v < min) v = min;
+  if (max != null && v > max) v = max;
+  return v;
+}
+
+/* Champs préremplis par une règle : ils suivent la règle tant qu'ils n'ont pas été saisis à la main. */
+const AUTO = {loyer:true, loyerLLD:true, optionAchat:true, reprise:true, carteGrise:true};
+function lireAuto(id, valeurAuto){
+  const el = $(id);
+  const btn = document.querySelector('[data-reset="' + id + '"]');
+  if (btn) btn.hidden = AUTO[id];
+  if (AUTO[id]){
+    if (document.activeElement !== el) el.value = valeurAuto;
+    return valeurAuto;
+  }
+  return val(id, 0, 1e7);
+}
+
+/* Prix de l'énergie selon le territoire et la motorisation. */
+function majEnergie(reinitUsage){
+  const T = TERR[$('territoire').value] || TERR.GP;
+  const M = MOTO[$('motorisation').value] || MOTO.essence;
+  const elec = M.e === 'kwh';
+  $('prixEnergie').value = T[M.e];
+  $('prixEnergie').step = elec ? '0.0001' : '0.01';
+  if (reinitUsage){ $('conso').value = M.conso; $('entretien').value = M.ent; }
+  $('lblPrixE').textContent = M.lblPrix;
+  $('unitPrixE').textContent = elec ? '€/kWh' : '€/L';
+  $('unitConso').textContent = elec ? 'kWh/100\u00a0km' : 'L/100\u00a0km';
+}
+
+let chart;
+
+function compute(){
+  const T = TERR[$('territoire').value] || TERR.GP;
+  const M = MOTO[$('motorisation').value] || MOTO.essence;
+  const elec = M.e === 'kwh';
+
+  /* ---------- Saisies ---------- */
+  const P = val('prix', 0, 1e7);
+  const km = val('km', 0, 200000);
+  const N = Math.min(7, Math.max(2, Math.round(val('duree'))));
+  const n = N * 12;
+  const aide = Math.min(val('aide', 0), P);
+  const Pn = P - aide;                              // prix net de l'aide
+  const ap = Math.min(val('apport', 0), Pn);        // apport (crédit) ou premier loyer (location)
+  const d = val('decote', 0, 90) / 100;
+  const conso = val('conso', 0, 100);
+  const pe = val('prixEnergie', 0, 100);
+  const ent = val('entretien', 0, 1e6);
+  const ass = val('assurance', 0, 1e6);
+  const cv = val('cvFiscaux', 0, 100);
+  const inclus = $('entInclus').value;
+  const finLOA = $('finLOA').value;
+  const kmC = val('kmContrat', 0, 200000);
+  const pk = val('penaliteKm', 0, 10);
+  const remise = val('remiseEtat', 0, 1e6);
+
+  /* ---------- Champs préremplis ---------- */
+  const VR = lireAuto('reprise', Math.round(P * Math.pow(1 - d, N)));
+  const cgAuto = Math.round((cv * T.cv + TAXE_FIXE + ACHEMINEMENT) * 100) / 100;
+  const CG = lireAuto('carteGrise', cgAuto);
+  const OPT = lireAuto('optionAchat', VR);
+
+  const tauxLoc = val('tauxLoc', 0, 30);
+  const tl = tauxLoc / 100 / 12;
+  const base = Math.max(0, Pn - ap);
+  let loyerRegle = tl > 0
+    ? (base - OPT / Math.pow(1 + tl, n)) * tl / (1 - Math.pow(1 + tl, -n))
+    : (base - OPT) / n;
+  loyerRegle = Math.round(Math.max(0, loyerRegle) + (inclus === 'both' ? ent / 12 : 0));
+  const L = lireAuto('loyer', loyerRegle);
+  const L2 = lireAuto('loyerLLD', Math.round(L + (inclus === 'lld' ? ent / 12 : 0)));
+
+  /* ---------- Postes communs ---------- */
+  const E = km * N * conso / 100 * pe;
+  const Ment = ent * N;
+  const S = ass * N;
+
+  /* ---------- Crédit ---------- */
+  const K = Pn - ap;
+  const tauxCredit = val('tauxCredit', 0, 30);
+  const tc = tauxCredit / 100 / 12;
+  const nc = Math.min(120, Math.max(1, Math.round(val('dureeCredit'))));
+  const mens = K > 0 ? (tc > 0 ? K * tc / (1 - Math.pow(1 + tc, -nc)) : K / nc) : 0;
+  const k = Math.min(n, nc);                        // mensualités payées pendant l'utilisation
+  let crd = 0;
+  if (k < nc){
+    crd = tc > 0 ? K * Math.pow(1 + tc, k) - mens * (Math.pow(1 + tc, k) - 1) / tc : K - mens * k;
+    crd = Math.max(0, crd);
+  }
+  const interets = mens * k + crd - K;
+
+  /* ---------- Location : frais de restitution ---------- */
+  const penalite = Math.max(0, km - kmC) * N * pk;
+  const fraisFin = penalite + remise;
+
+  /* ---------- Les quatre formules ---------- */
+  const loaAchat = finLOA !== 'restitution';
+  const modes = [
+    {id:'comptant', nom:'Achat comptant', court:'Comptant',
+      depart:Pn, loyers:0, solde:0, immat:CG, fin:0, energie:E, entretien:Ment, assurance:S, vr:VR},
+    {id:'credit', nom:'Achat à crédit', court:'Crédit',
+      depart:ap, loyers:mens * k, solde:crd, immat:CG, fin:0, energie:E, entretien:Ment, assurance:S, vr:VR},
+    {id:'loa', nom: loaAchat ? 'LOA, option levée' : 'LOA, véhicule restitué', court:'LOA',
+      depart:ap, loyers:L * n, solde: loaAchat ? OPT : 0, immat: loaAchat ? 2 * CG : CG, fin: loaAchat ? 0 : fraisFin,
+      energie:E, entretien: inclus === 'both' ? 0 : Ment, assurance:S, vr: loaAchat ? VR : 0},
+    {id:'lld', nom:'LLD', court:'LLD',
+      depart:ap, loyers:L2 * n, solde:0, immat:CG, fin:fraisFin,
+      energie:E, entretien: inclus === 'non' ? Ment : 0, assurance:S, vr:0}
+  ];
+  modes.forEach(m => {
+    m.financement = m.depart + m.loyers + m.solde + m.immat + m.fin;
+    m.total = m.financement + m.energie + m.entretien + m.assurance - m.vr;
+    m.mensuel = m.total / n;
+    m.parKm = km > 0 ? m.total / (km * N) : null;
+  });
+  let best = modes[0], worst = modes[0];
+  modes.forEach(m => { if (m.total < best.total) best = m; if (m.total > worst.total) worst = m; });
+  modes.forEach(m => { m.ecart = m.total - best.total; });
+  const fKm = v => v == null ? '-' : nb(v, 2) + ' €/km';
+  const nomMin = m => (m.id === 'comptant' || m.id === 'credit') ? m.nom.charAt(0).toLowerCase() + m.nom.slice(1) : m.nom;
+
+  /* ---------- Carte crédit ---------- */
+  $('out_emprunt').textContent = eur(K);
+  $('out_mensualite').textContent = eur2(mens);
+  $('out_interets').textContent = eur(interets);
+  $('out_crd').textContent = eur(crd);
+
+  /* ---------- Explications des champs préremplis ---------- */
+  const partLoyer = P > 0 ? nb(L / P * 100, 2) + ' % du prix par mois' : '';
+  if (AUTO.loyer){
+    $('hintLoyer').innerHTML = 'Hypothèse préremplie, pas une offre : <strong>' + eur(L) + ' par mois</strong>'
+      + (partLoyer ? ', soit ' + partLoyer : '') + '. Règle : prix' + (aide > 0 ? ' net d’aide' : '')
+      + ' moins premier loyer (' + eur(ap) + ') et valeur résiduelle après ' + N + ' ans (' + eur(OPT)
+      + '), étalés sur ' + n + ' mois avec un coût financier de ' + nbs(tauxLoc, 2) + ' % l’an'
+      + (inclus === 'both' ? ', forfait d’entretien compris' : '')
+      + '. Remplacez ce montant par le loyer de votre devis.';
+  } else {
+    $('hintLoyer').innerHTML = 'Loyer saisi par vos soins' + (partLoyer ? ' : ' + partLoyer : '')
+      + '. L’hypothèse préremplie serait de ' + eur(loyerRegle) + ' par mois (bouton ↺ pour y revenir).';
+  }
+  $('hintEnergie').textContent = elec
+    ? 'Par défaut : tarif bleu résidentiel EDF ' + T.loc + ', option base 6 kVA, au ' + DATE_ELEC + ' : ' + nb(T.kwh, 4) + ' €/kWh TTC (recharge à domicile). La consommation est une hypothèse.'
+    : 'Par défaut : prix maximum fixé par arrêté préfectoral ' + T.loc + ' au ' + DATE_CARBURANT + ' : ' + nb(T[M.e], 2) + ' €/L. Il est révisé chaque mois ; la consommation est une hypothèse.';
+  $('hintCG').textContent = 'Prérempli : ' + nbs(cv, 0) + ' CV × ' + nbs(T.cv, 2) + ' € (taxe régionale 2026 ' + T.loc
+    + ') + 11 € de taxe fixe + 2,76 € d’acheminement = ' + eur2(cgAuto)
+    + '. Malus CO₂ ou au poids éventuel non compris : ajoutez-le à ce montant.';
+
+  /* ---------- Hypothèses rappelées en mode simple ---------- */
+  $('noteSimple').innerHTML = 'Estimation fondée sur des hypothèses par défaut : crédit à <strong>' + nbs(tauxCredit, 2) + ' %</strong> sur <strong>'
+    + nc + ' mois</strong>' + (crd > 0 ? ' (capital restant dû de ' + eur(crd) + ' soldé à la revente)' : '')
+    + ' ; décote de <strong>' + nbs(d * 100, 1) + ' % par an</strong>, soit une valeur de reprise de <strong>' + eur(VR) + '</strong> après ' + N + ' ans'
+    + ' ; consommation de <strong>' + nbs(conso, 1) + (elec ? ' kWh' : ' L') + '/100 km</strong> à <strong>'
+    + (elec ? nb(pe, 4) + ' €/kWh' : nb(pe, 2) + ' €/L') + '</strong> ; entretien <strong>' + eur(ent) + '/an</strong>'
+    + ' ; assurance <strong>' + eur(ass) + '/an</strong> ; certificat d’immatriculation <strong>' + eur(CG) + '</strong> ; '
+    + (aide > 0 ? 'aide de <strong>' + eur(aide) + '</strong> déduite' : 'aucune aide déduite')
+    + ' ; LOA ' + (loaAchat ? 'avec levée de l’option d’achat (' + eur(OPT) + ')' : 'avec restitution du véhicule')
+    + (Math.abs(L2 - L) >= 0.5 ? ' ; loyer LLD de ' + eur(L2) + ' par mois' : '')
+    + '. Passez en <strong>mode avancé</strong> pour ajuster chaque hypothèse.';
+
+  /* ---------- Alertes ---------- */
+  let alertes = '';
+  if (penalite > 0){
+    alertes += '<div class="warn">Votre kilométrage (' + nbs(km, 0) + ' km/an) dépasse le forfait retenu pour le contrat de location ('
+      + nbs(kmC, 0) + ' km/an) : une pénalité de ' + nb(pk, 2) + ' €/km, soit ' + eur(penalite) + ' sur ' + N
+      + ' ans, est comptée en LLD' + (loaAchat ? '' : ' et en LOA') + '. Demandez un loyer calculé pour votre kilométrage réel ; forfait et pénalité se règlent en mode avancé.</div>';
+  }
+  if (elec){
+    alertes += '<div class="ok">Véhicule électrique : ' + (aide > 0 ? 'une aide de ' + eur(aide) + ' est déduite. ' : 'aucune aide n’est déduite par défaut. ')
+      + 'La prime « coup de pouce » (certificats d’économies d’énergie) n’a pas de montant fixé par la réglementation, et le leasing social, ouvert aux DROM depuis le 16 juillet 2026, est soumis à des conditions de ressources : saisissez en mode avancé l’aide que votre vendeur vous confirme.</div>';
+  }
+  $('alertes').innerHTML = alertes;
+
+  /* ---------- Indicateurs ---------- */
+  $('kpis').innerHTML = `
+    <div class="kpi highlight"><div class="v">${eur(best.mensuel)}/mois</div><div class="l">${best.court} : formule la plus économique (coût mensuel moyen)</div></div>
+    <div class="kpi highlight"><div class="v">${eur(worst.total - best.total)}</div><div class="l">Économie sur ${N} ans par rapport à la formule la plus chère (${worst.court})</div></div>
+    <div class="kpi"><div class="v">${fKm(best.parKm)}</div><div class="l">Coût au kilomètre (${nomMin(best)})</div></div>
+    <div class="kpi"><div class="v">${eur(best.total)}</div><div class="l">Coût total sur ${N} ans (${nomMin(best)})</div></div>
+  `;
+
+  /* ---------- Comparatif des quatre formules ---------- */
+  $('formules').innerHTML = modes.map(m => `
+    <div class="formule${m === best ? ' best' : ''}">
+      <h3>${m.nom} ${m === best ? '<span class="tag tag-best">La moins chère</span>' : '<span class="tag tag-ecart">+ ' + eur(m.ecart) + '</span>'}</h3>
+      <div class="tot">${eur(m.total)}</div>
+      <div class="sub">coût total sur ${N} ans</div>
+      <dl>
+        <dt>Coût mensuel moyen</dt><dd>${eur(m.mensuel)}</dd>
+        <dt>Coût au kilomètre</dt><dd>${fKm(m.parKm)}</dd>
+        <dt>Valeur du véhicule récupérée</dt><dd>${m.vr > 0 ? eur(m.vr) : 'Aucune'}</dd>
+      </dl>
+    </div>`).join('');
+
+  /* ---------- Tableau détaillé ---------- */
+  const cl = m => m === best ? ' class="best"' : '';
+  const ligne = (lib, f, classe) => '<tr' + (classe ? ' class="' + classe + '"' : '') + '><td>' + lib + '</td>'
+    + modes.map(m => '<td' + cl(m) + '>' + f(m) + '</td>').join('') + '</tr>';
+  $('cmpHead').innerHTML = '<tr><th>Poste, sur ' + N + ' ans</th>' + modes.map(m => '<th' + cl(m) + '>' + m.nom + '</th>').join('') + '</tr>';
+  $('cmpBody').innerHTML =
+      ligne('Prix comptant, apport ou premier loyer', m => eur(m.depart))
+    + ligne('Mensualités ou loyers', m => eur(m.loyers))
+    + ligne('Solde du crédit ou option d’achat', m => eur(m.solde))
+    + ligne('Certificat d’immatriculation', m => eur(m.immat))
+    + ligne('Pénalité kilométrique et remise en état', m => eur(m.fin))
+    + ligne('Énergie', m => eur(m.energie))
+    + ligne('Entretien', m => m.entretien > 0 || Ment === 0 ? eur(m.entretien) : 'Inclus au loyer')
+    + ligne('Assurance', m => eur(m.assurance))
+    + ligne('Valeur du véhicule en fin de période', m => m.vr > 0 ? '− ' + eur(m.vr) : eur(0))
+    + ligne('Coût total', m => eur(m.total), 'total')
+    + ligne('Coût mensuel moyen', m => eur(m.mensuel))
+    + ligne('Coût au kilomètre', m => fKm(m.parKm))
+    + ligne('Écart avec la formule la moins chère', m => m === best ? '—' : '+ ' + eur(m.ecart));
+
+  /* ---------- Graphique ---------- */
+  $('titreChart').textContent = 'Coût total sur ' + N + ' ans, par formule';
+  if (typeof Chart === 'undefined') return;
+  const labels = modes.map(m => m.court);
+  const series = [
+    ['Achat, crédit ou loyers', modes.map(m => m.financement), '#2a78d6'],
+    ['Énergie', modes.map(m => m.energie), '#eb6834'],
+    ['Entretien', modes.map(m => m.entretien), '#1baf7a'],
+    ['Assurance', modes.map(m => m.assurance), '#eda100'],
+    ['Valeur du véhicule récupérée', modes.map(m => -m.vr), '#9aa3b2']
+  ];
+  const totaux = modes.map(m => m.total);
+  if (chart){
+    chart.data.labels = labels;
+    chart.data.datasets.forEach((ds, i) => { ds.data = series[i][1]; });
+    chart.$totaux = totaux;
+    chart.update();
+    return;
+  }
+  const etiquettes = {
+    id:'etiquettesTotaux',
+    afterDatasetsDraw(c){
+      const y = c.scales.y, meta = c.getDatasetMeta(0), ctx = c.ctx;
+      if (!c.$totaux) return;
+      ctx.save();
+      ctx.font = '600 ' + (c.width < 330 ? 10.5 : 12) + 'px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif';
+      ctx.fillStyle = '#111827'; ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
+      meta.data.forEach((barre, i) => {
+        let haut = 0;
+        c.data.datasets.forEach(ds => { const v = ds.data[i]; if (v > 0) haut += v; });
+        ctx.fillText(eur(c.$totaux[i]), barre.x, y.getPixelForValue(haut) - 5);
+      });
+      ctx.restore();
+    }
+  };
+  chart = new Chart($('chart').getContext('2d'), {
+    type:'bar',
+    data:{ labels, datasets: series.map(s => ({
+      label:s[0], data:s[1], backgroundColor:s[2], borderColor:'#ffffff', borderWidth:1, borderRadius:3, maxBarThickness:46
+    })) },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{
+        legend:{ position:'bottom', labels:{ boxWidth:12, boxHeight:12, color:'#374151', font:{size:12} } },
+        tooltip:{ callbacks:{ label: c => ' ' + c.dataset.label + ' : ' + eur(c.parsed.y) } }
+      },
+      scales:{
+        x:{ stacked:true, grid:{display:false}, ticks:{ color:'#374151', font:{size:12} } },
+        y:{ stacked:true, grace:'10%', grid:{color:'#eef0f2'}, border:{display:false},
+            ticks:{ color:'#4b5563', maxTicksLimit:7, callback: v => eur(v) } }
+      }
+    },
+    plugins:[etiquettes]
+  });
+  chart.$totaux = totaux;
+  chart.update('none');
+}
+
+/* ---------- Écouteurs ---------- */
+$('territoire').addEventListener('change', () => { majEnergie(false); compute(); });
+$('motorisation').addEventListener('change', () => { majEnergie(true); compute(); });
+$('finLOA').addEventListener('change', compute);
+$('entInclus').addEventListener('change', compute);
+$('dureeRange').addEventListener('input', () => { $('duree').value = $('dureeRange').value; compute(); });
+$('duree').addEventListener('input', () => {
+  $('dureeRange').value = Math.min(7, Math.max(2, Math.round(parseFloat($('duree').value) || 2)));
+  compute();
+});
+$('duree').addEventListener('change', () => { $('duree').value = $('dureeRange').value; compute(); });
+document.querySelectorAll('.page input[type=number]').forEach(el => {
+  if (el.id === 'duree') return;
+  el.addEventListener('input', () => {
+    if (el.id in AUTO) AUTO[el.id] = el.value.trim() === '';
+    compute();
+  });
+  if (el.id in AUTO) el.addEventListener('blur', compute);
+});
+document.querySelectorAll('[data-reset]').forEach(b => {
+  b.addEventListener('click', () => { AUTO[b.dataset.reset] = true; compute(); });
+});
+
+majEnergie(true);
+compute();
+</script>
+<script>
+(function(){
+  var KEY = 'akapa_calc_mode';
+  function getMode(){
+    try { return localStorage.getItem(KEY) || 'simple'; } catch(e){ return 'simple'; }
+  }
+  function setMode(mode){
+    document.body.classList.toggle('mode-avance', mode === 'avance');
+    document.body.classList.toggle('mode-simple', mode !== 'avance');
+    var grp = document.getElementById('grp_mode');
+    if (grp){
+      grp.querySelectorAll('.seg-btn').forEach(function(b){
+        b.classList.toggle('active', b.dataset.value === mode);
+      });
+    }
+    try { localStorage.setItem(KEY, mode); } catch(e){}
+    if (typeof compute === 'function') compute();
+  }
+  var grp = document.getElementById('grp_mode');
+  if (grp){
+    grp.querySelectorAll('.seg-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){ setMode(btn.dataset.value); });
+    });
+  }
+  setMode(getMode());
+})();
+</script>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Acheter ou louer un véhicule en Guyane", "url": "https://simu.akapa.fr/vehicule-achat-location-guyane", "description": "Comptant, crédit, LOA ou LLD ? Comparez le coût total, mensuel et au kilomètre d’une voiture en Guyane, carburant au prix local compris. Offre d’un concessionnaire ou d’un loueur du territoire.", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "browserRequirements": "Requires JavaScript", "inLanguage": "fr-FR", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "areaServed": ["Guyane"], "provider": {"@type": "Organization", "name": "AKAPA", "url": "https://akapa.fr"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Simulateurs Akapa", "item": "https://simu.akapa.fr/"}, {"@type": "ListItem", "position": 2, "name": "Véhicule : acheter ou louer", "item": "https://simu.akapa.fr/vehicule-achat-location"}, {"@type": "ListItem", "position": 3, "name": "Guyane", "item": "https://simu.akapa.fr/vehicule-achat-location-guyane"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Essence, diesel ou électrique : que change le prix de l’énergie en Guyane ?", "acceptedAnswer": {"@type": "Answer", "text": "Au 1er octobre 2026, le sans-plomb est plafonné à 2,21 €/L et le gazole à 2,37 €/L ; ces prix, fixés par arrêté préfectoral, changent chaque mois, et le gazole est passé au-dessus de l’essence. L’électricité du tarif Bleu d’EDF Guyane est à 19,05 c€/kWh TTC en option Base depuis le 1er août 2026. Avec les consommations par défaut du simulateur (6,5 L ou 17 kWh aux 100 km), cela représente environ 14,40 € aux 100 km en essence contre environ 3,20 € en électrique. Remplacez ces hypothèses par les vôtres, et gardez en tête qu’en 2024 l’électricité guyanaise a été produite à 56 % par des centrales thermiques."}}, {"@type": "Question", "name": "Quelle est la différence entre une LOA et une LLD ?", "acceptedAnswer": {"@type": "Answer", "text": "La LOA (location avec option d’achat) vous permet d’acheter le véhicule en fin de contrat, au prix fixé à la signature, ou de le restituer ; elle est encadrée comme un crédit à la consommation. La LLD (location longue durée) ne prévoit pas d’achat : vous restituez le véhicule à l’échéance, et le loyer inclut souvent l’entretien et l’assistance. Dans les deux cas, le kilométrage est plafonné et l’état du véhicule est contrôlé à la restitution."}}, {"@type": "Question", "name": "Est-il plus rentable d’acheter ou de louer sa voiture en Outre-mer ?", "acceptedAnswer": {"@type": "Answer", "text": "Tout dépend de la durée d’utilisation, de la valeur de revente et du loyer proposé. L’achat comptant évite les frais financiers mais immobilise votre épargne ; le crédit peut revenir moins cher qu’une location si vous gardez le véhicule longtemps et qu’il se revend bien ; la LOA et la LLD lissent la dépense et reportent une partie du risque de décote sur le bailleur, au prix d’un coût total souvent plus élevé. Le simulateur chiffre les quatre formules sur la durée que vous choisissez."}}, {"@type": "Question", "name": "Comment sont fixés les prix des carburants en Guadeloupe, en Martinique, en Guyane et à La Réunion ?", "acceptedAnswer": {"@type": "Answer", "text": "Ils sont réglementés : dans chaque territoire, le préfet fixe chaque mois par arrêté un prix maximum pour le sans-plomb et le gazole, identique pour toutes les stations. Au 1er octobre 2026, le litre de sans-plomb est plafonné à 2,12 € en Guadeloupe, 2,10 € en Martinique, 2,21 € en Guyane et 2,00 € à La Réunion ; le gazole à 2,28 €, 2,27 €, 2,37 € et 1,80 €. Le simulateur reprend ces valeurs par défaut ; vous pouvez les modifier en mode avancé."}}, {"@type": "Question", "name": "Combien coûte la carte grise d’une voiture neuve en Outre-mer en 2026 ?", "acceptedAnswer": {"@type": "Answer", "text": "Le certificat d’immatriculation se calcule en multipliant la puissance fiscale par le tarif du cheval fiscal voté par la collectivité : 41 € en Guadeloupe, 53 € en Martinique, 42,50 € en Guyane et 60 € à La Réunion en 2026. S’y ajoutent une taxe fixe de 11 € et 2,76 € de redevance d’acheminement, ainsi que, le cas échéant, le malus sur les émissions de CO₂ ou sur le poids. Pour une 5 CV, comptez environ 219 € en Guadeloupe et 314 € à La Réunion, hors malus."}}, {"@type": "Question", "name": "Quelles aides pour une voiture électrique en Outre-mer en 2026 ?", "acceptedAnswer": {"@type": "Answer", "text": "Le bonus écologique a été remplacé par la prime « coup de pouce véhicules particuliers électriques », financée par les certificats d’économies d’énergie et versée par un professionnel signataire ; son montant n’est pas fixé par la réglementation, le véhicule doit notamment coûter moins de 47 000 € TTC, et il faut vérifier auprès du vendeur qu’elle est bien proposée sur votre territoire. Le leasing social, reconduit le 16 juillet 2026, est ouvert aux DROM : loyer inférieur à 200 € par mois pour les foyers dont le revenu fiscal de référence par part ne dépasse pas 16 880 €, sous condition de trajets professionnels. Faites confirmer par écrit l’aide applicable à votre dossier."}}]}</script>
+<script src="/assets/akapa-config.js"></script>
+<script>
+/* Recapitulatif de simulation joint a la demande de mise en relation. */
+(function(){
+  function t(id){ var e = document.getElementById(id); return e ? (e.tagName === 'INPUT' || e.tagName === 'SELECT' ? e.value : e.textContent).trim() : ''; }
+  function sel(id){ var e = document.getElementById(id); return e && e.selectedIndex >= 0 ? e.options[e.selectedIndex].text.trim() : ''; }
+  function eur(id){ var v = parseFloat(t(id)); return isFinite(v) ? v.toLocaleString('fr-FR') + ' €' : ''; }
+  function nbr(id, unite){ var v = parseFloat(t(id)); return isFinite(v) ? v.toLocaleString('fr-FR') + unite : ''; }
+
+  window.akapaLeadContext = function(){
+    var c = {};
+    c['Territoire'] = sel('territoire');
+    c['Prix du véhicule neuf'] = eur('prix');
+    c['Motorisation'] = sel('motorisation');
+    c['Kilométrage annuel'] = nbr('km', ' km');
+    c['Durée d’utilisation'] = t('duree') ? t('duree') + ' ans' : '';
+    c['Loyer mensuel LOA retenu'] = eur('loyer');
+    document.querySelectorAll('#kpis .kpi').forEach(function(k){
+      var l = k.querySelector('.l'), v = k.querySelector('.v');
+      if (l && v && v.textContent.trim() && v.textContent.trim() !== '-') c[l.textContent.trim()] = v.textContent.trim();
+    });
+    Object.keys(c).forEach(function(k){ if (!c[k]) delete c[k]; });
+    return c;
+  };
+
+  var minuteur = null;
+  function planifier(){
+    clearTimeout(minuteur);
+    minuteur = setTimeout(function(){
+      if (typeof window.akapaRafraichirRecap === 'function') window.akapaRafraichirRecap();
+    }, 260);
+  }
+  document.addEventListener('input', planifier, true);
+  document.addEventListener('change', planifier, true);
+  document.addEventListener('click', planifier, true);
+  window.addEventListener('load', planifier);
+})();
+</script>
+<script src="/assets/akapa-lead.js"></script>
+<script src="/assets/akapa-pdf.js"></script>
+<script src="/assets/akapa-cookies.js"></script>
+<script src="/assets/akapa-track.js"></script>
+
+<script>
+/* Repli du sous-titre long de la bande de titre. */
+(function(){
+  var b = document.querySelector('[data-ak-tb-plus]'), l = document.getElementById('ak-tb-long');
+  if (!b || !l) return;
+  b.addEventListener('click', function(){
+    var ouvert = l.classList.toggle('is-open');
+    b.setAttribute('aria-expanded', ouvert ? 'true' : 'false');
+    b.textContent = ouvert ? 'Masquer' : 'Détails';
+  });
+})();
+</script>
+</body>
+</html>
