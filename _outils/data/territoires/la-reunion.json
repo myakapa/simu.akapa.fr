@@ -1,0 +1,292 @@
+{
+ "capacite-emprunt": {
+  "title": "Simulateur de capacité d’emprunt à La Réunion — Akapa",
+  "description": "Combien pouvez-vous emprunter à La Réunion ? Montant finançable, budget total et prix du bien accessible, frais de notaire compris (6,32 % de droits de mutation dans l’ancien). Courtier local.",
+  "og_title": "Capacité d’emprunt à La Réunion — simulateur gratuit",
+  "h1": "Capacité d’emprunt à La Réunion",
+  "h2_local": "Capacité d’emprunt à La Réunion : simulateur préréglé pour votre territoire",
+  "p": [
+   "Acheter à La Réunion obéit aux mêmes règles bancaires qu’en métropole (35 % d’endettement maximal, 25 ans au plus), mais avec des frais d’acquisition propres au département : depuis le 1er janvier 2026, la taxe départementale est de 5,00 % dans l’ancien, soit 6,32 % de droits de mutation avec la taxe communale et les frais d’assiette. Le simulateur déduit de votre budget un forfait de frais de notaire, que vous pouvez ajuster, pour calculer le prix de bien réellement accessible avec votre apport.",
+   "Le marché immobilier de La Réunion a ses spécificités : des prix au m² très variables d’une microrégion à l’autre, des appartements neufs vendus environ deux fois plus cher que les anciens en 2024 (AGORAH), et des aides à l’accession dont l’éligibilité se vérifie au cas par cas (l’ADIL de La Réunion informe gratuitement, notamment sur le prêt à taux zéro). Un courtier implanté à La Réunion connaît les banques du territoire et leurs critères ; il vous rappelle sous 48 heures avec votre simulation en main.",
+   "Repères locaux : en janvier 2026, le taux moyen des nouveaux crédits à l’habitat était de 3,23 % à La Réunion (3,06 % France entière), hors assurance et frais, pour un prêt moyen d’environ 145 000 € sur 21 ans au 1er trimestre 2026 (IEDOM). Côté prix, l’AGORAH relève pour 2024 une médiane de 2 450 €/m² pour une maison, de 1 750 €/m² dans l’Est (CIREST) à 3 214 €/m² dans le Territoire de l’Ouest, de 2 638 €/m² pour un appartement ancien et de 5 187 €/m² pour un appartement neuf. Ces chiffres situent votre projet ; ils ne remplacent pas l’étude de votre dossier."
+  ],
+  "sources": "Sources : DGFiP, taux des droits de mutation applicables au 1er juin 2026 ; IEDOM, taux des crédits aux particuliers à La Réunion, 1er trimestre 2026 ; AGORAH, observatoire des transactions immobilières et foncières n° 14 (prix 2024), avril 2026 ; ADIL de La Réunion.",
+  "reperes": [
+   [
+    "Droits de mutation",
+    "6,32 % dans l’ancien en 2026 (taxe départementale à 5,00 %)"
+   ],
+   [
+    "Taux moyen habitat",
+    "3,23 % en janvier 2026, hors assurance et frais (IEDOM)"
+   ],
+   [
+    "Prêt moyen",
+    "environ 145 000 € sur 21 ans au 1er trimestre 2026 (IEDOM)"
+   ]
+  ],
+  "faq_q": "Les banques de La Réunion prêtent-elles aux mêmes conditions qu’en métropole ?",
+  "faq_a": "Les règles du HCSF s’appliquent à l’identique à La Réunion : 35 % d’endettement assurance comprise et 25 ans maximum. Les taux, eux, s’écartent de la moyenne nationale dans un sens ou dans l’autre selon la période : d’après l’IEDOM, le taux moyen des nouveaux crédits à l’habitat était de 2,82 % en octobre 2025 (2,99 % France entière), puis de 3,23 % en janvier 2026 (3,06 %). Chaque établissement applique en outre ses propres critères (revenus retenus, apport attendu, indemnité de vie chère intégrée ou non) : les connaître est le rôle du courtier local."
+ },
+ "mensualites-credit": {
+  "title": "Calculette de mensualités de crédit immobilier à La Réunion — Akapa",
+  "description": "Calculez la mensualité de votre prêt immobilier à La Réunion, assurance comprise, le coût total des intérêts et le tableau d’amortissement. Proposition de prêt par un courtier implanté à La Réunion.",
+  "og_title": "Mensualités de crédit à La Réunion — simulateur gratuit",
+  "h1": "Mensualités de crédit à La Réunion",
+  "h2_local": "Mensualités de crédit à La Réunion : simulateur préréglé pour votre territoire",
+  "p": [
+   "Vous préparez un achat à La Réunion, ou vous vous demandez si votre crédit actuel mérite d’être renégocié ? Cette calculette donne la mensualité, la part d’assurance, le coût total et le tableau d’amortissement de votre prêt, avec des hypothèses de taux de marché que vous pouvez ajuster.",
+   "Les emprunteurs de La Réunion ont accès aux mêmes leviers qu’ailleurs : délégation d’assurance (loi Lemoine), renégociation, rachat de crédit. Un courtier implanté à La Réunion compare pour vous les établissements présents sur l’île et vous rappelle sous 48 heures avec une proposition chiffrée, votre simulation en main.",
+   "Le taux moyen des nouveaux crédits à l’habitat à La Réunion a beaucoup bougé en un an, selon l’IEDOM : 3,39 % en janvier 2025, 2,82 % en octobre 2025, puis 3,23 % en janvier 2026 (3,06 % France entière). Ces taux s’entendent hors assurance et hors frais. Au 1er trimestre 2026, le prêt moyen y était d’environ 145 000 € sur 21 ans : à 3,23 %, cela représente une mensualité d’environ 793 € hors assurance (calcul indicatif). Saisissez le taux de votre propre offre pour obtenir votre mensualité."
+  ],
+  "sources": "Sources : IEDOM, taux des crédits aux particuliers à La Réunion, 1er trimestre 2026 (publication de juin 2026).",
+  "reperes": [
+   [
+    "Taux moyen habitat",
+    "3,23 % en janvier 2026 à La Réunion, 3,06 % France entière (IEDOM)"
+   ],
+   [
+    "Durée moyenne",
+    "21 ans pour un prêt à l’habitat au 1er trimestre 2026 (IEDOM)"
+   ],
+   [
+    "Assurance",
+    "résiliable à tout moment depuis la loi Lemoine"
+   ]
+  ],
+  "faq_q": "Peut-on faire jouer la concurrence entre banques à La Réunion ?",
+  "faq_a": "Oui : rien ne vous oblige à emprunter dans la banque où vous avez vos comptes, et plusieurs banques et sociétés de financement ont des guichets sur l’île. L’enjeu se chiffre vite : sur un prêt de 145 000 € sur 21 ans (le prêt moyen relevé par l’IEDOM au 1er trimestre 2026), un écart de 0,30 point de taux représente environ 5 600 € d’intérêts sur la durée (calcul indicatif). Un courtier local met les banques en concurrence à partir d’un seul dossier et fait aussi comparer l’assurance emprunteur, que la loi Lemoine permet de changer à tout moment."
+ },
+ "frais-notaire": {
+  "title": "Frais de notaire à La Réunion : calcul 2026 — Akapa",
+  "description": "Estimez vos frais de notaire à La Réunion : droits de mutation à 6,32 % dans l’ancien en 2026, émoluments, débours et coût total de l’acquisition, dans le neuf comme dans l’ancien. Courtier local.",
+  "og_title": "Frais de notaire à La Réunion — simulateur gratuit",
+  "h1": "Frais de notaire à La Réunion",
+  "h2_local": "Frais de notaire à La Réunion : simulateur préréglé pour votre territoire",
+  "p": [
+   "Dans l’ancien, les droits de mutation s’élèvent à 6,32 % du prix à La Réunion : le Département applique depuis le 1er janvier 2026 une taxe départementale de 5,00 % au lieu de 4,50 %, hausse temporaire autorisée par la loi de finances pour 2025, en principe jusqu’au 31 mars 2028. Le simulateur applique ce taux, le barème national des émoluments et un forfait de débours pour estimer le coût de votre achat.",
+   "Que vous achetiez à Saint-Denis, Saint-Paul, Saint-Pierre, au Tampon ou à Saint-André, dans le neuf (frais réduits à 2-3 %) ou dans l’ancien (7-8 %), vous obtenez le budget total à financer. Et comme personne n’estime des frais de notaire sans projet d’achat, un courtier implanté à La Réunion peut prendre le relais pour le financement : rappel sous 48 heures, estimation jointe.",
+   "Deux précisions tirées du tableau de la DGFiP au 1er juin 2026. La taxe de 5,00 % y est indiquée « hors primo-accédant » : pour l’achat d’une première résidence principale, la taxe départementale reste à 4,50 %, soit 5,81 % de droits au lieu de 6,32 %, environ 1 280 € d’écart sur un bien de 250 000 € (calcul). En revanche, aucune exonération ni réduction en faveur des primo-accédants n’y figure pour La Réunion. Le simulateur applique 6,32 % : si vous êtes primo-accédant, faites confirmer votre taux par le notaire et saisissez-le dans le champ du taux global."
+  ],
+  "sources": "Sources : DGFiP, taux des droits d’enregistrement et de la taxe de publicité foncière applicables au 1er janvier et au 1er juin 2026 ; barème réglementé des émoluments des notaires.",
+  "reperes": [
+   [
+    "Droits de mutation",
+    "6,32 % dans l’ancien depuis le 1er janvier 2026 (taxe à 5,00 %)"
+   ],
+   [
+    "Primo-accédants",
+    "5,81 % au 1er juin 2026 (taxe à 4,50 %), à confirmer chez le notaire"
+   ],
+   [
+    "Neuf",
+    "0,715 % de taxe de publicité foncière, TVA incluse dans le prix"
+   ]
+  ],
+  "faq_q": "Combien de frais de notaire pour un bien à 250 000 € à La Réunion ?",
+  "faq_a": "Dans l’ancien, avec des droits de mutation à 6,32 %, le simulateur donne environ 19 700 € de frais tout compris (droits, émoluments TTC, contribution de sécurité immobilière et forfait de débours), soit près de 8 % du prix. Pour un primo-accédant qui achète sa résidence principale, la taxe départementale restée à 4,50 % ramènerait ce total à environ 18 400 €, à faire confirmer par le notaire. Dans le neuf, la facture tombe autour de 5 700 €. Le simulateur détaille chaque poste et recalcule à chaque modification du prix."
+ },
+ "ciop": {
+  "title": "Simulateur CIOP à La Réunion : crédit d’impôt outre-mer — Akapa",
+  "description": "Simulez un investissement locatif éligible au crédit d’impôt outre-mer à La Réunion : 35 % du prix de revient plafonné, échéancier de versement, loyers et trésorerie par année. Spécialiste local.",
+  "og_title": "Rentabilité CIOP à La Réunion — simulateur gratuit",
+  "h1": "Rentabilité CIOP à La Réunion",
+  "h2_local": "Rentabilité CIOP à La Réunion : simulateur préréglé pour votre territoire",
+  "p": [
+   "À La Réunion, le crédit d’impôt pour investissement dans le logement intermédiaire (article 244 quater W du CGI) est de <strong>35 % du prix de revient</strong>, dans la limite du plafond de prix au m² fixé chaque année. Le simulateur est préréglé sur ce taux, sur le plafond de prix et sur le plafond de loyer du secteur intermédiaire, que vous pouvez ajuster en mode avancé.",
+   "Le dispositif est réservé aux entreprises (le taux de 35 % vaut pour une société soumise à l’impôt sur les sociétés) et impose cinq ans de location nue, à titre de résidence principale et sous plafonds : un manquement entraîne la reprise du crédit d’impôt. Un conseil en défiscalisation outre-mer ou un expert-comptable implanté à La Réunion valide le montage et l’éligibilité du bien avant que vous ne vous engagiez ; il vous rappelle sous 48 heures, simulation jointe.",
+   "Deux repères locaux. Le dispositif plafonne le loyer. Comparez ce plafond, à faire confirmer pour l’année en cours, aux loyers réellement observés à La Réunion : médiane de 10,90 €/m² hors charges en 2024, 13,00 €/m² pour un T2 et 12,20 €/m² pour un nouveau locataire (Observatoire des loyers privés). S’il leur est supérieur, c’est le marché qui borne votre loyer. De même, le crédit d’impôt se calcule sur un prix de revient plafonné au m² : un appartement neuf s’est vendu 5 187 €/m² en médiane en 2024 (AGORAH), un niveau à rapprocher du plafond en vigueur avant de raisonner sur 35 % du prix total."
+  ],
+  "sources": "Sources : Observatoire des loyers privés de La Réunion (ADIL, AGORAH), résultats 2024 ; AGORAH, observatoire des transactions immobilières et foncières n° 14 (prix 2024), avril 2026 ; DEAL Réunion, e-lettre du Plan logement outre-mer n° 8, novembre 2025 (zones tendues).",
+  "reperes": [
+   [
+    "Loyer de marché",
+    "médiane 10,90 €/m² hors charges en 2024 ; T2 : 13,00 €/m² (OLPR)"
+   ],
+   [
+    "Prix du neuf",
+    "médiane de 5 187 €/m² pour un appartement neuf en 2024 (AGORAH)"
+   ],
+   [
+    "Engagement",
+    "5 ans de location nue, loyers et ressources plafonnés"
+   ]
+  ],
+  "faq_q": "Où trouver un programme éligible au CIOP à La Réunion ?",
+  "faq_a": "Les opérations éligibles sont des logements neufs. Pour juger de la demande locative, sachez que neuf communes sont classées en zone tendue depuis 2023 : Saint-Denis, Sainte-Marie, Saint-Paul, Le Port, La Possession, Saint-Pierre, Saint-Louis, Le Tampon et L’Entre-Deux ; Saint-André et Saint-Leu n’en font pas partie. Ce classement ne dit rien de l’éligibilité : le promoteur doit pouvoir justifier la conformité du programme au dispositif. Nos partenaires spécialisés à La Réunion connaissent les programmes en cours et vérifient l’éligibilité avant toute réservation ; décrivez votre projet dans le formulaire, ils vous rappellent sous 48 heures."
+ },
+ "lmnp": {
+  "title": "Simulateur LMNP à La Réunion : régime réel ou micro-BIC — Akapa",
+  "description": "Louez un meublé à La Réunion, à l’année ou en saisonnier ? Comparez le régime réel avec amortissements et le micro-BIC : revenu net, impôt, durée de l’avantage. Expert-comptable LMNP à La Réunion.",
+  "og_title": "Simulateur LMNP à La Réunion — simulateur gratuit",
+  "h1": "Simulateur LMNP à La Réunion",
+  "h2_local": "Simulateur LMNP à La Réunion : simulateur préréglé pour votre territoire",
+  "p": [
+   "La location meublée prend deux formes à La Réunion : des studios et des T2 loués à l’année, par exemple à Saint-Denis ou à Saint-Paul, et des meublés de tourisme sur le littoral. Dans les deux cas, le statut LMNP s’applique et la question est la même : micro-BIC ou régime réel avec amortissements ?",
+   "Depuis 2025, l’abattement du micro-BIC n’est plus que de 30 % pour un meublé de tourisme non classé, ce qui rend le classement et le régime réel déterminants pour la rentabilité d’un saisonnier à La Réunion. Ce simulateur compare les deux régimes année par année pour votre bien ; un expert-comptable spécialisé LMNP implanté à La Réunion tranche ensuite selon votre situation fiscale complète.",
+   "Quelques repères locaux pour vos hypothèses. À l’année, le loyer médian hors charges était en 2024 de 16,10 €/m² pour un T1 et de 13,00 €/m² pour un T2 (Observatoire des loyers privés). En saisonnier, l’île a accueilli 580 675 touristes extérieurs en 2025, avec une haute saison au 4e trimestre et un creux au 2e (IRT). Le taux d’occupation de 63 % publié par l’INSEE pour 2025 concerne les hôtels et hébergements collectifs, pas les meublés de tourisme : estimez vos recettes avec prudence. À Saint-Paul, une délibération du 22 mai 2026 limite à 90 jours par an la location d’une résidence principale en meublé de tourisme."
+  ],
+  "sources": "Sources : Observatoire des loyers privés de La Réunion, résultats 2024 ; Île de La Réunion Tourisme, fréquentation touristique 2025 ; INSEE Flash Réunion n° 310 ; portails de la taxe de séjour du Territoire de l’Ouest, de la CINOR et de la CIVIS (tarifs au 1er janvier 2026, consultés en octobre 2026).",
+  "reperes": [
+   [
+    "Micro-BIC",
+    "50 % d’abattement (meublé classique ou classé), 30 % en tourisme non classé"
+   ],
+   [
+    "Saint-Paul",
+    "résidence principale : 90 jours de location par an au plus (mai 2026)"
+   ],
+   [
+    "Taxe de séjour 2026",
+    "non classé : 5 % de la nuitée par personne, 4,00 € au plus (TCO, CINOR, CIVIS)"
+   ]
+  ],
+  "faq_q": "Faut-il classer son meublé de tourisme à La Réunion ?",
+  "faq_a": "Si vous restez au micro-BIC, oui : le classement (1 à 5 étoiles, valable 5 ans, obtenu auprès d’un organisme agréé) fait passer l’abattement de 30 % à 50 % et relève le plafond de recettes de 15 000 € à 83 600 € pour les revenus de 2026 (77 700 € pour ceux de 2025). Au régime réel, le classement n’a pas d’effet fiscal direct, mais il change la taxe de séjour : sur le Territoire de l’Ouest, la CINOR et la CIVIS, un meublé non classé paie 5 % du prix de la nuitée par personne, plafonné à 4,00 € (tarifs au 1er janvier 2026), un meublé classé un tarif fixe. Le simulateur montre l’écart entre les deux régimes pour vos loyers."
+ },
+ "solaire": {
+  "title": "Simulateur solaire à La Réunion : prime ZNI et rentabilité — Akapa",
+  "description": "Simulez la rentabilité d’une installation photovoltaïque à La Réunion : puissance adaptée à votre facture, prime à l’investissement ZNI, vente du surplus à EDF Réunion. Devis d’un installateur RGE local.",
+  "og_title": "Rentabilité solaire à La Réunion — simulateur gratuit",
+  "h1": "Rentabilité solaire à La Réunion",
+  "h2_local": "Rentabilité solaire à La Réunion : simulateur préréglé pour votre territoire",
+  "p": [
+   "La Réunion fait partie des zones non interconnectées : son réseau électrique n’est relié à aucun autre, et l’État y soutient l’autoconsommation solaire avec une prime à l’investissement et un tarif d’achat propres aux ZNI. EDF Réunion y est à la fois gestionnaire du réseau et acheteur de votre surplus. Ce simulateur est préréglé pour La Réunion (productible, prime, tarif de vente du surplus, prix du kWh) ; comme le barème change chaque trimestre, vérifiez ces valeurs en mode avancé à l’aide des repères ci-dessous.",
+   "Partez de votre facture, cochez vos équipements (climatisation, chauffe-eau, piscine), et obtenez en deux minutes la puissance adaptée, vos économies annuelles et le reste à charge après prime. Si les chiffres vous parlent, un installateur RGE QualiPV implanté à La Réunion vous rappelle sous 48 heures pour une étude de toiture et un devis.",
+   "Barème applicable du 1er août au 31 octobre 2026 (CRE, publié par photovoltaique.info) : prime à l’investissement de 1,54 €/Wc jusqu’à 3 kWc et de 0,92 €/Wc jusqu’à 9 kWc, surplus racheté 17,74 c€/kWh jusqu’à 9 kWc. Attention à l’effet de seuil : 4 620 € de prime pour 3 kWc, 5 520 € pour 6 kWc. Ce barème est révisé chaque trimestre. En face, le kWh du Tarif Bleu coûte 19,48 c€ TTC en option Base depuis le 1er août 2026 (EDF Réunion), et 1 kWc produit de 1 300 à 1 700 kWh par an (guide Énergies Réunion, 2024)."
+  ],
+  "sources": "Sources : CRE, barème ZNI du 1er août au 31 octobre 2026, publié par photovoltaique.info ; EDF Réunion, Tarif Bleu résidentiel au 1er août 2026 ; Énergies Réunion, Région Réunion et ADEME, guide de l’autoconsommation photovoltaïque, 2024.",
+  "reperes": [
+   [
+    "Prime ZNI",
+    "1,54 €/Wc jusqu’à 3 kWc, 0,92 €/Wc jusqu’à 9 kWc (août-octobre 2026)"
+   ],
+   [
+    "Rachat du surplus",
+    "17,74 c€/kWh jusqu’à 9 kWc par EDF Réunion (août-octobre 2026)"
+   ],
+   [
+    "Prix du kWh",
+    "19,48 c€ TTC en option Base depuis le 1er août 2026 (EDF Réunion)"
+   ]
+  ],
+  "faq_q": "Quel est le bon dimensionnement pour une maison à La Réunion ?",
+  "faq_a": "Avec 1 300 à 1 700 kWh produits par kWc et par an (guide Énergies Réunion, 2024), 3 kWc fournissent environ 3 900 à 5 100 kWh par an, et 6 kWc le double. Deux seuils comptent dans le barème d’août à octobre 2026 : au-delà de 3 kWc, la prime passe de 1,54 à 0,92 €/Wc (5 520 € pour 6 kWc contre 4 620 € pour 3 kWc) ; au-delà de 9 kWc, le surplus n’est plus racheté 17,74 mais 9,11 c€/kWh. Jusqu’à 9 kWc, ce tarif reste proche des 19,48 c€ TTC du kWh acheté : l’autoconsommation garde un léger avantage. Visez la puissance qui couvre vos usages de journée (chauffe-eau, climatisation, piscine)."
+ },
+ "aides-renovation": {
+  "title": "Aides à la rénovation à La Réunion : simulateur 2026 — Akapa",
+  "description": "Chauffe-eau solaire, isolation, protection solaire : estimez MaPrimeRénov’, les primes Agir Plus d’EDF Réunion et votre reste à charge, puis recevez le devis d’une entreprise RGE de La Réunion.",
+  "og_title": "Aides à la rénovation à La Réunion — simulateur gratuit",
+  "h1": "Aides à la rénovation à La Réunion",
+  "h2_local": "Aides à la rénovation à La Réunion : simulateur préréglé pour votre territoire",
+  "p": [
+   "À La Réunion, on rénove d’abord pour se protéger de la chaleur et alléger la facture d’électricité : chauffe-eau solaire, isolation et protection solaire de la toiture, brasseurs d’air. Le simulateur applique le barème propre à l’île : MaPrimeRénov’ dans sa version outre-mer, primes Agir Plus d’EDF Réunion déduites du devis, prime à l’investissement photovoltaïque et TVA à 2,1 % sur les travaux d’amélioration énergétique d’un logement de plus de deux ans. Il vous donne le total des aides et le reste à charge selon vos revenus.",
+   "Ces aides ne s’obtiennent qu’avec les bonnes entreprises : partenaire Agir Plus d’EDF pour la prime, certifiée RGE pour MaPrimeRénov’, dont la demande se dépose avant le début des travaux. Laissez vos coordonnées : nous transmettons votre demande à une seule entreprise certifiée RGE implantée à La Réunion, qui vous rappelle sous 48 heures, votre simulation jointe, pour établir un devis.",
+   "Les montants à connaître à La Réunion. Pour un chauffe-eau solaire dans un logement de plus de deux ans, la prime Agir Plus d’EDF est de 800 €, ou 1 400 € sous conditions de ressources (barème du 1er mai 2025, publié en avril 2026) ; MaPrimeRénov’ prévoit 1 600, 1 300 ou 1 000 € selon vos revenus en 2026 (guide Anah outre-mer). Remplacer un climatiseur énergivore ouvre droit à 300 € par appareil, sans aide pour une première installation (barème du 1er juin 2025). La Région propose aussi KAP’Photovoltaïque pour l’autoconsommation en maison individuelle, sans condition de revenus : montants et cumul à vérifier auprès d’Énergies Réunion."
+  ],
+  "sources": "Sources : EDF Réunion, barèmes Agir Plus chauffe-eau solaire (1er mai 2025) et climatisation (1er juin 2025), publiés en avril 2026 ; Anah, guide « Les aides financières 2026 en Outre-mer », avril 2026 ; Région Réunion et Énergies Réunion, pages consultées en octobre 2026.",
+  "reperes": [
+   [
+    "Chauffe-eau solaire",
+    "Agir Plus : 800 € ou 1 400 € selon ressources (barème du 1er mai 2025)"
+   ],
+   [
+    "MaPrimeRénov’",
+    "1 000 à 1 600 € pour un chauffe-eau solaire selon vos revenus (2026)"
+   ],
+   [
+    "TVA réduite",
+    "2,1 % sur les travaux d’amélioration énergétique, logement de plus de 2 ans"
+   ]
+  ],
+  "faq_q": "Quelles aides pour installer un chauffe-eau solaire à La Réunion ?",
+  "faq_a": "Dans un logement de plus de deux ans, trois aides peuvent se combiner, dans la limite d’un plafond de cumul. EDF Réunion verse une prime Agir Plus de 800 €, ou 1 400 € sous conditions de ressources, déduite du devis par l’installateur (barème du 1er mai 2025). MaPrimeRénov’ prévoit 1 600, 1 300 ou 1 000 € selon vos revenus en 2026, pour une dépense éligible plafonnée à 2 600 €, avec une entreprise RGE. La TVA est de 2,1 %. Sous conditions de revenus, le dispositif KAP’Écosolidaire de la Région plafonne à 2 650 € HT la subvention totale d’un propriétaire occupant de maison individuelle (page régionale de juin 2024) : faites vérifier votre éligibilité par Énergies Réunion."
+ },
+ "rentabilite-locative": {
+  "title": "Rentabilité locative à La Réunion : simulateur 2026 — Akapa",
+  "description": "Calculez le rendement brut, net de charges et net d’impôt d’un investissement locatif à La Réunion, cash-flow inclus, puis faites valider vos hypothèses par un professionnel implanté sur l’île.",
+  "og_title": "Rentabilité locative à La Réunion — simulateur gratuit",
+  "h1": "Rentabilité locative à La Réunion",
+  "h2_local": "Rentabilité locative à La Réunion : simulateur préréglé pour votre territoire",
+  "p": [
+   "Ce simulateur calcule les trois rendements d’un investissement locatif à La Réunion (brut, net de charges, net d’impôt) et le cash-flow mensuel, à l’année comme en saisonnier. Il applique les frais d’acquisition du département : taxe départementale de 5,00 % dans l’ancien depuis le 1er janvier 2026, soit 6,32 % de droits de mutation. En mode avancé, il tient compte de la réduction d’impôt des contribuables domiciliés outre-mer. Le loyer, la taxe foncière et les charges préremplis sont de simples exemples, à remplacer par les vôtres.",
+   "Un rendement ne vaut que par ses hypothèses : loyer réaliste pour le quartier, vacance, charges, régime fiscal. Laissez vos coordonnées : nous transmettons votre demande à un seul professionnel implanté à La Réunion (agence, gestionnaire locatif ou expert-comptable selon votre projet), qui vous rappelle sous 48 heures, votre simulation jointe, pour confronter vos chiffres au marché local.",
+   "Pour caler vos hypothèses : en 2024, le loyer médian du parc privé était de 10,90 €/m² hors charges à La Réunion, 11,90 €/m² pour un appartement et 12,20 €/m² pour un nouveau locataire (Observatoire des loyers privés). La même année, un appartement ancien se vendait 2 638 €/m² en médiane (AGORAH). Rapprocher ces deux médianes donne un rendement brut de l’ordre de 5,4 % (calcul indicatif, pas une mesure du marché). Côté charges, le taux global de taxe foncière 2025, hors ordures ménagères, est de 38,97 % à Saint-Denis, 43,28 % à Saint-Paul et 50,19 % à La Possession, d’après les taux DGFiP repris par Atlas Communal."
+  ],
+  "sources": "Sources : Observatoire des loyers privés de La Réunion (ADIL, AGORAH), résultats 2024 ; AGORAH, observatoire des transactions immobilières et foncières n° 14 (prix 2024) ; DGFiP, droits de mutation au 1er juin 2026 ; taux de taxe foncière 2025 d’après Atlas Communal (données DGFiP) ; DEAL Réunion.",
+  "reperes": [
+   [
+    "Loyer médian",
+    "10,90 €/m² hors charges en 2024 ; nouveau locataire : 12,20 €/m² (OLPR)"
+   ],
+   [
+    "Prix dans l’ancien",
+    "appartement : médiane de 2 638 €/m² en 2024 (AGORAH)"
+   ],
+   [
+    "Zone tendue",
+    "9 communes depuis 2023, dont Saint-Denis, Saint-Paul et Saint-Pierre"
+   ]
+  ],
+  "faq_q": "Quel loyer retenir pour simuler un investissement locatif à La Réunion ?",
+  "faq_a": "Partez des loyers observés plutôt que des annonces. En 2024, l’Observatoire des loyers privés relève une médiane hors charges de 16,10 €/m² pour un T1, 13,00 €/m² pour un T2 et 10,70 €/m² pour un T3 ; un T2 se loue de 11,10 €/m² dans l’Est (CIREST) à 14,40 €/m² dans le Territoire de l’Ouest. Neuf communes sont en zone tendue depuis 2023, dont Saint-Denis, Saint-Paul, Saint-Pierre et Le Tampon : ce classement réduit le préavis du locataire à un mois et permet d’encadrer par décret la hausse du loyer à la relocation (dernier décret vérifié : jusqu’au 31 juillet 2026). Enfin, 60 % des locataires du parc privé perçoivent une aide au logement."
+ },
+ "assurance-emprunteur": {
+  "title": "Assurance emprunteur à La Réunion : comparateur — Akapa",
+  "description": "Comparez l’assurance de prêt de votre banque à une délégation et chiffrez l’économie possible sur votre crédit à La Réunion, puis faites étudier votre dossier par un courtier en assurance de prêt.",
+  "og_title": "Assurance emprunteur à La Réunion — simulateur gratuit",
+  "h1": "Assurance emprunteur à La Réunion",
+  "h2_local": "Assurance emprunteur à La Réunion : ce qu’il faut savoir sur votre territoire",
+  "p": [
+   "Le comparateur chiffre, pour votre prêt, ce que coûte l’assurance de votre banque et ce que coûterait un autre contrat : cotisation mensuelle, coût restant, écart total. Le calcul est le même à La Réunion qu’ailleurs, car les règles sont nationales : la loi Lemoine permet de changer d’assurance à tout moment, sans frais, à garanties équivalentes. Nous n’avons trouvé aucune statistique de tarifs propre à l’île : les taux préremplis sont des hypothèses, à remplacer par ceux de votre contrat et d’un devis.",
+   "Seul un devis établi à votre âge, pour votre profession et avec les garanties exigées par votre banque donne le vrai prix. Laissez vos coordonnées : nous transmettons votre demande à un seul courtier en assurance de prêt implanté à La Réunion ; il vous rappelle sous 48 heures, votre simulation jointe, et vérifie l’équivalence des garanties avant toute démarche auprès de votre banque.",
+   "Pour situer ce que l’on assure à La Réunion : au 1er trimestre 2026, le prêt immobilier moyen y était d’environ 145 000 € sur 21 ans, au taux moyen de 3,23 % en janvier 2026, hors assurance et frais (IEDOM). Sur un tel prêt, chaque dixième de point de taux d’assurance appliqué au capital emprunté représente 145 € par an, soit 3 045 € sur 21 ans (calcul indicatif). Ce n’est pas un tarif : votre cotisation dépend de votre âge, de votre santé, de votre profession et du mode de calcul du contrat."
+  ],
+  "sources": "Sources : IEDOM, taux des crédits aux particuliers à La Réunion, 1er trimestre 2026 ; loi n° 2022-270 du 28 février 2022 (loi Lemoine) et article L. 113-2-1 du code des assurances.",
+  "reperes": [
+   [
+    "Prêt moyen assuré",
+    "environ 145 000 € sur 21 ans au 1er trimestre 2026 (IEDOM)"
+   ],
+   [
+    "Taux moyen du crédit",
+    "3,23 % en janvier 2026, hors assurance et frais (IEDOM)"
+   ],
+   [
+    "Loi Lemoine",
+    "résiliation à tout moment, sans frais, à garanties équivalentes"
+   ]
+  ],
+  "faq_q": "L’assurance de prêt coûte-t-elle plus cher à La Réunion ?",
+  "faq_a": "Nous n’avons trouvé aucune donnée publique qui permette de l’affirmer : ni tarif moyen, ni taux de délégation, ni statistique de surprime propres à La Réunion. Les règles, elles, sont les mêmes que dans l’Hexagone : résiliation à tout moment, réponse de la banque sous dix jours ouvrés, pas de questionnaire de santé jusqu’à 200 000 € assurés par personne si le prêt s’achève avant vos 60 ans. Le prêt immobilier moyen à La Réunion, environ 145 000 € sur 21 ans au 1er trimestre 2026 (IEDOM), reste sous ce seuil. Demandez un devis qui mentionne explicitement votre résidence à La Réunion et l’ensemble des garanties exigées par votre banque."
+ },
+ "vehicule-achat-location": {
+  "title": "Acheter ou louer un véhicule à La Réunion : simulateur — Akapa",
+  "description": "Comptant, crédit, LOA ou LLD : comparez le coût total d’une voiture à La Réunion avec les prix locaux du carburant et de l’électricité, puis recevez l’offre d’un concessionnaire ou d’un loueur local.",
+  "og_title": "Acheter ou louer un véhicule à La Réunion — simulateur gratuit",
+  "h1": "Acheter ou louer un véhicule à La Réunion",
+  "h2_local": "Acheter ou louer un véhicule à La Réunion : simulateur préréglé pour votre territoire",
+  "p": [
+   "Le simulateur compare quatre façons de financer une voiture à La Réunion (achat comptant, crédit, LOA, LLD) sur le coût total de possession : financement, énergie, entretien, assurance et carte grise, moins la valeur de revente. Il est préréglé avec les prix réglementés des carburants à La Réunion, le tarif de l’électricité d’EDF Réunion et la taxe régionale sur la carte grise. Pour le prix du véhicule et les loyers de LOA ou de LLD, nous n’avons trouvé aucune référence locale fiable : saisissez ceux de vos devis.",
+   "Un loyer affiché ne se compare qu’à un devis réel. Laissez vos coordonnées : nous transmettons votre demande à un seul concessionnaire ou loueur implanté à La Réunion, qui vous rappelle sous 48 heures, votre simulation jointe, pour vous proposer une offre chiffrée (prix, reprise, loyer, kilométrage) que vous pourrez reporter dans le simulateur.",
+   "Au 1er octobre 2026, le sans-plomb est à 2,00 € le litre et le gazole à 1,80 € à La Réunion : ces prix, fixés chaque mois par le préfet et identiques dans toutes les stations, étaient de 1,83 € et 1,68 € en septembre. La recharge à domicile revient à 19,48 c€ le kWh TTC en option Base depuis le 1er août 2026 (EDF Réunion). La carte grise coûte 60 € par cheval fiscal depuis le 1er janvier 2026. Fin 2024, l’île comptait 14 102 voitures électriques, soit 3,5 % du parc (DEAL, Observatoire Énergie Réunion)."
+  ],
+  "sources": "Sources : prix préfectoraux des carburants d’octobre 2026, relayés par Réunion La 1ère et Imaz Press ; EDF Réunion, Tarif Bleu résidentiel au 1er août 2026 ; Réunion La 1ère pour la taxe régionale 2026 ; DEAL Réunion, bilan des immatriculations 2024 ; Observatoire Énergie Réunion.",
+  "reperes": [
+   [
+    "Carburants",
+    "sans-plomb 2,00 €/L, gazole 1,80 €/L en octobre 2026, révisés chaque mois"
+   ],
+   [
+    "Carte grise",
+    "60 € par cheval fiscal depuis le 1er janvier 2026"
+   ],
+   [
+    "Recharge à domicile",
+    "19,48 c€/kWh TTC en option Base depuis le 1er août 2026"
+   ]
+  ],
+  "faq_q": "Une voiture électrique revient-elle moins cher à l’usage à La Réunion ?",
+  "faq_a": "En énergie, oui, aux prix d’octobre 2026. Avec l’hypothèse de l’Observatoire Énergie Réunion (15 kWh aux 100 km) et un kWh à 19,48 c€ TTC en option Base, 100 km coûtent environ 2,92 € en recharge à domicile ; une essence qui consomme 6,5 L aux 100 km (hypothèse du simulateur) revient à 13,00 € avec un sans-plomb à 2,00 € le litre. Ce calcul indicatif ne dit rien du prix d’achat : le taux d’octroi de mer d’un véhicule, surtout électrique, se vérifie auprès du vendeur, et nous n’avons trouvé aucune aide régionale à l’achat. Vérifiez aussi vos possibilités de recharge : sur 851 prises publiques relevées en juillet 2025, 572 fonctionnaient (Observatoire Énergie Réunion)."
+ }
+}

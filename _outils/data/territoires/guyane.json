@@ -1,0 +1,292 @@
+{
+ "capacite-emprunt": {
+  "title": "Simulateur de capacité d’emprunt en Guyane — Akapa",
+  "description": "Combien pouvez-vous emprunter pour acheter en Guyane ? Montant finançable, budget total et prix du bien accessible, droits de mutation de 6,32 % dans l’ancien compris. Avis d’un courtier local.",
+  "og_title": "Capacité d’emprunt en Guyane — simulateur gratuit",
+  "h1": "Capacité d’emprunt en Guyane",
+  "h2_local": "Capacité d’emprunt en Guyane : simulateur préréglé pour votre territoire",
+  "p": [
+   "Acheter en Guyane obéit aux mêmes règles bancaires qu’en métropole (35 % d’endettement maximal, 25 ans au plus), mais avec des frais d’acquisition propres au territoire : 6,32 % de droits de mutation dans l’ancien depuis le 1er juin 2025, que ce simulateur intègre pour calculer le prix de bien réellement accessible avec votre apport.",
+   "Le marché immobilier de la Guyane — Cayenne, Kourou, Matoury, Rémire-Montjoly, Saint-Laurent-du-Maroni — a ses spécificités : prix au m² très variables d’une commune à l’autre, foncier dont il faut vérifier le titre, le cadastre et le permis, et prêt à taux zéro ouvert en zone B1, où sont classées les 22 communes du territoire. Un courtier implanté en Guyane connaît les banques du territoire et leurs critères ; il vous rappelle sous 48 heures avec votre simulation en main.",
+   "Quelques repères pour situer votre projet. Le taux moyen des crédits à l’habitat en Guyane était de 3,54 % au 2e trimestre 2026, contre 3,12 % pour la France entière (IEDOM). La médiane des ventes enregistrées dans la base DVF en 2025 s’établit à 144 600 € pour un appartement (51 m² de surface médiane) et à 260 000 € pour une maison (91 m²). Sept réseaux bancaires disposaient de guichets sur le territoire fin 2024, et les banques sans guichet local ont porté 44,4 % des crédits en 2025 : comparer au-delà de son agence a du sens."
+  ],
+  "sources": "Sources : DGFiP, tableau des droits de mutation au 1er juin 2026 ; IEDOM, taux des crédits aux particuliers du 2e trimestre 2026, rapport annuel 2024 et synthèse annuelle 2025 ; base DVF (data.gouv.fr), ventes 2025 ; ministère du Logement, zonage ABC au 26 juin 2026.",
+  "reperes": [
+   [
+    "Droits de mutation",
+    "6,32 % du prix dans l’ancien depuis le 1er juin 2025"
+   ],
+   [
+    "Taux moyen",
+    "3,54 % au 2e trimestre 2026 pour un crédit à l’habitat (IEDOM)"
+   ],
+   [
+    "PTZ",
+    "les 22 communes de Guyane sont en zone B1 (zonage au 26 juin 2026)"
+   ]
+  ],
+  "faq_q": "Les banques de la Guyane prêtent-elles aux mêmes conditions qu’en métropole ?",
+  "faq_a": "Les règles du HCSF s’appliquent à l’identique en Guyane : 35 % d’endettement assurance comprise et 25 ans maximum. Les taux, eux, y sont en moyenne plus élevés : 3,54 % au 2e trimestre 2026 pour un crédit à l’habitat, contre 3,12 % pour la France entière (IEDOM). Sept réseaux seulement tenaient des guichets sur le territoire fin 2024, ce qui rend la connaissance de leurs critères — revenus et primes retenus, apport attendu — d’autant plus précieuse : c’est le rôle du courtier local, qui peut aussi solliciter des établissements sans agence sur place."
+ },
+ "mensualites-credit": {
+  "title": "Calculette de mensualités de crédit immobilier en Guyane — Akapa",
+  "description": "Calculez la mensualité de votre prêt immobilier en Guyane, assurance comprise, le coût total des intérêts et le tableau d’amortissement. Proposition de prêt par un courtier implanté en Guyane.",
+  "og_title": "Mensualités de crédit en Guyane — simulateur gratuit",
+  "h1": "Mensualités de crédit en Guyane",
+  "h2_local": "Mensualités de crédit en Guyane : simulateur préréglé pour votre territoire",
+  "p": [
+   "Vous préparez un achat en Guyane, ou vous vous demandez si votre crédit actuel mérite d’être renégocié ? Cette calculette donne la mensualité, la part d’assurance, le coût total et le tableau d’amortissement de votre prêt, avec des hypothèses de taux de marché que vous pouvez ajuster.",
+   "Les emprunteurs de la Guyane ont accès aux mêmes leviers qu’ailleurs — délégation d’assurance (loi Lemoine), renégociation, rachat — mais avec un choix de banques plus restreint sur le territoire. Un courtier implanté en Guyane compare pour vous les établissements présents à Cayenne et alentour, et vous rappelle sous 48 heures avec une proposition chiffrée.",
+   "Les taux pratiqués en Guyane sont suivis chaque trimestre par l’IEDOM. Au 2e trimestre 2026, le taux moyen des crédits à l’habitat y atteint 3,54 % (3,46 % au trimestre précédent), contre 3,12 % pour la France entière. Sur l’ensemble de l’année 2025, la moyenne était de 3,50 %, soit 0,46 point de plus qu’au niveau national. Pour un prêt personnel, comptez 6,86 % en moyenne au 2e trimestre 2026 (6,37 % en France entière). Saisissez le taux de votre offre pour mesurer ce que chaque dixième de point pèse sur la mensualité."
+  ],
+  "sources": "Sources : IEDOM Guyane, taux des crédits aux particuliers du 2e trimestre 2026 (publié le 8 septembre 2026), synthèse annuelle 2025 et rapport annuel 2024.",
+  "reperes": [
+   [
+    "Taux moyen en Guyane",
+    "3,54 % au 2e trimestre 2026 pour un crédit à l’habitat (IEDOM)"
+   ],
+   [
+    "France entière",
+    "3,12 % au 2e trimestre 2026 ; écart moyen de 0,46 point en 2025"
+   ],
+   [
+    "Assurance",
+    "résiliable à tout moment depuis la loi Lemoine"
+   ]
+  ],
+  "faq_q": "Peut-on faire jouer la concurrence entre banques en Guyane ?",
+  "faq_a": "Oui, même si les enseignes présentes en Guyane sont moins nombreuses qu’en métropole : sept réseaux y tenaient des guichets fin 2024, soit 43 guichets pour tout le territoire (IEDOM). Les banques sans guichet local ont d’ailleurs porté 44,4 % des crédits de la place en 2025 : la concurrence se joue aussi à distance. Les écarts de taux, d’assurance et de frais entre deux établissements peuvent représenter plusieurs milliers d’euros sur la durée d’un prêt. Un courtier local met les banques en concurrence à partir d’un seul dossier et négocie aussi l’assurance emprunteur."
+ },
+ "frais-notaire": {
+  "title": "Frais de notaire en Guyane : calcul 2026 avec le barème local — Akapa",
+  "description": "Estimez vos frais de notaire en Guyane : droits de mutation à 6,32 % dans l’ancien (5,81 % pour un premier achat), émoluments, débours et coût total. Financement par un courtier local.",
+  "og_title": "Frais de notaire en Guyane — simulateur gratuit",
+  "h1": "Frais de notaire en Guyane",
+  "h2_local": "Frais de notaire en Guyane : simulateur préréglé pour votre territoire",
+  "p": [
+   "Dans l’ancien, les droits de mutation s’élèvent à 6,32 % du prix en Guyane : l’Assemblée de Guyane (Collectivité territoriale de Guyane) a porté la taxe départementale à 5 % depuis le 1er juin 2025, hausse temporaire autorisée par la loi de finances 2025 jusqu’au 31 mars 2028. Le simulateur applique ce taux, le barème national des émoluments et un forfait de débours pour estimer le coût de votre achat.",
+   "Que vous achetiez à Cayenne, Kourou, Matoury, Rémire-Montjoly ou Saint-Laurent-du-Maroni, vous obtenez le budget total à financer. Pour un logement neuf, le régime des droits applicable en Guyane, où la TVA ne s’applique pas, est à faire confirmer par votre notaire avant de retenir un taux réduit. Et comme personne n’estime des frais de notaire sans projet d’achat, un courtier implanté en Guyane peut prendre le relais pour le financement : rappel sous 48 heures, estimation jointe.",
+   "Le taux de 6,32 % additionne, au 1er juin 2026, la taxe départementale de 5,00 %, la taxe communale de 1,20 % et environ 0,12 % de frais d’assiette (tableau de la DGFiP). La majoration ne s’applique pas à l’achat d’une première résidence principale : les primo-accédants restent à 5,81 % environ. À cette date, la Guyane n’a voté aucune réduction supplémentaire en leur faveur. Quant à la réduction de moitié des droits propre à la Guyane (article 1043 A du CGI), elle ne joue pas sur l’achat d’un logement ancien, taxé au tarif de droit commun."
+  ],
+  "sources": "Sources : DGFiP, tableau des droits d’enregistrement et de la taxe de publicité foncière au 1er juin 2026 ; BOFiP, BOI-ENR-DMTOI-10-100 (12 août 2026) et BOI-TVA-GEO-20 ; loi de finances pour 2025, article 116.",
+  "reperes": [
+   [
+    "Droits de mutation",
+    "6,32 % du prix dans l’ancien depuis le 1er juin 2025"
+   ],
+   [
+    "Primo-accédants",
+    "5,81 % environ : la hausse ne vise pas un premier achat (juin 2026)"
+   ],
+   [
+    "Neuf",
+    "pas de TVA en Guyane ; régime des droits à confirmer chez le notaire"
+   ]
+  ],
+  "faq_q": "Combien de frais de notaire pour un bien à 250 000 € en Guyane ?",
+  "faq_a": "Dans l’ancien, les droits de mutation à 6,32 % représentent à eux seuls environ 15 800 €. S’y ajoutent les émoluments réglementés du notaire, la contribution de sécurité immobilière et les débours : le total se situe entre 19 000 et 20 000 €, soit un peu moins de 8 % du prix. S’il s’agit de votre première résidence principale, le taux de 5,81 % ramène les droits à environ 14 500 €. Pour un logement neuf, faites confirmer le régime applicable par votre notaire, la TVA ne s’appliquant pas en Guyane. Le simulateur détaille chaque poste et recalcule à chaque modification du prix."
+ },
+ "ciop": {
+  "title": "Simulateur CIOP en Guyane : crédit d’impôt logement intermédiaire — Akapa",
+  "description": "Simulez un investissement éligible au crédit d’impôt outre-mer en Guyane : 35 % du prix de revient plafonné, échéancier, loyers plafonnés et trésorerie année par année. Avis d’un spécialiste local.",
+  "og_title": "Rentabilité CIOP en Guyane — simulateur gratuit",
+  "h1": "Rentabilité CIOP en Guyane",
+  "h2_local": "Rentabilité CIOP en Guyane : simulateur préréglé pour votre territoire",
+  "p": [
+   "En Guyane, le crédit d’impôt pour investissement dans le logement intermédiaire (article 244 quater W du CGI) est de <strong>35 % du prix de revient</strong>, dans la limite d’un plafond au m² de surface habitable. Ce volet du dispositif est réservé aux sociétés soumises à l’impôt sur les sociétés et aux organismes de logement social, pour lesquels le taux est de 35 % quel que soit le département : le taux majoré propre à la Guyane et à Mayotte ne concerne que les entreprises à l’impôt sur le revenu. Le simulateur est préréglé à 35 %.",
+   "Les programmes neufs éligibles se concentrent autour de Cayenne, Kourou, Matoury, Rémire-Montjoly, Saint-Laurent-du-Maroni. Le dispositif est réservé aux entreprises (sociétés à l’IS, SCI à l’IS) et impose cinq ans de location nue sous plafonds : un manquement entraîne la reprise du crédit d’impôt. Un conseil en défiscalisation outre-mer ou un expert-comptable implanté en Guyane valide le montage et l’éligibilité du bien avant que vous ne vous engagiez.",
+   "En 2026, l’assiette du crédit d’impôt est plafonnée à 3 295 € hors taxes par m² de surface habitable (plafond 2025 reconduit), et le dispositif reste ouvert aux investissements réalisés jusqu’au 31 décembre 2029. Le plafond de loyer du secteur intermédiaire outre-mer est de 211 € par m² et par an hors charges pour les baux conclus en 2026, soit environ 17,6 € par mois ; son application à votre opération est à faire confirmer. À titre de comparaison, les loyers d’annonce, charges comprises, s’établissaient en 2025 à 16,6 €/m² à Cayenne et 17,6 €/m² à Rémire-Montjoly pour un appartement (carte des loyers du ministère du Logement)."
+  ],
+  "sources": "Sources : BOFiP, BOI-BIC-RICI-10-160-20 (19 août 2026), BOI-IR-RICI-80-20-10 et BOI-IR-RICI-80-10-20-20 (10 mars 2026) ; ministère du Logement, carte des loyers 2025 ; IEDOM, synthèse annuelle 2025.",
+  "reperes": [
+   [
+    "Taux",
+    "35 % du prix de revient plafonné (sociétés à l’IS)"
+   ],
+   [
+    "Plafond 2026",
+    "3 295 € HT par m² de surface habitable"
+   ],
+   [
+    "Échéance",
+    "investissements réalisés jusqu’au 31 décembre 2029"
+   ]
+  ],
+  "faq_q": "Où trouver un programme éligible au CIOP en Guyane ?",
+  "faq_a": "Les opérations éligibles sont des logements neufs livrés par des promoteurs locaux, principalement sur le littoral (Cayenne, Rémire-Montjoly, Matoury, Kourou, Saint-Laurent-du-Maroni). L’offre est étroite : les logements autorisés à la construction ont reculé de 29,2 % en Guyane en 2025 (IEDOM). Le promoteur doit pouvoir justifier la conformité du programme, à commencer par un prix de revient compatible avec le plafond de 3 295 € HT par m² en 2026. Nos partenaires spécialisés en Guyane connaissent les programmes en cours et vérifient l’éligibilité avant toute réservation ; décrivez votre projet dans le formulaire, ils vous rappellent sous 48 heures."
+ },
+ "lmnp": {
+  "title": "Simulateur LMNP en Guyane : régime réel ou micro-BIC ? — Akapa",
+  "description": "Vous louez un meublé en Guyane, à l’année ou en saisonnier ? Comparez régime réel avec amortissements et micro-BIC : revenu net, impôt économisé, durée de l’avantage. Avis d’un expert-comptable local.",
+  "og_title": "Simulateur LMNP en Guyane — simulateur gratuit",
+  "h1": "Simulateur LMNP en Guyane",
+  "h2_local": "Simulateur LMNP en Guyane : simulateur préréglé pour votre territoire",
+  "p": [
+   "La location meublée concerne en Guyane aussi bien les studios et T2 loués à l’année à Cayenne ou Kourou que les meublés de tourisme du littoral. Dans les deux cas, le statut LMNP s’applique et la question est la même : micro-BIC ou régime réel avec amortissements ?",
+   "Depuis 2025, l’abattement du micro-BIC n’est plus que de 30 % pour un meublé de tourisme non classé, ce qui rend le classement et le régime réel déterminants pour la rentabilité d’un saisonnier en Guyane. Ce simulateur compare les deux régimes année par année pour votre bien ; un expert-comptable spécialisé LMNP implanté en Guyane tranche ensuite selon votre situation fiscale complète.",
+   "Selon l’observatoire de l’habitat de l’AUDeG, un meublé se louait en 2024 autour de 20 €/m², contre 15,36 €/m² pour un logement loué vide. Les petites surfaces sont les plus chères : en 2025, les loyers d’annonce des T1-T2, charges comprises, s’établissent à 19,3 €/m² à Cayenne, 18,8 €/m² à Kourou et 20,6 €/m² à Rémire-Montjoly (carte des loyers du ministère du Logement). Au régime réel, n’oubliez pas la taxe foncière, dont le taux global 2025 atteint 70,95 % à Cayenne et 78,19 % à Kourou. Et comme la TVA ne s’applique pas en Guyane, aucun montage de récupération de TVA n’y a de sens."
+  ],
+  "sources": "Sources : AUDeG, observatoire de l’habitat, tableau de bord 2024 ; ministère du Logement, carte des loyers 2025 ; DGFiP, fiscalité locale des particuliers 2025 ; BOFiP, BOI-TVA-GEO-20 ; CACL, taxe de séjour.",
+  "reperes": [
+   [
+    "Meublé ou vide",
+    "20 €/m² en meublé contre 15,36 €/m² en vide (AUDeG, 2024)"
+   ],
+   [
+    "Taxe foncière 2025",
+    "taux global de 70,95 % à Cayenne, 78,19 % à Kourou"
+   ],
+   [
+    "Micro-BIC",
+    "50 % d’abattement, 30 % en meublé de tourisme non classé"
+   ]
+  ],
+  "faq_q": "Faut-il classer son meublé de tourisme en Guyane ?",
+  "faq_a": "Si vous restez au micro-BIC, oui : le classement (1 à 5 étoiles, valable 5 ans, obtenu auprès d’un organisme agréé) fait passer l’abattement de 30 % à 50 % et relève nettement le plafond de recettes du régime. Au régime réel, le classement n’a pas d’effet fiscal direct, mais il reste un argument commercial. Pensez aussi à la taxe de séjour : la CACL, l’intercommunalité du centre littoral, la collecte dans six communes, dont Cayenne, Matoury et Rémire-Montjoly. Le simulateur montre l’écart entre les deux régimes pour votre niveau de loyers."
+ },
+ "solaire": {
+  "title": "Simulateur solaire en Guyane : prime ZNI, économies, rentabilité — Akapa",
+  "description": "Simulez la rentabilité d’une installation photovoltaïque en Guyane : puissance adaptée à votre facture, prime ZNI, revente du surplus à EDF Guyane et gain sur 25 ans. Devis d’un installateur local.",
+  "og_title": "Rentabilité solaire en Guyane — simulateur gratuit",
+  "h1": "Rentabilité solaire en Guyane",
+  "h2_local": "Rentabilité solaire en Guyane : simulateur préréglé pour votre territoire",
+  "p": [
+   "La Guyane fait partie des zones non interconnectées : l’électricité y est produite sur place, à un coût élevé, et l’État y soutient l’autoconsommation solaire avec une prime à l’investissement et un tarif de rachat propres aux ZNI. Ce simulateur est préréglé pour la Guyane : ensoleillement, barème de prime, tarif de revente du surplus à EDF Guyane et prix moyens constatés sur le territoire.",
+   "Partez de votre facture, cochez vos équipements (climatisation, chauffe-eau, piscine), et obtenez en deux minutes la puissance adaptée, vos économies annuelles et le reste à charge après prime. Si les chiffres vous parlent, un installateur qualifié implanté en Guyane vous rappelle sous 48 heures pour une étude de toiture et un devis.",
+   "Pour une demande complète de raccordement déposée entre le 1er août et le 31 octobre 2026, la prime à l’investissement est de 1,70 € par Wc jusqu’à 3 kWc et de 1,03 € par Wc jusqu’à 9 kWc, soit 5 100 € pour 3 kWc et 6 180 € pour 6 kWc ; le surplus est racheté 18,22 c€/kWh. Ce barème est révisé chaque trimestre. Le kWh acheté à EDF Guyane coûte 19,05 c€ TTC en option Base depuis le 1er août 2026 : l’écart entre autoconsommer et revendre est donc faible pour une petite installation. Le soutien est nul à Maripasoula et à Papaïchton."
+  ],
+  "sources": "Sources : arrêté tarifaire du 5 janvier 2024 et barème CRE des demandes du 1er août au 31 octobre 2026 (photovoltaique.info) ; EDF Guyane, tarif Bleu résidentiel au 1er août 2026 ; PVGIS 5.3 (Commission européenne).",
+  "reperes": [
+   [
+    "Prime ZNI",
+    "1,70 €/Wc jusqu’à 3 kWc, 1,03 €/Wc jusqu’à 9 kWc (août-octobre 2026)"
+   ],
+   [
+    "Rachat du surplus",
+    "18,22 c€/kWh jusqu’à 9 kWc, contrat de 20 ans (août-octobre 2026)"
+   ],
+   [
+    "Versement de la prime",
+    "en une fois, 6 mois ou un an après la mise en service"
+   ]
+  ],
+  "faq_q": "Quel est le bon dimensionnement pour une maison en Guyane ?",
+  "faq_a": "D’après l’outil PVGIS de la Commission européenne, un kWc produit environ 1 490 kWh par an à Cayenne et 1 510 à Kourou. Une maison qui consomme 6 000 à 8 000 kWh (climatisation, chauffe-eau électrique) est en général bien servie par 3 à 6 kWc. Jusqu’à 9 kWc, le surplus est racheté 18,22 c€/kWh pour les demandes d’août à octobre 2026, presque le prix du kWh acheté à EDF Guyane (19,05 c€ au 1er août 2026) ; entre 9 et 100 kWc, il tombe à 7,19 c€/kWh. Visez donc la puissance qui correspond à vos besoins, et ne franchissez pas ce seuil sans étude."
+ },
+ "aides-renovation": {
+  "title": "Aides à la rénovation en Guyane : simulateur 2026 — Akapa",
+  "description": "Estimez vos aides à la rénovation en Guyane : MaPrimeRénov’ par geste, primes Agir Plus d’EDF Guyane, prime photovoltaïque et reste à charge. Devis d’une entreprise RGE implantée sur le territoire.",
+  "og_title": "Aides à la rénovation en Guyane — simulateur gratuit",
+  "h1": "Aides à la rénovation en Guyane",
+  "h2_local": "Aides à la rénovation en Guyane : simulateur préréglé pour votre territoire",
+  "p": [
+   "En Guyane, on ne rénove pas pour se chauffer mais pour se protéger de la chaleur et alléger la facture d’électricité. Ce simulateur additionne les aides mobilisables pour vos travaux — MaPrimeRénov’, qui n’existe outre-mer que dans son parcours par geste, primes Agir Plus d’EDF Guyane et prime à l’investissement photovoltaïque — et calcule votre reste à charge. Particularité du territoire : la TVA n’y est pas applicable, vos devis sont donc établis sans TVA et les taux réduits de l’Hexagone sont sans objet.",
+   "Le résultat reste une estimation : les barèmes évoluent et les primes Agir Plus sont versées par l’intermédiaire de partenaires agréés. Si les montants vous encouragent à aller plus loin, laissez vos coordonnées : une seule entreprise certifiée RGE implantée en Guyane reçoit votre demande, simulation jointe, et vous rappelle sous 48 heures pour un devis.",
+   "Sur le littoral, le barème Agir Plus d’EDF Guyane applicable depuis le 1er mai 2025 (document du 13 février 2026) prévoit, pour un logement existant, 25 €/m² pour l’isolation des murs, 17 €/m² pour les combles ou la toiture, 15 €/m² pour la protection solaire de la toiture et 12 €/m² pour celle des façades. Pour un chauffe-eau solaire ou un climatiseur, les montants dépendent du logement et des ressources : vérifiez-les sur le simulateur d’EDF Guyane. Les travaux de réhabilitation d’un logement achevé depuis plus de 20 ans ouvrent en outre droit à une réduction d’impôt, prorogée jusqu’au 31 décembre 2029."
+  ],
+  "sources": "Sources : EDF Guyane, barème Agir Plus isolation et protection solaire (13 février 2026) ; service-public.gouv.fr, fiche F35083 (1er septembre 2026) ; BOFiP, BOI-TVA-GEO-20 et BOI-IR-RICI-80 ; ANIL, ADIL de la Guyane.",
+  "reperes": [
+   [
+    "Isolation de toiture",
+    "17 €/m² de prime Agir Plus sur le littoral (barème du 1er mai 2025)"
+   ],
+   [
+    "Protection solaire",
+    "15 €/m² en toiture, 12 €/m² en façade (barème du 1er mai 2025)"
+   ],
+   [
+    "TVA",
+    "non applicable en Guyane : devis établis sans TVA"
+   ]
+  ],
+  "faq_q": "MaPrimeRénov’ fonctionne-t-elle en Guyane comme dans l’Hexagone ?",
+  "faq_a": "Non. En Guyane comme dans les autres départements d’outre-mer, seul le parcours par geste existe : la rénovation d’ampleur n’y est pas proposée (fiche service-public vérifiée le 1er septembre 2026). Le logement doit avoir plus de 2 ans, contre 15 ans dans l’Hexagone, et les travaux aidés sont adaptés au climat : protection des parois contre le rayonnement solaire, sur-toiture ventilée, bardage ventilé, chauffe-eau solaire. Le simulateur y ajoute les primes Agir Plus d’EDF Guyane, accessibles quels que soient vos revenus. Pour un conseil gratuit, l’ADIL de la Guyane, à Cayenne, tient des permanences dans plusieurs communes."
+ },
+ "rentabilite-locative": {
+  "title": "Rentabilité locative en Guyane : simulateur de rendement — Akapa",
+  "description": "Calculez le rendement brut, net de charges et net d’impôt d’un investissement locatif en Guyane, droits de mutation locaux et cash-flow mensuel compris. Avis d’un gestionnaire locatif du territoire.",
+  "og_title": "Rentabilité locative en Guyane — simulateur gratuit",
+  "h1": "Rentabilité locative en Guyane",
+  "h2_local": "Rentabilité locative en Guyane : simulateur préréglé pour votre territoire",
+  "p": [
+   "Ce simulateur calcule le rendement brut, net de charges et net d’impôt d’un bien loué en Guyane, ainsi que le cash-flow mensuel une fois le crédit payé. Il applique les droits de mutation du territoire (6,32 % dans l’ancien depuis le 1er juin 2025) et propose, en mode avancé, la réduction d’impôt de 40 %, plafonnée à 4 050 €, réservée aux contribuables domiciliés en Guyane. Les loyers et charges préremplis sont de simples exemples : remplacez-les par ceux de votre bien.",
+   "Un rendement affiché n’est pas un rendement encaissé : vacance, impayés, travaux et fiscalité font la différence. Pour confronter vos hypothèses au terrain, laissez vos coordonnées : un seul partenaire implanté en Guyane — agence, gestionnaire locatif ou expert-comptable selon votre besoin — reçoit votre demande avec la simulation jointe et vous rappelle sous 48 heures.",
+   "Côté prix, la médiane des ventes enregistrées dans la base DVF en 2025 est de 2 839 €/m² pour un appartement à Cayenne et de 3 045 €/m² à Rémire-Montjoly. Côté loyers, la carte des loyers du ministère du Logement donne pour 2025, en loyers d’annonce charges comprises, 16,6 €/m² à Cayenne, 17,6 €/m² à Rémire-Montjoly et 15,7 €/m² à Kourou pour un appartement. Dans vos charges, comptez la taxe foncière : parmi les principales communes du littoral, son taux global 2025 va de 56,59 % à Rémire-Montjoly à 78,19 % à Kourou, appliqué à la moitié de la valeur locative cadastrale."
+  ],
+  "sources": "Sources : base DVF (data.gouv.fr), ventes 2025 ; ministère du Logement, carte des loyers 2025 et zonage des zones tendues (décret du 22 décembre 2025) ; DGFiP, fiscalité locale 2025 et droits de mutation au 1er juin 2026 ; AUDeG, tableau de bord 2024.",
+  "reperes": [
+   [
+    "Prix à Cayenne",
+    "2 839 €/m², médiane des ventes d’appartements (base DVF, 2025)"
+   ],
+   [
+    "Loyers d’annonce 2025",
+    "16,6 €/m² charges comprises à Cayenne pour un appartement"
+   ],
+   [
+    "Zone tendue",
+    "Cayenne, Matoury et Rémire-Montjoly uniquement (décembre 2025)"
+   ]
+  ],
+  "faq_q": "Quel loyer retenir pour simuler un investissement locatif à Cayenne ?",
+  "faq_a": "Appuyez-vous sur les repères publics plutôt que sur les annonces les plus chères. La carte des loyers du ministère du Logement indique pour 2025, en loyers d’annonce charges comprises, 16,6 €/m² pour un appartement à Cayenne : 19,3 €/m² pour un T1-T2, 15,1 €/m² pour un T3 et plus. C’est un indicateur d’annonces, avec une marge d’erreur d’environ 25 % : retirez les charges et prévoyez une période de vacance. L’observatoire de l’AUDeG relevait de son côté 16,20 €/m² hors charges en Guyane en 2024, là aussi à partir d’annonces. Cayenne étant en zone tendue, le préavis d’un locataire en location vide y est réduit à un mois."
+ },
+ "assurance-emprunteur": {
+  "title": "Assurance emprunteur en Guyane : comparateur loi Lemoine — Akapa",
+  "description": "Comparez l’assurance de prêt de votre banque à une délégation et chiffrez l’économie mensuelle et totale sur votre crédit en Guyane. Étude par un courtier en assurance de prêt du territoire.",
+  "og_title": "Assurance emprunteur en Guyane — simulateur gratuit",
+  "h1": "Assurance emprunteur en Guyane",
+  "h2_local": "Assurance emprunteur en Guyane : ce qu’il faut savoir sur votre territoire",
+  "p": [
+   "Ce comparateur chiffre ce que vous coûte l’assurance de votre prêt immobilier et ce que vous économiseriez avec un autre contrat, par mois et sur la durée restante. Les règles sont les mêmes en Guyane que dans l’Hexagone : depuis la loi Lemoine, l’assurance d’un prêt immobilier peut être changée à tout moment, à garanties équivalentes. Le territoire n’entre pas dans le calcul : aucun tarif propre à la Guyane n’est publié, et seul un devis donne le prix réel.",
+   "Pour savoir si un changement vaut la peine dans votre cas, laissez vos coordonnées : un seul courtier en assurance de prêt implanté en Guyane reçoit votre demande, simulation jointe, et vous rappelle sous 48 heures. Il vérifie l’équivalence des garanties exigée par votre banque et vous indique les contrats réellement accessibles à un emprunteur résidant sur le territoire.",
+   "Faute de tarifs locaux publiés, les repères du crédit donnent l’ordre de grandeur de ce que l’on assure. Le taux moyen des crédits à l’habitat en Guyane était de 3,54 % au 2e trimestre 2026, contre 3,12 % pour la France entière (IEDOM). La médiane des ventes enregistrées dans la base DVF en 2025 est de 144 600 € pour un appartement et de 260 000 € pour une maison. Le code général des impôts (article 1043 A) pose par ailleurs le principe d’une taxe sur les conventions d’assurance réduite de moitié pour les risques situés en Guyane ; son effet sur votre contrat est à demander au courtier."
+  ],
+  "sources": "Sources : IEDOM Guyane, taux des crédits aux particuliers du 2e trimestre 2026, rapport annuel 2024 et synthèse annuelle 2025 ; base DVF (data.gouv.fr), ventes 2025 ; BOFiP, BOI-TCAS-ASSUR-30-10.",
+  "reperes": [
+   [
+    "Crédit à l’habitat",
+    "3,54 % en moyenne en Guyane au 2e trimestre 2026 (IEDOM)"
+   ],
+   [
+    "Banques",
+    "7 réseaux avec guichets fin 2024 ; 44,4 % des crédits 2025 sans guichet local"
+   ],
+   [
+    "Loi Lemoine",
+    "changement d’assurance possible à tout moment, sans frais"
+   ]
+  ],
+  "faq_q": "Peut-on changer d’assurance de prêt quand on a emprunté en Guyane ?",
+  "faq_a": "Oui. La loi Lemoine permet de résilier l’assurance d’un prêt immobilier à tout moment, sans frais, à condition de présenter à la banque un contrat aux garanties équivalentes ; la banque dispose de dix jours ouvrés pour répondre et doit motiver un refus. L’enjeu n’est pas mince en Guyane, où le crédit à l’habitat coûte en moyenne 3,54 % au 2e trimestre 2026, contre 3,12 % pour la France entière (IEDOM). Aucun barème d’assurance propre au territoire n’est publié : demandez des devis, en vérifiant que le contrat est bien ouvert aux résidents de Guyane, ce qu’un courtier local sait d’emblée."
+ },
+ "vehicule-achat-location": {
+  "title": "Acheter ou louer un véhicule en Guyane : comparateur — Akapa",
+  "description": "Comptant, crédit, LOA ou LLD ? Comparez le coût total, mensuel et au kilomètre d’une voiture en Guyane, carburant au prix local compris. Offre d’un concessionnaire ou d’un loueur du territoire.",
+  "og_title": "Acheter ou louer un véhicule en Guyane — simulateur gratuit",
+  "h1": "Acheter ou louer un véhicule en Guyane",
+  "h2_local": "Acheter ou louer un véhicule en Guyane : simulateur préréglé pour votre territoire",
+  "p": [
+   "Ce simulateur compare quatre façons de rouler en Guyane — achat comptant, achat à crédit, location avec option d’achat et location longue durée — sur la durée pendant laquelle vous comptez garder le véhicule. Il est préréglé avec les prix maximums des carburants fixés par arrêté préfectoral et le tarif de l’électricité d’EDF Guyane. La TVA ne s’applique pas en Guyane, y compris sur les véhicules ; la fiscalité locale passe par l’octroi de mer, voté par l’Assemblée de Guyane.",
+   "Les loyers et la valeur de reprise proposés sont des hypothèses, pas des offres. Pour obtenir un chiffrage réel, laissez vos coordonnées : un seul concessionnaire ou loueur implanté en Guyane reçoit votre demande, simulation jointe, et vous rappelle sous 48 heures avec une proposition adaptée à votre kilométrage et à votre budget.",
+   "Au 1er octobre 2026, les prix maximums sont de 2,21 € le litre de sans-plomb et de 2,37 € le litre de gazole, soit 19 centimes de plus en un mois ; ils sont révisés chaque mois par arrêté préfectoral, et le gazole est désormais plus cher que l’essence. Pour un véhicule électrique, le kWh du tarif Bleu d’EDF Guyane coûte 19,05 c€ TTC en option Base depuis le 1er août 2026. Selon le rapport annuel 2024 de l’IEDOM, le réseau routier compte 2 159 km, dont un seul axe littoral d’environ 450 km de Saint-Laurent-du-Maroni à Saint-Georges, et 57,6 % des ménages étaient équipés d’une automobile en 2021."
+  ],
+  "sources": "Sources : arrêté préfectoral des prix des carburants au 1er octobre 2026 (relayé par France-Guyane et KaribInfo) ; EDF Guyane, tarif Bleu résidentiel au 1er août 2026 ; IEDOM, rapport annuel 2024 ; BOFiP, BOI-TVA-GEO-20.",
+  "reperes": [
+   [
+    "Sans-plomb",
+    "2,21 €/L au 1er octobre 2026, prix maximum révisé chaque mois"
+   ],
+   [
+    "Gazole",
+    "2,37 €/L au 1er octobre 2026, prix maximum révisé chaque mois"
+   ],
+   [
+    "Électricité",
+    "19,05 c€/kWh TTC en option Base au 1er août 2026 (EDF Guyane)"
+   ]
+  ],
+  "faq_q": "Essence, diesel ou électrique : que change le prix de l’énergie en Guyane ?",
+  "faq_a": "Au 1er octobre 2026, le sans-plomb est plafonné à 2,21 €/L et le gazole à 2,37 €/L ; ces prix, fixés par arrêté préfectoral, changent chaque mois, et le gazole est passé au-dessus de l’essence. L’électricité du tarif Bleu d’EDF Guyane est à 19,05 c€/kWh TTC en option Base depuis le 1er août 2026. Avec les consommations par défaut du simulateur (6,5 L ou 17 kWh aux 100 km), cela représente environ 14,40 € aux 100 km en essence contre environ 3,20 € en électrique. Remplacez ces hypothèses par les vôtres, et gardez en tête qu’en 2024 l’électricité guyanaise a été produite à 56 % par des centrales thermiques."
+ }
+}

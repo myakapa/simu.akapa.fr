@@ -12,3 +12,6 @@
 /rentabilite-locative.html      /rentabilite-locative      301!
 /aides-renovation.html          /aides-renovation          301!
 /vehicule-achat-location.html   /vehicule-achat-location   301!
+
+# Outils de génération (dossier de travail, pas des pages du site)
+/_outils/*                      /404.html                  404!

@@ -1,0 +1,292 @@
+{
+ "capacite-emprunt": {
+  "title": "Simulateur de capacité d’emprunt en Martinique — Akapa",
+  "description": "Combien pouvez-vous emprunter pour acheter en Martinique ? Montant finançable et prix du bien accessible, frais de notaire compris (droits de mutation à 6,32 %, 5,81 % en primo-accession). Courtier local.",
+  "og_title": "Capacité d’emprunt en Martinique — simulateur gratuit",
+  "h1": "Capacité d’emprunt en Martinique",
+  "h2_local": "Capacité d’emprunt en Martinique : simulateur préréglé pour votre territoire",
+  "p": [
+   "Acheter en Martinique obéit aux mêmes règles bancaires qu’en métropole (35 % d’endettement maximal, 25 ans au plus), mais avec des frais d’acquisition propres au territoire : depuis le 1er février 2026, les droits de mutation atteignent 6,32 % dans l’ancien, et restent à 5,81 % pour un primo-accédant qui achète sa résidence principale. Avec les émoluments du notaire, comptez 7 à 8 % du prix dans l’ancien : le simulateur déduit ces frais, que vous pouvez ajuster, pour calculer le prix de bien réellement accessible avec votre apport.",
+   "Le marché immobilier de la Martinique a ses spécificités : les prix au m² varient fortement d’une commune à l’autre, entre l’agglomération de Fort-de-France et du Lamentin, Schœlcher et le littoral du sud, et le crédit immobilier y est concentré entre peu d’établissements. Un courtier implanté en Martinique connaît les banques du territoire et leurs critères ; il vous rappelle sous 48 heures avec votre simulation en main.",
+   "Quelques repères pour situer votre projet. Au 2e trimestre 2026, le taux moyen des crédits à l’habitat accordés aux particuliers en Martinique est de 3,29 % selon l’IEDOM, soit 17 points de base au-dessus de la moyenne France entière, pour une durée moyenne proche de 22 ans en 2025. Côté prix, la médiane des ventes enregistrées dans la base DVF en 2025 s’établit à 3 022 €/m² pour un appartement ancien et à 2 587 €/m² pour une maison ancienne, dont le prix médian est de 238 000 € ; l’année 2025 est encore incomplète dans cette base."
+  ],
+  "sources": "Sources : DGFiP, tableau des droits de mutation au 1er juin 2026 ; IEDOM, taux des crédits aux particuliers au 2e trimestre 2026 et rapport annuel Martinique 2025 ; DGFiP, base DVF, ventes 2025 (médianes calculées par nos soins).",
+  "reperes": [
+   [
+    "Droits de mutation",
+    "6,32 % dans l’ancien depuis le 1er février 2026 ; 5,81 % en primo-accession"
+   ],
+   [
+    "Taux moyen",
+    "3,29 % pour les crédits à l’habitat au 2e trimestre 2026 (IEDOM)"
+   ],
+   [
+    "Courtiers",
+    "partenaires implantés en Martinique, un seul contacté par demande"
+   ]
+  ],
+  "faq_q": "Les banques de la Martinique prêtent-elles aux mêmes conditions qu’en métropole ?",
+  "faq_a": "Les règles du HCSF s’appliquent à l’identique en Martinique : 35 % d’endettement assurance comprise et 25 ans maximum. Les taux sont proches de ceux de l’Hexagone : 3,29 % en moyenne pour un crédit à l’habitat au 2e trimestre 2026 selon l’IEDOM, soit 17 points de base de plus que la moyenne France entière. Le marché est en revanche plus concentré : 14 établissements bancaires sont installés et les trois premiers détiennent 75,7 % du crédit immobilier (IEDOM, 2025). Connaître leurs critères, des revenus retenus à l’apport attendu, est donc précieux : c’est le rôle du courtier local."
+ },
+ "mensualites-credit": {
+  "title": "Mensualités de crédit immobilier en Martinique : calculette — Akapa",
+  "description": "Calculez la mensualité de votre prêt immobilier en Martinique, assurance comprise, le coût total des intérêts et le tableau d’amortissement. Proposition de prêt par un courtier implanté en Martinique.",
+  "og_title": "Mensualités de crédit en Martinique — simulateur gratuit",
+  "h1": "Mensualités de crédit en Martinique",
+  "h2_local": "Mensualités de crédit en Martinique : simulateur préréglé pour votre territoire",
+  "p": [
+   "Vous préparez un achat en Martinique, ou vous vous demandez si votre crédit actuel mérite d’être renégocié ? Cette calculette donne la mensualité, la part d’assurance, le coût total et le tableau d’amortissement de votre prêt, avec des hypothèses de taux de marché que vous pouvez ajuster.",
+   "Les emprunteurs de la Martinique ont accès aux mêmes leviers qu’ailleurs — délégation d’assurance (loi Lemoine), renégociation, rachat — mais avec un choix de banques plus restreint : 14 établissements sont installés sur le territoire, et le réseau compte 128 agences en 2025, 12 % de moins qu’il y a dix ans (IEDOM). Un courtier implanté en Martinique compare pour vous les établissements présents à Fort-de-France et alentour, et vous rappelle sous 48 heures avec une proposition chiffrée.",
+   "Pour régler la calculette sur le marché local : l’IEDOM relève un taux moyen de 3,29 % pour les crédits à l’habitat aux particuliers en Martinique au 2e trimestre 2026, en hausse de 17 points de base sur le trimestre, après 3,19 % fin 2025. La durée moyenne de ces prêts est proche de 22 ans (2025). À titre de comparaison, un prêt personnel se négocie en moyenne à 6,84 % au 2e trimestre 2026. L’encours des crédits à l’habitat des ménages martiniquais atteint 3,70 milliards d’euros fin 2025, en hausse de 5,0 % sur un an."
+  ],
+  "sources": "Sources : IEDOM, taux des crédits aux particuliers au 2e trimestre 2026 ; IEDOM, rapport annuel économique Martinique 2025.",
+  "reperes": [
+   [
+    "Taux moyen",
+    "3,29 % au 2e trimestre 2026, +17 points de base sur le trimestre (IEDOM)"
+   ],
+   [
+    "Durée moyenne",
+    "près de 22 ans pour un crédit à l’habitat en 2025 (IEDOM)"
+   ],
+   [
+    "Assurance",
+    "résiliable à tout moment depuis la loi Lemoine"
+   ]
+  ],
+  "faq_q": "Peut-on faire jouer la concurrence entre banques en Martinique ?",
+  "faq_a": "Oui, même si le marché est concentré : les trois premiers établissements détiennent 75,7 % du crédit immobilier en Martinique et les banques mutualistes portent 71,0 % de l’encours de crédits (IEDOM, 2025). Les écarts de taux, d’assurance et de frais entre deux établissements du territoire peuvent représenter plusieurs milliers d’euros sur la durée d’un prêt. Un courtier local met les banques en concurrence à partir d’un seul dossier et négocie aussi l’assurance emprunteur, souvent le poste le plus rentable à optimiser."
+ },
+ "frais-notaire": {
+  "title": "Frais de notaire en Martinique : calcul 2026 au barème local — Akapa",
+  "description": "Estimez vos frais de notaire en Martinique : droits de mutation à 6,32 % (5,81 % pour un primo-accédant), émoluments, débours et coût total, dans le neuf comme dans l’ancien. Financement par un courtier local.",
+  "og_title": "Frais de notaire en Martinique — simulateur gratuit",
+  "h1": "Frais de notaire en Martinique",
+  "h2_local": "Frais de notaire en Martinique : simulateur préréglé pour votre territoire",
+  "p": [
+   "Dans l’ancien, les droits de mutation s’élèvent à 6,32 % du prix en Martinique depuis le 1er février 2026 : la Collectivité territoriale de Martinique (CTM) a porté le taux départemental de 4,50 % à 5 %, hausse temporaire autorisée par la loi de finances pour 2025 jusqu’au 31 mars 2028. Les primo-accédants qui achètent leur résidence principale restent de droit à l’ancien taux, soit 5,81 % : le mode avancé permet de le saisir. Le simulateur applique par défaut 6,32 %, le barème national des émoluments et un forfait de débours pour donner le coût réel de votre achat.",
+   "Que vous achetiez à Fort-de-France, au Lamentin, à Schœlcher, à Ducos ou au Robert, dans le neuf (frais réduits à 2-3 %) ou dans l’ancien (7-8 %), vous obtenez le budget total à financer. Et comme personne n’estime des frais de notaire sans projet d’achat, un courtier implanté en Martinique peut prendre le relais pour le financement : rappel sous 48 heures, estimation jointe.",
+   "Les chiffres à retenir, d’après le tableau de la DGFiP au 1er juin 2026 : taux départemental de 5 % en Martinique, soit 6,32 % au total avec la taxe communale et les frais d’assiette, contre 5,81 % avant le 1er février 2026 ; dans le neuf, taxe de publicité foncière de 0,715 % du prix hors taxes. La Martinique n’a voté aucune réduction supplémentaire pour les primo-accédants. Pour une maison ancienne au prix médian de 238 000 € (ventes enregistrées dans la base DVF en 2025), les seuls droits de mutation représentent environ 15 000 €, contre 13 800 € pour un primo-accédant."
+  ],
+  "sources": "Sources : DGFiP, tableau des droits d’enregistrement et de la taxe de publicité foncière au 1er juin 2026 ; loi de finances pour 2025 (article 116) ; DGFiP, base DVF, ventes 2025 (médiane calculée par nos soins).",
+  "reperes": [
+   [
+    "Droits de mutation",
+    "6,32 % dans l’ancien depuis le 1er février 2026, jusqu’au 31 mars 2028"
+   ],
+   [
+    "Neuf",
+    "0,715 % de taxe de publicité foncière, TVA incluse dans le prix"
+   ],
+   [
+    "Primo-accédants",
+    "maintien de droit à 5,81 % pour une résidence principale (2026)"
+   ]
+  ],
+  "faq_q": "Combien de frais de notaire pour un bien à 250 000 € en Martinique ?",
+  "faq_a": "Dans l’ancien, avec des droits de mutation à 6,32 % (taux en vigueur depuis le 1er février 2026), comptez environ 19 700 € de frais tout compris (droits, émoluments TTC, contribution de sécurité immobilière et débours), soit près de 7,9 % du prix. Un primo-accédant qui achète sa résidence principale reste à 5,81 % de droits : sa facture descend à environ 18 400 €. Dans le neuf, elle tombe autour de 5 700 €. Le simulateur détaille chaque poste et recalcule à chaque modification du prix."
+ },
+ "ciop": {
+  "title": "Simulateur CIOP en Martinique : crédit d’impôt outre-mer — Akapa",
+  "description": "Simulez un investissement locatif éligible au crédit d’impôt outre-mer en Martinique : 35 % du prix de revient plafonné, loyers plafonnés et trésorerie année par année. Validation par un spécialiste local.",
+  "og_title": "Rentabilité CIOP en Martinique — simulateur gratuit",
+  "h1": "Rentabilité CIOP en Martinique",
+  "h2_local": "Rentabilité CIOP en Martinique : simulateur préréglé pour votre territoire",
+  "p": [
+   "En Martinique, le crédit d’impôt pour investissement dans le logement intermédiaire (article 244 quater W du CGI) est de <strong>35 % du prix de revient</strong> pour une société à l’impôt sur les sociétés, dans la limite d’un plafond de prix au m² fixé chaque année : 3 295 € HT par m² de surface habitable en 2026. Le simulateur est préréglé sur ce taux ; les plafonds de prix et de loyer qu’il propose restent modifiables, pour les caler sur l’année de votre opération.",
+   "Qu’il se situe à Fort-de-France, au Lamentin, à Schœlcher, à Ducos ou au Robert, le bien doit être un logement neuf loué dans le secteur intermédiaire. Le dispositif est réservé aux entreprises (sociétés à l’IS, SCI à l’IS) et impose cinq ans de location nue sous plafonds : un manquement entraîne la reprise du crédit d’impôt. Un conseil en défiscalisation outre-mer ou un expert-comptable implanté en Martinique valide le montage et l’éligibilité du bien avant que vous ne vous engagiez.",
+   "Les plafonds 2026 publiés au BOFiP : prix de revient retenu dans la limite de 3 295 € HT par m², varangues comptées jusqu’à 14 m² ; loyer plafonné à 211 € par m² et par an pour les baux conclus en 2026, soit 17,58 €/m² par mois ; ressources du locataire limitées à 38 313 € pour une personne seule et 70 849 € pour un couple. Le dispositif vaut pour les investissements réalisés jusqu’au 31 décembre 2029. Pour comparaison, les loyers d’annonce relevés en 2025 par la carte des loyers du ministère, charges comprises, sont de 15,9 €/m² à Fort-de-France et de 17,1 €/m² à Schœlcher en appartement."
+  ],
+  "sources": "Sources : BOFiP, BOI-BIC-RICI-10-160 (doctrine publiée le 19 août 2026), BOI-IR-RICI-80-20-10 et BOI-IR-RICI-80-10-20-20 (plafonds 2026) ; IEDOM, rapport annuel Martinique 2025 ; ministère chargé du logement, carte des loyers 2025.",
+  "reperes": [
+   [
+    "Taux",
+    "35 % du prix de revient, plafonné à 3 295 € HT/m² en 2026"
+   ],
+   [
+    "Loyer plafond 2026",
+    "211 €/m² par an, soit 17,58 €/m² par mois (baux conclus en 2026)"
+   ],
+   [
+    "Engagement",
+    "5 ans de location nue ; dispositif ouvert jusqu’au 31 décembre 2029"
+   ]
+  ],
+  "faq_q": "Où trouver un programme éligible au CIOP en Martinique ?",
+  "faq_a": "Les opérations éligibles sont des logements neufs à usage locatif du secteur intermédiaire, proposés par des promoteurs locaux. Le promoteur doit pouvoir justifier l’éligibilité du programme et son calendrier ; de votre côté, comparez le prix au m² au plafond de 3 295 € HT retenu en 2026 pour le calcul du crédit d’impôt, et le loyer visé au plafond de 211 € par m² et par an. Le Pinel outre-mer, lui, ne concerne plus que les biens acquis avant le 31 décembre 2024. Nos partenaires spécialisés en Martinique vérifient l’éligibilité avant toute réservation ; décrivez votre projet dans le formulaire, ils vous rappellent sous 48 heures."
+ },
+ "lmnp": {
+  "title": "Simulateur LMNP en Martinique : régime réel ou micro-BIC — Akapa",
+  "description": "Louez un meublé en Martinique, à l’année ou en saisonnier ? Comparez le régime réel avec amortissements et le micro-BIC : revenu net, impôt économisé. Expert-comptable LMNP implanté en Martinique.",
+  "og_title": "Simulateur LMNP en Martinique — simulateur gratuit",
+  "h1": "Simulateur LMNP en Martinique",
+  "h2_local": "Simulateur LMNP en Martinique : simulateur préréglé pour votre territoire",
+  "p": [
+   "La location meublée prend deux formes en Martinique : studios et T2 loués à l’année à Fort-de-France ou au Lamentin, et meublés de tourisme sur le littoral — 52 % des touristes de séjour ont logé en location saisonnière en 2025 selon l’IEDOM. Dans les deux cas, le statut LMNP s’applique et la question est la même : micro-BIC ou régime réel avec amortissements ?",
+   "Depuis 2025, l’abattement du micro-BIC n’est plus que de 30 % pour un meublé de tourisme non classé, ce qui rend le classement et le régime réel déterminants pour la rentabilité d’un saisonnier en Martinique. Ce simulateur compare les deux régimes année par année pour votre bien ; un expert-comptable spécialisé LMNP implanté en Martinique tranche ensuite selon votre situation fiscale complète.",
+   "Les charges locales pèsent sur le régime réel. Le taux global de taxe foncière voté pour 2025 va de 32,01 % à Rivière-Pilote à 68,35 % à Case-Pilote, avec 51,66 % à Fort-de-France et 44,28 % aux Trois-Îlets (DGFiP) ; la taxe d’enlèvement des ordures ménagères s’y ajoute, à 13,8 % dans les quatre communes de la CACEM et 19,0 % ailleurs. Le François (35 %) et Le Carbet (48 %) majorent en 2025 la taxe d’habitation sur les résidences secondaires. En saisonnier, la haute saison se concentre sur le premier trimestre, qui réunit 35 % des réservations des plateformes en 2025 : partez d’une occupation prudente."
+  ],
+  "sources": "Sources : IEDOM, rapport annuel Martinique 2025 (enquête du Comité martiniquais du tourisme, Atout France) ; DGFiP, fiscalité locale des particuliers, taux 2025 ; loi du 19 novembre 2024 sur les meublés de tourisme.",
+  "reperes": [
+   [
+    "Micro-BIC",
+    "50 % d’abattement (meublé classique ou classé), 30 % en tourisme non classé"
+   ],
+   [
+    "Location saisonnière",
+    "52 % des touristes de séjour y ont logé en 2025 (IEDOM)"
+   ],
+   [
+    "Taxe foncière 2025",
+    "taux global de 32,01 % à 68,35 % selon la commune (DGFiP)"
+   ]
+  ],
+  "faq_q": "Faut-il classer son meublé de tourisme en Martinique ?",
+  "faq_a": "Si vous restez au micro-BIC, oui : le classement (1 à 5 étoiles, valable 5 ans, obtenu auprès d’un organisme agréé) fait passer l’abattement de 30 % à 50 % et vous sort du plafond de 15 000 € de recettes applicable aux meublés de tourisme non classés. Au régime réel, le classement n’a pas d’effet fiscal direct, mais il reste un argument commercial. Pensez aussi à la taxe de séjour, instituée en Martinique par les trois intercommunalités (CACEM, Espace Sud, Cap Nord), chacune avec sa plateforme de télédéclaration. Le simulateur montre l’écart entre les deux régimes pour votre niveau de loyers."
+ },
+ "solaire": {
+  "title": "Simulateur solaire en Martinique : prime, surplus, rentabilité — Akapa",
+  "description": "Simulez la rentabilité d’une installation photovoltaïque en Martinique : puissance adaptée à votre facture, prime ZNI, revente du surplus à EDF Martinique. Devis d’un installateur RGE QualiPV local.",
+  "og_title": "Rentabilité solaire en Martinique — simulateur gratuit",
+  "h1": "Rentabilité solaire en Martinique",
+  "h2_local": "Rentabilité solaire en Martinique : simulateur préréglé pour votre territoire",
+  "p": [
+   "La Martinique fait partie des zones non interconnectées : l’électricité y est produite sur place, à un coût élevé (360 €/MWh en 2023 selon la CRE) même si elle vous est facturée au tarif réglementé, et l’État y soutient l’autoconsommation solaire avec une prime à l’investissement et un tarif d’achat propres aux ZNI. Ce simulateur est préréglé pour la Martinique : productible, barème de prime et tarif de revente du surplus à EDF Martinique, avec des coûts d’installation indicatifs à remplacer par vos devis.",
+   "Partez de votre facture, cochez vos équipements (climatisation, chauffe-eau, piscine), et obtenez en deux minutes la puissance adaptée, vos économies annuelles et le reste à charge après prime. Si les chiffres vous parlent, un installateur RGE QualiPV implanté en Martinique vous rappelle sous 48 heures pour une étude de toiture et un devis.",
+   "Le barème change chaque trimestre. Pour une demande complète de raccordement déposée entre le 1er août et le 31 octobre 2026, la prime à l’investissement est de 1,71 € par Wc jusqu’à 3 kWc et de 1,04 € par Wc jusqu’à 9 kWc, et le surplus est acheté 18,22 c€ le kWh, hors TVA, par contrat de 20 ans (CRE, photovoltaique.info). En face, le kWh du tarif réglementé coûte 18,96 c€ TTC en option base 3 ou 6 kVA depuis le 1er août 2026. En 2025, le solaire a fourni 7,4 % de l’électricité martiniquaise, et l’ensemble des renouvelables 27,3 % (IEDOM)."
+  ],
+  "sources": "Sources : CRE et photovoltaique.info, arrêté tarifaire ZNI du 5 janvier 2024, barème du 1er août au 31 octobre 2026 ; EDF Martinique, tarif bleu au 1er août 2026 ; IEDOM, rapport annuel Martinique 2025 ; Commission européenne, PVGIS 5.3.",
+  "reperes": [
+   [
+    "Prime ZNI",
+    "1,71 €/Wc jusqu’à 3 kWc, 1,04 €/Wc jusqu’à 9 kWc (août-octobre 2026)"
+   ],
+   [
+    "Rachat du surplus",
+    "18,22 c€/kWh jusqu’à 9 kWc (août-octobre 2026), contrat de 20 ans"
+   ],
+   [
+    "Versement de la prime",
+    "en une fois, 6 mois ou un an après la mise en service"
+   ]
+  ],
+  "faq_q": "Quel est le bon dimensionnement pour une maison en Martinique ?",
+  "faq_a": "PVGIS (Commission européenne) estime le productible théorique entre 1 610 et 1 670 kWh par kWc et par an selon la commune ; la production réelle d’une toiture est plus basse (orientation, ombrages, salissures) et le simulateur retient une valeur plus prudente. Une maison qui consomme 6 000 à 8 000 kWh par an (climatisation, chauffe-eau électrique) est généralement bien servie par 3 à 6 kWc. Jusqu’à 9 kWc, le surplus est acheté 18,22 c€ le kWh (demandes d’août à octobre 2026), presque le prix du kWh que vous achetez ; mais EDF ne l’achète à ce tarif que dans la limite de 1 600 heures de production par an, et la prime par Wc baisse au-delà de 3 kWc."
+ },
+ "aides-renovation": {
+  "title": "Aides à la rénovation en Martinique : simulateur 2026 — Akapa",
+  "description": "Calculez vos aides à la rénovation en Martinique : MaPrimeRénov’ outre-mer, primes Agir Plus d’EDF, TVA à 2,1 % et éco-prêt à taux zéro. Devis d’une entreprise certifiée RGE implantée en Martinique.",
+  "og_title": "Aides à la rénovation en Martinique — simulateur gratuit",
+  "h1": "Aides à la rénovation en Martinique",
+  "h2_local": "Aides à la rénovation en Martinique : simulateur préréglé pour votre territoire",
+  "p": [
+   "En Martinique, on rénove pour se protéger de la chaleur et alléger la facture d’électricité, et les aides suivent cette logique : chauffe-eau solaire, isolation et protection solaire de la toiture, brasseurs d’air. Le simulateur applique, selon vos revenus et vos travaux, le barème outre-mer de MaPrimeRénov’, les primes Agir Plus d’EDF Martinique et la TVA à 2,1 %. Les aides qui s’instruisent dossier par dossier sont signalées « à vérifier » et non comptées ; c’est le cas de celles de la Collectivité territoriale de Martinique, dont le site ne présentait aucune aide aux particuliers pour l’habitat début octobre 2026.",
+   "Une fois vos aides estimées, vous pouvez demander un devis : une seule entreprise certifiée RGE implantée en Martinique reçoit votre demande, simulation jointe, et vous rappelle sous 48 heures. La prime Agir Plus est avancée par l’entreprise partenaire d’EDF, qui la déduit du devis ; la demande MaPrimeRénov’ doit, elle, être déposée avant le début des travaux.",
+   "D’après le guide Anah pour l’outre-mer (septembre 2026), MaPrimeRénov’ verse en 2026 1 600 €, 1 300 € ou 1 000 € pour un chauffe-eau solaire selon que vos revenus sont très modestes, modestes ou intermédiaires. EDF Martinique ajoute, avec Agir Plus, 20 € par m² d’isolation de toiture pour les ménages très modestes et modestes (18 € pour les autres), 150 € ou 120 € par brasseur d’air plafonnier et 300 à 350 € pour le remplacement d’un climatiseur par un modèle A+++. La TVA est de 2,1 % sur les travaux d’amélioration de la performance énergétique d’un logement de plus de deux ans, au lieu de 8,5 %."
+  ],
+  "sources": "Sources : Anah, guide « Les aides financières 2026 en Outre-mer », édition de septembre 2026 ; EDF Martinique, offres Agir Plus ; DEAL Martinique, plateforme Martinique Rénov’ ; site de la CTM consulté le 4 octobre 2026.",
+  "reperes": [
+   [
+    "Chauffe-eau solaire",
+    "MaPrimeRénov’ 2026 : 1 600, 1 300 ou 1 000 € selon vos revenus"
+   ],
+   [
+    "Isolation de toiture",
+    "prime Agir Plus d’EDF : 18 à 20 €/m² selon vos revenus (2026)"
+   ],
+   [
+    "TVA réduite",
+    "2,1 % sur les travaux de performance énergétique, 8,5 % sinon (2026)"
+   ]
+  ],
+  "faq_q": "À qui s’adresser en Martinique pour monter un dossier d’aides à la rénovation ?",
+  "faq_a": "Commencez par Martinique Rénov’, la plateforme publique lancée le 4 juin 2025 par la DEAL avec l’Anah, la CTM, les intercommunalités, EDF et l’ADIL : elle propose un simulateur d’éligibilité et vous oriente vers le bon interlocuteur, sans être un guichet de dépôt de dossier. L’ADIL Martinique, à Fort-de-France, informe gratuitement sur le logement. La prime Agir Plus se demande auprès d’une entreprise partenaire d’EDF, qui la déduit du devis, et MaPrimeRénov’ se demande avant le début des travaux. Pour un logement dégradé, l’aide de l’État à l’amélioration de l’habitat passe par la DEAL Martinique."
+ },
+ "rentabilite-locative": {
+  "title": "Rentabilité locative en Martinique : simulateur de rendement — Akapa",
+  "description": "Calculez le rendement brut, net et net d’impôt d’un investissement locatif en Martinique, à l’année ou en saisonnier, frais de notaire locaux compris. Avis d’un professionnel implanté en Martinique.",
+  "og_title": "Rentabilité locative en Martinique — simulateur gratuit",
+  "h1": "Rentabilité locative en Martinique",
+  "h2_local": "Rentabilité locative en Martinique : simulateur préréglé pour votre territoire",
+  "p": [
+   "Ce simulateur calcule le rendement brut, le rendement net de charges, le rendement net d’impôt et le cash-flow d’un bien loué en Martinique, à l’année ou en saisonnier. Il applique les frais d’acquisition du territoire : 6,32 % de droits de mutation dans l’ancien depuis le 1er février 2026, le taux de 5,81 % étant réservé aux primo-accédants qui achètent leur résidence principale. Loyer, taxe foncière et charges restent à saisir d’après votre bien : les valeurs préremplies ne sont que des exemples.",
+   "Un rendement se juge sur des chiffres vérifiés sur place : loyer réellement praticable, vacance, charges, régime fiscal. Sur demande, un seul professionnel implanté en Martinique — agence, gestionnaire locatif ou expert-comptable selon votre projet — reçoit votre simulation et vous rappelle sous 48 heures pour la confronter au marché de votre commune.",
+   "Pour situer vos hypothèses : la carte des loyers du ministère chargé du logement donne pour 2025 des loyers d’annonce, charges comprises, de 15,9 €/m² à Fort-de-France, 16,0 €/m² au Lamentin, 17,1 €/m² à Schœlcher et 18,8 €/m² aux Trois-Îlets pour un appartement. Côté prix, la médiane des ventes d’appartements enregistrées dans la base DVF en 2025 est de 2 679 €/m² à Fort-de-France, 2 782 €/m² au Lamentin et 4 748 €/m² aux Trois-Îlets. Le taux global de taxe foncière 2025 atteint 51,66 % à Fort-de-France, 43,89 % au Lamentin et 37,51 % à Schœlcher (DGFiP)."
+  ],
+  "sources": "Sources : ministère chargé du logement et ANIL, carte des loyers 2025 (loyers d’annonce) ; DGFiP, base DVF, ventes 2025 (médianes calculées par nos soins) ; DGFiP, fiscalité locale des particuliers, taux 2025 ; DGFiP, droits de mutation au 1er juin 2026.",
+  "reperes": [
+   [
+    "Loyers d’annonce 2025",
+    "15,9 €/m² à Fort-de-France, 18,8 aux Trois-Îlets, charges comprises"
+   ],
+   [
+    "Taxe foncière 2025",
+    "taux global : 51,66 % à Fort-de-France, 43,89 % au Lamentin"
+   ],
+   [
+    "Droits de mutation",
+    "6,32 % dans l’ancien depuis le 1er février 2026"
+   ]
+  ],
+  "faq_q": "Quel ordre de grandeur de rendement brut à Fort-de-France et aux Trois-Îlets ?",
+  "faq_a": "En rapprochant les loyers d’annonce de 2025 (carte des loyers du ministère, charges comprises) de la médiane des ventes d’appartements enregistrées dans la base DVF en 2025, on obtient un rendement brut théorique d’environ 7 % à Fort-de-France (15,9 €/m² par mois pour 2 679 €/m²), proche de 7 % au Lamentin et inférieur à 5 % aux Trois-Îlets (18,8 €/m² pour 4 748 €/m²). Ce n’est qu’un ordre de grandeur : le loyer d’annonce inclut des charges, le prix n’inclut pas les frais d’acquisition, et la taxe foncière, élevée en Martinique, réduit le rendement net. Saisissez les chiffres de votre bien pour obtenir le vôtre."
+ },
+ "assurance-emprunteur": {
+  "title": "Assurance emprunteur en Martinique : simulateur de délégation — Akapa",
+  "description": "Comparez le coût de votre assurance de prêt immobilier en Martinique avec un autre contrat : cotisation, coût restant, écart total. Étude par un courtier en assurance de prêt implanté en Martinique.",
+  "og_title": "Assurance emprunteur en Martinique — simulateur gratuit",
+  "h1": "Assurance emprunteur en Martinique",
+  "h2_local": "Assurance emprunteur en Martinique : ce qu’il faut savoir sur votre territoire",
+  "p": [
+   "Ce comparateur chiffre ce que vous coûte l’assurance de votre prêt immobilier et l’écart avec un autre contrat, pour un prêt à venir comme pour un prêt en cours. Les règles sont les mêmes en Martinique que dans l’Hexagone : la loi Lemoine permet de changer d’assurance à tout moment, sans frais, à garanties équivalentes. Le territoire ne modifie donc pas le calcul, et aucun tarif d’assurance propre à la Martinique n’est publié : seul un devis établi pour votre âge, votre profession et votre département de résidence fait foi.",
+   "Si l’écart affiché vous semble significatif, un courtier en assurance de prêt implanté en Martinique, et un seul, reçoit votre demande avec la simulation jointe et vous rappelle sous 48 heures. Il vérifie l’équivalence des garanties exigée par votre banque et vous indique si le changement vaut la peine dans votre situation.",
+   "Pour mesurer ce que l’on assure : selon l’IEDOM, le taux moyen des crédits à l’habitat en Martinique est de 3,29 % au 2e trimestre 2026 et leur durée moyenne proche de 22 ans en 2025 ; or plus un prêt est long, plus l’assurance pèse dans son coût total. L’encours des crédits à l’habitat des ménages atteint 3,70 milliards d’euros fin 2025. Quatorze établissements bancaires sont installés sur l’île, dont BNP Paribas Antilles-Guyane, La Banque Postale, LCL, la BRED, le Crédit Mutuel Antilles-Guyane, la CEPAC et le Crédit Agricole Martinique-Guyane ; les trois premiers détiennent 75,7 % du crédit immobilier (2025)."
+  ],
+  "sources": "Sources : IEDOM, taux des crédits aux particuliers au 2e trimestre 2026 ; IEDOM, rapport annuel économique Martinique 2025 ; loi du 28 février 2022, dite loi Lemoine.",
+  "reperes": [
+   [
+    "Loi Lemoine",
+    "changement d’assurance à tout moment, en Martinique comme ailleurs"
+   ],
+   [
+    "Crédits à l’habitat",
+    "3,70 milliards d’euros d’encours fin 2025, +5,0 % sur un an (IEDOM)"
+   ],
+   [
+    "Banques",
+    "14 établissements ; les 3 premiers : 75,7 % du crédit immobilier (2025)"
+   ]
+  ],
+  "faq_q": "Peut-on assurer son prêt hors de sa banque quand on vit en Martinique ?",
+  "faq_a": "Oui. La loi Lemoine s’applique en Martinique comme dans l’Hexagone : vous pouvez choisir un autre assureur à la souscription ou en cours de prêt, et la banque ne peut refuser que si les garanties ne sont pas équivalentes aux siennes. La question se pose d’autant plus que le marché local est concentré : 14 établissements bancaires sont installés et les trois premiers détiennent 75,7 % du crédit immobilier (IEDOM, 2025). Aucune statistique publique ne mesure en revanche les tarifs d’assurance pratiqués en Martinique : demandez un devis qui mentionne votre département de résidence et toutes les garanties exigées par votre banque."
+ },
+ "vehicule-achat-location": {
+  "title": "Acheter ou louer un véhicule en Martinique : comparateur — Akapa",
+  "description": "Comptant, crédit, LOA ou LLD : comparez le coût total d’une voiture en Martinique avec les prix locaux du carburant, de l’électricité et de la carte grise. Offre d’un concessionnaire ou loueur local.",
+  "og_title": "Acheter ou louer un véhicule en Martinique — simulateur gratuit",
+  "h1": "Acheter ou louer un véhicule en Martinique",
+  "h2_local": "Acheter ou louer un véhicule en Martinique : simulateur préréglé pour votre territoire",
+  "p": [
+   "Ce comparateur calcule le coût total d’une voiture en Martinique sur la durée où vous comptez la garder, pour quatre formules : achat comptant, crédit, LOA et LLD. Il est préréglé avec les prix maximums des carburants fixés chaque mois par arrêté préfectoral, le tarif réglementé de l’électricité d’EDF Martinique et le tarif du cheval fiscal décidé par la Collectivité territoriale de Martinique. Prix du véhicule, kilométrage, loyers et valeur de reprise restent à saisir d’après les offres que vous avez reçues.",
+   "Pour passer de la simulation à une offre réelle, un seul concessionnaire ou loueur implanté en Martinique reçoit votre demande, simulation jointe, et vous rappelle sous 48 heures. Vous pouvez alors comparer son prix, son loyer et sa valeur de reprise aux hypothèses du simulateur.",
+   "Au 1er octobre 2026, les prix maximums sont de 2,10 € le litre de sans-plomb et de 2,27 € le litre de gazole, contre 1,90 € et 2,08 € en septembre : ils changent chaque mois et ont fortement monté en 2026 (moyennes 2025 : 1,80 € et 1,70 €). Le kWh du tarif réglementé coûte 18,96 c€ TTC en option base 3 ou 6 kVA depuis le 1er août 2026. Le cheval fiscal est à 53 € depuis le 1er juillet 2025, contre 30 € auparavant. En 2025, l’électrique a représenté 6 % des ventes de véhicules neufs et l’hybride 42 % (IEDOM)."
+  ],
+  "sources": "Sources : préfecture de la Martinique, prix maximums des carburants au 1er octobre 2026 (relayés par RCI) ; EDF Martinique, tarif bleu au 1er août 2026 ; IEDOM, rapport annuel Martinique 2025 ; service-public.gouv.fr, certificat d’immatriculation.",
+  "reperes": [
+   [
+    "Carburants",
+    "au 1er octobre 2026 : sans-plomb 2,10 €/L, gazole 2,27 €/L (prix maximums)"
+   ],
+   [
+    "Carte grise",
+    "53 € par cheval fiscal depuis le 1er juillet 2025 (30 € avant)"
+   ],
+   [
+    "Électrique",
+    "6 % des ventes de véhicules neufs en 2025, 20 % dans l’Hexagone"
+   ]
+  ],
+  "faq_q": "Combien coûte la carte grise d’une voiture en Martinique en 2026 ?",
+  "faq_a": "Le tarif du cheval fiscal, décidé par la Collectivité territoriale de Martinique, est de 53 € depuis le 1er juillet 2025, contre 30 € auparavant. Pour une voiture de 5 chevaux fiscaux, la taxe régionale atteint donc 265 € ; avec la taxe fixe de 11 € et la redevance d’acheminement de 2,76 €, le certificat d’immatriculation revient à environ 279 €, hors malus éventuel. Le simulateur compte ce certificat dans les quatre formules, et une seconde fois en LOA si vous levez l’option d’achat, la carte grise devant alors être refaite à votre nom."
+ }
+}

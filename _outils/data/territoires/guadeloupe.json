@@ -1,0 +1,292 @@
+{
+ "capacite-emprunt": {
+  "title": "Simulateur de capacité d’emprunt en Guadeloupe — Akapa",
+  "description": "Combien pouvez-vous emprunter pour acheter en Guadeloupe ? Montant finançable et prix du bien accessible, droits de mutation de 5,81 % inclus (taux au 1er juin 2026). Validation par un courtier local.",
+  "og_title": "Capacité d’emprunt en Guadeloupe — simulateur gratuit",
+  "h1": "Capacité d’emprunt en Guadeloupe",
+  "h2_local": "Capacité d’emprunt en Guadeloupe : simulateur préréglé pour votre territoire",
+  "p": [
+   "Acheter en Guadeloupe obéit aux mêmes règles bancaires qu’en métropole (35 % d’endettement maximal, 25 ans au plus), mais avec des frais d’acquisition propres au département : 5,81 % de droits de mutation dans l’ancien au 1er juin 2026, que ce simulateur intègre pour calculer le prix de bien réellement accessible avec votre apport.",
+   "Le marché immobilier de la Guadeloupe a ses spécificités : c’est d’abord un marché de maisons (74,3 % des logements au recensement de 2023), les prix au m² varient fortement d’une commune à l’autre, et le zonage du prêt à taux zéro n’est pas uniforme : zone A au Gosier et à Saint-François, zone B1 dans les 30 autres communes (zonage en vigueur au 26 juin 2026). Un courtier implanté en Guadeloupe connaît les banques du territoire et leurs critères ; il vous rappelle sous 48 heures avec votre simulation en main.",
+   "Quelques repères pour situer votre projet. Au 2e trimestre 2026, l’IEDOM relève un taux moyen de 3,30 % pour les crédits à l’habitat (Guadeloupe et îles du Nord), pour un prêt moyen de 149 603 € sur 21,6 ans. Côté prix, la médiane des ventes enregistrées dans la base DVF en 2025 (données provisoires) s’établit à 2 945 €/m² pour une maison ancienne, avec un prix médian de 272 250 €, et à 3 134 €/m² pour un appartement ancien. Sur les ventes de 2024 et 2025, la médiane des appartements va de 1 394 €/m² à Pointe-à-Pitre à 5 000 €/m² à Saint-François."
+  ],
+  "sources": "Sources : DGFiP, tableau des droits de mutation au 1er juin 2026 ; IEDOM, taux des crédits aux particuliers, 2e trimestre 2026 ; INSEE, recensement 2023 ; ministère chargé du logement, zonage ABC au 26 juin 2026 ; base DVF (data.gouv.fr), ventes 2024 et 2025, médianes calculées par Akapa hors Saint-Martin.",
+  "reperes": [
+   [
+    "Droits de mutation",
+    "5,81 % du prix dans l’ancien au 1er juin 2026"
+   ],
+   [
+    "Taux moyen",
+    "3,30 % pour les crédits à l’habitat au 2e trimestre 2026 (IEDOM)"
+   ],
+   [
+    "Zonage PTZ",
+    "zone A au Gosier et à Saint-François, B1 ailleurs (26 juin 2026)"
+   ]
+  ],
+  "faq_q": "Les banques de la Guadeloupe prêtent-elles aux mêmes conditions qu’en métropole ?",
+  "faq_a": "Les règles du HCSF s’appliquent à l’identique en Guadeloupe : 35 % d’endettement assurance comprise et 25 ans maximum. Les taux sont légèrement au-dessus de la moyenne nationale : 3,30 % en moyenne pour les crédits à l’habitat au 2e trimestre 2026, contre 3,12 % pour la France entière (IEDOM, Guadeloupe et îles du Nord). Le territoire comptait 15 établissements bancaires au 31 décembre 2025, et les banques mutualistes y distribuaient 83,5 % des crédits à l’habitat fin 2025. Connaître les critères de chacun, revenus retenus et apport attendu, est d’autant plus précieux : c’est le rôle du courtier local."
+ },
+ "mensualites-credit": {
+  "title": "Calculette de mensualités de crédit immobilier en Guadeloupe — Akapa",
+  "description": "Calculez la mensualité de votre prêt immobilier en Guadeloupe, assurance comprise, le coût total des intérêts et le tableau d’amortissement. Proposition de prêt par un courtier implanté en Guadeloupe.",
+  "og_title": "Mensualités de crédit en Guadeloupe — simulateur gratuit",
+  "h1": "Mensualités de crédit en Guadeloupe",
+  "h2_local": "Mensualités de crédit en Guadeloupe : simulateur préréglé pour votre territoire",
+  "p": [
+   "Vous préparez un achat en Guadeloupe, ou vous vous demandez si votre crédit actuel mérite d’être renégocié ? Cette calculette donne la mensualité, la part d’assurance, le coût total et le tableau d’amortissement de votre prêt, avec des hypothèses de taux de marché que vous pouvez ajuster.",
+   "Les emprunteurs de la Guadeloupe ont accès aux mêmes leviers qu’ailleurs — délégation d’assurance (loi Lemoine), renégociation, rachat — mais avec un choix de banques plus restreint : 15 établissements au 31 décembre 2025. Un courtier implanté en Guadeloupe compare pour vous les établissements présents sur le territoire, et vous rappelle sous 48 heures avec une proposition chiffrée.",
+   "Les repères publiés par l’IEDOM pour la Guadeloupe et les îles du Nord : le taux moyen des crédits à l’habitat atteint 3,30 % en avril 2026, après 2,97 % en juillet 2025 et 3,12 % en janvier 2026 ; il est de 3,12 % pour la France entière au 2e trimestre 2026. La durée moyenne des prêts est de 21,6 ans et le montant moyen de 149 603 €. Le taux prérempli dans la calculette est un exemple : remplacez-le par celui de votre offre. Fin 2025, le territoire comptait 143 guichets bancaires, soit 17,8 % de moins en dix ans."
+  ],
+  "sources": "Sources : IEDOM, « Taux des crédits aux particuliers en Guadeloupe, à Saint-Martin et Saint-Barthélemy », 2e trimestre 2026 ; IEDOM, rapport annuel économique de la Guadeloupe 2025.",
+  "reperes": [
+   [
+    "Taux moyen",
+    "3,30 % pour les crédits à l’habitat en avril 2026 (IEDOM)"
+   ],
+   [
+    "Durée moyenne",
+    "21,6 ans pour un prêt moyen de 149 603 € au 2e trimestre 2026"
+   ],
+   [
+    "Assurance",
+    "résiliable à tout moment depuis la loi Lemoine"
+   ]
+  ],
+  "faq_q": "Peut-on faire jouer la concurrence entre banques en Guadeloupe ?",
+  "faq_a": "Oui, même si les enseignes présentes en Guadeloupe sont moins nombreuses qu’en métropole : 15 établissements au 31 décembre 2025, et des banques mutualistes qui distribuaient 83,5 % des crédits à l’habitat fin 2025 (IEDOM). Les écarts de taux, d’assurance et de frais entre deux établissements du territoire peuvent représenter plusieurs milliers d’euros sur la durée d’un prêt. Un courtier local met les banques en concurrence à partir d’un seul dossier et négocie aussi l’assurance emprunteur, que vous pouvez changer à tout moment."
+ },
+ "frais-notaire": {
+  "title": "Frais de notaire en Guadeloupe : calcul 2026 — Akapa",
+  "description": "Estimez vos frais de notaire en Guadeloupe : droits de mutation à 5,81 % (taux au 1er juin 2026), émoluments, débours et coût total, dans le neuf comme dans l’ancien. Financement par un courtier local.",
+  "og_title": "Frais de notaire en Guadeloupe — simulateur gratuit",
+  "h1": "Frais de notaire en Guadeloupe",
+  "h2_local": "Frais de notaire en Guadeloupe : simulateur préréglé pour votre territoire",
+  "p": [
+   "Dans l’ancien, les droits de mutation s’élèvent à 5,81 % du prix en Guadeloupe au 1er juin 2026 : le conseil départemental n’a pas appliqué la hausse temporaire à 5 % autorisée par la loi de finances pour 2025. La Guadeloupe est ainsi à égalité avec Mayotte, et moins taxée que la Martinique, la Guyane et La Réunion (6,32 %). Le simulateur applique ce taux, le barème national des émoluments et un forfait de débours pour estimer le coût réel de votre achat.",
+   "Que vous achetiez à Baie-Mahault, aux Abymes, au Gosier, à Petit-Bourg ou à Saint-François, dans le neuf (frais réduits à 2-3 %) ou dans l’ancien (7-8 %), vous obtenez le budget total à financer. Et comme personne n’estime des frais de notaire sans projet d’achat, un courtier implanté en Guadeloupe peut prendre le relais pour le financement : rappel sous 48 heures, estimation jointe.",
+   "Le détail du taux, d’après le tableau de la DGFiP au 1er juin 2026 : 4,50 % pour le département (taux en vigueur depuis le 1er mars 2014), 1,20 % pour la commune et des frais d’assiette de 2,37 % calculés sur la part départementale, soit 5,81 % au total. La Guadeloupe fait partie des onze départements ou collectivités qui n’appliquent pas la hausse. Celle-ci reste possible : un département peut la voter pour les actes signés jusqu’au 31 mars 2028. Dans le neuf, la taxe de publicité foncière est de 0,715 % du prix hors taxes, et le taux normal de TVA de 8,5 % en Guadeloupe."
+  ],
+  "sources": "Sources : DGFiP, « Droits d’enregistrement et taxe de publicité foncière », tableaux applicables au 1er janvier et au 1er juin 2026 ; toutsurmesfinances.com (d’après la DGFiP), mise à jour du 29 septembre 2026.",
+  "reperes": [
+   [
+    "Droits de mutation",
+    "5,81 % du prix dans l’ancien au 1er juin 2026"
+   ],
+   [
+    "Taux départemental",
+    "4,50 %, en vigueur depuis le 1er mars 2014"
+   ],
+   [
+    "Neuf",
+    "0,715 % de taxe de publicité foncière sur le prix hors taxes"
+   ]
+  ],
+  "faq_q": "Combien de frais de notaire pour un bien à 250 000 € en Guadeloupe ?",
+  "faq_a": "Dans l’ancien, avec des droits de mutation à 5,81 % (taux au 1er juin 2026), le simulateur estime les frais à un peu plus de 18 000 € tout compris (droits, émoluments TTC, contribution de sécurité immobilière et forfait de débours), soit un peu plus de 7 % du prix. Dans le neuf, la facture tombe à moins de 6 000 €. Il n’existe pas de taux particulier pour les primo-accédants en Guadeloupe : tant que la hausse n’est pas votée, tous les acquéreurs paient le même taux départemental de 4,50 %. Le simulateur détaille chaque poste et recalcule à chaque modification du prix."
+ },
+ "ciop": {
+  "title": "CIOP en Guadeloupe : crédit d’impôt logement intermédiaire — Akapa",
+  "description": "Simulez un investissement locatif éligible au crédit d’impôt outre-mer en Guadeloupe : 35 % du prix de revient plafonné, loyers plafonnés, trésorerie année par année. Validation par un spécialiste local.",
+  "og_title": "Rentabilité CIOP en Guadeloupe — simulateur gratuit",
+  "h1": "Rentabilité CIOP en Guadeloupe",
+  "h2_local": "Rentabilité CIOP en Guadeloupe : simulateur préréglé pour votre territoire",
+  "p": [
+   "En Guadeloupe, le crédit d’impôt pour investissement dans le logement intermédiaire (article 244 quater W du CGI) est de <strong>35 % du prix de revient</strong> pour une société soumise à l’impôt sur les sociétés, dans la limite d’un plafond de prix au m² fixé chaque année : 3 295 € hors taxes en 2026. Le simulateur est préréglé sur ce taux et sur les plafonds de loyer et de ressources du secteur intermédiaire.",
+   "Le dispositif est réservé aux entreprises (sociétés à l’IS, SCI à l’IS) et impose cinq ans de location nue sous plafonds : un manquement entraîne la reprise du crédit d’impôt. Aucune majoration de taux n’est propre à la Guadeloupe. Un conseil en défiscalisation outre-mer ou un expert-comptable implanté en Guadeloupe valide le montage et l’éligibilité du bien avant que vous ne vous engagiez ; il vous rappelle sous 48 heures, votre simulation jointe.",
+   "Les plafonds en vigueur pour 2026 sont les mêmes dans tous les départements d’outre-mer : 3 295 € hors taxes par m² de surface habitable pour le prix de revient, 211 € par m² et par an hors charges pour le loyer (soit 17,58 € par m² et par mois), et 38 313 € de ressources pour un locataire seul (70 849 € pour un couple). À titre de comparaison, le loyer médian constaté dans l’agglomération de Cap Excellence était de 11,4 €/m² hors charges en 2023 : vérifiez le loyer réellement praticable avant de retenir le plafond dans votre simulation. Le dispositif est prorogé jusqu’au 31 décembre 2029."
+  ],
+  "sources": "Sources : BOFiP, BOI-BIC-RICI-10-160-20 (19 août 2026), BOI-IR-RICI-80-20-10 (10 mars 2026) et BOI-IR-RICI-80-10-20-20 (plafonds 2026) ; IEDOM, rapport annuel économique de la Guadeloupe 2025 ; Observatoire des loyers de Cap Excellence, 2023 ; ministère chargé du logement, zonage du 22 décembre 2025.",
+  "reperes": [
+   [
+    "Taux",
+    "35 % du prix de revient pour une société à l’IS (BOFiP, août 2026)"
+   ],
+   [
+    "Plafond de prix",
+    "3 295 € hors taxes par m² de surface habitable en 2026"
+   ],
+   [
+    "Loyer plafond",
+    "211 € par m² et par an hors charges, baux conclus en 2026"
+   ]
+  ],
+  "faq_q": "Où trouver un programme éligible au CIOP en Guadeloupe ?",
+  "faq_a": "Les opérations éligibles sont des logements neufs. Le promoteur doit pouvoir justifier la conformité du programme : normes énergétiques, prix au m² rapporté au plafond de 3 295 € hors taxes en 2026, calendrier. L’emplacement compte aussi pour la demande locative : onze communes sont classées en zone tendue (zonage confirmé par le décret du 22 décembre 2025), dont Les Abymes, Baie-Mahault, Pointe-à-Pitre, Le Gosier, Sainte-Anne et Petit-Bourg. Nos partenaires spécialisés en Guadeloupe vérifient l’éligibilité avant toute réservation ; décrivez votre projet dans le formulaire, ils vous rappellent sous 48 heures."
+ },
+ "lmnp": {
+  "title": "Simulateur LMNP en Guadeloupe : régime réel ou micro-BIC — Akapa",
+  "description": "Louez un meublé en Guadeloupe, à l’année ou en saisonnier ? Comparez le régime réel avec amortissements et le micro-BIC : revenu net, impôt, durée de l’avantage. Expert-comptable LMNP implanté en Guadeloupe.",
+  "og_title": "Simulateur LMNP en Guadeloupe — simulateur gratuit",
+  "h1": "Simulateur LMNP en Guadeloupe",
+  "h2_local": "Simulateur LMNP en Guadeloupe : simulateur préréglé pour votre territoire",
+  "p": [
+   "En Guadeloupe, la location meublée prend deux formes : le meublé loué à l’année et le meublé de tourisme. Ce dernier pèse lourd : selon l’enquête de l’Observatoire régional du tourisme, 27 % des touristes interrogés en 2025 choisiraient un meublé de tourisme, contre 18 % l’hôtel. Dans les deux cas, le statut LMNP s’applique et la question est la même : micro-BIC ou régime réel avec amortissements ?",
+   "Depuis 2025, l’abattement du micro-BIC n’est plus que de 30 % pour un meublé de tourisme non classé, ce qui rend le classement et le régime réel déterminants pour la rentabilité d’un saisonnier en Guadeloupe. Ce simulateur compare les deux régimes année par année pour votre bien ; un expert-comptable spécialisé LMNP implanté en Guadeloupe tranche ensuite selon votre situation fiscale complète.",
+   "Les charges locales à intégrer au régime réel : le taux global de taxe foncière voté pour 2025 va de 42,11 % au Gosier à 88,69 % à Anse-Bertrand (58,93 % à Sainte-Anne, 63,18 % à Saint-François), plus une taxe d’enlèvement des ordures ménagères de 14,0 à 24,5 % ; le montant dépend de la valeur locative du bien. Pour un meublé de tourisme non classé, la taxe de séjour est de 5 % du prix de la nuitée par personne dans 29 communes sur 32 (délibérations recensées au 29 juin 2026). Côté recettes, 53,4 % des visiteurs de 2025 sont venus entre décembre et avril."
+  ],
+  "sources": "Sources : DGFiP, fiscalité locale des particuliers (taux 2025) et tarifs de taxe de séjour (mise à jour du 29 juin 2026) ; IEDOM, rapport annuel économique de la Guadeloupe 2025 (Observatoire régional du tourisme) ; service-public.gouv.fr, régime micro-BIC.",
+  "reperes": [
+   [
+    "Micro-BIC",
+    "50 % d’abattement (meublé classique ou classé), 30 % en tourisme non classé"
+   ],
+   [
+    "Taxe foncière 2025",
+    "taux global de 42,11 % (Le Gosier) à 88,69 % (Anse-Bertrand)"
+   ],
+   [
+    "Taxe de séjour",
+    "5 % de la nuitée par personne, meublé non classé, 29 communes sur 32 (2026)"
+   ]
+  ],
+  "faq_q": "Faut-il classer son meublé de tourisme en Guadeloupe ?",
+  "faq_a": "Si vous restez au micro-BIC, oui : le classement (1 à 5 étoiles, valable 5 ans, obtenu auprès d’un organisme agréé) fait passer l’abattement de 30 % à 50 % et relève le plafond de recettes de 15 000 € à 77 700 € pour les revenus 2025 (83 600 € pour les revenus 2026). Au régime réel, le classement n’a pas d’effet fiscal direct, mais il change la taxe de séjour : 1,50 € par personne et par nuit pour un meublé 3 étoiles dans la plupart des communes touristiques, au lieu de 5 % du prix de la nuitée par personne pour un meublé non classé. Le simulateur montre l’écart entre les deux régimes pour votre niveau de loyers."
+ },
+ "solaire": {
+  "title": "Simulateur solaire en Guadeloupe : prime, surplus, rentabilité — Akapa",
+  "description": "Simulez une installation photovoltaïque en Guadeloupe : puissance adaptée à votre facture, prime à l’investissement, revente du surplus à EDF Archipel Guadeloupe. Devis d’un installateur RGE local.",
+  "og_title": "Rentabilité solaire en Guadeloupe — simulateur gratuit",
+  "h1": "Rentabilité solaire en Guadeloupe",
+  "h2_local": "Rentabilité solaire en Guadeloupe : simulateur préréglé pour votre territoire",
+  "p": [
+   "La Guadeloupe fait partie des zones non interconnectées : l’électricité y est produite sur place, à un coût élevé (370 €/MWh en 2023 selon la CRE), même si vous la payez au tarif réglementé. L’État y soutient l’autoconsommation solaire avec une prime à l’investissement et un tarif de rachat propres aux ZNI. Ce simulateur est conçu pour la Guadeloupe : productible, barème de prime, tarif de revente du surplus à EDF Archipel Guadeloupe et coût d’installation indicatif, à remplacer par celui de votre devis.",
+   "Partez de votre facture, cochez vos équipements (climatisation, chauffe-eau, piscine), et obtenez en deux minutes la puissance adaptée, vos économies annuelles et le reste à charge après prime. Si les chiffres vous parlent, un installateur RGE QualiPV implanté en Guadeloupe vous rappelle sous 48 heures pour une étude de toiture et un devis.",
+   "Les valeurs en vigueur, révisées chaque trimestre : pour une demande de raccordement déposée entre le 1er août et le 31 octobre 2026, la prime est de 1,80 € par Wc jusqu’à 3 kWc et de 1,09 € par Wc jusqu’à 9 kWc, et le surplus est racheté 18,22 c€ le kWh jusqu’à 9 kWc, par un contrat de 20 ans. Le kWh acheté à EDF coûte 18,89 c€ TTC au 1er août 2026 (option base, 3 et 6 kVA). Le productible théorique (PVGIS) va de 1 540 à 1 645 kWh par kWc et par an selon le site ; le simulateur retient une valeur prudente de 1 400."
+  ],
+  "sources": "Sources : photovoltaique.info d’après l’open data de la CRE, arrêté tarifaire ZNI du 5 janvier 2024, trimestre du 1er août au 31 octobre 2026 ; EDF Archipel Guadeloupe, tarif bleu résidentiel au 1er août 2026 ; Commission européenne, PVGIS 5.3 ; IEDOM, rapport annuel économique de la Guadeloupe 2025.",
+  "reperes": [
+   [
+    "Prime ZNI",
+    "1,80 €/Wc jusqu’à 3 kWc, 1,09 €/Wc jusqu’à 9 kWc (août-octobre 2026)"
+   ],
+   [
+    "Rachat du surplus",
+    "18,22 c€/kWh jusqu’à 9 kWc, contrat de 20 ans (août-octobre 2026)"
+   ],
+   [
+    "Versement de la prime",
+    "en une fois, à la première facturation, 6 mois ou un an après la mise en service"
+   ]
+  ],
+  "faq_q": "Quel est le bon dimensionnement pour une maison en Guadeloupe ?",
+  "faq_a": "Avec une hypothèse prudente de 1 300 à 1 500 kWh produits par kWc et par an, une maison qui consomme 6 000 à 8 000 kWh (climatisation, chauffe-eau électrique) est en général bien servie par 3 à 6 kWc. Les seuils du barème comptent autant que vos besoins : pour une demande déposée d’août à octobre 2026, la prime est de 1,80 € par Wc jusqu’à 3 kWc et de 1,09 € jusqu’à 9 kWc, et le surplus est racheté 18,22 c€ le kWh jusqu’à 9 kWc, un niveau proche du kWh acheté (18,89 c€ TTC), contre 7,19 c€ entre 9 et 100 kWc. L’énergie achetée à ce tarif est plafonnée à 1 600 heures multipliées par la puissance installée."
+ },
+ "aides-renovation": {
+  "title": "Aides à la rénovation en Guadeloupe : simulateur 2026 — Akapa",
+  "description": "Chauffe-eau solaire, isolation, brasseurs d’air : estimez MaPrimeRénov’ et les primes Agir Plus d’EDF pour votre logement en Guadeloupe, puis faites chiffrer vos travaux par une entreprise RGE locale.",
+  "og_title": "Aides à la rénovation en Guadeloupe — simulateur gratuit",
+  "h1": "Aides à la rénovation en Guadeloupe",
+  "h2_local": "Aides à la rénovation en Guadeloupe : simulateur préréglé pour votre territoire",
+  "p": [
+   "En Guadeloupe, on rénove pour se protéger de la chaleur et alléger la facture d’électricité : au recensement de 2023, 55,2 % des résidences principales ont au moins une pièce climatisée et 51,0 % un chauffe-eau solaire. Ce simulateur applique les barèmes du territoire : primes Agir Plus d’EDF Archipel Guadeloupe, MaPrimeRénov’ dans sa version outre-mer et TVA à 2,1 % sur les travaux d’amélioration énergétique. Indiquez votre foyer, vos revenus et vos travaux : il liste les aides mobilisables, leur montant et votre reste à charge.",
+   "Les primes Agir Plus sont déduites du devis par l’entreprise partenaire d’EDF, et la mention RGE est exigée pour l’isolation et le chauffe-eau solaire : le choix de l’entreprise conditionne donc vos aides. Laissez vos coordonnées : votre demande est transmise à une seule entreprise certifiée RGE implantée en Guadeloupe, qui vous rappelle sous 48 heures, votre simulation jointe, pour établir un devis.",
+   "Les montants relevés dans le guide de l’Anah de septembre 2026 et les fiches d’EDF : pour un chauffe-eau solaire, la prime Agir Plus est de 1 000 € (1 200 € pour un ménage en précarité, barème du 1er mars 2025) et MaPrimeRénov’ de 1 000 à 1 600 € en 2026 selon les revenus ; pour remplacer un climatiseur par un modèle A+++, 230 € (7 000 BTU) ou 300 € (9 000 BTU) ; pour l’isolation des murs, 12 € par m² (14 € pour un ménage très modeste). Pour l’isolation de toiture, les barèmes publiés divergent : vérifiez la grille en cours auprès d’EDF Archipel Guadeloupe."
+  ],
+  "sources": "Sources : Anah, guide « Les aides financières 2026 en Outre-mer », édition de septembre 2026 ; EDF Archipel Guadeloupe, fiches de primes Agir Plus (chauffe-eau solaire au 1er mars 2025, isolation au 1er juillet 2026) ; INSEE, recensement 2023.",
+  "reperes": [
+   [
+    "Chauffe-eau solaire",
+    "Agir Plus : 1 000 €, ou 1 200 € en précarité (barème du 1er mars 2025)"
+   ],
+   [
+    "MaPrimeRénov’ 2026",
+    "1 000 à 1 600 € pour un chauffe-eau solaire, selon les revenus"
+   ],
+   [
+    "TVA",
+    "2,1 % sur les travaux d’amélioration énergétique (guide Anah, sept. 2026)"
+   ]
+  ],
+  "faq_q": "La climatisation et les brasseurs d’air sont-ils aidés en Guadeloupe ?",
+  "faq_a": "Oui, mais uniquement par les primes Agir Plus d’EDF : MaPrimeRénov’ ne finance ni les climatiseurs ni les brasseurs d’air. D’après le guide de l’Anah de septembre 2026, la prime est de 230 € (7 000 BTU) ou 300 € (9 000 BTU) pour le remplacement d’un climatiseur par un modèle de classe A+++, et de 150 € ou 200 € pour une première installation. Un brasseur d’air plafonnier fixe ouvre droit à 150 €, ou 180 € pour un ménage très modeste. Le sujet concerne beaucoup de foyers : 55,2 % des résidences principales de la Guadeloupe ont au moins une pièce climatisée (recensement 2023). La prime est déduite du devis par l’entreprise partenaire d’EDF."
+ },
+ "rentabilite-locative": {
+  "title": "Rentabilité locative en Guadeloupe : simulateur de rendement — Akapa",
+  "description": "Calculez le rendement brut, net de charges et net d’impôt d’un bien locatif en Guadeloupe, droits de mutation de 5,81 % inclus, puis faites vérifier loyer et charges par un professionnel local.",
+  "og_title": "Rentabilité locative en Guadeloupe — simulateur gratuit",
+  "h1": "Rentabilité locative en Guadeloupe",
+  "h2_local": "Rentabilité locative en Guadeloupe : simulateur préréglé pour votre territoire",
+  "p": [
+   "Ce simulateur calcule le rendement brut, le rendement net de charges, le rendement net d’impôt et le cash-flow d’un bien loué en Guadeloupe, à l’année ou en saisonnier. Il applique les frais d’acquisition du département : 5,81 % de droits de mutation dans l’ancien au 1er juin 2026, contre 6,32 % en Martinique, en Guyane et à La Réunion. Le loyer, la taxe foncière et le taux d’occupation préremplis sont de simples exemples : remplacez-les par les valeurs de votre commune, car elles varient fortement d’un bout à l’autre de l’archipel.",
+   "Un rendement se joue sur le loyer réellement praticable, la vacance et les charges : un professionnel du territoire vous les confirmera. Laissez vos coordonnées : votre demande est transmise à un seul partenaire implanté en Guadeloupe (agence immobilière, gestionnaire locatif ou expert-comptable, selon votre besoin), qui vous rappelle sous 48 heures avec votre simulation jointe.",
+   "Deux sources de loyers à ne pas confondre. L’Observatoire des loyers constate un loyer médian de 11,4 €/m² hors charges en 2023 dans l’agglomération de Cap Excellence (Pointe-à-Pitre, Les Abymes, Baie-Mahault). La carte des loyers du ministère chargé du logement estime, pour 2025, des loyers d’annonce charges comprises de 15,0 €/m² aux Abymes, 17,0 €/m² à Baie-Mahault et 17,3 €/m² au Gosier pour un appartement. Côté prix, la médiane des ventes d’appartements anciens enregistrées dans la base DVF en 2025 est de 3 134 €/m². Le taux global de taxe foncière voté pour 2025 atteint 45,94 % à Baie-Mahault et 54,86 % aux Abymes."
+  ],
+  "sources": "Sources : DGFiP, tableau des droits de mutation au 1er juin 2026 et fiscalité locale des particuliers 2025 ; Observatoire des loyers de Cap Excellence, 2023 ; ministère chargé du logement, carte des loyers 2025 et zonage du 22 décembre 2025 ; base DVF 2025 (médiane calculée par Akapa, hors Saint-Martin) ; IEDOM, rapport annuel économique de la Guadeloupe 2025.",
+  "reperes": [
+   [
+    "Loyer médian constaté",
+    "11,4 €/m² hors charges à Cap Excellence en 2023 (Observatoire des loyers)"
+   ],
+   [
+    "Droits de mutation",
+    "5,81 % du prix dans l’ancien au 1er juin 2026"
+   ],
+   [
+    "Zone tendue",
+    "11 communes classées, zonage confirmé le 22 décembre 2025"
+   ]
+  ],
+  "faq_q": "Quel taux d’occupation retenir pour une location saisonnière en Guadeloupe ?",
+  "faq_a": "Aucun taux d’occupation officiel n’est publié pour les locations saisonnières de la Guadeloupe. Les chiffres d’Atout France repris par l’IEDOM donnent toutefois la mesure du marché : en 2025, les plateformes ont proposé 4,35 millions de nuitées en logements entiers (+5,6 % sur un an) et en ont vendu 1,35 million (+2,0 %). L’offre a donc progressé plus vite que les ventes. La saison est par ailleurs concentrée : 53,4 % des visiteurs de 2025 sont venus entre décembre et avril. Retenez une hypothèse prudente, vérifiée sur une année entière, basse saison comprise, et testez plusieurs taux dans le simulateur."
+ },
+ "assurance-emprunteur": {
+  "title": "Assurance emprunteur en Guadeloupe : comparez votre contrat — Akapa",
+  "description": "Comparez le coût de votre assurance de prêt immobilier à celui d’un contrat alternatif, loi Lemoine à l’appui, puis faites établir un devis par un courtier en assurance de prêt implanté en Guadeloupe.",
+  "og_title": "Assurance emprunteur en Guadeloupe — simulateur gratuit",
+  "h1": "Assurance emprunteur en Guadeloupe",
+  "h2_local": "Assurance emprunteur en Guadeloupe : ce qu’il faut savoir sur votre territoire",
+  "p": [
+   "Le simulateur compare le coût de votre assurance actuelle à celui d’un contrat alternatif, pour un nouveau prêt comme pour un prêt en cours. Il ne comporte aucun réglage propre à la Guadeloupe, car les règles sont nationales : la résiliation à tout moment prévue par la loi Lemoine, le délai de réponse de dix jours ouvrés de la banque et la suppression du questionnaire de santé sous conditions s’appliquent en Guadeloupe comme dans l’Hexagone. Aucun tarif d’assurance emprunteur propre au territoire n’est publié : le taux alternatif prérempli est une hypothèse, à remplacer par celui d’un devis.",
+   "Seul un devis établi à votre âge, pour votre profession et avec les garanties exigées par votre banque permet de trancher. Laissez vos coordonnées : votre demande est transmise à un seul courtier en assurance de prêt implanté en Guadeloupe, qui vous rappelle sous 48 heures, votre simulation jointe, et s’assure que le contrat proposé couvre bien les personnes domiciliées dans le département.",
+   "Pour situer ce que l’on assure : au 2e trimestre 2026, l’IEDOM relève en Guadeloupe (îles du Nord comprises) un crédit à l’habitat moyen de 149 603 € sur 21,6 ans, au taux moyen de 3,30 %. Ce montant est inférieur au seuil de 200 000 € par personne sous lequel aucun questionnaire de santé ne peut être demandé lorsque le prêt se termine avant les 60 ans de l’assuré. Fin 2025, les banques mutualistes distribuaient 83,5 % des crédits à l’habitat du territoire, qui comptait 15 établissements bancaires au 31 décembre 2025."
+  ],
+  "sources": "Sources : IEDOM, taux des crédits aux particuliers, 2e trimestre 2026, et rapport annuel économique de la Guadeloupe 2025 ; loi du 28 février 2022, dite loi Lemoine (règles nationales applicables en Guadeloupe).",
+  "reperes": [
+   [
+    "Prêt moyen",
+    "149 603 € sur 21,6 ans au 2e trimestre 2026 (IEDOM)"
+   ],
+   [
+    "Taux moyen du crédit",
+    "3,30 % pour les crédits à l’habitat au 2e trimestre 2026"
+   ],
+   [
+    "Loi Lemoine",
+    "résiliation à tout moment, applicable en Guadeloupe"
+   ]
+  ],
+  "faq_q": "Peut-on changer d’assurance de prêt quand on a emprunté auprès d’une banque de la Guadeloupe ?",
+  "faq_a": "Oui. La loi Lemoine s’applique en Guadeloupe comme dans l’Hexagone, quelle que soit la banque : vous pouvez présenter à tout moment un contrat aux garanties équivalentes, et la banque dispose de dix jours ouvrés pour répondre, sans frais ni modification du taux du crédit. Fin 2025, les banques mutualistes distribuaient 83,5 % des crédits à l’habitat du territoire (IEDOM). Aucun tarif local d’assurance n’étant publié, seul un devis permet de comparer : demandez qu’il mentionne votre département de résidence et toutes les garanties exigées par votre banque. Pour un prêt moyen de 149 603 € sur 21,6 ans (2e trimestre 2026), le simulateur chiffre l’écart entre deux taux."
+ },
+ "vehicule-achat-location": {
+  "title": "Acheter ou louer un véhicule en Guadeloupe : simulateur — Akapa",
+  "description": "Achat comptant, crédit, LOA ou LLD : comparez le coût d’un véhicule en Guadeloupe aux prix locaux du carburant et de l’électricité, puis demandez l’offre d’un concessionnaire ou d’un loueur local.",
+  "og_title": "Acheter ou louer un véhicule en Guadeloupe — simulateur gratuit",
+  "h1": "Acheter ou louer un véhicule en Guadeloupe",
+  "h2_local": "Acheter ou louer un véhicule en Guadeloupe : simulateur préréglé pour votre territoire",
+  "p": [
+   "En Guadeloupe, 72,2 % des ménages ont au moins une voiture (recensement 2023) et la voiture individuelle assure 72 % de leurs déplacements : le choix entre achat et location pèse sur le budget pendant des années. Ce simulateur compare l’achat comptant, le crédit, la LOA et la LLD en coût total de possession, avec les paramètres du territoire : prix maximums des carburants fixés chaque mois par arrêté préfectoral, tarif réglementé de l’électricité et taxe régionale sur le certificat d’immatriculation.",
+   "Le loyer d’une LOA ou d’une LLD, la valeur de reprise et les remises dépendent du modèle et du stock disponible sur l’île : seule une offre écrite permet de comparer. Laissez vos coordonnées : votre demande est transmise à un seul concessionnaire ou loueur implanté en Guadeloupe, qui vous rappelle sous 48 heures avec votre simulation jointe.",
+   "Les repères du moment : au 1er octobre 2026, le prix maximum est de 2,12 € le litre de sans-plomb et de 2,28 € le litre de gazole, contre 1,82 € et 1,72 € en moyenne en 2025 ; ces prix sont révisés chaque mois, actualisez le vôtre. Le kWh du tarif réglementé coûte 18,89 c€ TTC au 1er août 2026 (option base, 3 et 6 kVA). Selon l’IEDOM, le prix moyen d’un véhicule neuf est passé d’environ 19 000 € en 2019 à près de 27 000 € en 2025, et 12 258 voitures particulières neuves ont été immatriculées en 2025, soit 12,2 % de moins qu’en 2024."
+  ],
+  "sources": "Sources : prix maximums des carburants au 1er octobre 2026 présentés en préfecture (Guadeloupe La 1ère) ; OREC, bilan de l’énergie 2025 ; EDF Archipel Guadeloupe, tarif bleu résidentiel au 1er août 2026 ; IEDOM, rapport annuel économique de la Guadeloupe 2025 ; INSEE, recensement 2023 ; Sy.MEG.",
+  "reperes": [
+   [
+    "Sans-plomb",
+    "2,12 €/L au 1er octobre 2026, prix maximum révisé chaque mois"
+   ],
+   [
+    "Gazole",
+    "2,28 €/L au 1er octobre 2026, prix maximum révisé chaque mois"
+   ],
+   [
+    "Électricité",
+    "18,89 c€ TTC le kWh au 1er août 2026 (option base, 3 et 6 kVA)"
+   ]
+  ],
+  "faq_q": "Une voiture électrique est-elle un bon choix en Guadeloupe ?",
+  "faq_a": "Pour l’énergie, comparez deux prix : 18,89 c€ TTC le kWh au tarif réglementé (1er août 2026) pour une recharge à domicile, et 2,12 € le litre de sans-plomb au 1er octobre 2026 ; le simulateur en tire le coût sur la durée. Le marché reste prudent : selon l’IEDOM, les voitures électriques représentaient 6,5 % des immatriculations au premier trimestre 2025, contre 9,8 % un an plus tôt, quand hybrides et électriques réunis atteignaient 40,9 % des ventes. Vérifiez avant de signer que vous pourrez recharger chez vous ou au travail : le syndicat d’énergie Sy.MEG visait 120 stations publiques fin 2025. Faites enfin confirmer par écrit toute aide ou exonération annoncée par le vendeur."
+ }
+}
