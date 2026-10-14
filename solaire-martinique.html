@@ -259,6 +259,22 @@
     .kpis{grid-template-columns:1fr;}
     .seg-btn{font-size:12px; padding:9px 4px;}
   }
+  .ak-carte{margin-top:14px; padding:12px; border:1px solid #e5e7eb; border-radius:10px; background:#fafafa;}
+  .ak-carte[hidden], #akCarteZone[hidden], .ak-carte-res[hidden], #akInclRow[hidden]{display:none;}
+  .ak-carte-bar{display:flex; gap:8px; align-items:stretch; margin-bottom:8px;}
+  .ak-carte-recherche{flex:1 1 auto; min-width:0;}
+  .ak-carte-recherche:empty{display:none;}
+  .ak-carte-recherche gmp-place-autocomplete{width:100%;}
+  .ak-carte-loc{flex:0 0 auto; border:1px solid #d1d5db; background:#fff; border-radius:8px; padding:8px 12px; font:inherit; font-size:13px; cursor:pointer;}
+  .ak-carte-ouvrir{flex:1 1 auto; border:1px dashed #93c5fd; background:#eff6ff; color:#1e40af; border-radius:8px; padding:10px; font:inherit; font-weight:600; cursor:pointer;}
+  .ak-carte-ouvrir:disabled{opacity:.7; cursor:wait;}
+  .ak-carte-ouvrir[hidden]{display:none;}
+  .ak-carte-map{width:100%; height:300px; border-radius:8px; overflow:hidden; background:#e5e7eb;}
+  .ak-orient .seg-btn{flex:1 1 auto;}
+  .ak-carte-res.warn{background:#fffbeb; border-color:#fde68a; color:#92400e;}
+  .ak-carte-src{font-size:11.5px; opacity:.85;}
+  .ak-carte-mention{font-size:11px; margin-top:6px;}
+  @media (max-width:600px){ .ak-carte-map{height:240px;} .ak-orient{flex-wrap:wrap;} .ak-orient .seg-btn{flex:1 1 30%;} }
 </style>
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <link rel="stylesheet" href="/assets/akapa.css">
@@ -346,6 +362,30 @@
         <option value="RE">La Réunion</option>
         <option value="YT">Mayotte</option>
       </select>
+    </div>
+
+    <div class="ak-carte" id="akCarte" hidden>
+      <p class="seg-label">Votre toit <span class="muted">(facultatif)</span> : l’ensoleillement réel à votre adresse</p>
+      <div class="ak-carte-bar">
+        <div class="ak-carte-recherche" id="akCarteRecherche"></div>
+        <button type="button" class="ak-carte-ouvrir" id="akCarteOuvrir">Trouver mon toit sur la carte</button>
+        <button type="button" class="ak-carte-loc" id="akCarteLoc">Me localiser</button>
+      </div>
+      <div id="akCarteZone" hidden>
+        <div class="ak-carte-map" id="akCarteMap" role="region" aria-label="Carte satellite : cliquez sur votre toit"></div>
+        <p class="note">Cliquez sur votre toit ou faites glisser le repère pour l’ajuster.</p>
+      </div>
+      <p class="seg-label" style="margin-top:10px;">Orientation des panneaux</p>
+      <div class="seg-group compact ak-orient" id="akOrient">
+        <button type="button" class="seg-btn active" data-value="sud">Sud</button>
+        <button type="button" class="seg-btn" data-value="est-ouest">Est-Ouest</button>
+        <button type="button" class="seg-btn" data-value="est">Est</button>
+        <button type="button" class="seg-btn" data-value="ouest">Ouest</button>
+        <button type="button" class="seg-btn" data-value="plat">Toit plat</button>
+      </div>
+      <div class="row" id="akInclRow"><label for="akInclToit">Inclinaison du toit</label><input type="number" id="akInclToit" value="15" min="0" max="60" step="5" style="width:72px;"><span class="unit">°</span></div>
+      <div class="info ak-carte-res" id="akCarteRes" hidden aria-live="polite"></div>
+      <p class="note ak-carte-mention">Carte et recherche d’adresse fournies par Google Maps, chargées seulement si vous les ouvrez.</p>
     </div>
 
     <p class="seg-label" style="margin-top:12px;">Connaissez-vous le montant de votre facture&nbsp;?</p>
@@ -1721,6 +1761,12 @@ compute();
     c['Financement'] = cls('fin') === 'credit' ? 'Cr\u00e9dit' + (t('out_mensualite') ? ' \u2014 ' + t('out_mensualite') + ' / mois' : '') : 'Comptant';
     if (cls('relais') === 'oui') c['Pr\u00eat relais sur la prime'] = 'Oui';
     c['Profil'] = cls('profil') === 'pro' ? 'Professionnel' : 'Particulier';
+    var ca = window.akapaCarte;
+    if (ca && ca.pos && ca.prod){
+      c['Adresse du projet'] = ca.adresse || 'Point choisi sur la carte';
+      c['Position du toit'] = ca.pos.lat.toFixed(5) + ', ' + ca.pos.lng.toFixed(5) + ' (https://www.google.com/maps?q=' + ca.pos.lat.toFixed(5) + ',' + ca.pos.lng.toFixed(5) + ')';
+      c['Ensoleillement \u00e0 l\u2019adresse'] = ca.prod.toLocaleString('fr-FR') + ' kWh/kWc/an (PVGIS, ' + ({sud:'sud','est-ouest':'est-ouest',est:'est',ouest:'ouest',plat:'toit plat'})[ca.orient] + ')';
+    }
     return c;
   };
 
@@ -1738,6 +1784,7 @@ compute();
   window.addEventListener('load', planifier);
 })();
 </script>
+<script src="/assets/akapa-carte.js"></script>
 <script src="/assets/akapa-lead.js"></script>
 <script src="/assets/akapa-pdf.js"></script>
 <script src="/assets/akapa-cookies.js"></script>
